@@ -268,7 +268,6 @@ a:hover {
     border: 1px solid rgba(255, 255, 255, 0.18);
 }
 .others-two {
-    margin-bottom: 70px;
     height: 500px;
     padding: 10px 50px;
     background: rgb(101, 78, 163, 0.8);
@@ -277,15 +276,24 @@ a:hover {
     -webkit-backdrop-filter: blur(14px);
     border: 1px solid rgba(255, 255, 255, 0.18);
 }
+
+.others-three{
+    margin-bottom: 72px;
+}
+
+.others .width-80 , .others-two .width-80 , .others-three .width-80{
+    width: 80%;
+}
+
 .others img, .others-two img{
     width: 95%;
-    margin: 20px 20px;
+    margin: 10px;
     height: 300px;
     object-fit: cover;
     border: 2px solid white;
     border-radius: 20px;
     transition: transform 0.3s ease-out;
-    opacity: .8;
+    opacity: .7;
 }
 
 .others img:hover, .others-two img:hover{
@@ -295,6 +303,11 @@ a:hover {
 .icon-fs-left {
     animation: icon 1s infinite forwards;
     color: #ffffff;
+}
+
+.whole-slider{
+    width: 90%;
+    margin: 0 auto;
 }
 
 .others .slider, .others-two .slider {
@@ -328,9 +341,9 @@ a:hover {
     padding: 10px;
     border-radius: 50%;
     position: absolute;
-    top: 80%;
+    top: 81%;
     border: 3px solid white;
-    right: 0%;
+    right: 2%;
     font-size: 17px;
 }
 
@@ -341,9 +354,9 @@ a:hover {
     padding: 10px;
     border-radius: 50%;
     position: absolute;
-    top: 80%;
+    top: 81%;
     border: 3px solid white;
-    right: 0%;
+    right: 2%;
     font-size: 17px;
 }
 .overview-others span.red {
@@ -353,9 +366,9 @@ a:hover {
     padding: 10px;
     border-radius: 50%;
     position: absolute;
-    top: 80%;
+    top: 81%;
     border: 3px solid white;
-    right: 0%;
+    right: 2%;
     font-size: 17px;
 }
 

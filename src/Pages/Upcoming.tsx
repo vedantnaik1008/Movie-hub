@@ -76,7 +76,7 @@ const TopUpcomingMovie = () => {
   return (
     <>
     
-      <div className='others-two'>
+      <div className='others-two others-three'>
       <div className="d-flex align-items-center gap-5 px-4">
       <h1 className=" text-white fw-800 my-3">Top Upcoming Movies</h1>
       <FontAwesomeIcon icon={faArrowLeftLong} size="2xl" className="icon-fs-left"/>

@@ -43,14 +43,6 @@ const Trending = () => {
     }
 };
 
-  // const handleHover = (posterPath: string) => {
-  //   document.body.style.backgroundImage = `url(${IMGPATH + posterPath})`;
-  // };
-  // const handleLeave = () => {
-  //   document.body.style.backgroundImage = '';
-  // };
-
-  //in jsx component onMouseEnter={() => handleHover(val.poster_path)} onMouseLeave={handleLeave}
   return (
     <>
     <div className='bg-black'>
