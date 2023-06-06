@@ -267,9 +267,19 @@ a:hover {
     -webkit-backdrop-filter: blur(14px);
     border: 1px solid rgba(255, 255, 255, 0.18);
 }
-.others img {
+.others-two {
+    margin-bottom: 70px;
+    height: 500px;
+    padding: 10px 50px;
+    background: rgb(101, 78, 163, 0.8);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+.others img, .others-two img{
     width: 95%;
-    margin: 20px;
+    margin: 20px 20px;
     height: 300px;
     object-fit: cover;
     border: 2px solid white;
@@ -278,7 +288,7 @@ a:hover {
     opacity: .8;
 }
 
-.others img:hover {
+.others img:hover, .others-two img:hover{
     transform: scale(1.05);
 }
 
@@ -287,7 +297,7 @@ a:hover {
     color: #ffffff;
 }
 
-.others .slider {
+.others .slider, .others-two .slider {
     position: relative;
 }
 
@@ -308,6 +318,7 @@ a:hover {
     color: white;
     font-weight: bold;
     font-size: 17px;
+    padding-right: 10px;
 }
 
 .overview-others span.green {

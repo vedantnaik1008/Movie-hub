@@ -1,3 +1,5 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCamera } from '@fortawesome/free-solid-svg-icons'
 import { Link } from "react-router-dom";
 
 const Footer = () => {
@@ -28,8 +30,7 @@ const Footer = () => {
         },
         {
             id: '5',
-            icon: "fas fa-search",
-            name: "Others",
+            name: "More",
             link: '/others',
         }
     ]
@@ -44,7 +45,6 @@ const Footer = () => {
                         <div>
                             <button className='col-sm-2 col-md-2 d-flex flex-column justify-content-center align-items-center bg-black btn text-white border-none'>
                                 <i className={`${Val.icon}`} id='fire'></i>
-                                
                                 <h5 className="pt-1 fs-6 text-nowrap">{Val.name}</h5>
                             </button>
                         </div>

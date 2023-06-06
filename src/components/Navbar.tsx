@@ -30,6 +30,11 @@ const Navbar = () => {
         name: "Search",
         link: '/search',
     },
+    {
+        id: '5',
+        name: "More",
+        link: '/others',
+    }
 ]
 
   const handleClick = () => {

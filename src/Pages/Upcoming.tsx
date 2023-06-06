@@ -47,12 +47,12 @@ interface FetchTopRated{
     results: []
 }
 
-const TopRatedTv = () => {
+const TopUpcomingMovie = () => {
   const [state, setState] = useState<FetchTopRated[]>([]);
  
 
-  const fetchTopRatedTv = () => {
-    axios.get<FetchTopRated>(`https://api.themoviedb.org/3/tv/top_rated?language=en-US&api_key=${Access_key}`)
+  const fetchTopUpcomingMovie = () => {
+    axios.get<FetchTopRated>(`https://api.themoviedb.org/3/movie/upcoming?language=en-US&api_key=${Access_key}`)
     .then((res) => {
       setState(res.data.results)
       console.log(res.data.results)
@@ -61,7 +61,7 @@ const TopRatedTv = () => {
   }
 
   useEffect(()=> {
-    fetchTopRatedTv();
+    fetchTopUpcomingMovie();
   }, [])
 
   const getColorClass = (voteAverage: number) => {
@@ -76,9 +76,9 @@ const TopRatedTv = () => {
   return (
     <>
     
-      <div className='others'>
+      <div className='others-two'>
       <div className="d-flex align-items-center gap-5 px-4">
-      <h1 className=" text-white fw-800 my-3">Top Rated Tv Series</h1>
+      <h1 className=" text-white fw-800 my-3">Top Upcoming Movies</h1>
       <FontAwesomeIcon icon={faArrowLeftLong} size="2xl" className="icon-fs-left"/>
     </div>
         <Slider {...settings}> 
@@ -99,4 +99,4 @@ const TopRatedTv = () => {
   )
 }
 
-export default TopRatedTv;
+export default TopUpcomingMovie;
