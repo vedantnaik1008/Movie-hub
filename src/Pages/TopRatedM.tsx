@@ -1,27 +1,19 @@
 import axios from 'axios';
-import { useEffect, useState } from 'react'
+import { useState, useEffect } from 'react';
 import { Access_key, IMGPATH, unavailable } from '../components/Config';
+import { Fetching } from './Trending';
 import Pagination from '../components/Pagination';
 
-export interface Fetching{
-  results: [];
-  name: string;
-  title: string;
-  poster_path: string;
-  backdrop_path: string;
-  first_air_date: string;
-  release_date: string;
-  media_type: string;
-  id: number;
-  overview: string;
-  vote_average: number;
-}
-const Trending = () => {
-  const [state, setState] = useState<Fetching[]>([]);
-  const [page, setPage] = useState(1);
 
-  const fetchTrending = () => {
-    axios.get<Fetching>(`https://api.themoviedb.org/3/trending/all/day?api_key=${Access_key}&page=${page}`)
+
+
+const TopRatedM = () => {
+  const [state, setState] = useState<Fetching[]>([]);
+  const [page, setPage] = useState(2);
+
+
+  const fetchTopRatedTv = () => {
+    axios.get<Fetching>(`https://api.themoviedb.org/3/movie/top_rated?language=en-US&api_key=${Access_key}&page=${page}`)
     .then((res) => {
       setState(res.data.results)
       console.log(res.data.results)
@@ -30,7 +22,7 @@ const Trending = () => {
   }
 
   useEffect(()=> {
-    fetchTrending();
+    fetchTopRatedTv();
   }, [page])
 
   const getColorClass = (voteAverage: number) => {
@@ -45,12 +37,12 @@ const Trending = () => {
 
   return (
     <>
-    <div className='bg-black'>
+      <div className='bg-black'>
       <div className="container">
         <div className="row pt-5 pb-2 mt-5">
           <div className="col-12 mt-2 mb-4 fs-1 fw-bold text-white text-decoration-underline head d-flex justify-content-center align-items-center h4-title">
             <i className="fas fa-fire mx-4 text-danger"></i>
-            <h4 className="fs-1 text-white fw-800 sub-title">Trending Today</h4>
+            <h4 className="fs-1 text-white fw-800 sub-title">TopRated Movies</h4>
             <i className="fas fa-fire mx-4 text-danger"></i>
           </div>
         </div>
@@ -86,10 +78,8 @@ const Trending = () => {
       </div>
       <Pagination page={page} setPage={setPage} />
     </div>
-
-    
-    </> 
+    </>         
   )
 }
 
-export default Trending
+export default TopRatedM;

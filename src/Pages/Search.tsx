@@ -43,16 +43,16 @@ const fetchSearch = () => {
   const Searches = () =>{
     fetchSearch()
   }
+  
   return (
     <>
-    
-      <div className="col-12 pt-5 pb-3 mt-5 d-flex justify-content-center align-items-center bg-dark input-title">
-        <input type="text" placeholder="search..." onChange={Trigger} className="form-control-lg col-6 search bg-white text-black border border-0 mt-2"/>
-        <button className="btn btn-primary text-white mx-2 col-md-1 mt-2 col-sm-2 py-2 search-title" onClick={Searches}><i className="fas fa-search"></i></button>
+      <div className="col-12 pt-5 pb-3 mt-5 d-flex justify-content-center align-items-center bg-black input-title">
+        <input type="text" placeholder="search..." onChange={Trigger} className="form-control-lg col-6 search bg-white rounded-5 text-black border border-0  mt-2"/>
+        <button className="btn btn-primary text-white mx-2 col-md-1 mt-2 col-sm-2 py-2 rounded-5 search-title" onClick={Searches}><i className="fas fa-search"></i></button>
       </div>
 
-      <div className="bg-dark">
-          <div className='display-grid'>
+      <div className="bg-black">
+          <div className={`display-grid ${page >= 1 ? 'margin-grid pt-5' : ''}`}>
             {content.map((val)=> (
               <div
               key={val.id}

@@ -29,6 +29,10 @@ a {
     animation: move-out 1s forwards;
 }
 
+.h4-title .sub-title{
+    font-family: Kanit, sans-serif;
+}
+
 @keyframes move-in {
     0% {
         transform: translateY(-100%);
@@ -70,7 +74,8 @@ a {
     position: fixed;
     background-color: black;
     font-size: 35px;
-    box-shadow: 2px 4px 8px white;
+    /* box-shadow: 2px 4px 8px white; */
+    box-shadow: 0 8px 32px 0px rgba(31, 38, 135, 01);
     color: white;
     z-index: 100;
     font-family: 'Kanit', sans-serif;
@@ -84,16 +89,22 @@ a {
 }
 #fire {
     font-size: 20px;
+    margin-bottom: 5px;
 }
+
+.icon-2{
+    margin-bottom: 5px;
+}
+
 .cards {
     border-radius: 34px;
     position: relative;
     min-width: 100%;
     overflow: hidden;
-    background: rgb(101, 78, 163, 0.8);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
+    background: transparent;
+    box-shadow: 0 8px 32px 15px rgb(31, 38, 135, 1);
+    backdrop-filter: blur(10px) saturate(80%) brightness(60%);
+    -webkit-backdrop-filter: blur(10px) saturate(80%) brightness(60%);
     border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.18);
 }
@@ -136,12 +147,13 @@ a {
 }
 .button:hover,
 .buttons {
-    background-color: #654ea3 !important;
+    background-color: rgba(31, 38, 135, 01) !important;
 }
 
 .pagination {
     padding-bottom: 90px;
 }
+
 
 .search {
     padding: 0 2%;
@@ -149,13 +161,18 @@ a {
 }
 .search::placeholder {
     font-weight: bold;
-    color: grey;
+    color: black;
     font-size: 20px;
     padding: 0 2%;
 }
 a:hover {
     color: white;
 }
+
+.footer-border{
+    border: none;
+    outline: none;
+} 
 
 .display-grid {
     display: grid;
@@ -165,6 +182,10 @@ a:hover {
     position: relative;
     margin: 0 auto 0 auto;
     width: 90%;
+}
+
+.margin-grid{
+    margin-bottom: 71px;
 }
 
 .overview {
@@ -246,8 +267,8 @@ a:hover {
     z-index: 100;
     background-color: black;
     top: 90px;
-    width: 500px;
-    height: 550px;
+    width: 40%;
+    height: 555px;
     transition: transform 0.3s ease-out;
 }
 
@@ -261,8 +282,8 @@ a:hover {
     margin-top: 85px;
     height: 500px;
     padding: 10px 50px;
-    background: rgb(101, 78, 163, 0.8);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    background: black;
+    box-shadow: 0 8px 32px 15px rgba(31, 38, 135, 01);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
     border: 1px solid rgba(255, 255, 255, 0.18);
@@ -270,8 +291,8 @@ a:hover {
 .others-two {
     height: 500px;
     padding: 10px 50px;
-    background: rgb(101, 78, 163, 0.8);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    background: black;
+    box-shadow: 0 8px 32px 15px rgba(31, 38, 135, 1);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
     border: 1px solid rgba(255, 255, 255, 0.18);
@@ -279,13 +300,19 @@ a:hover {
 
 .others-three{
     margin-bottom: 72px;
+    height: 500px;
+    padding: 10px 50px;
+    background: black;
+    box-shadow: 0 8px 32px 15px rgba(31, 38, 135, 1);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+.others h1, .others-two h1, .others-three h1{
+    font-family: Kanit, sans-serif;
 }
 
-.others .width-80 , .others-two .width-80 , .others-three .width-80{
-    width: 80%;
-}
-
-.others img, .others-two img{
+.others img, .others-two img, .others-three img{
     width: 95%;
     margin: 10px;
     height: 300px;
@@ -296,12 +323,13 @@ a:hover {
     opacity: .7;
 }
 
-.others img:hover, .others-two img:hover{
+.others img:hover, .others-two img:hover, .others-three img:hover{
     transform: scale(1.05);
+    opacity: 1;
 }
 
 .icon-fs-left {
-    animation: icon 1s infinite forwards;
+    animation: icon 1s ease-out infinite forwards;
     color: #ffffff;
 }
 
@@ -310,18 +338,27 @@ a:hover {
     margin: 0 auto;
 }
 
-.others .slider, .others-two .slider {
+.others .slider, .others-two .slider, .others-three .slider {
     position: relative;
 }
 
-.slider .overview-others h2 {
-    text-decoration: overline;
+.others .title-space , .others-two .title-space, .others-three .title-space{
+   padding-left: 80px;
+}
+
+.others .slider .overview-others h2, .others-two .slider .overview-others h2, .others-three .slider .overview-others h2{
+    text-decoration: underline;
     position: absolute;
-    top: 60%;
+    top: 5%;
+    margin-right: 20px;
     left: 10%;
     font-size: 18px;
     color: white;
-    font-weight: bolder;
+    font-weight: bolder;     
+}
+
+.slider .overview-others h2:hover,.slider .overview-others p:hover,.slider .overview-others .release-date:hover{
+    background: black;
 }
 
 .slider .overview-others p {
@@ -331,7 +368,7 @@ a:hover {
     color: white;
     font-weight: bold;
     font-size: 17px;
-    padding-right: 10px;
+    margin-right: 20px;
 }
 
 .overview-others span.green {
@@ -382,10 +419,13 @@ a:hover {
 
 @keyframes icon {
     0% {
-        transform: translateX(-20%);
+        transform: translateX(20%);
     }
-    100% {
-        transform: translateX(-0%);
+    50% {
+        transform: translateX(50%);
+    }
+    100%{
+        transform: translateX(0);
     }
 }
 

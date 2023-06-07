@@ -47,8 +47,8 @@ const TV = () => {
             <div className='bg-black'>
                 <div className='container'>
                     <div className='row pt-5 pb-2 mt-5'>
-                        <div className='col-12 text-center text-white mt-2 mb-4 fs-1 fw-900 text-decoration-underline h4-title'>
-                            TV Series
+                        <div className='col-12 text-center  text-white mt-2 mb-4  h4-title'>
+                            <h4 className='sub-title fw-900 text-decoration-underline  fs-1'>TV Series</h4>
                         </div>
                     </div>
                 </div>

@@ -58,7 +58,7 @@ const Movies = () => {
                 <div className='container'>
                     <div className='row pt-5 pb-2 mt-5'>
                         <div className='col-12 mt-2 mb-4 fs-1 fw-bold text-white text-decoration-underline head d-flex justify-content-center align-items-center h4-title'>
-                            <h4 className='fs-2 text-white fw-bold'>Movies</h4>
+                            <h4 className='fs-1 text-white   fw-bold sub-title'>Movies</h4>
                         </div>
                     </div>
                 </div>

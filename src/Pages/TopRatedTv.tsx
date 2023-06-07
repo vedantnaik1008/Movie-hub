@@ -6,14 +6,15 @@ import { useState, useEffect } from 'react';
 import { Access_key, IMGPATH } from '../components/Config';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeftLong } from '@fortawesome/free-solid-svg-icons'
+import { NavLink } from "react-router-dom";
 
 
 const settings = {
   dots: true,
   infinite: true,
   speed: 500,
-  slidesToShow: 3,
-  slidesToScroll: 3,
+  slidesToShow: 4,
+  slidesToScroll: 4,
   autoplay: false,
   autoplaySpeed: 3000,
   responsive: [
@@ -81,8 +82,11 @@ const handleHover = (backDropPath: string) => {
       othersElement.style.backgroundRepeat = 'no-repeat'
       othersElement.style.backgroundPosition = 'center top'
       othersElement.style.objectFit = 'cover'
+      othersElement.style.transition = 'all .5s'
     }
-  };
+
+};
+   
 
   const handleLeave = () => {
     const othersElement = document.querySelector('.others') as HTMLDivElement;
@@ -93,10 +97,12 @@ const handleHover = (backDropPath: string) => {
 
   return (
     <>
-    
       <div className='others'>
-      <div className="d-flex justify-content-center align-items-center gap-5 px-0 width-80">
-      <h1 className=" text-white fw-800 my-3">Top Rated Tv Series <FontAwesomeIcon icon={faArrowLeftLong} size="lg" className="icon-fs-left px-3"/></h1>
+      <div className="d-flex justify-content align-items-center gap-5 px-0 width-80">
+      <NavLink to='/topratedtv'
+      >
+        <h1 className=" text-white fw-800 my-3 title-space">Top Rated Tv Series <FontAwesomeIcon icon={faArrowLeftLong} size="lg" className="icon-fs-left px-3"/></h1>
+      </NavLink>
       
     </div>
         <Slider {...settings} className="whole-slider"> 
@@ -105,7 +111,7 @@ const handleHover = (backDropPath: string) => {
               <img src={IMGPATH + i.backdrop_path} alt={i.name} onMouseEnter={() => handleHover(i.backdrop_path)} onMouseLeave={handleLeave}/>
               <div className="overview-others">
                   <h2>{i.name}</h2>
-                  <p>{i.overview.substring(0, 70)}<span className="fw-bolder">......</span></p>
+                  {/* <p>{i.overview.substring(0, 70)}<span className="fw-bolder">......</span></p> */}
                   <span className={getColorClass(i.vote_average)}>{i.vote_average.toFixed(1)}</span>
                   <span className="release-date">{i.first_air_date}</span>
               </div>

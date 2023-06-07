@@ -6,6 +6,7 @@ import { useState, useEffect } from 'react';
 import { Access_key, IMGPATH } from '../components/Config';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeftLong } from '@fortawesome/free-solid-svg-icons'
+import { NavLink } from "react-router-dom";
 
 
 const settings = {
@@ -39,8 +40,8 @@ const settings = {
 
 interface FetchTopRated{
     id: number;
-    name: string;
-    first_air_date: string;
+    title: string;
+    release_date: string;
     vote_average: number;
     overview: string;
     backdrop_path: string;
@@ -73,23 +74,44 @@ const TopUpcomingMovie = () => {
         return 'red';
     }
 };
+
+const handleHover = (backDropPath: string) => {
+    const othersElement = document.querySelector('.others-three') as HTMLDivElement;
+    if (othersElement) {
+      othersElement.style.backgroundImage = `url(${IMGPATH + backDropPath})`;
+      othersElement.style.backgroundRepeat = 'no-repeat'
+      othersElement.style.backgroundPosition = 'center top'
+      othersElement.style.objectFit = 'cover'
+      othersElement.style.transition = 'all .5s'
+    }
+
+};  
+
+  const handleLeave = () => {
+    const othersElement = document.querySelector('.others-three') as HTMLDivElement;
+    if (othersElement) {
+      othersElement.style.backgroundImage = '';
+    }
+  };
+
   return (
     <>
-    
-      <div className='others-two others-three'>
-      <div className="d-flex align-items-center gap-5 px-4">
-      <h1 className=" text-white fw-800 my-3">Top Upcoming Movies</h1>
-      <FontAwesomeIcon icon={faArrowLeftLong} size="2xl" className="icon-fs-left"/>
+     <div className='others-three'>
+      <div className="d-flex justify-content align-items-center gap-5 px-0 width-80">
+      <NavLink to='/Upcomingmt'>
+        <h1 className=" text-white fw-800 my-3 title-space ">Upcoming Movies<FontAwesomeIcon icon={faArrowLeftLong} size="lg" className="icon-fs-left px-3"/></h1>
+      </NavLink>
+      
     </div>
-        <Slider {...settings}> 
+        <Slider {...settings} className="whole-slider"> 
           {state.map((i) => (
             <div key={i.id} className="slider">
-              <img src={IMGPATH + i.backdrop_path} alt={i.name}/>
+              <img src={IMGPATH + i.backdrop_path} alt={i.title} onMouseEnter={() => handleHover(i.backdrop_path)} onMouseLeave={handleLeave}/>
               <div className="overview-others">
-                  <h2>{i.name}</h2>
-                  <p>{i.overview.substring(0, 70)}<span className="fw-bolder">......</span></p>
+                  <h2>{i.title}</h2>
+                  {/* <p>{i.overview.substring(0, 70)}<span className="fw-bolder">......</span></p> */}
                   <span className={getColorClass(i.vote_average)}>{i.vote_average.toFixed(1)}</span>
-                  <span className="release-date">{i.first_air_date}</span>
+                  <span className="release-date">{i.release_date}</span>
               </div>
             </div>
           ))}
