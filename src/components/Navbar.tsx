@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState } from 'react';
 import {  NavLink } from 'react-router-dom';
-import { faBars, faMugHot, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faEllipsis, faXmark } from '@fortawesome/free-solid-svg-icons';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -32,7 +32,7 @@ const Navbar = () => {
         },
         {
             id: '5',
-            icon_2: <FontAwesomeIcon icon={faMugHot} size='lg' />,
+            icon_2: <FontAwesomeIcon icon={faEllipsis} />,
             name: 'More',
             link: '/others',
         },
@@ -46,13 +46,13 @@ const Navbar = () => {
         <>
             <div className='position-relative'>
                 <button className='bbb' onClick={handleClick}>
-                    <FontAwesomeIcon icon={faBars} size='2xl' />
+                    <FontAwesomeIcon icon={faBars} size='2xl' className='bbb-icon'/>
                 </button>
                 <div
                     className={isOpen ? 'dont-show' : 'show-nav'}
                     id='navigation'>
-                    <button className='bg-white ccc' onClick={handleClick}>
-                        <FontAwesomeIcon icon={faXmark} size='2xl' />
+                    <button className='ccc' onClick={handleClick}>
+                        <FontAwesomeIcon icon={faXmark} size='2xl' className='ccc-icon'/>
                     </button>
                     <nav className='navi'>
                         <ul className='d-flex flex-column gap-5 mt-5'>

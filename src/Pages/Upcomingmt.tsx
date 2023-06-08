@@ -3,14 +3,12 @@ import { useState, useEffect } from 'react';
 import { Access_key, IMGPATH, unavailable } from '../components/Config';
 import { Fetching } from './Trending';
 import Pagination from '../components/Pagination';
-
-
-
+// import Youtube from '../components/youtube';
 
 const Upcomingmt = () => {
   const [state, setState] = useState<Fetching[]>([]);
-  const [page, setPage] = useState(2);
-
+  const [page, setPage] = useState(1);
+ 
 
   const fetchTopRatedTv = () => {
     axios.get<Fetching>(`https://api.themoviedb.org/3/movie/top_rated?language=en-US&api_key=${Access_key}&page=${page}`)
@@ -24,6 +22,8 @@ const Upcomingmt = () => {
   useEffect(()=> {
     fetchTopRatedTv();
   }, [page])
+
+
 
   const getColorClass = (voteAverage: number) => {
     if (voteAverage >= 7.9) {
@@ -76,7 +76,8 @@ const Upcomingmt = () => {
         </div>
         ))}
       </div>
-      <Pagination page={page} setPage={setPage} />
+          {/* <Youtube /> */}
+          <Pagination page={page} setPage={setPage} />
     </div>
     </>         
   )

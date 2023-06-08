@@ -7,6 +7,7 @@ body {
     height: 100%;
     background-color: black;
     color: white;
+    /* font-family: 'Kanit', sans-serif; */
     scroll-behavior: smooth;
     background-repeat: no-repeat;
     object-fit: fill;
@@ -93,6 +94,19 @@ a {
 }
 
 .icon-2{
+    margin-bottom: 5px;
+    background-color: white;
+    border-radius: 50%;
+    color: black;
+    padding: 2.5px 8px;
+    font-size: 14px;
+}
+
+.icon-2-two{
+    margin-bottom: 0px;
+}
+
+.footer-names{
     margin-bottom: 5px;
 }
 
@@ -184,6 +198,7 @@ a:hover {
     width: 90%;
 }
 
+
 .margin-grid{
     margin-bottom: 71px;
 }
@@ -260,6 +275,14 @@ a:hover {
     top: 27px;
     left: 20px;
     border-radius: 5px;
+    padding: 0px;
+    border: none;
+}
+
+.bbb-icon{
+    background-color: rgb(0, 0, 0, 1);
+    border: none;
+    color: white;
 }
 
 #navigation {
@@ -277,7 +300,16 @@ a:hover {
     position: absolute;
     right: 10px;
     top: 5px;
+    padding: 0px;
+    border: none;
 }
+
+.ccc-icon{
+    background-color: rgb(0, 0, 0, 1);
+    border: none;
+    color: white;
+}
+
 .others {
     margin-top: 85px;
     height: 500px;
@@ -416,6 +448,7 @@ a:hover {
     color: white;
     font-weight: bolder;
 }
+
 
 @keyframes icon {
     0% {

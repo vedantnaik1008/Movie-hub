@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {faMugHot} from '@fortawesome/free-solid-svg-icons'
+import {faEllipsis} from '@fortawesome/free-solid-svg-icons'
 
 const Footer = () => {
     const data = [
@@ -30,7 +30,7 @@ const Footer = () => {
         },
         {
             id: '5',
-            icon_2: <FontAwesomeIcon icon={faMugHot} size="lg"/>,
+            icon_2: <FontAwesomeIcon icon={faEllipsis} />,
             name: "More",
             link: '/others',
         }
@@ -45,8 +45,8 @@ const Footer = () => {
                     <NavLink to={`${Val.link}`} key={Val.id}>
                         <div>
                             <button className='col-sm-2 col-md-2 d-flex flex-column justify-content-center align-items-center bg-black text-white footer-border'>
-                                {Val.icon_2? <i className="icon-2">{Val.icon_2}</i> : <i className={`${Val.icon}`} id='fire'></i>}
-                                <h5 className="pt-1 fs-6 text-nowrap">{Val.name}</h5>
+                                {Val.icon_2? <i className="icon-2 icon-2-two">{Val.icon_2}</i> : <i className={`${Val.icon}`} id='fire'></i>}
+                                <h5 className="pt-1 fs-6 text-nowrap footer-names">{Val.name}</h5>
                             </button>
                         </div>
                     </NavLink>
