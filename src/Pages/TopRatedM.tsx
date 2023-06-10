@@ -6,11 +6,14 @@ import Pagination from '../components/Pagination';
 import Modal from '../components/Modal';
 
 
-
+// interface Props{
+//   media_type: string;
+//   id: number;
+// }
 
 const TopRatedM = () => {
   const [state, setState] = useState<Fetching[]>([]);
-  const [page, setPage] = useState(2);
+  const [page, setPage] = useState(1);
   const [modalData, setModalData] = useState<{ show: boolean; data: Fetching }>({
     show: false,
     data: {} as Fetching,
@@ -57,12 +60,11 @@ const TopRatedM = () => {
       
       {modalData.show && (
         <Modal
-          show={true}
-          isOpen={modalData.show}
-          setIsOpen={(isOpen) => setModalData({ ...modalData, show: isOpen })}
-          {...modalData.data}
-          key={modalData.data.id}
-          />)}
+            page={page} show={true}
+            isOpen={modalData.show}
+            setIsOpen={(isOpen) => setModalData({ ...modalData, show: isOpen })}
+            {...modalData.data}
+            key={modalData.data.id}          />)}
       <Pagination page={page} setPage={setPage} />
     </div>
     </>         

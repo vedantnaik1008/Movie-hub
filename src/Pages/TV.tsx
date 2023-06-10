@@ -74,12 +74,11 @@ const TV = () => {
       </div>
       {modalData.show && (
         <Modal
-          show={true}
-          isOpen={modalData.show}
-          setIsOpen={(isOpen) => setModalData({ ...modalData, show: isOpen })}
-          {...modalData.data}
-          key={modalData.data.id}
-          />)}
+              page={page} show={true}
+              isOpen={modalData.show}
+              setIsOpen={(isOpen) => setModalData({ ...modalData, show: isOpen })}
+              {...modalData.data}
+              key={modalData.data.id}          />)}
       <Pagination page={page} setPage={setPage}/>
     
     </div>

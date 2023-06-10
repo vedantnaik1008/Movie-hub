@@ -12,6 +12,11 @@ import TopRatedM from './Pages/TopRatedM';
 import TopRatedtvs from './Pages/TopRatedtvs';
 import Upcomingmt from './Pages/Upcomingmt';
 
+// interface Props{
+//     media_type:string;
+//     id:number;
+// }
+
 const App = () => {
     const routes = [
         {
