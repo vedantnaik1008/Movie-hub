@@ -60,7 +60,7 @@ a {
     animation: move-in 1s forwards;
 }
 
-.swiper {
+/* .swiper {
     width: 40%;
 }
 
@@ -69,7 +69,7 @@ a {
     height: 450px;
     border-radius: 20px;
     background-size: cover;
-}
+} */
 
 .header {
     position: fixed;
@@ -116,19 +116,27 @@ a {
     min-width: 100%;
     overflow: hidden;
     background: transparent;
-    box-shadow: 0 8px 32px 15px rgb(31, 38, 135, 1);
+    box-shadow: 0 8px 32px 12px rgb(31, 38, 135, 1);
     backdrop-filter: blur(10px) saturate(80%) brightness(60%);
     -webkit-backdrop-filter: blur(10px) saturate(80%) brightness(60%);
     border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.18);
+    transition: transform .3s ease-out;
+
 }
 
 .card-img-top {
     object-fit: cover;
     height: 100%;
     border-radius: 34px;
-    border: 3px solid white;
+    border: 3px solid rgb(31, 38, 135, 1);
+    
 }
+
+.cards:hover{
+    transform: scale(1.1);
+}
+
 .cards span {
     position: absolute;
     right: 4px;
@@ -136,11 +144,15 @@ a {
     background-color: black;
     border-radius: 100%;
     padding: 5px 8px;
-    border: 3px solid white;
+    
 }
+
+
+
 .cards span.green, .modal-top span.green {
     color: chartreuse;
     font-weight: 700;
+   
 }
 
 .modal-top span.green{
@@ -149,9 +161,33 @@ a {
     padding: 10px;
     border-radius: 50%;
     position: absolute;
-    top: 9%;
-    border: 3px solid white;
-    right: 5%;
+    top: 8%;
+    border: 3px solid rgba(31, 38, 135, 1);
+    right: 4%;
+    font-size: 17px;
+}
+
+.modal-top span.orange{
+    font-weight: 700;
+    background-color: black;
+    padding: 10px;
+    border-radius: 50%;
+    position: absolute;
+    top: 8%;
+    border: 3px solid rgba(31, 38, 135, 1);
+    right: 4%;
+    font-size: 17px;
+}
+
+.modal-top span.red{
+    font-weight: 700;
+    background-color: black;
+    padding: 10px;
+    border-radius: 50%;
+    position: absolute;
+    top: 8%;
+    border: 3px solid rgba(31, 38, 135, 1);
+    right: 4%;
     font-size: 17px;
 }
 
@@ -287,7 +323,7 @@ a:hover {
     width: 100%;
     height: 100%;
     border-radius: 20px;
-    border: 2px solid #FFFFFF;
+    border: 2px solid rgb(31, 38, 135, 1);
     transition: transform .3s ease-out;
 }
 
@@ -296,25 +332,13 @@ a:hover {
 }
 
 .modal-top .details{
+    border: 2px solid rgb(31, 38, 135, 1);
 }
 
 .overview h4 {
     color: white;
     text-decoration: underline;
     font-weight: 700;
-}
-
-.overview::-webkit-scrollbar {
-    width: 8px;
-}
-
-.overview::-webkit-scrollbar-thumb {
-    background: #ffffff;
-    border-radius: 5px;
-}
-
-.overview::-webkit-scrollbar-track:hover {
-    background: black;
 }
 
 .show-nav {
@@ -349,6 +373,41 @@ a:hover {
     width: 40%;
     height: 555px;
     transition: transform 0.3s ease-out;
+}
+
+.close-btn-trailer{
+    position: fixed;
+    right: 9%;
+    top: 12%;
+    background-color: red;
+    border: none;
+    border-radius: 5px;
+    color:white;
+    z-index: 103;
+}
+
+iframe{
+    width: 80%;
+    height: 500px;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    margin: auto;
+    top: 30%;
+    inset: 0;
+    z-index: 102;
+}
+
+.trailer-btn{
+    margin-top: 1rem;
+    width: 100%;
+    border-radius: 5px;
+    border: none;
+    background-color: red;
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
 }
 
 .ccc {

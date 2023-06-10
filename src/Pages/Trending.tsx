@@ -40,16 +40,6 @@ const Trending = () => {
     fetchTrending();
   }, [page])
 
-  const getColorClass = (voteAverage: number) => {
-    if (voteAverage >= 7.9) {
-        return 'green';
-    } else if (voteAverage >= 5) {
-        return 'orange';
-    } else {
-        return 'red';
-    }
-};
-
   return (
     <>
     <div className='bg-black'>

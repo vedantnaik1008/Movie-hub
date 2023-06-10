@@ -2,6 +2,7 @@
 import { IMGPATH, unavailable } from './Config';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useState } from 'react';
 
 interface Props{
     show: boolean;
@@ -11,15 +12,40 @@ interface Props{
     vote_average: number;
     title: string;
     name: string;
-    backdrop_path: string;
     media_type: string;
     overview: string;
     first_air_date: string; 
     release_date: string;
-    
+    id: number;
 }
-const Modal = ({show, isOpen, setIsOpen,poster_path, vote_average,title,name,backdrop_path,media_type,overview,first_air_date,release_date}: Props) => {
+
+interface Video {
+    key: string;
+    name: string;
+    type: string;
+  }
+
+const Modal = ({show, isOpen, setIsOpen,poster_path, vote_average,title,name,media_type,overview,first_air_date,release_date, id}: Props) => {
   
+    const [trailer, setTrailer] = useState<Video>();
+
+    const fetchTrailer = async () => {
+        try {
+          const response = await fetch(`
+            https://api.themoviedb.org/3/${media_type}/${id}?api_key=3171b031bea93a9972cd7b17398bcebf&append_to_response=videos
+          `);
+          const data = await response.json();
+          console.log(data)
+          const trailer = data.videos.results.find((video: Video) => video.type === 'Trailer');
+          if (trailer) {
+            setTrailer(trailer);
+          } else {
+            console.log('No trailer found');
+          }
+        } catch (error) {
+          console.error('Error fetching movie trailer', error);
+        }
+      };
 
     const getColorClass = (voteAverage: number) => {
         if (voteAverage >= 7.9) {
@@ -35,28 +61,43 @@ const Modal = ({show, isOpen, setIsOpen,poster_path, vote_average,title,name,bac
   return (
     <>
     <div className="modal-top">
-        <button className='close-btn'  onClick={()=> setIsOpen(!isOpen)}><FontAwesomeIcon icon={faXmark} size='2xl' /></button>
+        <button className='close-btn'  onClick={()=> setIsOpen(!isOpen)}><FontAwesomeIcon icon={faXmark} size='xl' /></button>
       {show ? 
         <div className="modal-down" >
               <div className='modal-left' >
               <img src={poster_path ? `${IMGPATH + poster_path}` : unavailable} className="poster"/>
               <span className={getColorClass(vote_average)}>{vote_average.toFixed(1)}</span>
           </div>
-          <div className="details">
-                  <div className="border border-3 p-4 rounded-4">
-                      <h4 className='text-white'>Overview</h4>
-                      {/* <img src={IMGPATH + backdrop_path} alt={title} /> */}
-                      <p className='text-white'>{overview}</p>
-                      <h5 className="text-white">{title || name}</h5>
-                      <div className="text-white">
-                          <div>{media_type === "tv" ? "TV" : "Movie"}</div>
-                          <div>{first_air_date || release_date}</div>
+          <div className="details rounded-4 p-5">
+                  <div className="">
+                        <h3 className="text-white text-center text-decoration-underline">{title || name}</h3>
+                      <h4 className='text-white mt-3'>Overview</h4>
+                      <p className='text-white pt-2'>{overview}</p>
+                      
+                      <div className="text-white d-flex align-items-center justify-content-between">
+                          <div className='fw-bold'>{media_type === "tv" ? "TV" : "Movie"}</div>
+                          <div className='fw-bold'>{first_air_date || release_date}</div>
                       </div>
+                      <button className="trailer-btn" onClick={fetchTrailer}>
+                {trailer ? <span>Loading...</span> : <span>Play Trailer</span>}
+              </button>
                   </div>
               </div>
         </div>
       : null}
       </div>
+      {trailer ? (
+        <div className="modal-trailer">
+          <button className='close-btn-trailer' onClick={() => setTrailer(undefined)}>
+            <FontAwesomeIcon icon={faXmark} size='2xl' />
+          </button>
+          <iframe
+            src={`https://www.youtube.com/embed/${trailer.key}`}
+            title={trailer.name}
+            allowFullScreen
+          />
+        </div>
+      ) : null}
     </>
   )
 }

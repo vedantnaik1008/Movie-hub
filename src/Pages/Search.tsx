@@ -3,12 +3,16 @@ import Pagination from "../components/Pagination"
 import axios from "axios";
 import { Access_key, IMGPATH, unavailable } from "../components/Config";
 import { Fetching } from "./Trending";
+import Modal from "../components/Modal";
 
 const Search = () => {
   const [searchText, setSearchText] = useState('')
   const [page, setPage] = useState(1);
   const [content, setContent] = useState<Fetching[]>([]);
-
+  const [modalData, setModalData] = useState<{ show: boolean; data: Fetching }>({
+    show: false,
+    data: {} as Fetching,
+  });
 
 const fetchSearch = () => {
     axios.get<Fetching>(`https://api.themoviedb.org/3/search/multi?api_key=${Access_key}&language=en-US&query=${searchText}&page=${page}&include_adult=false
@@ -25,16 +29,6 @@ const fetchSearch = () => {
   }, [])
 
   
-
-  const getColorClass = (voteAverage: number) => {
-    if (voteAverage >= 7.9) {
-        return 'green';
-    } else if (voteAverage >= 5) {
-        return 'orange';
-    } else {
-        return 'red';
-    }
-};
 
   const Trigger = (event: React.ChangeEvent<HTMLInputElement>) =>{
     setSearchText(event.target.value)
@@ -53,33 +47,27 @@ const fetchSearch = () => {
 
       <div className="bg-black">
           <div className={`display-grid ${page >= 1 ? 'margin-grid pt-5' : ''}`}>
-            {content.map((val)=> (
-              <div
-              key={val.id}
-              id="card" >
-              <div className="cards p-4 rounded-5">
-                <img
+              {content.map((val)=> (
+              <div key={val.id} id="card" >
+                <div className="cards  rounded-5">
+                  <img
                   src={val.poster_path ? `${IMGPATH + val.poster_path}` : unavailable}
-                  className="card-img-top pt-0 pb-0 mb-4 px-0 rounded-5"/>
-                  <span className={getColorClass(val.vote_average)}>
-                                    {val.vote_average.toFixed(1)}
-                                </span>
-                <div className="card-body">
-                  <h5 className="card-title text-center text-white fs-5">{val.title || val.name}</h5>
-                  <div className="d-flex fs-6 align-items-center text-white justify-content-evenly movie mt-3">
-                    <div>{val.media_type === "tv" ? "TV" : "Movie"}</div>
-                    <div>{val.first_air_date || val.release_date}</div>
-                  </div>
-                </div>
-                <div className="overview">
-                  <h4 className='h-three'>Overview</h4>
-                  <img src={IMGPATH + val.backdrop_path} alt={val.title}/>
-                  <p className='paragraph'>{val.overview}</p>
-                </div>
+                  className="card-img-top rounded-5" onClick={() => setModalData({ show: true, data: val })}/>
+                </div> 
               </div>
-            </div>
+            
             ))}
           </div>
+
+        {modalData.show && (
+        <Modal
+          show={true}
+          isOpen={modalData.show}
+          setIsOpen={(isOpen) => setModalData({ ...modalData, show: isOpen })}
+          {...modalData.data}
+          key={modalData.data.id}
+          />)}
+
         {page > 1 && <Pagination page={page} setPage={setPage} />}
       </div>  
     </>
