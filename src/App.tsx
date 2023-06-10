@@ -11,6 +11,7 @@ import Others from './Pages/Others'
 import TopRatedM from './Pages/TopRatedM';
 import TopRatedtvs from './Pages/TopRatedtvs';
 import Upcomingmt from './Pages/Upcomingmt';
+
 const App = () => {
     const routes = [
         {
@@ -55,16 +56,16 @@ const App = () => {
 
     return (
         <div>
-            <BrowserRouter>
-                <Header />
-                <Navbar />
-                <Routes>
-                    {routes.map((route) => (
-                        <Route key={route.path} {...route} />
-                    ))}
-                </Routes>
-                <Footer />
-            </BrowserRouter>
+                <BrowserRouter>
+                    <Header />
+                    <Navbar />
+                    <Routes>
+                        {routes.map((route) => (
+                            <Route key={route.path} {...route} />
+                        ))}
+                    </Routes>
+                    <Footer />
+                </BrowserRouter>
         </div>
     );
 };
