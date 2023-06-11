@@ -6,7 +6,7 @@ import { Access_key, IMGPATH, unavailable } from '../components/Config';
 import Genre from '../components/Genre';
 import Pagination from '../components/Pagination';
 import { Fetching } from './Trending';
-import Modal from '../components/Modal';
+import ModalTV from '../components/ModalTV';
 
 
 
@@ -25,7 +25,7 @@ const TV = () => {
     const fetchTV = () => {
         axios
             .get<Fetching>(
-                ` https://api.themoviedb.org/3/discover/tv?api_key=${Access_key}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=${genreURL}`
+                `https://api.themoviedb.org/3/discover/tv?api_key=${Access_key}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=${genreURL}`
             )
             .then((res) => {
                 setState(res.data.results);
@@ -73,12 +73,11 @@ const TV = () => {
         ))}
       </div>
       {modalData.show && (
-        <Modal
-              page={page} show={true}
-              isOpen={modalData.show}
-              setIsOpen={(isOpen) => setModalData({ ...modalData, show: isOpen })}
-              {...modalData.data}
-              key={modalData.data.id}          />)}
+        <ModalTV value={value} page={page} show={true} isOpen={modalData.show}
+                    setIsOpen={(isOpen) => setModalData({ ...modalData, show: isOpen })}
+                    {...modalData.data}
+                    key={modalData.data.id} />
+      )}
       <Pagination page={page} setPage={setPage}/>
     
     </div>

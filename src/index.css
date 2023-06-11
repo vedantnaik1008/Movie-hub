@@ -324,12 +324,12 @@ a:hover {
     height: 100%;
     border-radius: 20px;
     border: 2px solid rgb(31, 38, 135, 1);
-    transition: transform .3s ease-out;
+    /* transition: transform .3s ease-out; */
 }
 
-.modal-left .poster:hover{
+/* .modal-left .poster:hover{
     transform: scale(1.05);
-}
+} */
 
 .modal-top .details{
     border: 2px solid rgb(31, 38, 135, 1);
@@ -475,10 +475,22 @@ iframe{
     opacity: 1;
 }
 
-.icon-fs-left {
+/* .icon-fs-left {
     animation: icon 1s ease-out infinite forwards;
     color: #ffffff;
 }
+
+@keyframes icon {
+    0% {
+        transform: translateX(20%);
+    }
+    50% {
+        transform: translateX(50%);
+    }
+    100%{
+        transform: translateX(0);
+    }
+} */
 
 .whole-slider{
     width: 90%;
@@ -565,17 +577,7 @@ iframe{
 }
 
 
-@keyframes icon {
-    0% {
-        transform: translateX(20%);
-    }
-    50% {
-        transform: translateX(50%);
-    }
-    100%{
-        transform: translateX(0);
-    }
-}
+
 
 @media (max-width: 624px) {
     .overview img:hover {

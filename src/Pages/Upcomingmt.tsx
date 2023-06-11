@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { Access_key, IMGPATH, unavailable } from '../components/Config';
 import { Fetching } from './Trending';
 import Pagination from '../components/Pagination';
-import Modal from '../components/Modal';
+import ModalUpcomingmt from '../components/ModalUpcomingmt';
 // import Youtube from '../components/youtube';
 
 const Upcomingmt = () => {
@@ -56,13 +56,11 @@ const Upcomingmt = () => {
         ))}
       </div>
       {modalData.show && (
-        <Modal
-            page={0} show={true}
-            isOpen={modalData.show}
-            setIsOpen={(isOpen) => setModalData({ ...modalData, show: isOpen })}
-            {...modalData.data}
-            key={modalData.data.id}          />)}
-        <Pagination page={page} setPage={setPage} />
+         <ModalUpcomingmt page={page} show={true} isOpen={modalData.show}
+              setIsOpen={(isOpen) => setModalData({ ...modalData, show: isOpen })}
+              {...modalData.data}
+              key={modalData.data.id} />)}
+          <Pagination page={page} setPage={setPage} /> 
     </div>
     </>         
   )

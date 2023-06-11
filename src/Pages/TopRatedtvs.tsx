@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { Access_key, IMGPATH, unavailable } from '../components/Config';
 import { Fetching } from './Trending';
 import Pagination from '../components/Pagination';
-import Modal from '../components/Modal';
+import ModalTRTVS from '../components/ModalTRTVS';
 
 
 
@@ -57,12 +57,10 @@ const TopRatedTv = () => {
       </div>
       
       {modalData.show && (
-        <Modal
-            page={page} show={true}
-            isOpen={modalData.show}
-            setIsOpen={(isOpen) => setModalData({ ...modalData, show: isOpen })}
-            {...modalData.data}
-            key={modalData.data.id}          />)}
+        <ModalTRTVS page={page} show={true} isOpen={modalData.show}
+        setIsOpen={(isOpen) => setModalData({ ...modalData, show: isOpen })}
+        {...modalData.data}
+        key={modalData.data.id} />)}
       <Pagination page={page} setPage={setPage} />
     </div>
     </>         

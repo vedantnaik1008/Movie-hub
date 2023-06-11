@@ -14,7 +14,7 @@ const Pagination = ({page, setPage}: Props) => {
       };
     
       const Next = () =>{
-        if(page < 10){
+        if(page < 20){
           setPage(page + 1);
         }
       };

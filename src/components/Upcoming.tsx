@@ -1,8 +1,6 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { Access_key, IMGPATH } from './Config';
-import { faArrowLeftLong } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { NavLink } from 'react-router-dom';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
@@ -20,8 +18,8 @@ const settings = {
         {
             breakpoint: 1024,
             settings: {
-                slidesToShow: 2,
-                slidesToScroll: 1,
+                slidesToShow: 3,
+                slidesToScroll: 3,
                 infinite: true,
                 dots: true,
             },
@@ -29,9 +27,9 @@ const settings = {
         {
             breakpoint: 768,
             settings: {
-                slidesToShow: 1,
-                slidesToScroll: 1,
-                dots: true,
+                slidesToShow: 2,
+                slidesToScroll: 2,
+                dots: false,
             },
         },
     ],
@@ -101,11 +99,6 @@ const TopUpcomingMovie = () => {
                     <NavLink to='/Upcomingmt'>
                         <h1 className=' text-white fw-800 my-3 title-space '>
                             Upcoming Movies
-                            <FontAwesomeIcon
-                                icon={faArrowLeftLong}
-                                size='lg'
-                                className='icon-fs-left px-3'
-                            />
                         </h1>
                     </NavLink>
                 </div>

@@ -4,8 +4,6 @@ import Slider from 'react-slick';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { Access_key, IMGPATH } from './Config';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowLeftLong } from '@fortawesome/free-solid-svg-icons';
 import { NavLink } from 'react-router-dom';
 
 const settings = {
@@ -31,7 +29,7 @@ const settings = {
             settings: {
                 slidesToShow: 1,
                 slidesToScroll: 1,
-                dots: true,
+                dots: false,
             },
         },
     ],
@@ -100,12 +98,7 @@ const TopRatedTv = () => {
                 <div className='d-flex justify-content align-items-center gap-5 px-0 width-80'>
                     <NavLink to='/topratedtv'>
                         <h1 className=' text-white fw-800 my-3 title-space'>
-                            Top Rated Tv Series{' '}
-                            <FontAwesomeIcon
-                                icon={faArrowLeftLong}
-                                size='lg'
-                                className='icon-fs-left px-3'
-                            />
+                            Top Rated Tv Series
                         </h1>
                     </NavLink>
                 </div>
