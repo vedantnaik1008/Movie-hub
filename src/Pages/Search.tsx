@@ -26,7 +26,7 @@ const fetchSearch = () => {
 
   useEffect(()=> {
     fetchSearch();
-  }, [])
+  }, [searchText, page])
 
   
 

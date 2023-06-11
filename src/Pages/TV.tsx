@@ -36,7 +36,7 @@ const TV = () => {
 
     useEffect(() => {
         fetchTV();
-    }, [page]);
+    }, [page, genreURL]);
 
     
 

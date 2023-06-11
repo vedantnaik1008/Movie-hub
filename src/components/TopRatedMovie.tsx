@@ -3,7 +3,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from 'react-slick';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-import { Access_key, IMGPATH } from '../components/Config';
+import { Access_key, IMGPATH } from './Config';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeftLong } from '@fortawesome/free-solid-svg-icons'
 import { NavLink } from "react-router-dom";
@@ -76,23 +76,23 @@ const TopRatedMovie = () => {
 };
 
 const handleHover = (backDropPath: string) => {
-    const othersElement = document.querySelector('.others-two') as HTMLDivElement;
+    const othersElement = document.querySelector('.others-two')as HTMLDivElement
     if (othersElement) {
-      othersElement.style.backgroundImage = `url(${IMGPATH + backDropPath})`;
-      othersElement.style.backgroundRepeat = 'no-repeat'
-      othersElement.style.backgroundPosition = 'center top'
-      othersElement.style.objectFit = 'cover'
-      othersElement.style.transition = 'all .5s'
+        othersElement.style.backgroundImage = `url(${IMGPATH + backDropPath})`;
+        othersElement.style.backgroundRepeat = 'no-repeat';
+        othersElement.style.backgroundPosition = 'center top';
+        othersElement.style.objectFit = 'cover';
+        othersElement.style.transition = 'all .5s';
     }
+}
 
-};
-   
-  const handleLeave = () => {
-    const othersElement = document.querySelector('.others-two') as HTMLDivElement;
+const handleLeave = () => {
+    const othersElement = document.querySelector('.others-two')as HTMLDivElement
     if (othersElement) {
-      othersElement.style.backgroundImage = '';
+        othersElement.style.backgroundImage = ''
     }
-  };
+};
+
   return (
     <>
     
@@ -105,15 +105,14 @@ const handleHover = (backDropPath: string) => {
     </div>
         <Slider {...settings} className="whole-slider"> 
           {state.map((i) => (
-            <div key={i.id} className="slider">
-              <img src={IMGPATH + i.backdrop_path} alt={i.title} onMouseEnter={() => handleHover(i.backdrop_path)} onMouseLeave={handleLeave}/>
-              <div className="overview-others">
-                  <h2>{i.title}</h2>
-                  {/* <p>{i.overview.substring(0, 70)}<span className="fw-bolder">......</span></p> */}
-                  <span className={getColorClass(i.vote_average)}>{i.vote_average.toFixed(1)}</span>
-                  <span className="release-date">{i.release_date}</span>
-              </div>
+            <div key={i.id} className='slider'>
+            <img src={IMGPATH + i.backdrop_path} alt={i.title} onMouseEnter={() => handleHover(i.backdrop_path)} onMouseLeave={handleLeave}/>
+            <div className='overview-others'>
+                <h2>{i.title}</h2>
+                <span className={getColorClass(i.vote_average)}>{i.vote_average.toFixed(1)}</span>
+                <span className='release-date'>{i.release_date}</span>
             </div>
+        </div>
           ))}
         </Slider>
       </div>

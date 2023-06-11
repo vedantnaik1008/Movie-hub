@@ -31,9 +31,10 @@ const Modal = ({show, isOpen, setIsOpen,poster_path, vote_average,title,name,med
     const [trailer, setTrailer] = useState<Video>();
 
     const fetchTrailer = async () => {
+      const media = media_type === "tv"? "tv" : "movie";
         try {
           const response = await fetch(`
-            https://api.themoviedb.org/3/${media_type}/${id}?api_key=3171b031bea93a9972cd7b17398bcebf&page=${page}&language=en-US&append_to_response=videos&sort_by=vote_average.desc
+            https://api.themoviedb.org/3/${media}/${id}?api_key=3171b031bea93a9972cd7b17398bcebf&page=${page}&language=en-US&append_to_response=videos&sort_by=vote_average.desc
           `);
           const data = await response.json();
           console.log(data)

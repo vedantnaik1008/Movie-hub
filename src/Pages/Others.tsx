@@ -1,6 +1,6 @@
-import TopRatedMovie from './TopRatedMovie';
-import TopRatedTv from './TopRatedTv';
-import TopUpcomingMovie from './Upcoming';
+import TopRatedMovie from '../components/TopRatedMovie';
+import TopRatedTv from '../components/TopRatedTv';
+import TopUpcomingMovie from '../components/Upcoming';
 
 const Others = () => {
     return (
