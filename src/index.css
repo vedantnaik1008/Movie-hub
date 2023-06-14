@@ -60,16 +60,6 @@ a {
     animation: move-in 1s forwards;
 }
 
-/* .swiper {
-    width: 40%;
-}
-
-.swiper-slide img {
-    width: 100%;
-    height: 450px;
-    border-radius: 20px;
-    background-size: cover;
-} */
 
 .header {
     position: fixed;
@@ -115,14 +105,21 @@ a {
     position: relative;
     min-width: 100%;
     overflow: hidden;
-    background: transparent;
-    box-shadow: 0 8px 32px 12px rgb(31, 38, 135, 1);
-    backdrop-filter: blur(10px) saturate(80%) brightness(60%);
-    -webkit-backdrop-filter: blur(10px) saturate(80%) brightness(60%);
     border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.18);
-    transition: transform .3s ease-out;
+    transition: transform .2s ease-out, box-shadow .2s ease-out;
+    /* background: transparent; */
+}
 
+/* .cards:hover::before{
+    content: '';
+    background-color: rgb(0, 0, 0, .2);
+    position: absolute;
+    inset: 0;
+}*/
+
+.cards:hover{
+    box-shadow: 0 8px 32px 22px rgb(31, 38, 135, 1);
 }
 
 .card-img-top {
@@ -130,11 +127,26 @@ a {
     height: 100%;
     border-radius: 34px;
     border: 3px solid rgb(31, 38, 135, 1);
-    
 }
 
 .cards:hover{
     transform: scale(1.1);
+}
+
+ .cards .faplay-icon{
+    position: absolute;
+    color: white;
+    padding: 20px;
+    background-color: black;
+    inset: 0;
+    margin: auto;
+    border-radius: 50%;
+    font-size: 20px;
+    visibility: hidden;
+} 
+
+.cards:hover .faplay-icon{
+    visibility: visible;
 }
 
 .cards span {
@@ -159,36 +171,39 @@ a {
     font-weight: 700;
     background-color: black;
     padding: 10px;
-    border-radius: 50%;
     position: absolute;
-    top: 8%;
+    top: 0%;
     border: 3px solid rgba(31, 38, 135, 1);
-    right: 4%;
+    left: 0%;
     font-size: 17px;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
 .modal-top span.orange{
     font-weight: 700;
     background-color: black;
     padding: 10px;
-    border-radius: 50%;
     position: absolute;
-    top: 8%;
+    top: 0%;
     border: 3px solid rgba(31, 38, 135, 1);
-    right: 4%;
+    left: 0%;
     font-size: 17px;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
 .modal-top span.red{
     font-weight: 700;
     background-color: black;
     padding: 10px;
-    border-radius: 50%;
     position: absolute;
-    top: 8%;
+    top: 0%;
     border: 3px solid rgba(31, 38, 135, 1);
-    right: 4%;
+    left: 0%;
     font-size: 17px;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
 .cards span.orange , .modal-top span.orange{
@@ -239,7 +254,7 @@ a:hover {
 .display-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-    gap: 3rem;
+    gap: 2rem;
     background-color: black;
     position: relative;
     margin: 0 auto 0 auto;
@@ -287,24 +302,25 @@ a:hover {
 }
 
 .modal-top{
-    position: fixed; /* or `fixed` */
-    top: 22px;
+    position: fixed;
+    top: 30%;
+    bottom: 0;
     left: 0;
     right: 0;
-    bottom: 0;
     margin: auto;
-    width: 60%;
-    height: 75%;
-    background-color: black;
+    width: 80%;
+    height: 100%;
     transition: button .3s ease-out;
     overflow-y: scroll;
     border-radius: 10px;
-    z-index: 100;
+    z-index: 101;
 }
 
 .modal-top .close-btn{
-    position: absolute;
-    right: 0;
+    position: fixed;
+    right: 10.2%;
+    top: 15.5%;
+    border: none;
     background-color: black;
     color: white;
     border-radius: 10px;
@@ -312,27 +328,31 @@ a:hover {
 }
 
 .modal-down{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 2rem;
-    padding: 3rem;
-    
+    /* display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); */
+    display: flex;
+    border: 3px solid rgb(31, 38, 135, 1);
+    border-radius: 10px;
+    /* box-shadow: 0px 1px 32px 20px rgb(31, 38, 135, 1); */
+}
+
+.modal-top .modal-left{
+    width: 40%;
+}
+
+.modal-top .details{
+    width: 100%;
+    background-color: black;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    padding: 20px;
 }
 
 .modal-top .modal-left .poster{
     width: 100%;
     height: 100%;
-    border-radius: 20px;
-    border: 2px solid rgb(31, 38, 135, 1);
-    /* transition: transform .3s ease-out; */
-}
-
-/* .modal-left .poster:hover{
-    transform: scale(1.05);
-} */
-
-.modal-top .details{
-    border: 2px solid rgb(31, 38, 135, 1);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
 }
 
 .overview h4 {
@@ -377,9 +397,9 @@ a:hover {
 
 .close-btn-trailer{
     position: fixed;
-    right: 9%;
-    top: 12%;
-    background-color: red;
+    right: 15%;
+    top: 0%;
+    background-color: black;
     border: none;
     border-radius: 5px;
     color:white;
@@ -387,16 +407,20 @@ a:hover {
 }
 
 iframe{
-    width: 80%;
-    height: 500px;
+    width: 70%;
+    height: 555px;
     border: none;
     border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     position: fixed;
     margin: auto;
-    top: 30%;
-    inset: 0;
+    top: 20px;
+    left: 0;
+    right: 0;
+    bottom: 0;
     z-index: 102;
+    padding: 0 50px;
+    border: 2px solid white;
+    background-color: black;
 }
 
 .trailer-btn{
@@ -404,10 +428,15 @@ iframe{
     width: 100%;
     border-radius: 5px;
     border: none;
-    background-color: red;
+    background-color: rgb(31, 38, 135, 1);
     color: white;
     font-size: 16px;
     font-weight: 700;
+}
+
+.trailer-icon{
+    color: white;
+
 }
 
 .ccc {
@@ -435,6 +464,7 @@ iframe{
     -webkit-backdrop-filter: blur(14px);
     border: 1px solid rgba(255, 255, 255, 0.18);
 }
+
 .others-two {
     height: 500px;
     padding: 10px 50px;
@@ -455,6 +485,7 @@ iframe{
     -webkit-backdrop-filter: blur(14px);
     border: 1px solid rgba(255, 255, 255, 0.18);
 }
+
 .others h1, .others-two h1, .others-three h1{
     font-family: Kanit, sans-serif;
 }
@@ -474,23 +505,6 @@ iframe{
     transform: scale(1.05);
     opacity: 1;
 }
-
-/* .icon-fs-left {
-    animation: icon 1s ease-out infinite forwards;
-    color: #ffffff;
-}
-
-@keyframes icon {
-    0% {
-        transform: translateX(20%);
-    }
-    50% {
-        transform: translateX(50%);
-    }
-    100%{
-        transform: translateX(0);
-    }
-} */
 
 .whole-slider{
     width: 90%;
@@ -513,7 +527,7 @@ iframe{
     left: 10%;
     font-size: 18px;
     color: white;
-    font-weight: bolder;     
+    font-weight: bolder;  
 }
 
 .slider .overview-others h2:hover,.slider .overview-others p:hover,.slider .overview-others .release-date:hover{
@@ -575,9 +589,6 @@ iframe{
     color: white;
     font-weight: bolder;
 }
-
-
-
 
 @media (max-width: 624px) {
     .overview img:hover {

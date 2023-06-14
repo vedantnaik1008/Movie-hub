@@ -29,15 +29,15 @@ interface Video {
 const ModalTRTVS = ({show, isOpen, setIsOpen,poster_path, vote_average,title,name,media_type,overview,first_air_date,release_date, id, page}: Props) => {
   
     const [trailer, setTrailer] = useState<Video>();
-
+    const media = media_type === "tv"? "tv" : "movie"
     const fetchTrailer = async () => {
         try {
           const response = await fetch(`
-          https://api.themoviedb.org/3/tv/${id}?top_rated?language=en-US&api_key=${Access_key}&page=${page}&append_to_response=videos&sort_by=vote_average.desc
+          https://api.themoviedb.org/3/${media}/${id}?top_rated?language=en-US&api_key=${Access_key}&page=${page}&append_to_response=videos&sort_by=vote_average.desc
           `);
           const data = await response.json();
           console.log(data)
-          const trailer = data.videos.results.find((video: Video) => video.type === 'Trailer');
+          const trailer = data.videos.results.find((video: Video) => video.type === 'Trailer') || data.results[0];
           if (trailer) {
             setTrailer(trailer);
           } else {
@@ -69,7 +69,7 @@ const ModalTRTVS = ({show, isOpen, setIsOpen,poster_path, vote_average,title,nam
               <img src={poster_path ? `${IMGPATH + poster_path}` : unavailable} className="poster"/>
               <span className={getColorClass(vote_average)}>{vote_average.toFixed(1)}</span>
           </div>
-          <div className="details rounded-4 p-5">
+          <div className="details">
                   <div className="">
                         <h3 className="text-white text-center text-decoration-underline">{title || name}</h3>
                       <h4 className='text-white mt-3'>Overview</h4>

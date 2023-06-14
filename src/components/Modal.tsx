@@ -5,8 +5,8 @@ import { useState } from 'react';
 
 interface Props{
     show: boolean;
+    page: number;
     isOpen: boolean;
-    page: number
     setIsOpen: (isOpen:boolean) => void;
     poster_path: string; 
     vote_average: number;
@@ -38,7 +38,7 @@ const Modal = ({show, isOpen, setIsOpen,poster_path, vote_average,title,name,med
           `);
           const data = await response.json();
           console.log(data)
-          const trailer = data.videos.results.find((video: Video) => video.type === 'Trailer');
+          const trailer = data.videos.results.find((video: Video) => video.type === 'Trailer') || data.videos.results[0];
           if (trailer) {
             setTrailer(trailer);
           } else {
@@ -62,18 +62,19 @@ const Modal = ({show, isOpen, setIsOpen,poster_path, vote_average,title,name,med
 
   return (
     <>
+    
     <div className="modal-top">
-        <button className='close-btn'  onClick={()=> setIsOpen(!isOpen)}><FontAwesomeIcon icon={faXmark} size='xl' /></button>
+    <button className='close-btn'  onClick={()=> setIsOpen(!isOpen)}><FontAwesomeIcon icon={faXmark} size='xl' /></button>
       {show ? 
         <div className="modal-down" >
               <div className='modal-left' >
               <img src={poster_path ? `${IMGPATH + poster_path}` : unavailable} className="poster"/>
               <span className={getColorClass(vote_average)}>{vote_average.toFixed(1)}</span>
           </div>
-          <div className="details rounded-4 p-5">
+          <div className="details">
                   <div className="">
-                        <h3 className="text-white text-center text-decoration-underline">{title || name}</h3>
-                      <h4 className='text-white mt-3'>Overview</h4>
+                        <h3 className="text-white text-decoration-underline">{title || name}</h3>
+                      <h4 className='text-white mt-3 text-center'>Overview</h4>
                       <p className='text-white pt-2'>{overview}</p>
                       
                       <div className="text-white d-flex align-items-center justify-content-between">

@@ -38,7 +38,7 @@ const ModalUpcomingmt = ({show, isOpen, setIsOpen,poster_path, vote_average,titl
           `);
           const data = await response.json();
           console.log(data)
-          const trailer = data.videos.results.find((video: Video) => video.type === 'Trailer');
+          const trailer = data.videos.results.find((video: Video) => video.type === 'Trailer')|| data.results[0];
           if (trailer) {
             setTrailer(trailer);
           } else {
@@ -70,7 +70,7 @@ const ModalUpcomingmt = ({show, isOpen, setIsOpen,poster_path, vote_average,titl
               <img src={poster_path ? `${IMGPATH + poster_path}` : unavailable} className="poster"/>
               <span className={getColorClass(vote_average)}>{vote_average.toFixed(1)}</span>
           </div>
-          <div className="details rounded-4 p-5">
+          <div className="details">
                   <div className="">
                         <h3 className="text-white text-center text-decoration-underline">{title || name}</h3>
                       <h4 className='text-white mt-3'>Overview</h4>

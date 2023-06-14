@@ -1,11 +1,13 @@
-import axios from 'axios';
-import { useState, useEffect } from 'react';
-import Pagination from '../components/Pagination';
-import { Access_key, IMGPATH, unavailable } from '../components/Config';
+import { useState } from 'react';
+import { IMGPATH, unavailable } from '../components/Config';
 import Genre from '../components/Genre';
-import useGenre from '../hooks/useGenre';
 import { Fetching } from './Trending';
 import Modal from '../components/Modal';
+import useMovie from '../hooks/useMovie';
+import InfiniteScroll from 'react-infinite-scroll-component';
+import React from 'react';
+import { faPlay } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export interface GenreData {
     id: number;
@@ -20,35 +22,32 @@ export interface ValueData {
 }
 
 const Movies = () => {
-    const [state, setState] = useState<Fetching[]>([]);
+    
+    
     const [page, setPage] = useState(1);
     const [genre, setGenre] = useState<GenreData[]>([]); //used to store the non-selected genre values
     const [value, setValue] = useState<ValueData[]>([]); //used to store the selected genre values
-    const genreURL = useGenre(value);
+    // 
+    const genreIds = value.map((v)=> v.id);
+    const {data: datas, error, isLoading, fetchNextPage, hasNextPage} = useMovie(genreIds);
     const [modalData, setModalData] = useState<{ show: boolean; data: Fetching }>({
         show: false,
         data: {} as Fetching,
       });
-    
 
-    const fetchMovies = () => {
-        axios
-            .get<Fetching>(
-                `https://api.themoviedb.org/3/discover/movie?api_key=${Access_key}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=${genreURL}
-    `
-            )
-            .then((res) => {
-                setState(res.data.results);
-                console.log(res.data.results);
-            })
-            .catch((error) => error);
-    };
+    if(isLoading)return <p>
+    <div className="spinner-grow text-primary" role="status">
+       <span className="visually-hidden">Loading...</span>
+     </div>
+ </p>;
 
-    useEffect(() => {
-        fetchMovies();
-    }, [page, genreURL]);
+ if(error) return <p>{error.message}</p>;
 
-  
+const fetchedTrendingPages = datas?.pages.reduce((total, page)=> total + page.results.length, 0) || 0;
+
+  const loader = <div className="spinner-grow text-primary" role="status">
+  <span className="visually-hidden">Loading...</span>
+</div>;
 
     return (
         <>
@@ -60,37 +59,35 @@ const Movies = () => {
                         </div>
                     </div>
                 </div>
-                <Genre
-                    genre={genre}
-                    setGenre={setGenre}
-                    setPage={setPage}
-                    type='movie'
-                    value={value}
-                    setValue={setValue}
-                />
 
-<div className='display-grid'>
-        {state.map((val)=> (
-          <div key={val.id} id="card" >
-            <div className="cards  rounded-5">
-              <img
-              src={val.poster_path ? `${IMGPATH + val.poster_path}` : unavailable}
-              className="card-img-top rounded-5" onClick={() => setModalData({ show: true, data: val })}/>
-            </div> 
-          </div>
-        
-        ))}
-      </div>
-      {modalData.show && (
-        <Modal
+                <Genre genre={genre} setGenre={setGenre} type='movie' value={value} setValue={setValue} setPage={setPage}/>
+
+                <InfiniteScroll next={() => fetchNextPage()} hasMore={!!hasNextPage} loader={loader} dataLength={fetchedTrendingPages} className='display-grid p-5'>
+                
+                        {datas.pages.map((page, index)=> (
+                            <React.Fragment key={index}>
+                                {page.results.map((val)=> (
+                                    <div key={val.id} id="card" >
+                                    <div className="cards  rounded-5">
+                                    <img
+                                    src={val.poster_path ? `${IMGPATH + val.poster_path}` : unavailable}
+                                    className="card-img-top rounded-5" onClick={() => setModalData({ show: true, data: val })}/>
+                                    <FontAwesomeIcon icon={faPlay} bounce className='faplay-icon' onClick={() => setModalData({ show: true, data: val })}/>
+                                    </div> 
+                                </div>
+                                ))}
+                            </React.Fragment>
+                        ))}  
+                </InfiniteScroll>
+                {modalData.show && (
+                    <Modal
                         page={page} show={true}
                         isOpen={modalData.show}
                         setIsOpen={(isOpen) => setModalData({ ...modalData, show: isOpen })}
                         {...modalData.data}
-                        key={modalData.data.id}          />)}
-      <Pagination page={page} setPage={setPage}/>
+                        key={modalData.data.id}/>)}
     
-    </div>
+            </div>
 
         </>
     );

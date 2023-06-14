@@ -34,14 +34,14 @@ const ModalTV = ({show, isOpen, setIsOpen,poster_path, vote_average,title,name,m
     const [trailer, setTrailer] = useState<Video>();
     const genreURL = useGenre(value);
     const fetchTrailer = async () => {
-      //  const media = media_type === "tv"? "tv" : "movie";
+        const media = media_type === "tv"? "tv" : "movie";
         try {
           const response = await fetch(`
-          https://api.themoviedb.org/3/tv/${id}/videos?api_key=${Access_key}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=${genreURL}&append_to_response=videos&sort_by=vote_average.desc
+          https://api.themoviedb.org/3/${media}/${id}/videos?api_key=${Access_key}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=${genreURL}&append_to_response=videos&sort_by=vote_average.desc
           `);
           const data = await response.json();
           console.log(data)
-          const trailer = data.results.find((video: Video) => video.type === 'Trailer') || data.results[1]
+          const trailer = data.results.find((video: Video) => video.type === 'Trailer') || data.videos.results[0]
           if (trailer) {
             setTrailer(trailer);
           } else {
@@ -73,7 +73,7 @@ const ModalTV = ({show, isOpen, setIsOpen,poster_path, vote_average,title,name,m
               <img src={poster_path ? `${IMGPATH + poster_path}` : unavailable} className="poster"/>
               <span className={getColorClass(vote_average)}>{vote_average.toFixed(1)}</span>
           </div>
-          <div className="details rounded-4 p-5">
+          <div className="details">
                   <div className="">
                         <h3 className="text-white text-center text-decoration-underline">{title || name}</h3>
                       <h4 className='text-white mt-3'>Overview</h4>

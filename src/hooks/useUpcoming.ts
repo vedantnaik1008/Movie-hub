@@ -1,0 +1,14 @@
+import { useQuery } from '@tanstack/react-query'
+import APIClient, { FetchResponse } from '../Services/api-client'
+import { FetchTopRated } from './useTopRatedTv'
+
+const apiClient = new APIClient<FetchTopRated>('/movie/upcoming')
+
+const useUpcoming = () => useQuery<FetchResponse<FetchTopRated>, Error>({
+    queryKey: ['upcoming'],
+    queryFn: () => apiClient.get(),
+    staleTime: 24 * 60 * 60 * 1000,
+    keepPreviousData: true
+})
+
+export default useUpcoming

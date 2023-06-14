@@ -3,15 +3,15 @@ import { GenreData, ValueData } from '../Pages/Movies';
 
 interface Props{
     genre: GenreData[];
-    setGenre: (genre: GenreData[]) => void;
     setPage: (page: number) => void;
+    setGenre: (genre: GenreData[]) => void;
     type: string;
     value: ValueData[];
     setValue: (value: ValueData[]) => void;
 }
 
 
-const Genre = ({ genre, setGenre, setPage, type, value, setValue }: Props) => {
+const Genre = ({ genre, setGenre, type, value, setValue, setPage }: Props) => {
     const Access_key = '3171b031bea93a9972cd7b17398bcebf';
   const fetchGenre = async () => {
     const data = await fetch(
@@ -29,13 +29,13 @@ const Genre = ({ genre, setGenre, setPage, type, value, setValue }: Props) => {
   const CategoryAdd = (genres: ValueData) => {
     setValue([...value, genres]);
     setGenre(genre.filter((g)=> g.id !== genres.id));
-    setPage(1);
+    setPage(1)
   }
 
   const CategoryRemove = (genres: ValueData) => {
     setValue(value.filter((g)=> g.id !== genres.id));
     setGenre([...genre, genres]);
-    setPage(1);
+    setPage(1)
   }
   return (
     <>

@@ -4,6 +4,8 @@ import axios from "axios";
 import { Access_key, IMGPATH, unavailable } from "../components/Config";
 import { Fetching } from "./Trending";
 import Modal from "../components/Modal";
+import { faPlay } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Search = () => {
   const [searchText, setSearchText] = useState('')
@@ -14,6 +16,7 @@ const Search = () => {
     data: {} as Fetching,
   });
 
+  
 const fetchSearch = () => {
     axios.get<Fetching>(`https://api.themoviedb.org/3/search/multi?api_key=${Access_key}&language=en-US&query=${searchText}&page=${page}&include_adult=false
     `)
@@ -53,6 +56,7 @@ const fetchSearch = () => {
                   <img
                   src={val.poster_path ? `${IMGPATH + val.poster_path}` : unavailable}
                   className="card-img-top rounded-5" onClick={() => setModalData({ show: true, data: val })}/>
+                  <FontAwesomeIcon icon={faPlay} bounce className='faplay-icon' onClick={() => setModalData({ show: true, data: val })}/>
                 </div> 
               </div>
             

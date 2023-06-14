@@ -1,68 +1,20 @@
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Slider from 'react-slick';
-import axios from 'axios';
-import { useState, useEffect } from 'react';
-import { Access_key, IMGPATH } from './Config';
+import { IMGPATH } from './Config';
 import { NavLink } from 'react-router-dom';
+import useTopRatedTv from '../hooks/useTopRatedTv';
+import { settings } from '../Services/Settings';
 
-const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 4,
-    slidesToScroll: 4,
-    autoplay: true,
-    autoplaySpeed: 3000,
-    responsive: [
-        {
-            breakpoint: 1024,
-            settings: {
-                slidesToShow: 2,
-                slidesToScroll: 1,
-                infinite: true,
-                dots: true,
-            },
-        },
-        {
-            breakpoint: 768,
-            settings: {
-                slidesToShow: 1,
-                slidesToScroll: 1,
-                dots: false,
-            },
-        },
-    ],
-};
-
-interface FetchTopRated {
-    id: number;
-    name: string;
-    first_air_date: string;
-    vote_average: number;
-    overview: string;
-    backdrop_path: string;
-    results: [];
-}
 
 const TopRatedTv = () => {
-    const [state, setState] = useState<FetchTopRated[]>([]);
-
-    const fetchTopRatedTv = () => {
-        axios
-            .get<FetchTopRated>(
-                `https://api.themoviedb.org/3/tv/top_rated?language=en-US&api_key=${Access_key}`
-            )
-            .then((res) => {
-                setState(res.data.results);
-                console.log(res.data.results);
-            })
-            .catch((error) => error);
-    };
-
-    useEffect(() => {
-        fetchTopRatedTv();
-    }, []);
+    const {data, error, isLoading} = useTopRatedTv();
+    if(isLoading) return <p>
+            <div className="spinner-grow text-primary" role="status">
+                <span className="visually-hidden">Loading...</span>
+            </div>
+        </p>
+    if(error) return <p>{error.message}</p>;
 
     const getColorClass = (voteAverage: number) => {
         if (voteAverage >= 7.9) {
@@ -103,7 +55,7 @@ const TopRatedTv = () => {
                     </NavLink>
                 </div>
                 <Slider {...settings} className='whole-slider'>
-                    {state.map((i) => (
+                    {data.results.map((i) => (
                           <div key={i.id} className='slider'>
                           <img src={IMGPATH + i.backdrop_path} alt={i.name} onMouseEnter={() => handleHover(i.backdrop_path)} onMouseLeave={handleLeave}/>
                           <div className='overview-others'>

@@ -1,4 +1,4 @@
-interface ValueData {
+export interface ValueData {
     id: number;
     name: string;
     genres: [];

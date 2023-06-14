@@ -1,62 +1,65 @@
-import axios from 'axios';
-import { useState, useEffect } from 'react';
-import { Access_key, IMGPATH, unavailable } from '../components/Config';
+import { useState } from 'react';
+import { IMGPATH, unavailable } from '../components/Config';
 import { Fetching } from './Trending';
-import Pagination from '../components/Pagination';
 import Modal from '../components/Modal';
-
-
-// interface Props{
-//   media_type: string;
-//   id: number;
-// }
+import useTRM from '../hooks/useTRM';
+import React from 'react';
+import InfiniteScroll from 'react-infinite-scroll-component';
+import { faPlay } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const TopRatedM = () => {
-  const [state, setState] = useState<Fetching[]>([]);
-  const [page, setPage] = useState(1);
+  const [page] = useState(1);
   const [modalData, setModalData] = useState<{ show: boolean; data: Fetching }>({
     show: false,
     data: {} as Fetching,
   });
+  const {data: datas, error, isLoading, fetchNextPage, hasNextPage} = useTRM();
 
-  const fetchTopRatedTv = () => {
-    axios.get<Fetching>(`https://api.themoviedb.org/3/movie/top_rated?language=en-US&api_key=${Access_key}&page=${page}`)
-    .then((res) => {
-      setState(res.data.results)
-      console.log(res.data.results)
-    })
-    .catch(error => error);
-  }
+      if(isLoading)return <p>
+          <div className="spinner-grow text-primary" role="status">
+            <span className="visually-hidden">Loading...</span>
+          </div>
+      </p>;
 
-  useEffect(()=> {
-    fetchTopRatedTv();
-  }, [page])
+    if(error) return <p>{error.message}</p>;
 
- 
+    const fetchedTrendingPages = datas?.pages.reduce((total, page)=> total + page.results.length, 0) || 0;
+
+const loader = <div className="spinner-grow text-primary" role="status">
+<span className="visually-hidden">Loading...</span>
+</div>;
+
+
   return (
     <>
       <div className='bg-black'>
       <div className="container">
         <div className="row pt-5 pb-2 mt-5">
           <div className="col-12 mt-2 mb-4 fs-1 fw-bold text-white text-decoration-underline head d-flex justify-content-center align-items-center h4-title">
-            <i className="fas fa-fire mx-4 text-danger"></i>
+            
             <h4 className="fs-1 text-white fw-800 sub-title">TopRated Movies</h4>
-            <i className="fas fa-fire mx-4 text-danger"></i>
+            
           </div>
         </div>
       </div>
-      <div className='display-grid'>
-        {state.map((val)=> (
-          <div key={val.id} id="card" >
-            <div className="cards  rounded-5">
-              <img
-              src={val.poster_path ? `${IMGPATH + val.poster_path}` : unavailable}
-              className="card-img-top rounded-5" onClick={() => setModalData({ show: true, data: val })}/>
-            </div> 
-          </div>
-        
-        ))}
-      </div>
+      
+      <InfiniteScroll next={() => fetchNextPage()} hasMore={!!hasNextPage} loader={loader} dataLength={fetchedTrendingPages} className='display-grid p-5'>
+                        {datas.pages.map((page, index)=> (
+                            <React.Fragment key={index}>
+                                {page.results.map((val)=> (
+                                    <div key={val.id} id="card" >
+                                    <div className="cards  rounded-5">
+                                    <img
+                                    src={val.poster_path ? `${IMGPATH + val.poster_path}` : unavailable}
+                                    className="card-img-top rounded-5" onClick={() => setModalData({ show: true, data: val })}/>
+                                    <FontAwesomeIcon icon={faPlay} bounce className='faplay-icon' onClick={() => setModalData({ show: true, data: val })}/>
+                                    </div> 
+                                </div>
+                                ))}
+                            </React.Fragment>
+                        ))}  
+                </InfiniteScroll>
       
       {modalData.show && (
         <Modal
@@ -64,8 +67,7 @@ const TopRatedM = () => {
             isOpen={modalData.show}
             setIsOpen={(isOpen) => setModalData({ ...modalData, show: isOpen })}
             {...modalData.data}
-            key={modalData.data.id}          />)}
-      <Pagination page={page} setPage={setPage} />
+            key={modalData.data.id}/>)}
     </div>
     </>         
   )

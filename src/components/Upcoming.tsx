@@ -1,40 +1,10 @@
-import axios from 'axios';
-import { useState, useEffect } from 'react';
-import { Access_key, IMGPATH } from './Config';
+import { IMGPATH } from './Config';
 import { NavLink } from 'react-router-dom';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-
-const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 4,
-    slidesToScroll: 4,
-    autoplay: true,
-    autoplaySpeed: 3000,
-    responsive: [
-        {
-            breakpoint: 1024,
-            settings: {
-                slidesToShow: 3,
-                slidesToScroll: 3,
-                infinite: true,
-                dots: true,
-            },
-        },
-        {
-            breakpoint: 768,
-            settings: {
-                slidesToShow: 2,
-                slidesToScroll: 2,
-                dots: false,
-            },
-        },
-    ],
-};
-
+import { settings } from '../Services/Settings';
+import useUpcoming from '../hooks/useUpcoming';
 
 export interface FetchTopRated {
     id: number;
@@ -47,23 +17,16 @@ export interface FetchTopRated {
 }
 
 const TopUpcomingMovie = () => {
-    const [state, setState] = useState<FetchTopRated[]>([]);
+    const {data, error, isLoading} = useUpcoming()
 
-    const fetchTopUpcomingMovie = () => {
-        axios
-            .get<FetchTopRated>(
-                `https://api.themoviedb.org/3/movie/upcoming?language=en-US&api_key=${Access_key}`
-            )
-            .then((res) => {
-                setState(res.data.results);
-                console.log(res.data.results);
-            })
-            .catch((error) => error);
-    };
+    if(isLoading) return <p>
+        <div className="spinner-grow text-primary" role="status">
+            <span className="visually-hidden">Loading...</span>
+        </div>
+    </p>;
 
-    useEffect(() => {
-        fetchTopUpcomingMovie();
-    }, []);
+    if(error) return <p>{error.message}</p>;
+
     const getColorClass = (voteAverage: number) => {
         if (voteAverage >= 7.9) {
             return 'green';
@@ -103,7 +66,7 @@ const TopUpcomingMovie = () => {
                     </NavLink>
                 </div>
                 <Slider {...settings} className='whole-slider'>
-                    {state.map((i)=> (
+                    {data?.results.map((i)=> (
                           <div key={i.id} className='slider'>
                           <img src={IMGPATH + i.backdrop_path} alt={i.title} onMouseEnter={() => handleHover(i.backdrop_path)} onMouseLeave={handleLeave}/>
                           <div className='overview-others'>
