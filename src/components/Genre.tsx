@@ -41,7 +41,7 @@ const Genre = ({ genre, setGenre, type, value, setValue, setPage }: Props) => {
     <>
       <div className="container-fluid">
         <div className="row mb-3">
-            <div className="col-12 d-flex flex-wrap">
+            <div className="col-12  genres">
                 {value && value.map((val)=> (
                     <div className="m-2" key={val.id}>
                         <button className="bg-white text-black px-4 py-2 text-center buttons" onClick={()=> CategoryRemove(val)}>{val.name}</button>

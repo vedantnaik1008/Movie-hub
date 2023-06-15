@@ -13,6 +13,22 @@ body {
     object-fit: fill;
 }
 
+
+ .modal-top::-webkit-scrollbar, body::-webkit-scrollbar {
+    width: 5px;
+    height: 20px;
+  }
+  
+  .modal-top::-webkit-scrollbar-thumb, body::-webkit-scrollbar-thumb {
+    background-color: rgba(31, 38, 135, 01);
+    border-radius: 50px;
+  }
+
+  .modal-top::-webkit-scrollbar-track, body::-webkit-scrollbar-track {
+    background-color: white;
+  } 
+
+
 a {
     text-decoration: none;
 }
@@ -77,6 +93,10 @@ a {
     bottom: 0;
     z-index: 100;
     padding: 0.3% 0;
+    display: flex; 
+    justify-content: center; 
+    gap: 5;
+    align-items: center;
 }
 #fire {
     font-size: 20px;
@@ -108,15 +128,7 @@ a {
     border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.18);
     transition: transform .2s ease-out, box-shadow .2s ease-out;
-    /* background: transparent; */
 }
-
-/* .cards:hover::before{
-    content: '';
-    background-color: rgb(0, 0, 0, .2);
-    position: absolute;
-    inset: 0;
-}*/
 
 .cards:hover{
     box-shadow: 0 8px 32px 22px rgb(31, 38, 135, 1);
@@ -254,11 +266,12 @@ a:hover {
 .display-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-    gap: 2rem;
+    gap: 3rem 2rem;
     background-color: black;
     position: relative;
     margin: 0 auto 0 auto;
-    width: 90%;
+    width: 100%;
+    overflow: hidden;
 }
 
 
@@ -311,7 +324,7 @@ a:hover {
     width: 80%;
     height: 100%;
     transition: button .3s ease-out;
-    overflow-y: scroll;
+    overflow: hidden;
     border-radius: 10px;
     z-index: 101;
 }
@@ -590,12 +603,12 @@ iframe{
     font-weight: bolder;
 }
 
-@media (max-width: 624px) {
+/* @media (max-width: 624px) {
     .overview img:hover {
         transform: scale(1);
     }
-}
-
+} */
+/* 
 @media (min-width: 300px) and (max-width: 576px) {
     .header {
         font-size: 25px;
@@ -625,7 +638,7 @@ iframe{
     }
 }
 
-/*                            FOR TABLET                  */
+
 @media (min-width: 576px) and (max-width: 768px) {
     .card-title {
         font-size: 15px !important;
@@ -644,7 +657,7 @@ iframe{
         font-size: 14px;
     }
 }
-/*                            FOR DESKTOP                  */
+
 @media (min-width: 768px) and (max-width: 980px) {
     .card-title {
         font-size: 15px !important;
@@ -661,5 +674,265 @@ iframe{
     }
     .footer {
         font-size: 14px;
+    }
+} 
+*/
+
+@media (min-width: 320px) {
+    #navigation {
+        position: fixed;
+        top: 28%;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        width: 100%;
+        height: 100%;
+        transition: button .3s ease-out;
+        overflow-y: scroll; 
+        border-radius: 10px;
+        z-index: 101;
+    }
+    .display-grid{
+        padding: 3rem 2rem;
+    }
+    .modal-top {
+        position: fixed;
+        top: 0%;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        width: 100%;
+        height: 100%;
+        transition: button .3s ease-out;
+        overflow-y: scroll;
+        border-radius: 10px;
+        z-index: 101;
+    }
+    .modal-top .close-btn {
+        right: 2px;
+        top: 1px;
+        border-radius: 0px;
+        border-top-right-radius: 9px;
+        border-bottom-left-radius: 10px;
+    }
+    .modal-down {
+       flex-direction: column;
+    }
+    .modal-top .modal-left {
+        width: 100%;
+    }
+    .modal-top .modal-left .poster {
+        width: 100%;
+        height: 100%;
+        border-bottom-left-radius: 0px;
+        border-top-right-radius: 10px;
+        border-top-left-radius: 10px;
+    }
+    
+    .modal-top .details {
+        width: 100%;
+        background-color: black;
+        border-top-right-radius: 8px;
+        border-bottom-right-radius: 8px;
+        padding: 20px;
+    }
+    .details h3{
+        text-align: center;
+    }
+    .details h4{
+        text-align: start;
+    }
+    .whole-slider {
+        width: 100%;
+    }
+    .overview-others span.green {
+        color: chartreuse;
+        font-weight: 700;
+        background-color: black;
+        padding: 10px;
+        border-radius: 50%;
+        position: absolute;
+        top: 81%;
+        border: 3px solid white;
+        right: 0%;
+        font-size: 17px;
+    }
+    .overview-others span.orange {
+        color: darkorange;
+        font-weight: 700;
+        background-color: black;
+        padding: 10px;
+        border-radius: 50%;
+        position: absolute;
+        top: 81%;
+        border: 3px solid white;
+        right: 0%;
+        font-size: 17px;
+    }
+    .overview-others span.red {
+        color: crimson;
+        font-weight: 700;
+        background-color: black;
+        padding: 10px;
+        border-radius: 50%;
+        position: absolute;
+        top: 81%;
+        border: 3px solid white;
+        right: 0%;
+        font-size: 17px;
+    }
+    .others .title-space, .others-two .title-space, .others-three .title-space {
+        padding-left: 0px;
+        text-align: center;
+    }
+    .others-three {
+        margin-bottom: 0px;
+        height: 500px;
+        padding: 10px 50px;
+        background: black;
+        box-shadow: 0 8px 32px 15px rgba(31, 38, 135, 1);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+    iframe{
+    width: 95%;
+    height: 90%;
+    border: none;
+    border-radius: 8px;
+    position: fixed;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 102;
+    padding: 0 0px;
+    border: 2px solid white;
+    background-color: black;
+    }
+    .close-btn-trailer {
+        position: fixed;
+        right: 45%;
+        top: 0.1%;
+        background-color: black;
+        border: none;
+        border-top-left-radius: 50%;
+        border-top-right-radius: 50%;
+        color: white;
+        z-index: 103;
+    }
+    .genres{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        justify-content: center;
+    }
+    .footer{
+        display: none;
+    }
+}
+
+@media (min-width: 768px) {
+    #navigation{
+        display: none;
+    }
+    .bbb {
+      display: none;
+    }
+    .display-grid{
+        padding: 3rem 2rem;
+    }
+    .others-three {
+        margin-bottom: 80px;
+        height: 500px;
+        padding: 10px 50px;
+        background: black;
+        box-shadow: 0 8px 32px 15px rgba(31, 38, 135, 1);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+    .modal-top {
+        position: fixed;
+        top: 0%;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        width: 80%;
+        height: 75%;
+        transition: button .3s ease-out;
+        overflow-y: scroll;
+        border-radius: 10px;
+        z-index: 101;
+    }
+    .modal-down {
+        flex-direction: row;
+    }
+    .modal-top .modal-left .poster {
+        width: 100%;
+        height: 100%;
+        border-bottom-left-radius: 10px;
+        border-top-right-radius: 0px;
+        border-top-left-radius: 10px;
+    }
+    .modal-top .close-btn {
+        right: 10.5%;
+        top: 13%;
+        border-radius: 0px;
+        border-top-right-radius: 9px;
+        border-bottom-left-radius: 10px;
+    }
+    iframe{
+        width: 100%;
+        height: 85%;
+        border: none;
+        border-radius: 8px;
+        position: fixed;
+        margin: auto;
+        top: 20%;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 102;
+        padding: 0 0px;
+        border: 2px solid white;
+        background-color: black;
+    }
+    .close-btn-trailer {
+            position: fixed;
+            right: 45%;
+            top: 12.9%;
+            background-color: black;
+            border: none;
+            border-top-left-radius: 50%;
+            border-top-right-radius: 50%;
+            color: white;
+            z-index: 103;
+        }
+        .whole-slider {
+            width: 95%;
+        }
+        .others .title-space, .others-two .title-space, .others-three .title-space {
+            padding-left: 30px;
+            text-align: center;
+        }
+        .footer{
+            display: flex;
+            gap: 2rem;
+            padding: 1rem 0;
+        }
+}
+
+@media (min-width: 1024px) {
+    .whole-slider {
+        width: 90%;
+        margin: 0 auto;
+    }
+    .display-grid{
+        padding: 3rem 2rem;
     }
 }

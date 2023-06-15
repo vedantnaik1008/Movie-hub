@@ -58,7 +58,7 @@ const Trending = () => {
           </div>
         </div>
 
-        <InfiniteScroll next={() => fetchNextPage()} hasMore={!!hasNextPage} loader={loader} dataLength={fetchedTrendingPages} className='display-grid p-5'>
+        <InfiniteScroll next={() => fetchNextPage()} hasMore={!!hasNextPage} loader={loader} dataLength={fetchedTrendingPages} className='display-grid overflow-hidden'>
           {datas.pages.map((page, index)=> (
             <React.Fragment key={index}>
               {page.results.map((val)=> (

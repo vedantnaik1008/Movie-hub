@@ -72,7 +72,7 @@ const ModalTRTVS = ({show, isOpen, setIsOpen,poster_path, vote_average,title,nam
           <div className="details">
                   <div className="">
                         <h3 className="text-white text-center text-decoration-underline">{title || name}</h3>
-                      <h4 className='text-white mt-3'>Overview</h4>
+                      <h4 className='text-white mt-4'>Overview</h4>
                       <p className='text-white pt-2'>{overview}</p>
                       
                       <div className="text-white d-flex align-items-center justify-content-between">
@@ -88,7 +88,7 @@ const ModalTRTVS = ({show, isOpen, setIsOpen,poster_path, vote_average,title,nam
       : null}
       </div>
       {trailer ? (
-        <div className="modal-trailer">
+        <div className="modal-trailer ">
           <button className='close-btn-trailer' onClick={() => setTrailer(undefined)}>
             <FontAwesomeIcon icon={faXmark} size='2xl' />
           </button>

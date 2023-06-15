@@ -47,7 +47,7 @@ const TopRatedTv = () => {
     return (
         <>
             <div className='others'>
-                <div className='d-flex justify-content align-items-center gap-5 px-0 width-80'>
+                <div className='d-flex justify-content-center align-items-center gap-5  width-80'>
                     <NavLink to='/topratedtv'>
                         <h1 className=' text-white fw-800 my-3 title-space'>
                             Top Rated Tv Series

@@ -49,7 +49,7 @@ const handleLeave = () => {
     <>
     
     <div className='others-two'>
-      <div className="d-flex justify-content align-items-center gap-5 px-0 width-80">
+      <div className="d-flex justify-content-center align-items-center gap-5 width-80">
       <NavLink to='/topratedmovies'>
       {/* <FontAwesomeIcon icon={faArrowLeftLong} size="lg" className="icon-fs-left px-3"/> */}
         <h1 className=" text-white fw-800 my-3 title-space">Top Rated Movies </h1>

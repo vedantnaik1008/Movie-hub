@@ -58,7 +58,7 @@ const TopUpcomingMovie = () => {
     return (
         <>
             <div className='others-three'>
-            <div className='d-flex justify-content align-items-center gap-5 px-0 width-80'>
+            <div className='d-flex justify-content-center align-items-center gap-5 width-80'>
                     <NavLink to='/Upcomingmt'>
                         <h1 className=' text-white fw-800 my-3 title-space '>
                             Upcoming Movies

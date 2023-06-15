@@ -44,7 +44,7 @@ const loader = <div className="spinner-grow text-primary" role="status">
         </div>
       </div>
       
-      <InfiniteScroll next={() => fetchNextPage()} hasMore={!!hasNextPage} loader={loader} dataLength={fetchedTrendingPages} className='display-grid p-5'>
+      <InfiniteScroll next={() => fetchNextPage()} hasMore={!!hasNextPage} loader={loader} dataLength={fetchedTrendingPages} className='display-grid'>
                         {datas.pages.map((page, index)=> (
                             <React.Fragment key={index}>
                                 {page.results.map((val)=> (

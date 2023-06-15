@@ -40,7 +40,7 @@ const Footer = () => {
     <>
       <div className="container-fluid">
         <div className="row">
-            <div className="col-12 text-center bg-black footer display-flex d-flex justify-content-center gap-5 align-items-center">
+            <div className="col-12 text-center bg-black footer ">
                 {data.map((Val)=> (
                     <NavLink to={`${Val.link}`} key={Val.id}>
                         <div>

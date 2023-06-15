@@ -74,7 +74,7 @@ const Modal = ({show, isOpen, setIsOpen,poster_path, vote_average,title,name,med
           <div className="details">
                   <div className="">
                         <h3 className="text-white text-decoration-underline">{title || name}</h3>
-                      <h4 className='text-white mt-3 text-center'>Overview</h4>
+                      <h4 className='text-white mt-4 '>Overview</h4>
                       <p className='text-white pt-2'>{overview}</p>
                       
                       <div className="text-white d-flex align-items-center justify-content-between">
