@@ -1,6 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
-import Footer from './components/Footer';
 import Trending from './Pages/Trending';
 import Movies from './Pages/Movies';
 import TV from './Pages/TV';
@@ -64,7 +63,7 @@ const App = () => {
                             <Route key={route.path} {...route} />
                         ))}
                     </Routes>
-                    <Footer />
+                    {/* <Footer /> */}
                 </BrowserRouter>
         </div>
     );

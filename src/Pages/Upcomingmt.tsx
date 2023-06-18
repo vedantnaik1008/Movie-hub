@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { IMGPATH, unavailable } from '../components/Config';
 import { Fetching } from './Trending';
-import Pagination from '../components/Pagination';
 import ModalUpcomingmt from '../components/ModalUpcomingmt';
 import React from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
@@ -18,26 +17,28 @@ const Upcomingmt = () => {
 
   const {data: datas, error, isLoading, fetchNextPage, hasNextPage} = useUC();
 
-  if(isLoading)return <p>
-      <div className="spinner-grow text-primary" role="status">
-        <span className="visually-hidden">Loading...</span>
-      </div>
-  </p>;
+  if(isLoading)return <div className="d-flex justify-content-center spinner-loader">
+  <div className="spinner-border text-primary" role="status">
+    <span className="visually-hidden">Loading...</span>
+  </div>
+</div> ;
 
     if(error) return <p>{error.message}</p>;
 
     const fetchedTrendingPages = datas?.pages.reduce((total, page)=> total + page.results.length, 0) || 0;
 
-    const loader = <div className="spinner-grow text-primary" role="status">
-                      <span className="visually-hidden">Loading...</span>
-                    </div>;
+    const loader = <div className="d-flex justify-content-center">
+    <div className="spinner-border text-primary" role="status">
+      <span className="visually-hidden">Loading...</span>
+    </div>
+  </div> 
 
   
   return (
     <>
-      <div className='bg-black'>
+      <div className='bg-black-c'>
       <div className="container">
-        <div className="row pt-5 pb-2 mt-5">
+        <div className="row pt-3 pb-2">
           <div className="col-12 mt-2 mb-4 fs-1 fw-bold text-white text-decoration-underline head d-flex justify-content-center align-items-center h4-title">
             
             <h4 className="fs-1 text-white fw-800 sub-title">Upcoming Movies</h4>
@@ -67,7 +68,6 @@ const Upcomingmt = () => {
               setIsOpen={(isOpen) => setModalData({ ...modalData, show: isOpen })}
               {...modalData.data}
               key={modalData.data.id} />)}
-          <Pagination page={page} setPage={setPage} /> 
     </div>
     </>         
   )

@@ -45,15 +45,15 @@ const Navbar = () => {
     return (
         <>
             <div className='position-relative'>
-                <button className='bbb' onClick={handleClick}>
+                <span className='bbb' onClick={handleClick}>
                     <FontAwesomeIcon icon={faBars} size='2xl' className='bbb-icon'/>
-                </button>
+                </span>
                 <div
                     className={isOpen ? 'dont-show' : 'show-nav'}
                     id='navigation'>
-                    <button className='ccc' onClick={handleClick}>
+                    <span className='ccc' onClick={handleClick}>
                         <FontAwesomeIcon icon={faXmark} size='2xl' className='ccc-icon'/>
-                    </button>
+                    </span>
                     <nav className='navi'>
                         <ul className='d-flex flex-column gap-5 mt-5'>
                             {data.map((Val) => (

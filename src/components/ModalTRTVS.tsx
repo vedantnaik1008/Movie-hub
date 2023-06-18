@@ -1,7 +1,8 @@
 import { Access_key, IMGPATH, unavailable } from './Config';
-import { faXmark } from '@fortawesome/free-solid-svg-icons';
+import { faArrowLeft, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState } from 'react';
+import CastMt from './CastMT';
 
 interface Props{
     show: boolean;
@@ -29,11 +30,11 @@ interface Video {
 const ModalTRTVS = ({show, isOpen, setIsOpen,poster_path, vote_average,title,name,media_type,overview,first_air_date,release_date, id, page}: Props) => {
   
     const [trailer, setTrailer] = useState<Video>();
-    const media = media_type === "tv"? "tv" : "movie"
+    // const media = media_type === "tv"? "tv" : "movie"
     const fetchTrailer = async () => {
         try {
           const response = await fetch(`
-          https://api.themoviedb.org/3/${media}/${id}?top_rated?language=en-US&api_key=${Access_key}&page=${page}&append_to_response=videos&sort_by=vote_average.desc
+          https://api.themoviedb.org/3/movie/${id}?top_rated?language=en-US&api_key=${Access_key}&page=${page}&append_to_response=videos&sort_by=vote_average.desc
           `);
           const data = await response.json();
           console.log(data)
@@ -62,29 +63,29 @@ const ModalTRTVS = ({show, isOpen, setIsOpen,poster_path, vote_average,title,nam
   return (
     <>
     <div className="modal-top">
-        <button className='close-btn'  onClick={()=> setIsOpen(!isOpen)}><FontAwesomeIcon icon={faXmark} size='xl' /></button>
+        <button className='close-btn'  onClick={()=> setIsOpen(!isOpen)}><FontAwesomeIcon icon={faArrowLeft}/></button>
       {show ? 
-        <div className="modal-down" >
-              <div className='modal-left' >
-              <img src={poster_path ? `${IMGPATH + poster_path}` : unavailable} className="poster"/>
-              <span className={getColorClass(vote_average)}>{vote_average.toFixed(1)}</span>
-          </div>
-          <div className="details">
-                  <div className="">
-                        <h3 className="text-white text-center text-decoration-underline">{title || name}</h3>
-                      <h4 className='text-white mt-4'>Overview</h4>
-                      <p className='text-white pt-2'>{overview}</p>
-                      
-                      <div className="text-white d-flex align-items-center justify-content-between">
-                          <div className='fw-bold'>{media_type === "tv" ? "TV" : "Movie"}</div>
-                          <div className='fw-bold'>{first_air_date || release_date}</div>
-                      </div>
-                      <button className="trailer-btn" onClick={fetchTrailer}>
-                {trailer ? <span>Loading...</span> : <span>Play Trailer</span>}
-              </button>
-                  </div>
+        <><div className="modal-down">
+            <div className='modal-left'>
+              <img src={poster_path ? `${IMGPATH + poster_path}` : unavailable} className="poster" />
+            </div>
+            <div className="details">
+              <div className="">
+                <h3 className=" text-decoration-underline">{title || name}</h3>
+                <h4 className='mt-4'>Overview</h4>
+                <p className='pt-2'>{overview}</p>
+
+                <div className="">
+                  <div className='fw-bold'>Type: {media_type === "tv" ? "TV" : "Movie"}</div>
+                  <div className='fw-bold'>Release date: {first_air_date || release_date}</div>
+                </div>
+                <p className='span-para'>Ratings:<span className={getColorClass(vote_average)}> {vote_average.toFixed(1)}</span></p>
+                <button className="trailer-btn" onClick={fetchTrailer}>
+                  {trailer ? <span>Loading...</span> : <span>Play Trailer</span>}
+                </button>
               </div>
-        </div>
+            </div>
+          </div><CastMt movie_id={id} page={page}  media_type={media_type} /></>
       : null}
       </div>
       {trailer ? (

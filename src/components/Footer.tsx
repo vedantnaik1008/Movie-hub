@@ -38,22 +38,19 @@ const Footer = () => {
    
   return (
     <>
-      <div className="container-fluid">
-        <div className="row">
-            <div className="col-12 text-center bg-black footer ">
+            <div className="footer ">
                 {data.map((Val)=> (
-                    <NavLink to={`${Val.link}`} key={Val.id}>
+                    <NavLink to={`${Val.link}`} key={Val.id} className='navlink'>
                         <div>
-                            <button className='col-sm-2 col-md-2 d-flex flex-column justify-content-center align-items-center bg-black text-white footer-border'>
-                                {Val.icon_2? <i className="icon-2 icon-2-two">{Val.icon_2}</i> : <i className={`${Val.icon}`} id='fire'></i>}
+                            <button className='bg-transparent text-white footer-border'>
+                                {/* {Val.icon_2? <i className="icon-2 icon-2-two">{Val.icon_2}</i> : <i className={`${Val.icon}`} id='fire'></i>} */}
                                 <h5 className="pt-1 fs-6 text-nowrap footer-names">{Val.name}</h5>
                             </button>
                         </div>
                     </NavLink>
                 ))}
+            
             </div>
-        </div>
-      </div>
     </>
   )
 }
