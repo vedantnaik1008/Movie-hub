@@ -9,7 +9,7 @@ import { faPlay } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const TopRatedM = () => {
-  const [page, setPage] = useState(1);
+  const [page] = useState(1);
   const [modalData, setModalData] = useState<{ show: boolean; data: Fetching }>({
     show: false,
     data: {} as Fetching,

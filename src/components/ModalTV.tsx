@@ -89,7 +89,7 @@ const ModalTV = ({show, isOpen, setIsOpen,poster_path, vote_average,title,name,m
                 </button>
               </div>
             </div>
-          </div><CastMt movie_id={id} page={page} media_type={media_type} /></>
+          </div><CastMt movie_id={id} page={page} /></>
       : null}
       </div>
       {trailer ? (

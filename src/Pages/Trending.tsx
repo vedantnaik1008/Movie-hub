@@ -23,7 +23,7 @@ export interface Fetching{
 
 
 const Trending = () => {
-  const [page, setPage] = useState(1);
+  const [page] = useState(1);
   const [modalData, setModalData] = useState<{ show: boolean; data: Fetching }>({
     show: false,
     data: {} as Fetching,

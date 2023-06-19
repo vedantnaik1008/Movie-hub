@@ -21,13 +21,11 @@ interface Credits {
 interface Props{
     movie_id: number;
     page: number;
-    media_type: string;
 }
 
 //https://api.themoviedb.org/3/tv/2335/credits?language=en-US
-const CastMt = ({movie_id, page, media_type}: Props) =>{
+const CastMt = ({movie_id, page}: Props) =>{
   const [credits, setCredits] = useState<Credits | null>(null);
-  const media = media_type === 'movie'? 'movie': 'tv';
   useEffect(() => {
     fetch(`https://api.themoviedb.org/3/movie/${movie_id}/credits?api_key=${Access_key}&page=${page}`)
       .then((response) => response.json())
