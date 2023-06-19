@@ -80,7 +80,7 @@ li {
 }
 
 .bg-black-c {
-    background-image: linear-gradient(
+    /* background-image: linear-gradient(
         to bottom,
         #00ff50,
         #00f1b5,
@@ -94,9 +94,12 @@ li {
         #00cfff,
         #00e8ff,
         #00ffef
-    );
+    ); */
+    /* background-image: linear-gradient(to right, #662D8C,  #ED1E79); */
+    background-image: linear-gradient(to bottom, #2E3192, #1BFFFF);
+    
 }
-.bg-black-s {
+/* .bg-black-s {
     background-image: linear-gradient(
         to top,
         #ff0059,
@@ -112,7 +115,7 @@ li {
         #d700ce,
         #9200ff
     );
-}
+} */
 
 .h4-title {
     animation: move-out 1s forwards;
@@ -284,7 +287,7 @@ li {
 
 .cards:hover {
     transform: scale(1.1);
-    background-image: linear-gradient(
+    /* background-image: linear-gradient(
         to bottom,
         #00ff50,
         #00f1b5,
@@ -298,7 +301,8 @@ li {
         #00cfff,
         #00e8ff,
         #00ffef
-    );
+    ); */
+    background-image: linear-gradient(to right, #2E3192, #1BFFFF);
 }
 
 .cards .faplay-icon {
@@ -441,7 +445,7 @@ a:hover {
 }
 
 .background-search-h{
-    background-image: linear-gradient(
+    /* background-image: linear-gradient(
         to bottom,
         #00ff50,
         #00f1b5,
@@ -455,7 +459,8 @@ a:hover {
         #00cfff,
         #00e8ff,
         #00ffef
-    );
+    ); */
+    background-image: linear-gradient(to bottom,  #2E3192, #1BFFFF);
 }
 
 
@@ -833,7 +838,7 @@ a:hover {
         z-index: 101;
     }
     .background-search-h{
-        background-image: linear-gradient(
+        /* background-image: linear-gradient(
             to bottom,
             #00ff50,
             #00f1b5,
@@ -847,7 +852,8 @@ a:hover {
             #00cfff,
             #00e8ff,
             #00ffef
-        );
+        ); */
+        background-image: linear-gradient(to bottom,  #2E3192, #1BFFFF);
     }
     .input-title {
         justify-content: unset;
