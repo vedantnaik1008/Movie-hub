@@ -45,7 +45,7 @@ body::-webkit-scrollbar-thumb,
 .modal-top::-webkit-scrollbar-track,
 body::-webkit-scrollbar-track,
 .modal-top .modal-details::-webkit-scrollbar {
-    background-image: linear-gradient(
+    /* background-image: linear-gradient(
         to bottom,
         #00ff50,
         #00f1b5,
@@ -59,7 +59,9 @@ body::-webkit-scrollbar-track,
         #00cfff,
         #00e8ff,
         #00ffef
-    );
+    ); */
+    
+    background-image: linear-gradient(to bottom, #2E3192, #1BFFFF);
 }
 
 a {
