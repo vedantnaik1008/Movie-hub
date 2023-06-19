@@ -58,7 +58,7 @@ const Trending = () => {
               
             </div>
           </div>
-        s</div>
+        </div>
 
         <InfiniteScroll next={() => fetchNextPage()} hasMore={!!hasNextPage} loader={loader} dataLength={fetchedTrendingPages} className='display-grid overflow-hidden'>
           {datas.pages.map((page, index)=> (
