@@ -77,10 +77,8 @@ const TV = () => {
                     <ModalTV value={value} page={page} show={true} isOpen={modalData.show}
                     setIsOpen={(isOpen) => setModalData({ ...modalData, show: isOpen })}
                     {...modalData.data}
-                    key={modalData.data.id} />
-      )}
-    </div>
-
+                    key={modalData.data.id} />)}
+            </div>
         </>
     );
 };

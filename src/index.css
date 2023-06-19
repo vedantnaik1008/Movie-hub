@@ -143,6 +143,8 @@ li {
 
 .search-title {
     animation: move-in-search 1s forwards;
+    background-color: #0092ff;
+    border: none;
 }
 
 .input-title {
@@ -153,6 +155,18 @@ li {
     padding-top: 100px;
     padding-bottom: 25px;
 }
+
+.input-title input{
+    color: white;
+    background-color: transparent;
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 0px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(4.7px);
+    -webkit-backdrop-filter: blur(4.7px);
+    border: 1px solid rgba(255, 255, 255, 1);
+}
+
 .input-title button {
     padding: 11px 0;
     border-radius: 30px;
@@ -251,7 +265,7 @@ li {
     overflow: hidden;
     border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.18);
-    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+    transition: transform 0.3s ease-out, backgroud-image 0.3s ease-out;
     background-color: transparent;
     padding: 20px;
     background: rgba(255, 255, 255, 0.12);
@@ -270,18 +284,39 @@ li {
 
 .cards:hover {
     transform: scale(1.1);
+    background-image: linear-gradient(
+        to bottom,
+        #00ff50,
+        #00f1b5,
+        #00dbfb,
+        #00beff,
+        #009bff,
+        #0098ff,
+        #0095ff,
+        #0092ff,
+        #00b2ff,
+        #00cfff,
+        #00e8ff,
+        #00ffef
+    );
 }
 
 .cards .faplay-icon {
     position: absolute;
     color: white;
     padding: 20px;
-    background-color: black;
     inset: 0;
     margin: auto;
     border-radius: 50%;
     font-size: 20px;
     visibility: hidden;
+    transition: visibility .3s ease-out;
+    background-color: transparent;
+    background: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10.7px);
+    -webkit-backdrop-filter: blur(10.7px);
+    border: 1px solid rgba(255, 255, 255, 0.27);
 }
 
 .cards:hover .faplay-icon {
@@ -353,6 +388,15 @@ li {
     font-weight: 700;
 }
 
+.button{
+    background-color: transparent;
+    background: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(4.7px);
+    -webkit-backdrop-filter: blur(4.7px);
+    border: 1px solid rgba(255, 255, 255, 0.27);
+}
+
 .button,
 .buttons {
     border-radius: 34px;
@@ -362,7 +406,7 @@ li {
 }
 
 .pagination {
-    padding-bottom: 90px;
+    padding-bottom: 80px;
 }
 
 .search {
@@ -371,7 +415,7 @@ li {
 }
 .search::placeholder {
     font-weight: bold;
-    color: black;
+    color: white;
     font-size: 20px;
     padding: 0 2%;
 }
@@ -388,6 +432,15 @@ a:hover {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
     gap: 3rem 2rem;
+   
+    /* background-image: linear-gradient(to bottom, #960292, #b80084, #d40072, #e9005c, #f60045, #f60045, #f60045, #f60045, #e9005c, #d40072, #b80084, #960292); */
+    position: relative;
+    margin: 0 auto 0 auto;
+    width: 100%;
+    overflow: hidden;
+}
+
+.background-search-h{
     background-image: linear-gradient(
         to bottom,
         #00ff50,
@@ -403,6 +456,15 @@ a:hover {
         #00e8ff,
         #00ffef
     );
+}
+
+
+
+.display-grid-search {
+    display: grid;
+    padding: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap: 3rem 2rem;
     /* background-image: linear-gradient(to bottom, #960292, #b80084, #d40072, #e9005c, #f60045, #f60045, #f60045, #f60045, #e9005c, #d40072, #b80084, #960292); */
     position: relative;
     margin: 0 auto 0 auto;
@@ -442,14 +504,18 @@ a:hover {
 }
 
  .modal-top .close-btn{
-    position: fixed;
+    position: absolute;
     right: 10.2%;
     top: 15.5%;
-    border: none;
-    background-color: black;
     color: white;
     border-radius: 10px;
     padding: 5px 10px;
+    background-color: transparent;
+    background: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10.7px);
+    -webkit-backdrop-filter: blur(10.7px);
+    border: 1px solid rgba(255, 255, 255, 0.27);
 }
 
 .overview h4 {
@@ -481,6 +547,19 @@ a:hover {
     border-radius: 50%;
     color: white;
     padding: 5px 10px;
+}
+
+
+
+.pagination .button-one, .pagination .button-two{
+    background-color: white;
+    color: black;
+    border-radius: 20px;
+    font-size: 20px;
+}
+
+.button-one:hover, .button-two:hover{
+    outline: 1px solid white;
 }
 
 .spinner-loader{
@@ -548,34 +627,55 @@ a:hover {
 
 .others {
     height: 500px;
-    padding: 85px 50px 10px 50px;
-    background: black;
-    box-shadow: 0 8px 32px 15px rgba(31, 38, 135, 01);
+    padding: 10px 50px 10px 50px;
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
     border: 1px solid rgba(255, 255, 255, 0.18);
+    background-position: center top;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #fff;
+    transition: all 0.8s;
+}
+
+.others.hovered {
+    background-image: url(/*URL of the hovered image*/);
 }
 
 .others-two {
     height: 500px;
     padding: 10px 50px;
-    background: black;
-    box-shadow: 0 8px 32px 15px rgba(31, 38, 135, 1);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
     border: 1px solid rgba(255, 255, 255, 0.18);
+    background-position: center top;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #fff;
+    transition: all 0.8s;
 }
+
+.others-two.hovered {
+    background-image: url(/*URL of the hovered image*/);
+  }
 
 .others-three {
     margin-bottom: 0;
     height: 500px;
     padding: 10px 50px;
-    background: black;
-    box-shadow: 0 8px 32px 15px rgba(31, 38, 135, 1);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
     border: 1px solid rgba(255, 255, 255, 0.18);
+    background-position: center top;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #fff;
+    transition: all 0.8s;
 }
+
+.others-three.hovered {
+    background-image: url(/*URL of the hovered image*/);
+  }
 
 .others h1,
 .others-two h1,
@@ -593,14 +693,13 @@ a:hover {
     border: 2px solid white;
     border-radius: 20px;
     transition: transform 0.3s ease-out;
-    opacity: 0.7;
+    opacity: 1;
 }
 
 .others img:hover,
 .others-two img:hover,
 .others-three img:hover {
     transform: scale(1.05);
-    opacity: 1;
 }
 
 .whole-slider {
@@ -695,7 +794,7 @@ a:hover {
     font-weight: bolder;
 }
 
-img {
+.cast-actor-grid img {
     background-image: url('https://user-images.githubusercontent.com/10515204/56117400-9a911800-5f85-11e9-878b-3f998609a6c8.jpg');
     width: 100%;
     height: 100%;
@@ -710,6 +809,10 @@ img {
     inset: 0;
     width: 100%;
     height: 100%;
+}
+
+.others-background-p{
+    padding-top: 82px;
 }
 
 @media (min-width: 320px) {
@@ -729,6 +832,23 @@ img {
         border-bottom-left-radius: 0px;
         z-index: 101;
     }
+    .background-search-h{
+        background-image: linear-gradient(
+            to bottom,
+            #00ff50,
+            #00f1b5,
+            #00dbfb,
+            #00beff,
+            #009bff,
+            #0098ff,
+            #0095ff,
+            #0092ff,
+            #00b2ff,
+            #00cfff,
+            #00e8ff,
+            #00ffef
+        );
+    }
     .input-title {
         justify-content: unset;
         position: relative;
@@ -747,7 +867,7 @@ img {
         justify-content: center;
     }
     .display-grid {
-        padding: 2rem;
+        padding: 2rem 1.8rem;
     }
     .modal-top {
         position: fixed;
@@ -913,20 +1033,20 @@ img {
         padding-left: 0px;
         text-align: center;
     }
+    others-background-p{
+        padding-top: 90px;
+    }
     .others {
         height: 500px;
-        padding: 85px 35px 10px 35px;
-        background: black;
-        box-shadow: 0 8px 32px 15px rgba(31, 38, 135, 01);
+        padding: 10px 30px;
+        margin-top: 0px;
         backdrop-filter: blur(14px);
         -webkit-backdrop-filter: blur(14px);
         border: 1px solid rgba(255, 255, 255, 0.18);
     }
     .others-two {
         height: 500px;
-        padding: 10px 35px;
-        background: black;
-        box-shadow: 0 8px 32px 15px rgba(31, 38, 135, 1);
+        padding: 10px 30px;
         backdrop-filter: blur(14px);
         -webkit-backdrop-filter: blur(14px);
         border: 1px solid rgba(255, 255, 255, 0.18);
@@ -934,9 +1054,7 @@ img {
     .others-three {
         margin-bottom: 0px;
         height: 500px;
-        padding: 10px 35px;
-        background: black;
-        box-shadow: 0 8px 32px 15px rgba(31, 38, 135, 1);
+        padding: 10px 30px;
         backdrop-filter: blur(14px);
         -webkit-backdrop-filter: blur(14px);
         border: 1px solid rgba(255, 255, 255, 0.18);
@@ -961,7 +1079,7 @@ img {
         position: fixed;
         left: 2%;
         top: 0.5%;
-        background-color: black;
+        background-color: unset;
         border: none;
         border-radius: 50%;
         padding: 5px 10px;
@@ -989,8 +1107,7 @@ img {
         align-self: flex-start;
     }
     .cast-actor-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        display: grid;grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
         gap: 2rem;
         padding: 20px;
     }
@@ -1056,8 +1173,6 @@ img {
         margin-bottom: 0px;
         height: 500px;
         padding: 10px 50px;
-        background: black;
-        box-shadow: 0 8px 32px 15px rgba(31, 38, 135, 1);
         backdrop-filter: blur(14px);
         -webkit-backdrop-filter: blur(14px);
         border: 1px solid rgba(255, 255, 255, 0.18);

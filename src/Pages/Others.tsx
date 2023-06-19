@@ -4,7 +4,7 @@ import TopUpcomingMovie from '../components/Upcoming';
 
 const Others = () => {
     return (
-        <div>
+        <div className='bg-black-c others-background-p'>
             <TopRatedTv />
             <TopRatedMovie />
             <TopUpcomingMovie />

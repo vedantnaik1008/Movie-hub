@@ -51,7 +51,7 @@ const Genre = ({ genre, setGenre, type, value, setValue, setPage }: Props) => {
                 {genre && genre.map((gen)=> (
                     <div className="m-2" key={gen.id}>
                         <button
-                        className="bg-black text-white px-4 py-2 text-center button"
+                        className=" text-white px-4 py-2 text-center button"
                         onClick={() => CategoryAdd(gen)}
                       >
                         {gen.name}

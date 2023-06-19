@@ -5,9 +5,11 @@ import { IMGPATH } from './Config';
 import { NavLink } from "react-router-dom";
 import { settings } from "../Services/Settings";
 import useTopRatedMovie from "../hooks/useTopRatedMovie";
+import { useState } from "react";
 
 const TopRatedMovie = () => {
   const {data, error, isLoading} = useTopRatedMovie()
+  const [isHovered, setIsHovered] = useState(false);
 
   if(isLoading) return <p>
             <div className="spinner-grow text-primary" role="status">
@@ -31,10 +33,7 @@ const handleHover = (backDropPath: string) => {
     const othersElement = document.querySelector('.others-two')as HTMLDivElement
     if (othersElement) {
         othersElement.style.backgroundImage = `url(${IMGPATH + backDropPath})`;
-        othersElement.style.backgroundRepeat = 'no-repeat';
-        othersElement.style.backgroundPosition = 'center top';
-        othersElement.style.objectFit = 'cover';
-        othersElement.style.transition = 'all .5s';
+        setIsHovered(true)
     }
 }
 
@@ -42,13 +41,14 @@ const handleLeave = () => {
     const othersElement = document.querySelector('.others-two')as HTMLDivElement
     if (othersElement) {
         othersElement.style.backgroundImage = ''
+        setIsHovered(false)
     }
 };
 
   return (
     <>
     
-    <div className='others-two'>
+    <div className={`others-two ${isHovered ? 'hovered' : ''}`}>
       <div className="d-flex justify-content-center align-items-center gap-5 width-80">
       <NavLink to='/topratedmovies'>
       {/* <FontAwesomeIcon icon={faArrowLeftLong} size="lg" className="icon-fs-left px-3"/> */}
@@ -59,7 +59,9 @@ const handleLeave = () => {
         <Slider {...settings} className="whole-slider"> 
           {data.results.map((i) => (
             <div key={i.id} className='slider'>
-            <img src={IMGPATH + i.backdrop_path} alt={i.title} onMouseEnter={() => handleHover(i.backdrop_path)} onMouseLeave={handleLeave}/>
+            <NavLink to='/topratedmovies'>
+              <img src={IMGPATH + i.backdrop_path} alt={i.name} onMouseEnter={() => handleHover(i.backdrop_path)} onMouseLeave={handleLeave}/>
+            </NavLink>
             <div className='overview-others'>
                 <h2>{i.title}</h2>
                 <span className={getColorClass(i.vote_average)}>{i.vote_average.toFixed(1)}</span>

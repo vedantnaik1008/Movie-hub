@@ -69,27 +69,27 @@ const ModalTV = ({show, isOpen, setIsOpen,poster_path, vote_average,title,name,m
     <div className="modal-top">
         <button className='close-btn'  onClick={()=> setIsOpen(!isOpen)}><FontAwesomeIcon icon={faArrowLeft}/></button>
       {show ? 
-        <div className="modal-down" >
-              <div className='modal-left' >
-              <img src={poster_path ? `${IMGPATH + poster_path}` : unavailable} className="poster"/>
-          </div>
-          <div className="details">
-                  <div className="">
-                        <h3 className="text-decoration-underline">{title || name}</h3>
-                      <h4 className='mt-4'>Overview</h4>
-                      <p className='pt-2'>{overview}</p>
-                      
-                      <div className="">
-                          <div className='fw-bold'>Type: {media_type === "tv" ? "TV" : "Movie"}</div>
-                          <div className='fw-bold'>Release date: {first_air_date || release_date}</div>
-                      </div>
-                      <p className='span-para'>Ratings:<span className={getColorClass(vote_average)}> {vote_average.toFixed(1)}</span></p>
-                      <button className="trailer-btn" onClick={fetchTrailer}>
-                {trailer ? <span>Loading...</span> : <span>Play Trailer</span>}
-              </button>
-                  </div>
+        <><div className="modal-down">
+            <div className='modal-left'>
+              <img src={poster_path ? `${IMGPATH + poster_path}` : unavailable} className="poster" />
+            </div>
+            <div className="details">
+              <div className="">
+                <h3 className="text-decoration-underline">{title || name}</h3>
+                <h4 className='mt-4'>Overview</h4>
+                <p className='pt-2'>{overview}</p>
+
+                <div className="">
+                  <div className='fw-bold'>Type: {media_type === "tv" ? "TV" : "Movie"}</div>
+                  <div className='fw-bold'>Release date: {first_air_date || release_date}</div>
+                </div>
+                <p className='span-para'>Ratings:<span className={getColorClass(vote_average)}> {vote_average.toFixed(1)}</span></p>
+                <button className="trailer-btn" onClick={fetchTrailer}>
+                  {trailer ? <span>Loading...</span> : <span>Play Trailer</span>}
+                </button>
               </div>
-        </div>
+            </div>
+          </div><CastMt movie_id={id} page={page} media_type={media_type} /></>
       : null}
       </div>
       {trailer ? (
@@ -101,7 +101,7 @@ const ModalTV = ({show, isOpen, setIsOpen,poster_path, vote_average,title,name,m
             src={`https://www.youtube.com/embed/${trailer.key}`}
             title={trailer.name}
             allowFullScreen />
-        </div><CastMt movie_id={id} page={page} media_type={media_type} /></>
+        </div></>
       ) : null}
     </>
   )

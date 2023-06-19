@@ -20,13 +20,15 @@ const Pagination = ({page, setPage}: Props) => {
       };
   return (
     <>
-      <div className="pagination d-flex justify-content-center align-items-center bg-black mt-4">
-      <button className="px-3 py-1 m-1 text-center button-one" onClick={Previous}>
-      <i className="fa fa-chevron-left" aria-hidden="true"></i>
-      </button>
+      <div className="pagination-relative">
+        <div className="pagination d-flex justify-content-center align-items-center bg-black">
+          <button className="px-3 py-1 m-1 text-center button-one" onClick={Previous}>
+          <i className="fa fa-chevron-left" aria-hidden="true"></i>
+          </button>
 
-      <button className="px-3 py-1 m-1 text-center button-two" onClick={Next}><i className="fa fa-chevron-right" aria-hidden="true"></i></button>
-    </div>
+          <button className="px-3 py-1 m-1 text-center button-two" onClick={Next}><i className="fa fa-chevron-right" aria-hidden="true"></i></button>
+        </div>
+      </div>
     </>
   )
 }

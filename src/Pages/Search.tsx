@@ -43,12 +43,13 @@ const fetchSearch = () => {
   
   return (
     <>
-      <div className=" bg-black input-title">
-        <input type="text" placeholder="search..." onChange={Trigger} className="form-control-lg col-6 search bg-white rounded-5 text-black border border-0  mt-2"/>
-        <button className="btn btn-primary text-white mx-2 col-md-1 mt-2 col-sm-2 search-title" onClick={Searches}><i className="fas fa-search"></i></button>
+    <div className="background-search-h">
+      <div className=" input-title">
+        <input type="text" placeholder="search..." onChange={Trigger} className="form-control-lg col-6 search rounded-5 border border-0  mt-2"/>
+        <button className="text-white mx-2 col-md-1 mt-2 col-sm-2 search-title" onClick={Searches}><i className="fas fa-search"></i></button>
       </div>
-        <div className="">
-          <div className={content.length ? "display-grid" : "display-grid p-0 "}>
+      
+          <div className={content.length ? "display-grid-search" : "display-grid-search p-0"}>
               {content.map((val)=> (
               <div key={val.id} id="card" >
                 <div className="cards  rounded-5">

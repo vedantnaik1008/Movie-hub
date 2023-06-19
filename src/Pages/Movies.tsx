@@ -35,7 +35,7 @@ const Movies = () => {
         data: {} as Fetching,
       });
 
-    if(isLoading)return <div className="d-flex justify-content-center">
+    if(isLoading)return <div className="d-flex justify-content-center spinner-loader">
     <div className="spinner-border text-primary" role="status">
       <span className="visually-hidden">Loading...</span>
     </div>

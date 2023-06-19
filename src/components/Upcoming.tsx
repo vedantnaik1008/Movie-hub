@@ -5,6 +5,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { settings } from '../Services/Settings';
 import useUpcoming from '../hooks/useUpcoming';
+import { useState } from 'react';
 
 export interface FetchTopRated {
     id: number;
@@ -18,6 +19,7 @@ export interface FetchTopRated {
 
 const TopUpcomingMovie = () => {
     const {data, error, isLoading} = useUpcoming()
+    const [isHovered, setIsHovered] = useState(false);
 
     if(isLoading) return <p>
         <div className="spinner-grow text-primary" role="status">
@@ -41,10 +43,7 @@ const TopUpcomingMovie = () => {
         const othersElement = document.querySelector('.others-three')as HTMLDivElement
         if (othersElement) {
             othersElement.style.backgroundImage = `url(${IMGPATH + backDropPath})`;
-            othersElement.style.backgroundRepeat = 'no-repeat';
-            othersElement.style.backgroundPosition = 'center top';
-            othersElement.style.objectFit = 'cover';
-            othersElement.style.transition = 'all .5s';
+            setIsHovered(true)
         }
     }
     
@@ -52,12 +51,13 @@ const TopUpcomingMovie = () => {
         const othersElement = document.querySelector('.others-three')as HTMLDivElement
         if (othersElement) {
             othersElement.style.backgroundImage = ''
+            setIsHovered(false)
         }
     };
 
     return (
         <>
-            <div className='others-three'>
+            <div className={`others-three ${isHovered? 'hovered' : ''}`}>
             <div className='d-flex justify-content-center align-items-center gap-5 width-80'>
                     <NavLink to='/Upcomingmt'>
                         <h1 className=' text-white fw-800 my-3 title-space '>
@@ -68,7 +68,9 @@ const TopUpcomingMovie = () => {
                 <Slider {...settings} className='whole-slider'>
                     {data?.results.map((i)=> (
                           <div key={i.id} className='slider'>
-                          <img src={IMGPATH + i.backdrop_path} alt={i.title} onMouseEnter={() => handleHover(i.backdrop_path)} onMouseLeave={handleLeave}/>
+                          <NavLink to='/Upcomingmt'>
+                          <img src={IMGPATH + i.backdrop_path} alt={i.name} onMouseEnter={() => handleHover(i.backdrop_path)} onMouseLeave={handleLeave}/>
+                          </NavLink>
                           <div className='overview-others'>
                               <h2>{i.title}</h2>
                               <span className={getColorClass(i.vote_average)}>{i.vote_average.toFixed(1)}</span>
