@@ -27,7 +27,7 @@ const Navbar = () => {
         {
             id: '5',
             icon_2: <FontAwesomeIcon icon={faEllipsis} />,
-            name: 'More',
+            name: 'Click for more',
             link: '/more.movies',
         },
     ];

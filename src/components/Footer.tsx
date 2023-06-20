@@ -19,7 +19,7 @@ const Footer = () => {
         },
         {
             id: '5',
-            name: "More",
+            name: "Click for more",
             link: '/more.movies',
         }
     ]
