@@ -48,7 +48,7 @@ const handleLeave = () => {
           <Slider {...settings} className="whole-slider"> 
             {data.results.map((i) => (
               <div key={i.id} className='slider'>
-                <img src={IMGPATH + i.backdrop_path} alt={i.name} onMouseEnter={() => handleHover(i.backdrop_path)} onMouseLeave={handleLeave}/>
+                <img src={IMGPATH + i.backdrop_path} alt={i.name || i.name} onMouseEnter={() => handleHover(i.backdrop_path)} onMouseLeave={handleLeave}/>
               </div>
             ))}
           </Slider>

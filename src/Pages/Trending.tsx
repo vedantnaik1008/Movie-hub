@@ -64,7 +64,7 @@ const Trending = () => {
                 <div key={val.id} id="card" >
                   <div className="cards  rounded-5">
                     <img src={val.poster_path ? `${IMGPATH + val.poster_path}` : unavailable}
-                    className="card-img-top rounded-5" alt={val.title}  onClick={() => setModalData({ show: true, data: val })}/>
+                    className="card-img-top rounded-5" alt={val.title || val.name}  onClick={() => setModalData({ show: true, data: val })}/>
                     <FontAwesomeIcon icon={faPlay} bounce className='faplay-icon' onClick={() => setModalData({ show: true, data: val })}/>
                   </div> 
                 </div>

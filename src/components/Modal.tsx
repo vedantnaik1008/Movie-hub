@@ -69,7 +69,7 @@ const Modal = ({show, isOpen, setIsOpen,poster_path, vote_average,title,name,med
       {show ? 
         <><div className="modal-down">
             <div className='modal-left'>
-              <img src={poster_path ? `${IMGPATH + poster_path}` : unavailable} className="poster" alt={title} />
+              <img src={poster_path ? `${IMGPATH + poster_path}` : unavailable} className="poster" alt={title || name} />
             </div>
             <div className="details">
               <div className="">
