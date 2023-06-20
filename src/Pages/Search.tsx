@@ -4,7 +4,7 @@ import axios from "axios";
 import { Access_key, img_500, unavailable } from "../components/Config";
 import { Fetching } from "./Trending";
 import Modal from "../components/Modal";
-import { faPlay } from "@fortawesome/free-solid-svg-icons";
+import { faMagnifyingGlass, faPlay } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Search = () => {
@@ -46,7 +46,7 @@ const fetchSearch = () => {
       <div className="pb-5">
             <div className=" input-title">
               <input type="text" placeholder="search..." onChange={Trigger} className="form-control-lg col-6 search rounded-5 border border-0  mt-2"/>
-              <button className="text-white mx-2 col-md-1 mt-2 col-sm-2 search-title" onClick={Searches}><i className="fas fa-search"></i></button>
+              <button className="text-white mx-2 col-md-1 mt-2 col-sm-2 search-title" onClick={Searches}><FontAwesomeIcon icon={faMagnifyingGlass} /></button>
             </div>
             <div className={content.length ? "display-grid-search" : "display-grid-search p-0"}>
               {content.map((val)=> (
