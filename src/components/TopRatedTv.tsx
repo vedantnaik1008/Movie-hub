@@ -19,15 +19,15 @@ const TopRatedTv = () => {
         </p>
     if(error) return <p>{error.message}</p>;
 
-    const getColorClass = (voteAverage: number) => {
-        if (voteAverage >= 7.9) {
-            return 'green';
-        } else if (voteAverage >= 5) {
-            return 'orange';
-        } else {
-            return 'red';
-        }
-    };
+    // const getColorClass = (voteAverage: number) => {
+    //     if (voteAverage >= 7.9) {
+    //         return 'green';
+    //     } else if (voteAverage >= 5) {
+    //         return 'orange';
+    //     } else {
+    //         return 'red';
+    //     }
+    // };
     
     const handleHover = (backDropPath: string) => {
         const othersElement = document.querySelector('.others')as HTMLDivElement
@@ -48,25 +48,27 @@ const TopRatedTv = () => {
     return (
         <>
             <div className={`others ${isHovered ? 'hovered' : ''}`}>
-                <div className='d-flex justify-content-center align-items-center gap-5  width-80'>
-                    <NavLink to='/topratedtv'>
-                        <h1 className=' text-white fw-800 my-3 title-space'>
+                <div className='d-flex justify-content-between align-items-center gap-5  width-80'>
+                <h1 className=' text-white fw-800 mb-3 title-space text-nowrap'>
                             Top Rated Tv Series
                         </h1>
+                    <NavLink to='/topratedtv'>
+                        <p className="text-white fs-4 text-nowrap title-para">See all</p>
                     </NavLink>
                 </div>
                 <Slider {...settings} className='whole-slider'>
                     {data.results.map((i) => (
-                          <div key={i.id} className='slider'>
-                          <NavLink to='/topratedtv'>
+                        <div key={i.id} className='slider'>
                           <img src={IMGPATH + i.backdrop_path} alt={i.name} onMouseEnter={() => handleHover(i.backdrop_path)} onMouseLeave={handleLeave}/>
-                          </NavLink>
-                          <div className='overview-others'>
+                          
+                          {/* <div className='overview-others'>
                               <h2>{i.name}</h2>
                               <span className={getColorClass(i.vote_average)}>{i.vote_average.toFixed(1)}</span>
                               <span className='release-date'>{i.first_air_date}</span>
-                          </div>
-                      </div>
+                          </div> */}
+                        </div>
+
+                        
                     ))}
                 </Slider>
             </div>
