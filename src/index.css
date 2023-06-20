@@ -516,7 +516,7 @@ a:hover {
     margin-bottom: 0;
 }
 .others.hovered, .others-two.hovered, .others-three.hovered {
-    background-image: url(/*URL of the hovered image*/);
+    background-image: url();
 }
 .others h1,
 .others-two h1,

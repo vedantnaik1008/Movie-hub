@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { IMGPATH, unavailable } from '../components/Config';
+import {  img_500, unavailable } from '../components/Config';
 import Modal from '../components/Modal';
 import useTrending from '../hooks/useTrending';
 import React from 'react';
@@ -63,7 +63,7 @@ const Trending = () => {
               {page.results.map((val)=> (
                 <div key={val.id} id="card" >
                   <div className="cards  rounded-5">
-                    <img src={val.poster_path ? `${IMGPATH + val.poster_path}` : unavailable}
+                    <img src={val.poster_path ? `${img_500 + val.poster_path}` : unavailable}
                     className="card-img-top rounded-5" alt={val.title || val.name}  onClick={() => setModalData({ show: true, data: val })}/>
                     <FontAwesomeIcon icon={faPlay} bounce className='faplay-icon' onClick={() => setModalData({ show: true, data: val })}/>
                   </div> 

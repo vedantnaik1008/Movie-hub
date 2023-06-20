@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Pagination from "../components/Pagination"
 import axios from "axios";
-import { Access_key, IMGPATH, unavailable } from "../components/Config";
+import { Access_key, img_500, unavailable } from "../components/Config";
 import { Fetching } from "./Trending";
 import Modal from "../components/Modal";
 import { faPlay } from "@fortawesome/free-solid-svg-icons";
@@ -53,7 +53,7 @@ const fetchSearch = () => {
               <div key={val.id} id="card" >
                 <div className="cards  rounded-5">
                   <img
-                  src={val.poster_path ? `${IMGPATH + val.poster_path}` : unavailable}
+                  src={val.poster_path ? `${img_500 + val.poster_path}` : unavailable}
                   className="card-img-top rounded-5" alt={val.title || val.name}  onClick={() => setModalData({ show: true, data: val })}/>
                   <FontAwesomeIcon icon={faPlay} bounce className='faplay-icon' onClick={() => setModalData({ show: true, data: val })}/>
                 </div> 

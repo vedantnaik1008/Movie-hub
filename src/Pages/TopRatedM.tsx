@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { IMGPATH, unavailable } from '../components/Config';
+import {  img_500, unavailable } from '../components/Config';
 import { Fetching } from './Trending';
 import Modal from '../components/Modal';
 import useTRM from '../hooks/useTRM';
@@ -50,7 +50,7 @@ const TopRatedM = () => {
                                     <div key={val.id} id="card" >
                                     <div className="cards  rounded-5">
                                     <img
-                                    src={val.poster_path ? `${IMGPATH + val.poster_path}` : unavailable}
+                                    src={val.poster_path ? `${img_500 + val.poster_path}` : unavailable}
                                     className="card-img-top rounded-5" alt={val.title || val.name}  onClick={() => setModalData({ show: true, data: val })}/>
                                     <FontAwesomeIcon icon={faPlay} bounce className='faplay-icon' onClick={() => setModalData({ show: true, data: val })}/>
                                     </div> 

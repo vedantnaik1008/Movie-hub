@@ -1,6 +1,6 @@
 import { useState } from 'react';                     
 import { GenreData, ValueData } from './Movies';
-import { IMGPATH, unavailable } from '../components/Config';
+import {  img_500, unavailable } from '../components/Config';
 import Genre from '../components/Genre';
 import { Fetching } from './Trending';
 import ModalTV from '../components/ModalTV';
@@ -62,7 +62,7 @@ const TV = () => {
                             {page.results.map((val)=> (
                                 <div key={val.id} id="card" >
                                     <div className="cards  rounded-5">
-                                        <img src={val.poster_path ? `${IMGPATH + val.poster_path}` : unavailable} className="card-img-top rounded-5" alt={val.title || val.name}  onClick={() => setModalData({ show: true, data: val })}/>
+                                        <img src={val.poster_path ? `${img_500 + val.poster_path}` : unavailable} className="card-img-top rounded-5" alt={val.title || val.name}  onClick={() => setModalData({ show: true, data: val })}/>
                                         <FontAwesomeIcon icon={faPlay} bounce className='faplay-icon' onClick={() => setModalData({ show: true, data: val })}/>
                                     </div> 
                                 </div>))}

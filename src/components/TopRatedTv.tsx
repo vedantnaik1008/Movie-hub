@@ -1,7 +1,7 @@
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Slider from 'react-slick';
-import { IMGPATH } from './Config';
+import { img_500 } from './Config';
 import { NavLink } from 'react-router-dom';
 import useTopRatedTv from '../hooks/useTopRatedTv';
 import { settings } from '../Services/Settings';
@@ -22,7 +22,7 @@ const TopRatedTv = () => {
     const handleHover = (backDropPath: string) => {
         const othersElement = document.querySelector('.others')as HTMLDivElement
         if (othersElement) {
-            othersElement.style.backgroundImage = `url(${IMGPATH + backDropPath})`;
+            othersElement.style.backgroundImage = `url(${img_500 + backDropPath})`;
             setIsHovered(true)
         }
     }
@@ -47,7 +47,7 @@ const TopRatedTv = () => {
                 <Slider {...settings} className='whole-slider'>
                     {data.results.map((i) => (
                         <div key={i.id} className='slider'>
-                          <img src={IMGPATH + i.backdrop_path} alt={i.name || i.name} onMouseEnter={() => handleHover(i.backdrop_path)} onMouseLeave={handleLeave}/>
+                          <img src={img_500 + i.backdrop_path} alt={i.name || i.name} onMouseEnter={() => handleHover(i.backdrop_path)} onMouseLeave={handleLeave}/>
                         </div>
                     ))}
                 </Slider>
