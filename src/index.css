@@ -1198,6 +1198,7 @@ a:hover {
         -webkit-backdrop-filter: blur(14px);
         border: 1px solid rgba(255, 255, 255, 0.18);
     }
+    
     .modal-top {
         position: fixed;
         top: 0%;
@@ -1382,6 +1383,7 @@ a:hover {
     .others-three .title-space {
         padding-left: 30px;
         text-align: center;
+        font-size: 25px;
     }
     .footer {
         display: flex;
@@ -1573,6 +1575,13 @@ a:hover {
     .cast-actor-grid li p span {
         color: #0092ff;
     }
+    .others .title-space,
+    .others-two .title-space,
+    .others-three .title-space {
+        padding-left: 30px;
+        text-align: center;
+        font-size: 28px;
+    }
 }
 
 @media (min-width: 1400px) {
@@ -1608,6 +1617,13 @@ a:hover {
         border-radius: 50%;
         color: white;
         z-index: 103;
+    }
+    .others .title-space,
+    .others-two .title-space,
+    .others-three .title-space {
+        padding-left: 30px;
+        text-align: center;
+        font-size: 30px;
     }
 
 }
