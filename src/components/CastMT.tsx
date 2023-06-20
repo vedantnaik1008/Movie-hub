@@ -46,7 +46,7 @@ const CastMt = ({movie_id, page}: Props) =>{
                 <ul className="cast-actor-grid">
                   {credits.cast?.map((actor) => (
                     <li key={actor.id}>
-                      <img src={`${actor.profile_path ? 'https://image.tmdb.org/t/p/w500/' + actor.profile_path : unavailableLandscape}`} alt={actor.name || actor.name} />
+                      <img src={`${actor.profile_path ? 'https://image.tmdb.org/t/p/w500/' + actor.profile_path : unavailableLandscape}`} alt={actor.name || actor.name} loading="lazy"/>
                       <p>name: {actor.name} as <span>{actor.character}</span></p>
                       <p className="known-for">Known for: <span>{actor.known_for_department}</span></p>
                     </li>

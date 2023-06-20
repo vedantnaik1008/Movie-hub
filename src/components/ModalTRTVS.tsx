@@ -66,7 +66,7 @@ const ModalTRTVS = ({show, isOpen, setIsOpen,poster_path, vote_average,title,nam
       {show ? 
         <><div className="modal-down">
             <div className='modal-left'>
-              <img src={poster_path ? `${img_500 + poster_path}` : unavailable} className="poster" alt={title || name} />
+              <img src={poster_path ? `${img_500 + poster_path}` : unavailable} className="poster" loading="lazy" alt={title || name} />
             </div>
             <div className="details">
               <div className="">
