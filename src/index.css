@@ -364,8 +364,6 @@ a:hover {
     background-image: linear-gradient(to bottom,  #2E3192, #1BFFFF);
 }
 
-
-
 .display-grid-search {
     display: grid;
     padding: 2rem;
@@ -748,7 +746,7 @@ a:hover {
     others-background-p{
         padding-top: 90px;
     }
-    .others {
+    .others, .others-two, .others-three {
         height: 500px;
         padding: 10px 30px;
         margin-top: 0px;
@@ -756,20 +754,8 @@ a:hover {
         -webkit-backdrop-filter: blur(14px);
         border: 1px solid rgba(255, 255, 255, 0.18);
     }
-    .others-two {
-        height: 500px;
-        padding: 10px 30px;
-        backdrop-filter: blur(14px);
-        -webkit-backdrop-filter: blur(14px);
-        border: 1px solid rgba(255, 255, 255, 0.18);
-    }
     .others-three {
         margin-bottom: 0px;
-        height: 500px;
-        padding: 10px 30px;
-        backdrop-filter: blur(14px);
-        -webkit-backdrop-filter: blur(14px);
-        border: 1px solid rgba(255, 255, 255, 0.18);
     }
     iframe {
         width: 95%;
@@ -881,11 +867,6 @@ a:hover {
     }
     .others-three {
         margin-bottom: 0px;
-        height: 500px;
-        padding: 10px 50px;
-        backdrop-filter: blur(14px);
-        -webkit-backdrop-filter: blur(14px);
-        border: 1px solid rgba(255, 255, 255, 0.18);
     }
     
     .modal-top {
