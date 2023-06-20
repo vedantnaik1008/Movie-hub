@@ -1,32 +1,28 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState } from 'react';
 import {  NavLink } from 'react-router-dom';
-import { faBars, faEllipsis, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const data = [
         {
             id: '1',
-            icon_2: <FontAwesomeIcon icon={faEllipsis} />,
             name: 'Home',
             link: '/',
         },
         {
             id: '2',
-            icon: 'fas fa-film',
             name: 'Movies',
             link: '/movies',
         },
         {
             id: '3',
-            icon: 'fas fa-tv',
             name: 'TV Series',
             link: '/tv',
         },
         {
             id: '5',
-            icon: 'fas fa-fire-alt',
             name: 'Trending',
             link: '/trending',
         },
@@ -59,15 +55,6 @@ const Navbar = () => {
                                     className='text-decoration-none'>
                                     <div>
                                         <button className='d-flex flex-row gap-2 justify-content-center align-items-center btn text-white mx-1'>
-                                            {Val.icon_2 ? (
-                                                <i className='icon-2'>
-                                                    {Val.icon_2}
-                                                </i>
-                                            ) : (
-                                                <i
-                                                    className={`${Val.icon}`}
-                                                    id='fire'></i>
-                                            )}
                                             <h5 className='pt-1 fs-6 text-nowrap'>
                                                 {Val.name}
                                             </h5>

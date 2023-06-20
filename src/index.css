@@ -45,7 +45,7 @@ body::-webkit-scrollbar-thumb,
 .modal-top::-webkit-scrollbar-track,
 body::-webkit-scrollbar-track,
 .modal-top .modal-details::-webkit-scrollbar {
-    background-image: linear-gradient(to bottom, #2E3192, #1BFFFF);
+    background-image: linear-gradient(to bottom, #2e3192, #1bffff);
 }
 
 a {
@@ -57,8 +57,7 @@ li {
 }
 
 .bg-black-c {
-    background-image: linear-gradient(to bottom, #2E3192, #1BFFFF);
-    
+    background-image: linear-gradient(to bottom, #2e3192, #1bffff);
 }
 
 .h4-title .sub-title {
@@ -81,7 +80,7 @@ li {
 }
 
 .input-title {
-    animation: move-in 1s ease-out ;
+    animation: move-in 1s ease-out;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -89,7 +88,7 @@ li {
     padding-bottom: 30px;
 }
 
-.input-title input{
+.input-title input {
     color: white;
     background-color: transparent;
     background: rgba(255, 255, 255, 0.12);
@@ -169,8 +168,8 @@ li {
     bottom: 0;
 }
 
-.title-para{
-    font-family: "Kanit", sans-serif;
+.title-para {
+    font-family: 'Kanit', sans-serif;
 }
 
 #fire {
@@ -220,7 +219,7 @@ li {
 }
 
 .cards:hover {
-    background-image: linear-gradient(to right, #2E3192, #1BFFFF);
+    background-image: linear-gradient(to right, #2e3192, #1bffff);
 }
 
 .cards .faplay-icon {
@@ -232,7 +231,7 @@ li {
     border-radius: 50%;
     font-size: 20px;
     visibility: hidden;
-    transition: visibility .3s ease-out;
+    transition: visibility 0.3s ease-out;
     background-color: transparent;
     background: rgba(255, 255, 255, 0.12);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -310,7 +309,7 @@ li {
     font-weight: 700;
 }
 
-.button{
+.button {
     background-color: transparent;
     background: rgba(255, 255, 255, 0.12);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -360,8 +359,8 @@ a:hover {
     overflow: hidden;
 }
 
-.background-search-h{
-    background-image: linear-gradient(to bottom,  #2E3192, #1BFFFF);
+.background-search-h {
+    background-image: linear-gradient(to bottom, #2e3192, #1bffff);
 }
 
 .display-grid-search {
@@ -375,7 +374,7 @@ a:hover {
     overflow: hidden;
 }
 
- .modal-top .close-btn{
+.modal-top .close-btn {
     position: absolute;
     right: 10.2%;
     top: 15.5%;
@@ -421,9 +420,8 @@ a:hover {
     padding: 5px 10px;
 }
 
-
-
-.pagination .button-one, .pagination .button-two{
+.pagination .button-one,
+.pagination .button-two {
     background-color: transparent;
     color: white;
     border-radius: 10%;
@@ -435,7 +433,7 @@ a:hover {
     border: 1px solid rgba(255, 255, 255, 0.27);
 }
 
-.spinner-loader{
+.spinner-loader {
     position: relative;
     z-index: 102;
 }
@@ -498,7 +496,9 @@ a:hover {
     color: white;
 }
 
-.others, .others-two, .others-three {
+.others,
+.others-two,
+.others-three {
     height: 500px;
     padding: 10px 50px 10px 50px;
     backdrop-filter: blur(14px);
@@ -513,7 +513,9 @@ a:hover {
 .others-three {
     margin-bottom: 0;
 }
-.others.hovered, .others-two.hovered, .others-three.hovered {
+.others.hovered,
+.others-two.hovered,
+.others-three.hovered {
     background-image: url();
 }
 .others h1,
@@ -560,8 +562,8 @@ a:hover {
     object-fit: cover;
 }
 
-.modal-trailer{
-    background-color: rgba(0, 0, 0, .9);
+.modal-trailer {
+    background-color: rgba(0, 0, 0, 0.9);
     position: fixed;
     z-index: 102;
     inset: 0;
@@ -569,7 +571,7 @@ a:hover {
     height: 100%;
 }
 
-.others-background-p{
+.others-background-p {
     padding-top: 82px;
 }
 
@@ -734,7 +736,7 @@ a:hover {
     .whole-slider {
         width: 100%;
     }
-  
+
     .others .title-space,
     .others-two .title-space,
     .others-three .title-space {
@@ -742,11 +744,13 @@ a:hover {
         text-align: center;
         font-size: 18px;
     }
-    
-    others-background-p{
+
+    others-background-p {
         padding-top: 90px;
     }
-    .others, .others-two, .others-three {
+    .others,
+    .others-two,
+    .others-three {
         height: 500px;
         padding: 10px 30px;
         margin-top: 0px;
@@ -803,7 +807,8 @@ a:hover {
         align-self: flex-start;
     }
     .cast-actor-grid {
-        display: grid;grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
         gap: 2rem;
         padding: 20px;
     }
@@ -868,7 +873,7 @@ a:hover {
     .others-three {
         margin-bottom: 0px;
     }
-    
+
     .modal-top {
         position: fixed;
         top: 0%;
@@ -1295,5 +1300,4 @@ a:hover {
         text-align: center;
         font-size: 30px;
     }
-
 }
