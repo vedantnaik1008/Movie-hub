@@ -21,11 +21,10 @@ const TopUpcomingMovie = () => {
     const {data, error, isLoading} = useUpcoming()
     const [isHovered, setIsHovered] = useState(false);
 
-    if(isLoading) return <p>
-        <div className="spinner-grow text-primary" role="status">
+    if(isLoading) return <div className="spinner-grow text-primary" role="status">
             <span className="visually-hidden">Loading...</span>
         </div>
-    </p>;
+    
 
     if(error) return <p>{error.message}</p>;
 

@@ -12,11 +12,10 @@ const TopRatedTv = () => {
     const {data, error, isLoading} = useTopRatedTv();
     const [isHovered, setIsHovered] = useState(false);
 
-    if(isLoading) return <p>
-            <div className="spinner-grow text-primary" role="status">
+    if(isLoading) return <div className="spinner-grow text-primary" role="status">
                 <span className="visually-hidden">Loading...</span>
             </div>
-        </p>
+        
     if(error) return <p>{error.message}</p>;
     
     const handleHover = (backDropPath: string) => {
