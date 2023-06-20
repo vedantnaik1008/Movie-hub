@@ -8,8 +8,8 @@ const Navbar = () => {
     const data = [
         {
             id: '1',
-            icon: 'fas fa-fire-alt',
-            name: 'Trending',
+            icon_2: <FontAwesomeIcon icon={faEllipsis} />,
+            name: 'Home',
             link: '/',
         },
         {
@@ -26,9 +26,9 @@ const Navbar = () => {
         },
         {
             id: '5',
-            icon_2: <FontAwesomeIcon icon={faEllipsis} />,
-            name: 'Click for more',
-            link: '/more.movies',
+            icon: 'fas fa-fire-alt',
+            name: 'Trending',
+            link: '/trending',
         },
     ];
 

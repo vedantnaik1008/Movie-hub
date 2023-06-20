@@ -4,7 +4,7 @@ const Footer = () => {
     const data = [
         {
             id: '1',
-            name: "Trending",
+            name: "Home",
             link: '/',
         },
         {
@@ -19,8 +19,8 @@ const Footer = () => {
         },
         {
             id: '5',
-            name: "Click for more",
-            link: '/more.movies',
+            name: "Trending",
+            link: '/trending',
         }
     ]
    

@@ -15,7 +15,7 @@ const App = () => {
     const routes = [
         {
             path: '/',
-            element: <Trending />,
+            element: <Others />,
         },
         {
             path: '/movies',
@@ -30,8 +30,8 @@ const App = () => {
             element: <Search />,
         },
         {
-            path: '/more.movies',
-            element: <Others />
+            path: '/trending',
+            element: <Trending />
         },
         {
             path: '/topratedtv', element: <TopRatedtvs />

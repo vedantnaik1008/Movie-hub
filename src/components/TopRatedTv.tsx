@@ -46,7 +46,7 @@ const TopRatedTv = () => {
                 <Slider {...settings} className='whole-slider'>
                     {data.results.map((i) => (
                         <div key={i.id} className='slider'>
-                          <img src={img_500 + i.backdrop_path} alt={i.name || i.name} loading="lazy" onMouseEnter={() => handleHover(i.backdrop_path)} onMouseLeave={handleLeave}/>
+                          <img src={img_500 + i.backdrop_path} alt={i.name || i.name}  onMouseEnter={() => handleHover(i.backdrop_path)} onMouseLeave={handleLeave}/>
                         </div>
                     ))}
                 </Slider>
