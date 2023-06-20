@@ -45,7 +45,7 @@ const Navbar = () => {
                         <FontAwesomeIcon icon={faXmark} size='2xl' className='ccc-icon'/>
                     </span>
                     <nav className='navi'>
-                        <ul className='d-flex flex-column gap-5 mt-5'>
+                        <ul className='d-flex flex-column align-items-start gap-5 mt-5'>
                             {data.map((Val) => (
                                 <NavLink to={`${Val.link}`}
                                     key={Val.id}
@@ -54,11 +54,11 @@ const Navbar = () => {
                                     }}
                                     className='text-decoration-none'>
                                     <li>
-                                        <button className='d-flex flex-row gap-2 justify-content-center align-items-center btn text-white mx-1'>
+                                        <div className='d-flex flex-row gap-2 justify-content-center align-items-center text-white mx-1'>
                                             <h5 className='pt-1 fs-6 text-nowrap'>
                                                 {Val.name}
                                             </h5>
-                                        </button>
+                                        </div>
                                     </li>
                                 </NavLink>
                             ))}
