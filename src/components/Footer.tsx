@@ -20,7 +20,7 @@ const Footer = () => {
         {
             id: '5',
             name: "More",
-            link: '/more',
+            link: '/more.movies',
         }
     ]
    
