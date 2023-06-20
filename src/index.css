@@ -802,7 +802,7 @@ a:hover {
         font-weight: bolder;
         text-decoration: underline;
     }
-    .actor-container ul li .known-for {
+    .actor-container .li .known-for {
         margin: 0;
         align-self: flex-start;
     }
@@ -816,7 +816,7 @@ a:hover {
         border-radius: 20px;
         width: 240px;
     }
-    .cast-actor-grid li {
+    .cast-actor-grid .li {
         background-color: white;
         display: flex;
         flex-direction: column;
@@ -824,12 +824,12 @@ a:hover {
         padding: 2rem;
         border-radius: 20px;
     }
-    .cast-actor-grid li p {
+    .cast-actor-grid .li p {
         margin-top: 1rem;
         font-weight: 800;
         align-self: flex-start;
     }
-    .cast-actor-grid li p span {
+    .cast-actor-grid .li p span {
         color: #0092ff;
     }
     .genres {
@@ -1020,7 +1020,7 @@ a:hover {
         font-weight: bolder;
         text-decoration: underline;
     }
-    .actor-container ul li .known-for {
+    .actor-container .li .known-for {
         margin: 0;
         align-self: flex-start;
     }
@@ -1034,7 +1034,7 @@ a:hover {
         border-radius: 20px;
         width: 240px;
     }
-    .cast-actor-grid li {
+    .cast-actor-grid .li {
         background-color: white;
         display: flex;
         flex-direction: column;
@@ -1042,12 +1042,12 @@ a:hover {
         padding: 2rem;
         border-radius: 20px;
     }
-    .cast-actor-grid li p {
+    .cast-actor-grid .li p {
         margin-top: 1rem;
         font-weight: 800;
         align-self: flex-start;
     }
-    .cast-actor-grid li p span {
+    .cast-actor-grid .li p span {
         color: #0092ff;
     }
     .whole-slider {
@@ -1220,7 +1220,7 @@ a:hover {
         font-weight: bolder;
         text-decoration: underline;
     }
-    .actor-container ul li .known-for {
+    .actor-container .li .known-for {
         margin: 0;
         align-self: flex-start;
     }
@@ -1234,7 +1234,7 @@ a:hover {
         border-radius: 20px;
         width: 240px;
     }
-    .cast-actor-grid li {
+    .cast-actor-grid .li {
         background-color: white;
         display: flex;
         flex-direction: column;
@@ -1242,12 +1242,12 @@ a:hover {
         padding: 2rem;
         border-radius: 20px;
     }
-    .cast-actor-grid li p {
+    .cast-actor-grid .li p {
         margin-top: 1rem;
         font-weight: 800;
         align-self: flex-start;
     }
-    .cast-actor-grid li p span {
+    .cast-actor-grid .li p span {
         color: #0092ff;
     }
     .others .title-space,

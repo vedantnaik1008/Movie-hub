@@ -45,9 +45,9 @@ const CastMt = ({ movie_id, page }: Props) => {
             ) : credits && credits.cast && credits.cast?.length > 0 ? (
                 <div className='actor-container'>
                     <h2 className='text-center my-3'>Cast</h2>
-                    <ul className='cast-actor-grid'>
+                    <div className='cast-actor-grid'>
                         {credits.cast?.map((actor) => (
-                            <li key={actor.id}>
+                            <div className='li' key={actor.id}>
                                 <img
                                     src={`${
                                         actor.profile_path
@@ -65,9 +65,9 @@ const CastMt = ({ movie_id, page }: Props) => {
                                     Known for:{' '}
                                     <span>{actor.known_for_department}</span>
                                 </p>
-                            </li>
+                            </div>
                         ))}
-                    </ul>
+                    </div>
                 </div>
             ) : (
                 <div className='d-flex justify-content-center'>
