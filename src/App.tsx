@@ -30,7 +30,7 @@ const App = () => {
             element: <Search />,
         },
         {
-            path: '/others',
+            path: '/more',
             element: <Others />
         },
         {
