@@ -53,13 +53,13 @@ const Navbar = () => {
                                         setIsOpen(false);
                                     }}
                                     className='text-decoration-none'>
-                                    <div>
+                                    <li>
                                         <button className='d-flex flex-row gap-2 justify-content-center align-items-center btn text-white mx-1'>
                                             <h5 className='pt-1 fs-6 text-nowrap'>
                                                 {Val.name}
                                             </h5>
                                         </button>
-                                    </div>
+                                    </li>
                                 </NavLink>
                             ))}
                         </ul>

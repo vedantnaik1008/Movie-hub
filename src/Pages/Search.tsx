@@ -66,7 +66,7 @@ const fetchSearch = () => {
                 setIsOpen={(isOpen) => setModalData({ ...modalData, show: isOpen })}
                 {...modalData.data}
                 key={modalData.data.id}/>)}
-            {page > 1 && <Pagination page={page} setPage={setPage} />}
+            {page > 1 &&  <Pagination page={page} setPage={setPage}/>}
       </div>  
     </>
   )
