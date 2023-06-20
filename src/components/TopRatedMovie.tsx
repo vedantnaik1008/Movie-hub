@@ -18,16 +18,7 @@ const TopRatedMovie = () => {
         </p>
 
   if(error) return <p>{error.message}</p>;
-  
-//   const getColorClass = (voteAverage: number) => {
-//     if (voteAverage >= 7.9) {
-//         return 'green';
-//     } else if (voteAverage >= 5) {
-//         return 'orange';
-//     } else {
-//         return 'red';
-//     }
-// };
+
 
 const handleHover = (backDropPath: string) => {
     const othersElement = document.querySelector('.others-two')as HTMLDivElement
@@ -47,31 +38,21 @@ const handleLeave = () => {
 
   return (
     <>
-    
-    <div className={`others-two ${isHovered ? 'hovered' : ''}`}>
-      <div className="d-flex justify-content-between align-items-center gap-5 width-80">
-      <h1 className=" text-white fw-800 mb-3 title-space">Top Rated Movies </h1>
-      <NavLink to='/topratedmovies'>
-      {/* <FontAwesomeIcon icon={faArrowLeftLong} size="lg" className="icon-fs-left px-3"/> */}
-        
-        <p className="text-white fs-4 text-nowrap title-para">See all</p>
-      </NavLink>
-     
-    </div>
-        <Slider {...settings} className="whole-slider"> 
-          {data.results.map((i) => (
-            <div key={i.id} className='slider'>
-              <img src={IMGPATH + i.backdrop_path} alt={i.name} onMouseEnter={() => handleHover(i.backdrop_path)} onMouseLeave={handleLeave}/>
-           
-            {/* <div className='overview-others'>
-                <h2>{i.title}</h2>
-                <span className={getColorClass(i.vote_average)}>{i.vote_average.toFixed(1)}</span>
-                <span className='release-date'>{i.release_date}</span>
-            </div> */}
+        <div className={`others-two ${isHovered ? 'hovered' : ''}`}>
+          <div className="d-flex justify-content-between align-items-center gap-5 width-80">
+            <h1 className=" text-white fw-800 mb-3 title-space">Top Rated Movies </h1>
+            <NavLink to='/topratedmovies'>
+              <p className="text-white fs-4 text-nowrap title-para">See all</p>
+            </NavLink>
+          </div>
+          <Slider {...settings} className="whole-slider"> 
+            {data.results.map((i) => (
+              <div key={i.id} className='slider'>
+                <img src={IMGPATH + i.backdrop_path} alt={i.name} onMouseEnter={() => handleHover(i.backdrop_path)} onMouseLeave={handleLeave}/>
+              </div>
+            ))}
+          </Slider>
         </div>
-          ))}
-        </Slider>
-      </div>
     </>         
   )
 }

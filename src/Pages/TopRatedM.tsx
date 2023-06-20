@@ -26,11 +26,11 @@ const TopRatedM = () => {
 
     const fetchedTrendingPages = datas?.pages.reduce((total, page)=> total + page.results.length, 0) || 0;
 
-const loader = <div className="d-flex justify-content-center ">
-<div className="spinner-border text-primary" role="status">
-  <span className="visually-hidden">Loading...</span>
-</div>
-</div> 
+    const loader = <div className="d-flex justify-content-center ">
+    <div className="spinner-border text-primary" role="status">
+      <span className="visually-hidden">Loading...</span>
+      </div>
+    </div> 
 
 
   return (
@@ -39,13 +39,10 @@ const loader = <div className="d-flex justify-content-center ">
       <div className="container">
         <div className="row pt-3 pb-2">
           <div className="col-12 mt-2 mb-4 fs-1 fw-bold text-white text-decoration-underline head d-flex justify-content-center align-items-center h4-title">
-            
             <h4 className="fs-1 text-white fw-800 sub-title">TopRated Movies</h4>
-            
           </div>
         </div>
       </div>
-      
       <InfiniteScroll next={() => fetchNextPage()} hasMore={!!hasNextPage} loader={loader} dataLength={fetchedTrendingPages} className='display-grid'>
                         {datas.pages.map((page, index)=> (
                             <React.Fragment key={index}>
@@ -62,7 +59,6 @@ const loader = <div className="d-flex justify-content-center ">
                             </React.Fragment>
                         ))}  
                 </InfiniteScroll>
-      
       {modalData.show && (
         <Modal
             page={page} show={true}

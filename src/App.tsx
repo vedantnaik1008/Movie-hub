@@ -31,12 +31,7 @@ const App = () => {
         },
         {
             path: '/others',
-            element: <Others />//,
-            // children: [
-            //   {path: 'top-rated/tv-series', element: <Movies />},
-            //   {path: 'top-rated/movies', element: <Error />},
-            //   {path: 'top-upcoming/movies', element: <Movies />}
-            // ]
+            element: <Others />
         },
         {
             path: '/topratedtv', element: <TopRatedtvs />
@@ -63,7 +58,6 @@ const App = () => {
                             <Route key={route.path} {...route} />
                         ))}
                     </Routes>
-                    {/* <Footer /> */}
                 </BrowserRouter>
         </div>
     );

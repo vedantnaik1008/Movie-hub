@@ -24,7 +24,7 @@ const useTrending = () => useInfiniteQuery<FetchResponse<Fetching>, Error>({
             page: pageParam
         }
     }),
-    staleTime: 24 * 60 * 60 * 1000, //24h
+    staleTime: 24 * 60 * 60 * 1000,
     keepPreviousData: true,
     getNextPageParam: (lastPage, allPages) => {
         return lastPage.page ? allPages.length + 1 : undefined;

@@ -18,20 +18,20 @@ const Upcomingmt = () => {
   const {data: datas, error, isLoading, fetchNextPage, hasNextPage} = useUC();
 
   if(isLoading)return <div className="d-flex justify-content-center spinner-loader">
-  <div className="spinner-border text-primary" role="status">
-    <span className="visually-hidden">Loading...</span>
-  </div>
-</div> ;
+    <div className="spinner-border text-primary" role="status">
+      <span className="visually-hidden">Loading...</span>
+    </div>
+  </div> ;
 
     if(error) return <p>{error.message}</p>;
 
     const fetchedTrendingPages = datas?.pages.reduce((total, page)=> total + page.results.length, 0) || 0;
 
     const loader = <div className="d-flex justify-content-center">
-    <div className="spinner-border text-primary" role="status">
-      <span className="visually-hidden">Loading...</span>
-    </div>
-  </div> 
+      <div className="spinner-border text-primary" role="status">
+        <span className="visually-hidden">Loading...</span>
+      </div>
+    </div> 
 
   
   return (
@@ -44,7 +44,6 @@ const Upcomingmt = () => {
             </div>
           </div>
         </div>
-
         <InfiniteScroll next={() => fetchNextPage()} hasMore={!!hasNextPage} loader={loader} dataLength={fetchedTrendingPages} className='display-grid'>
                         {datas.pages.map((page, index)=> (
                             <React.Fragment key={index}>

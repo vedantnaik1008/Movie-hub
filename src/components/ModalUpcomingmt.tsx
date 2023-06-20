@@ -32,7 +32,6 @@ const ModalUpcomingmt = ({show, isOpen, setIsOpen,poster_path, vote_average,titl
     const [trailer, setTrailer] = useState<Video>();
 
     const fetchTrailer = async () => {
-      //  const media = media_type === "tv"? "tv" : "movie";
         try {
           const response = await fetch(`
           https://api.themoviedb.org/3/movie/${id}?top_rated?language=en-US&api_key=${Access_key}&page=${page}&append_to_response=videos&sort_by=vote_average.desc

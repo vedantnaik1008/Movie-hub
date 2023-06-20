@@ -30,7 +30,6 @@ interface Video {
 const ModalTRTVS = ({show, isOpen, setIsOpen,poster_path, vote_average,title,name,media_type,overview,first_air_date,release_date, id, page}: Props) => {
   
     const [trailer, setTrailer] = useState<Video>();
-    // const media = media_type === "tv"? "tv" : "movie"
     const fetchTrailer = async () => {
         try {
           const response = await fetch(`

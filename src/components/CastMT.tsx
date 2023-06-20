@@ -23,7 +23,6 @@ interface Props{
     page: number;
 }
 
-//https://api.themoviedb.org/3/tv/2335/credits?language=en-US
 const CastMt = ({movie_id, page}: Props) =>{
   const [credits, setCredits] = useState<Credits | null>(null);
   useEffect(() => {
@@ -34,33 +33,32 @@ const CastMt = ({movie_id, page}: Props) =>{
   }, []);
 
   return (
-  <div className="cast-position">
-  {credits === null ? (
-    <div className="d-flex justify-content-center">
-      <div className="spinner-border text-primary" role="status">
-        <span className="visually-hidden">Loading...</span>
-      </div>
-    </div>
-  ) : credits && credits.cast && credits.cast?.length > 0 ? (
-    <div className="actor-container">
-      <h2 className="text-center my-3">Cast</h2>
-      <ul className="cast-actor-grid">
-        {credits.cast?.map((actor) => (
-          <li key={actor.id}>
-            <img src={`${actor.profile_path ? 'https://image.tmdb.org/t/p/w500/'+ actor.profile_path : unavailableLandscape}`} alt={actor.name} />
-            <p>name: {actor.name} as <span>{actor.character}</span></p>
-            <p className="known-for">Known for: <span>{actor.known_for_department}</span></p>
-          </li>
-        ))}
-      </ul>
-    </div>
-  ) : (
-    <div className="d-flex justify-content-center">
-      <p className="text-white">No Cast Members Found</p>
-    </div>
-  )}
-</div>
-);
+        <div className="cast-position">
+            {credits === null ? (
+              <div className="d-flex justify-content-center">
+                <div className="spinner-border text-primary" role="status">
+                  <span className="visually-hidden">Loading...</span>
+                </div>
+              </div>
+              ) : credits && credits.cast && credits.cast?.length > 0 ? (
+              <div className="actor-container">
+                <h2 className="text-center my-3">Cast</h2>
+                <ul className="cast-actor-grid">
+                  {credits.cast?.map((actor) => (
+                    <li key={actor.id}>
+                      <img src={`${actor.profile_path ? 'https://image.tmdb.org/t/p/w500/'+ actor.profile_path : unavailableLandscape}`} alt={actor.name} />
+                      <p>name: {actor.name} as <span>{actor.character}</span></p>
+                      <p className="known-for">Known for: <span>{actor.known_for_department}</span></p>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ) : (
+              <div className="d-flex justify-content-center">
+                <p className="text-white">No Cast Members Found</p>
+              </div>)}
+        </div>
+  )
 }
 
 export default CastMt;

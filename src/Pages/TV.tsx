@@ -10,12 +10,10 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
 
-
-
 const TV = () => {
     const [page, setPage] = useState(1);
-    const [genre, setGenre] = useState<GenreData[]>([]); //used to store the non-selected genre values
-    const [value, setValue] = useState<ValueData[]>([]); //used to store the selected genre values
+    const [genre, setGenre] = useState<GenreData[]>([]);
+    const [value, setValue] = useState<ValueData[]>([]); 
     const [modalData, setModalData] = useState<{ show: boolean; data: Fetching }>({
       show: false,
       data: {} as Fetching,
@@ -35,10 +33,10 @@ const TV = () => {
 
 
     const loader = <div className="d-flex justify-content-center">
-    <div className="spinner-border text-primary" role="status">
-      <span className="visually-hidden">Loading...</span>
-    </div>
-  </div> 
+        <div className="spinner-border text-primary" role="status">
+            <span className="visually-hidden">Loading...</span>
+        </div>
+     </div> 
 
     return (
         <>
@@ -50,7 +48,6 @@ const TV = () => {
                         </div>
                     </div>
                 </div>
-
                 <Genre
                     genre={genre}
                     setGenre={setGenre}
@@ -59,7 +56,6 @@ const TV = () => {
                     value={value}
                     setValue={setValue}
                 />
-
                 <InfiniteScroll next={() => fetchNextPage()} hasMore={!!hasNextPage} loader={loader} dataLength={fetchedTrendingPages} className='display-grid'>
                     {datas.pages.map((page, index)=> (
                         <React.Fragment key={index}>
@@ -72,7 +68,6 @@ const TV = () => {
                                 </div>))}
                         </React.Fragment>))}  
                 </InfiniteScroll>
-
                 {modalData.show && (
                     <ModalTV value={value} page={page} show={true} isOpen={modalData.show}
                     setIsOpen={(isOpen) => setModalData({ ...modalData, show: isOpen })}

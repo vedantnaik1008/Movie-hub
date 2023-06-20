@@ -25,8 +25,9 @@ const Pagination = ({page, setPage}: Props) => {
           <button className="m-1 text-center button-one" onClick={Previous}>
           <i className="fa fa-chevron-left" aria-hidden="true"></i>
           </button>
-
-          <button className="m-1 text-center button-two" onClick={Next}><i className="fa fa-chevron-right" aria-hidden="true"></i></button>
+          <button className="m-1 text-center button-two" onClick={Next}>
+            <i className="fa fa-chevron-right" aria-hidden="true"></i>
+          </button>
         </div>
       </div>
     </>

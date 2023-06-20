@@ -24,12 +24,6 @@ const Navbar = () => {
             name: 'TV Series',
             link: '/tv',
         },
-        // {
-        //     id: '4',
-        //     icon: 'fas fa-search',
-        //     name: 'Search',
-        //     link: '/search',
-        // },
         {
             id: '5',
             icon_2: <FontAwesomeIcon icon={faEllipsis} />,

@@ -22,12 +22,9 @@ export interface ValueData {
 }
 
 const Movies = () => {
-    
-    
     const [page, setPage] = useState(1);
-    const [genre, setGenre] = useState<GenreData[]>([]); //used to store the non-selected genre values
-    const [value, setValue] = useState<ValueData[]>([]); //used to store the selected genre values
-    // 
+    const [genre, setGenre] = useState<GenreData[]>([]);
+    const [value, setValue] = useState<ValueData[]>([]);
     const genreIds = value.map((v)=> v.id);
     const {data: datas, error, isLoading, fetchNextPage, hasNextPage} = useMovie(genreIds);
     const [modalData, setModalData] = useState<{ show: boolean; data: Fetching }>({
@@ -65,7 +62,6 @@ const fetchedTrendingPages = datas?.pages.reduce((total, page)=> total + page.re
                 <Genre genre={genre} setGenre={setGenre} type='movie' value={value} setValue={setValue} setPage={setPage}/>
 
                 <InfiniteScroll next={() => fetchNextPage()} hasMore={!!hasNextPage} loader={loader} dataLength={fetchedTrendingPages} className='display-grid'>
-                
                         {datas.pages.map((page, index)=> (
                             <React.Fragment key={index}>
                                 {page.results.map((val)=> (
@@ -88,7 +84,6 @@ const fetchedTrendingPages = datas?.pages.reduce((total, page)=> total + page.re
                         setIsOpen={(isOpen) => setModalData({ ...modalData, show: isOpen })}
                         {...modalData.data}
                         key={modalData.data.id}/>)}
-    
             </div>
 
         </>

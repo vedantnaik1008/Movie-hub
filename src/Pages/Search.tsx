@@ -43,13 +43,12 @@ const fetchSearch = () => {
   
   return (
     <>
-    <div className="pb-5">
-      <div className=" input-title">
-        <input type="text" placeholder="search..." onChange={Trigger} className="form-control-lg col-6 search rounded-5 border border-0  mt-2"/>
-        <button className="text-white mx-2 col-md-1 mt-2 col-sm-2 search-title" onClick={Searches}><i className="fas fa-search"></i></button>
-      </div>
-      
-          <div className={content.length ? "display-grid-search" : "display-grid-search p-0"}>
+      <div className="pb-5">
+            <div className=" input-title">
+              <input type="text" placeholder="search..." onChange={Trigger} className="form-control-lg col-6 search rounded-5 border border-0  mt-2"/>
+              <button className="text-white mx-2 col-md-1 mt-2 col-sm-2 search-title" onClick={Searches}><i className="fas fa-search"></i></button>
+            </div>
+            <div className={content.length ? "display-grid-search" : "display-grid-search p-0"}>
               {content.map((val)=> (
               <div key={val.id} id="card" >
                 <div className="cards  rounded-5">
@@ -58,20 +57,16 @@ const fetchSearch = () => {
                   className="card-img-top rounded-5" onClick={() => setModalData({ show: true, data: val })}/>
                   <FontAwesomeIcon icon={faPlay} bounce className='faplay-icon' onClick={() => setModalData({ show: true, data: val })}/>
                 </div> 
-              </div>
-            
-            ))}
-          </div>
-
-        {modalData.show && (
-        <Modal
-            page={page} show={true}
-            isOpen={modalData.show}
-            setIsOpen={(isOpen) => setModalData({ ...modalData, show: isOpen })}
-            {...modalData.data}
-            key={modalData.data.id}          />)}
-
-      {page > 1 && <Pagination page={page} setPage={setPage} />}
+              </div>))}
+            </div>
+            {modalData.show && (
+            <Modal
+                page={page} show={true}
+                isOpen={modalData.show}
+                setIsOpen={(isOpen) => setModalData({ ...modalData, show: isOpen })}
+                {...modalData.data}
+                key={modalData.data.id}/>)}
+            {page > 1 && <Pagination page={page} setPage={setPage} />}
       </div>  
     </>
   )
