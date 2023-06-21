@@ -6,10 +6,17 @@ import { NavLink } from "react-router-dom";
 import { settings } from "../Services/Settings";
 import useTopRatedMovie from "../hooks/useTopRatedMovie";
 import { useState } from "react";
+import { Fetching } from "../hooks/useTrending";
+import Modal from "./Modal";
 
 const TopRatedMovie = () => {
   const {data, error, isLoading} = useTopRatedMovie()
   const [isHovered, setIsHovered] = useState(false);
+  const [page] = useState(1);
+  const [modalData, setModalData] = useState<{ show: boolean; data: Fetching }>({
+    show: false,
+    data: {} as Fetching,
+  });
 
   if(isLoading) return <div className="spinner-grow text-primary" role="status">
                 <span className="visually-hidden">Loading...</span>
@@ -46,11 +53,16 @@ const handleLeave = () => {
           <Slider {...settings} className="whole-slider"> 
             {data.results.map((i) => (
               <div key={i.id} className='slider'>
-                <img src={img_500 + i.backdrop_path} alt={i.name || i.title}  onMouseEnter={() => handleHover(i.backdrop_path)} onMouseLeave={handleLeave}/>
+                <img src={img_500 + i.backdrop_path} alt={i.name || i.title}  onMouseEnter={() => handleHover(i.backdrop_path)} onMouseLeave={handleLeave} onClick={() => setModalData({ show: true, data: i })}/>
               </div>
             ))}
           </Slider>
         </div>
+        {modalData.show && (
+            <Modal page={page} show={true} isOpen={modalData.show}
+              setIsOpen={(isOpen) => setModalData({ ...modalData, show: isOpen })}
+              {...modalData.data}
+              key={modalData.data.id} />)}
     </>         
   )
 }

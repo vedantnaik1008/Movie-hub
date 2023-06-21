@@ -6,6 +6,8 @@ import 'slick-carousel/slick/slick-theme.css';
 import { settings } from '../Services/Settings';
 import useUpcoming from '../hooks/useUpcoming';
 import { useState } from 'react';
+import { Fetching } from '../hooks/useTrending';
+import ModalUpcomingmt from './ModalUpcomingmt';
 
 export interface FetchTopRated {
     id: number;
@@ -20,6 +22,11 @@ export interface FetchTopRated {
 const TopUpcomingMovie = () => {
     const {data, error, isLoading} = useUpcoming()
     const [isHovered, setIsHovered] = useState(false);
+    const [page] = useState(1);
+  const [modalData, setModalData] = useState<{ show: boolean; data: Fetching }>({
+    show: false,
+    data: {} as Fetching,
+  });
 
     if(isLoading) return <div className="spinner-grow text-primary" role="status">
             <span className="visually-hidden">Loading...</span>
@@ -56,11 +63,16 @@ const TopUpcomingMovie = () => {
                 <Slider {...settings} className='whole-slider'>
                     {data?.results.map((i)=> (
                         <div key={i.id} className='slider'>
-                          <img src={img_500 + i.backdrop_path} alt={i.name || i.title}  onMouseEnter={() => handleHover(i.backdrop_path)} onMouseLeave={handleLeave}/>
+                          <img src={img_500 + i.backdrop_path} alt={i.name || i.title}  onMouseEnter={() => handleHover(i.backdrop_path)} onMouseLeave={handleLeave} onClick={() => setModalData({ show: true, data: i })}/>
                         </div>
                     ))}
                 </Slider>
             </div>
+            {modalData.show && (
+            <ModalUpcomingmt page={page} show={true} isOpen={modalData.show}
+              setIsOpen={(isOpen) => setModalData({ ...modalData, show: isOpen })}
+              {...modalData.data}
+              key={modalData.data.id} />)}
         </>
     );
 };
