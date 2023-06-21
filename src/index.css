@@ -57,7 +57,27 @@ li {
 }
 
 .bg-black-c {
-    background-image: linear-gradient(to bottom, #2e3192, #1bffff);
+    /* background-image: linear-gradient(to bottom, #2e3192, #1bffff); */
+    background-image: linear-gradient(
+        0deg,
+        hsl(312, 100%, 65%) 0%,
+        hsl(319, 86%, 56%) 5%,
+        hsl(296, 100%, 44%) 11%,
+        hsl(317, 100%, 41%) 17%,
+        hsl(320, 100%, 38%) 22%,
+        hsl(299, 100%, 35%) 28%,
+        hsl(299, 100%, 32%) 34%,
+        hsl(314, 100%, 29%) 40%,
+        hsl(307, 100%, 26%) 46%,
+        hsl(296, 100%, 24%) 53%,
+        hsl(313, 100%, 21%) 59%,
+        hsl(292, 100%, 18%) 65%,
+        hsl(301, 100%, 16%) 71%,
+        hsl(323, 100%, 13%) 77%,
+        hsl(306, 100%, 10%) 83%,
+        hsl(313, 100%, 8%) 89%,
+        hsl(318, 100%, 7%) 94%,
+        hsl(0deg,0%,0%)100%)
 }
 
 .h4-title .sub-title {
@@ -75,7 +95,7 @@ li {
 }
 
 .search-title {
-    background-color: #0092ff;
+    background-color: hsl(296, 100%, 44%);
     border: none;
 }
 
@@ -151,6 +171,13 @@ li {
     padding: 0;
 }
 
+.others-navlink{
+    text-decoration-color: hsl(296, 100%, 44%);
+}
+.others-navlink:hover{
+    text-decoration-color: white;
+}
+
 .navlink {
     text-decoration: none;
     position: relative;
@@ -219,7 +246,27 @@ li {
 }
 
 .cards:hover {
-    background-image: linear-gradient(to right, #2e3192, #1bffff);
+    /* background-image: linear-gradient(to right, #2e3192, #1bffff); */
+    background-image: linear-gradient(
+        0deg,
+        hsl(312, 100%, 65%) 0%,
+        hsl(319, 86%, 56%) 5%,
+        hsl(296, 100%, 44%) 11%,
+        hsl(317, 100%, 41%) 17%,
+        hsl(320, 100%, 38%) 22%,
+        hsl(299, 100%, 35%) 28%,
+        hsl(299, 100%, 32%) 34%,
+        hsl(314, 100%, 29%) 40%,
+        hsl(307, 100%, 26%) 46%,
+        hsl(296, 100%, 24%) 53%,
+        hsl(313, 100%, 21%) 59%,
+        hsl(292, 100%, 18%) 65%,
+        hsl(301, 100%, 16%) 71%,
+        hsl(323, 100%, 13%) 77%,
+        hsl(306, 100%, 10%) 83%,
+        hsl(313, 100%, 8%) 89%,
+        hsl(318, 100%, 7%) 94%,
+        hsl(0deg,0%,0%)100%)
 }
 
 .cards .faplay-icon {
@@ -446,8 +493,8 @@ a:hover {
     background: rgba(255, 255, 255, 0.12);
     border-radius: 0px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(4.7px);
-    -webkit-backdrop-filter: blur(4.7px);
+    backdrop-filter: blur(50px);
+    -webkit-backdrop-filter: blur(50px);
     border: 1px solid rgba(255, 255, 255, 0.27);
     top: 90px;
     width: 40%;
@@ -796,6 +843,7 @@ a:hover {
         z-index: 101;
         width: 100%;
         top: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
     }
     .actor-container h2 {
         color: white;
@@ -817,17 +865,23 @@ a:hover {
         width: 240px;
     }
     .cast-actor-grid .li {
-        background-color: white;
         display: flex;
         flex-direction: column;
         align-items: center;
         padding: 2rem;
         border-radius: 20px;
+        background-color: transparent;
+        background: rgba(255, 255, 255, 0.12);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(4.7px);
+        -webkit-backdrop-filter: blur(4.7px);
+        border: 1px solid rgba(255, 255, 255, 0.27);
     }
     .cast-actor-grid .li p {
         margin-top: 1rem;
         font-weight: 800;
         align-self: flex-start;
+        color: white;
     }
     .cast-actor-grid .li p span {
         color: #0092ff;
@@ -1035,7 +1089,6 @@ a:hover {
         width: 240px;
     }
     .cast-actor-grid .li {
-        background-color: white;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -1235,7 +1288,6 @@ a:hover {
         width: 240px;
     }
     .cast-actor-grid .li {
-        background-color: white;
         display: flex;
         flex-direction: column;
         align-items: center;

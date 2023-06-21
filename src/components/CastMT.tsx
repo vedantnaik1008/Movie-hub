@@ -55,8 +55,7 @@ const CastMt = ({ movie_id, page }: Props) => {
                                               actor.profile_path
                                             : unavailableLandscape
                                     }`}
-                                    alt={actor.name || actor.name}
-                                />
+                                    alt={actor.name || actor.name}/>
                                 <p>
                                     name: {actor.name} as{' '}
                                     <span>{actor.character}</span>

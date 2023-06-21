@@ -39,8 +39,8 @@ const TopRatedTv = () => {
             <div className={`others ${isHovered ? 'hovered' : ''}`}>
                 <div className='d-flex justify-content-between align-items-center gap-5  width-80'>
                     <h1 className=' text-white fw-800 mb-3 title-space text-nowrap'>Top Rated Tv Series</h1>
-                    <NavLink to='/topratedtv'>
-                        <p className="text-white fs-4 text-nowrap title-para">See all</p>
+                    <NavLink to='/topratedtv' className='others-navlink'>
+                        <p className="text-white fs-4 text-nowrap title-para">Show more</p>
                     </NavLink>
                 </div>
                 <Slider {...settings} className='whole-slider'>
