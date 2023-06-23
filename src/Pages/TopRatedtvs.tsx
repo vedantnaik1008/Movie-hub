@@ -9,7 +9,7 @@ import { faPlay } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const TopRatedTv = () => {
-  const [page] = useState(1);
+  const [page, setPage] = useState(1);
   const [modalData, setModalData] = useState<{ show: boolean; data: Fetching }>({
     show: false,
     data: {} as Fetching,
@@ -61,10 +61,10 @@ const TopRatedTv = () => {
                         ))}  
                 </InfiniteScroll>
       {modalData.show && (
-        <ModalTRTVS page={page} show={true} isOpen={modalData.show}
-        setIsOpen={(isOpen) => setModalData({ ...modalData, show: isOpen })}
-        {...modalData.data}
-        key={modalData.data.id} />)}
+        <ModalTRTVS setPage={setPage} page={page} show={true} isOpen={modalData.show}
+          setIsOpen={(isOpen) => setModalData({ ...modalData, show: isOpen })}
+          {...modalData.data}
+          key={modalData.data.id} />)}
     </div>
     </>         
   )

@@ -5,11 +5,7 @@ import APIClient, { FetchResponse } from '../Services/api-client'
 const apiClient = new APIClient<Fetching>('/tv/top_rated')
 const useTRtvs = () => useInfiniteQuery<FetchResponse<Fetching>, Error>({
     queryKey: ['trtvs'],
-    queryFn: ({pageParam = 1}) => apiClient.getAll({
-        params:{
-            page: pageParam
-        }
-    }),
+    queryFn: () => apiClient.get(),
     staleTime: 24 * 60 * 60 * 1000,
     keepPreviousData: true,
     getNextPageParam: (lastPage, allPages) => {

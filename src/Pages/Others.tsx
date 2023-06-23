@@ -7,9 +7,9 @@ const Others = () => {
     return (
         <div className='bg-black-c others-background-p'>
             <Search />
-            <TopRatedTv />
-            <TopRatedMovie />
             <TopUpcomingMovie />
+            <TopRatedMovie />
+            <TopRatedTv />
         </div>
     );
 };

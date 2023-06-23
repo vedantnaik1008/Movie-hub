@@ -9,19 +9,20 @@ import { useState } from 'react';
 import { Fetching } from '../hooks/useTrending';
 import ModalTRTVS from './ModalTRTVS';
 
-
 const TopRatedTv = () => {
     const {data, error, isLoading} = useTopRatedTv();
     const [isHovered, setIsHovered] = useState(false);
-    const [page] = useState(1);
+    const [page, setPage] = useState(2);
   const [modalData, setModalData] = useState<{ show: boolean; data: Fetching }>({
     show: false,
     data: {} as Fetching,
   });
 
-    if(isLoading) return <div className="spinner-grow text-primary" role="status">
-                <span className="visually-hidden">Loading...</span>
-            </div>
+    if(isLoading) return <div className="d-flex justify-content-center">
+    <div className="spinner-border text-light" role="status">
+      <span className="visually-hidden">Loading...</span>
+    </div>
+  </div>
         
     if(error) return <p>{error.message}</p>;
     
@@ -58,11 +59,10 @@ const TopRatedTv = () => {
                     ))}
                 </Slider>
             </div>
-            {modalData.show && (
-            <ModalTRTVS page={page} show={true} isOpen={modalData.show}
-              setIsOpen={(isOpen) => setModalData({ ...modalData, show: isOpen })}
-              {...modalData.data}
-              key={modalData.data.id} />)}
+            {modalData.show && (<ModalTRTVS setPage={setPage} page={page} show={true} isOpen={modalData.show}
+            setIsOpen={(isOpen) => setModalData({ ...modalData, show: isOpen })}
+            {...modalData.data}
+            key={modalData.data.id} />)}    
         </>
     );
 };

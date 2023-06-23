@@ -7,7 +7,8 @@ import CastMt from './CastMT';
 interface Props{
     show: boolean;
     isOpen: boolean;
-    page: number
+    page: number;
+    setPage: (page: number) => void;
     setIsOpen: (isOpen:boolean) => void;
     poster_path: string; 
     vote_average: number;
@@ -27,24 +28,27 @@ interface Video {
     videos: []
   }
 
-const ModalTRTVS = ({show, isOpen, setIsOpen,poster_path, vote_average,title,name,media_type,overview,first_air_date,release_date, id, page}: Props) => {
-  
+const ModalTRTVS = ({show, isOpen, setIsOpen,poster_path, vote_average,title,name,media_type,overview,first_air_date,release_date, id, page }: Props) => {
+  const media = media_type === 'tv' ? 'tv' : 'movie'
     const [trailer, setTrailer] = useState<Video>();
     const fetchTrailer = async () => {
         try {
           const response = await fetch(`
-          https://api.themoviedb.org/3/movie/${id}?top_rated?language=en-US&api_key=${Access_key}&page=${page}&append_to_response=videos&sort_by=vote_average.desc
+          https://api.themoviedb.org/3/${media}/${id}?top_rated/language=en-US&api_key=${Access_key}&page=${page}&append_to_response=videos&sort_by=vote_average.desc
           `);
           const data = await response.json();
           console.log(data)
-          const trailer = data.videos.results.find((video: Video) => video.type === 'Trailer') || data.results[0];
+          const trailer = data.videos.results.find((video: Video) => video.type === 'Trailer');
           if (trailer) {
             setTrailer(trailer);
           } else {
-            console.log('No trailer found', alert('no trailer found'));
-          }
+            setTrailer(undefined);
+            alert('No trailer found');
+          } 
         } catch (error) {
-          console.error('Error fetching movie trailer', error);
+          console.error(error);
+          setTrailer(undefined);
+          alert('Unable to load trailer');
         }
       };
 

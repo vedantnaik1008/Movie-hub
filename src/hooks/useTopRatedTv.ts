@@ -6,7 +6,11 @@ const apiClient = new APIClient<Fetching>('/tv/top_rated');
 
 const useTopRatedTv = () => useQuery<FetchResponse<Fetching>, Error>({
     queryKey: ['topratedtv'],
-    queryFn: () => apiClient.get(),
+    queryFn: ({pageParam = 1}) => apiClient.getAll({
+        params: {
+            page: pageParam
+        }
+    }),
     staleTime: 24 * 60 * 60 * 1000,
     keepPreviousData: true
 })

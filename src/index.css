@@ -45,7 +45,7 @@ body::-webkit-scrollbar-thumb,
 .modal-top::-webkit-scrollbar-track,
 body::-webkit-scrollbar-track,
 .modal-top .modal-details::-webkit-scrollbar {
-    background-image: linear-gradient(to bottom, #2e3192, #1bffff);
+    background-image: radial-gradient(circle, #e400ff, #ba00a5, #82005f, #440e2b, #000000);
 }
 
 a {
@@ -57,26 +57,7 @@ li {
 }
 
 .bg-black-c {
-    background-image: linear-gradient(
-        0deg,
-        hsl(312, 100%, 65%) 0%,
-        hsl(319, 86%, 56%) 5%,
-        hsl(296, 100%, 44%) 11%,
-        hsl(317, 100%, 41%) 17%,
-        hsl(320, 100%, 38%) 22%,
-        hsl(299, 100%, 35%) 28%,
-        hsl(299, 100%, 32%) 34%,
-        hsl(314, 100%, 29%) 40%,
-        hsl(307, 100%, 26%) 46%,
-        hsl(296, 100%, 24%) 53%,
-        hsl(313, 100%, 21%) 59%,
-        hsl(292, 100%, 18%) 65%,
-        hsl(301, 100%, 16%) 71%,
-        hsl(323, 100%, 13%) 77%,
-        hsl(306, 100%, 10%) 83%,
-        hsl(313, 100%, 8%) 89%,
-        hsl(318, 100%, 7%) 94%,
-        hsl(0deg,0%,0%)100%)
+    background-image: radial-gradient(circle, #e400ff, #ba00a5, #82005f, #440e2b, #000000);
 }
 
 .h4-title .sub-title {
@@ -161,11 +142,9 @@ li {
 }
 
 .others-navlink{
-    text-decoration-color: hsl(296, 100%, 44%);
+    text-decoration-color: transparent;
 }
-.others-navlink:hover{
-    text-decoration-color: white;
-}
+
 
 .navlink {
     text-decoration: none;
@@ -235,26 +214,7 @@ li {
 }
 
 .cards:hover {
-    background-image: linear-gradient(
-        0deg,
-        hsl(312, 100%, 65%) 0%,
-        hsl(319, 86%, 56%) 5%,
-        hsl(296, 100%, 44%) 11%,
-        hsl(317, 100%, 41%) 17%,
-        hsl(320, 100%, 38%) 22%,
-        hsl(299, 100%, 35%) 28%,
-        hsl(299, 100%, 32%) 34%,
-        hsl(314, 100%, 29%) 40%,
-        hsl(307, 100%, 26%) 46%,
-        hsl(296, 100%, 24%) 53%,
-        hsl(313, 100%, 21%) 59%,
-        hsl(292, 100%, 18%) 65%,
-        hsl(301, 100%, 16%) 71%,
-        hsl(323, 100%, 13%) 77%,
-        hsl(306, 100%, 10%) 83%,
-        hsl(313, 100%, 8%) 89%,
-        hsl(318, 100%, 7%) 94%,
-        hsl(0deg,0%,0%)100%)
+    background-image: radial-gradient(circle, #e400ff, #ba00a5, #82005f, #440e2b, #000000);
 }
 
 .cards .faplay-icon {

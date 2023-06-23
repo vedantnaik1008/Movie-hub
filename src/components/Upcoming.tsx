@@ -28,9 +28,11 @@ const TopUpcomingMovie = () => {
     data: {} as Fetching,
   });
 
-    if(isLoading) return <div className="spinner-grow text-primary" role="status">
-            <span className="visually-hidden">Loading...</span>
-        </div>
+    if(isLoading) return <div className="d-flex justify-content-center">
+    <div className="spinner-border text-light" role="status">
+      <span className="visually-hidden">Loading...</span>
+    </div>
+  </div>
     
 
     if(error) return <p>{error.message}</p>;
