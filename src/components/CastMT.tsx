@@ -49,7 +49,7 @@ const CastMt = ({ movie_id, page }: Props) => {
                         {credits.cast?.map((actor) => (
                             <ul className='li' key={actor.id}>
                               <li>
-                                <img loading='lazy' src={`${actor.profile_path ? 'https://image.tmdb.org/t/p/w500/' + actor.profile_path : unavailableLandscape}`} alt={actor.name || actor.name}/>
+                                <img src={`${actor.profile_path ? 'https://image.tmdb.org/t/p/w500/' + actor.profile_path : unavailableLandscape}`} alt={actor.name || actor.name}/>
                                     <p>
                                         name: {actor.name} as{' '}
                                         <span>{actor.character}</span>
