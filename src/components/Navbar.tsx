@@ -47,20 +47,20 @@ const Navbar = () => {
                     <nav className='navi'>
                         <ul className='d-flex flex-column align-items-start gap-5 mt-5'>
                             {data.map((Val) => (
+                            <li>   
                                 <NavLink to={`${Val.link}`}
                                     key={Val.id}
                                     onClick={() => {
                                         setIsOpen(false);
                                     }}
                                     className='text-decoration-none'>
-                                    <li>
                                         <div className='d-flex flex-row gap-2 justify-content-center align-items-center text-white mx-1'>
                                             <h5 className='pt-1 fs-6 text-nowrap'>
                                                 {Val.name}
                                             </h5>
                                         </div>
-                                    </li>
                                 </NavLink>
+                            </li>
                             ))}
                         </ul>
                     </nav>
