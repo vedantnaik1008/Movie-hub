@@ -808,7 +808,7 @@ a:hover {
         border-radius: 20px;
         width: 240px;
     }
-    .cast-actor-grid .li {
+    .cast-actor-grid .li li {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -821,13 +821,13 @@ a:hover {
         -webkit-backdrop-filter: blur(4.7px);
         border: 1px solid rgba(255, 255, 255, 0.27);
     }
-    .cast-actor-grid .li p {
+    .cast-actor-grid .li li  p {
         margin-top: 1rem;
         font-weight: 800;
         align-self: flex-start;
         color: white;
     }
-    .cast-actor-grid .li p span {
+    .cast-actor-grid .li li  p span {
         color: #0092ff;
     }
     .genres {
@@ -1032,19 +1032,19 @@ a:hover {
         border-radius: 20px;
         width: 240px;
     }
-    .cast-actor-grid .li {
+    .cast-actor-grid .li li{
         display: flex;
         flex-direction: column;
         align-items: center;
         padding: 2rem;
         border-radius: 20px;
     }
-    .cast-actor-grid .li p {
+    .cast-actor-grid .li li  p {
         margin-top: 1rem;
         font-weight: 800;
         align-self: flex-start;
     }
-    .cast-actor-grid .li p span {
+    .cast-actor-grid .li li  p span {
         color: #0092ff;
     }
     .whole-slider {
@@ -1231,19 +1231,19 @@ a:hover {
         border-radius: 20px;
         width: 240px;
     }
-    .cast-actor-grid .li {
+    .cast-actor-grid .li li{
         display: flex;
         flex-direction: column;
         align-items: center;
         padding: 2rem;
         border-radius: 20px;
     }
-    .cast-actor-grid .li p {
+    .cast-actor-grid .li li p {
         margin-top: 1rem;
         font-weight: 800;
         align-self: flex-start;
     }
-    .cast-actor-grid .li p span {
+    .cast-actor-grid .li li p span {
         color: #0092ff;
     }
     .others .title-space,

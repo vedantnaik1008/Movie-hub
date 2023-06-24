@@ -47,24 +47,19 @@ const CastMt = ({ movie_id, page }: Props) => {
                     <h2 className='text-center my-3'>Cast</h2>
                     <div className='cast-actor-grid'>
                         {credits.cast?.map((actor) => (
-                            <div className='li' key={actor.id}>
-                                <img
-                                    src={`${
-                                        actor.profile_path
-                                            ? 'https://image.tmdb.org/t/p/w500/' +
-                                              actor.profile_path
-                                            : unavailableLandscape
-                                    }`}
-                                    alt={actor.name || actor.name}/>
-                                <p>
-                                    name: {actor.name} as{' '}
-                                    <span>{actor.character}</span>
-                                </p>
-                                <p className='known-for'>
-                                    Known for:{' '}
-                                    <span>{actor.known_for_department}</span>
-                                </p>
-                            </div>
+                            <ul className='li' key={actor.id}>
+                              <li>
+                                <img loading='lazy' src={`${actor.profile_path ? 'https://image.tmdb.org/t/p/w500/' + actor.profile_path : unavailableLandscape}`} alt={actor.name || actor.name}/>
+                                    <p>
+                                        name: {actor.name} as{' '}
+                                        <span>{actor.character}</span>
+                                    </p>
+                                    <p className='known-for'>
+                                        Known for:{' '}
+                                        <span>{actor.known_for_department}</span>
+                                    </p>
+                              </li>  
+                            </ul>
                         ))}
                     </div>
                 </div>
