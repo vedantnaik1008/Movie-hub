@@ -67,7 +67,7 @@ const fetchedTrendingPages = datas?.pages.reduce((total, page)=> total + page.re
                                 {page.results.map((val)=> (
                                     <div key={val.id} id="card" >
                                     <div className="cards  rounded-5">
-                                    <img
+                                    <img loading="lazy"
                                     src={val.poster_path ? `${img_500 + val.poster_path}` : unavailable}
                                     className="card-img-top rounded-5"  alt={val.title || val.name}  onClick={() => setModalData({ show: true, data: val })}/>
                                     <FontAwesomeIcon icon={faPlay}  className='faplay-icon' onClick={() => setModalData({ show: true, data: val })}/>
