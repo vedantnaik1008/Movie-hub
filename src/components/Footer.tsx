@@ -26,7 +26,7 @@ const Footer = () => {
    
   return (
     <>
-        <div className="footer ">
+        <nav className="footer ">
             {data.map((Val)=> (
                 <ul key={Val.id}>
                     <li>
@@ -38,7 +38,7 @@ const Footer = () => {
                     </li>
                 </ul>
             ))}
-        </div>
+        </nav>
     </>
   )
 }
