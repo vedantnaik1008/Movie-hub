@@ -28,9 +28,9 @@ const Footer = () => {
     <>
         <div className="footer ">
             {data.map((Val)=> (
-                <ul>
+                <ul key={Val.id}>
                     <li>
-                        <NavLink to={`${Val.link}`} key={Val.id} className='navlink'>
+                        <NavLink to={`${Val.link}`}  className='navlink'>
                              <button className='bg-transparent text-white footer-border'>
                                 <h5 className="pt-1 fs-6 text-nowrap footer-names">{Val.name}</h5>
                             </button>
