@@ -28,7 +28,7 @@ const useTrending = () => useInfiniteQuery<FetchResponse<Fetching>, Error>({
     keepPreviousData: true,
     getNextPageParam: (lastPage, allPages) => {
         return lastPage.page ? allPages.length + 1 : undefined;
-    }
+    },
 })
 
 export default useTrending

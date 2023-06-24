@@ -8,7 +8,7 @@ const useUpcoming = () => useQuery<FetchResponse<Fetching>, Error>({
     queryKey: ['upcoming'],
     queryFn: () => apiClient.get(),
     staleTime: 24 * 60 * 60 * 1000,
-    keepPreviousData: true
+    keepPreviousData: true,
 })
 
 export default useUpcoming
