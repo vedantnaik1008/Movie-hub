@@ -8,7 +8,6 @@ import Error from './Pages/ErrorPage';
 import Navbar from './components/Navbar';
 import Others from './Pages/Others'
 import TopRatedM from './Pages/TopRatedM';
-import TopRatedtvs from './Pages/TopRatedtvs';
 import Upcomingmt from './Pages/Upcomingmt';
 
 const App = () => {
@@ -32,9 +31,6 @@ const App = () => {
         {
             path: '/trending',
             element: <Trending />
-        },
-        {
-            path: '/topratedtv', element: <TopRatedtvs />
         },
         {
             path: '/topratedmovies', element: <TopRatedM />
