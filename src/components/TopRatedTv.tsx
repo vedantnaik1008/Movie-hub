@@ -13,7 +13,7 @@ const TopRatedTv = () => {
     const {data, error, isLoading} = useTopRatedTv();
     const [isHovered, setIsHovered] = useState(false);
     const [page, setPage] = useState(1);
-  const [modalData, setModalData] = useState<{ show: boolean; data: Fetching }>({
+    const [modalData, setModalData] = useState<{ show: boolean; data: Fetching }>({
     show: false,
     data: {} as Fetching,
   });

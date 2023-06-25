@@ -47,9 +47,8 @@ const Navbar = () => {
                     <nav className='navi'>
                         <ul className='d-flex flex-column align-items-start gap-5 mt-5'>
                             {data.map((Val) => (
-                            <li>   
+                            <li key={Val.id}>   
                                 <NavLink to={`${Val.link}`}
-                                    key={Val.id}
                                     onClick={() => {
                                         setIsOpen(false);
                                     }}
