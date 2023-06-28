@@ -1,4 +1,4 @@
-import { Access_key, img_500, unavailable } from './Config';
+import {  img_500, unavailable } from './Config';
 import { faArrowLeft, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState } from 'react';
@@ -38,7 +38,7 @@ const ModalTV = ({show, isOpen, setIsOpen,poster_path, vote_average,title,name,m
 
         try {
           const response = await fetch(`
-          https://api.themoviedb.org/3/movie/${id}/videos?api_key=${Access_key}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=${genreURL}&append_to_response=videos&sort_by=vote_average.desc
+          https://api.themoviedb.org/3/movie/${id}/videos?api_key=${import.meta.env.VITE_MOVIE_API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=${genreURL}&append_to_response=videos&sort_by=vote_average.desc
           `);
           const data = await response.json();
           console.log(data)

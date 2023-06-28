@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Pagination from "../components/Pagination"
 import axios from "axios";
-import { Access_key, img_500, unavailable } from "../components/Config";
+import { img_500, unavailable } from "../components/Config";
 import { Fetching } from "./Trending";
 import Modal from "../components/Modal";
 import { faMagnifyingGlass, faPlay } from "@fortawesome/free-solid-svg-icons";
@@ -18,7 +18,7 @@ const Search = () => {
 
   
 const fetchSearch = () => {
-    axios.get<Fetching>(`https://api.themoviedb.org/3/search/multi?api_key=${Access_key}&language=en-US&query=${searchText}&page=${page}&include_adult=false
+    axios.get<Fetching>(`https://api.themoviedb.org/3/search/multi?api_key=${import.meta.env.VITE_MOVIE_API_KEY}&language=en-US&query=${searchText}&page=${page}&include_adult=false
     `)
     .then((res) => {
       setContent(res.data.results)

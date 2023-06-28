@@ -8,7 +8,7 @@ export interface FetchResponse<T>{
 const axiosInstance = axios.create({
     baseURL: 'https://api.themoviedb.org/3',
     params: {
-        api_key: '3171b031bea93a9972cd7b17398bcebf'
+        api_key: import.meta.env.VITE_MOVIE_API_KEY
     }
 })
 

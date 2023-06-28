@@ -11,6 +11,4 @@ export const noPicture =
 
 export const IMGPATH = "https://image.tmdb.org/t/p/w1280"
 
-export const Access_key = '3171b031bea93a9972cd7b17398bcebf';
-
 export const YOUTUBE_PREFIX = 'https://www.youtube.com/watch?v=';

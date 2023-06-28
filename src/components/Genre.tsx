@@ -12,10 +12,9 @@ interface Props{
 
 
 const Genre = ({ genre, setGenre, type, value, setValue, setPage }: Props) => {
-    const Access_key = '3171b031bea93a9972cd7b17398bcebf';
   const fetchGenre = async () => {
     const data = await fetch(
-      `https://api.themoviedb.org/3/genre/${type}/list?api_key=${Access_key}&language=en-US`
+      `https://api.themoviedb.org/3/genre/${type}/list?api_key=${import.meta.env.VITE_MOVIE_API_KEY}&language=en-US`
     );
     const { genres } = await data.json();
     console.log(genres);
