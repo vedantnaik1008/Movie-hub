@@ -1,14 +1,16 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
-import Trending from './Pages/Trending';
-import Movies from './Pages/Movies';
-import TV from './Pages/TV';
-import Search from './Pages/Search';
 import Error from './Pages/ErrorPage';
 import Navbar from './components/Navbar';
-import Others from './Pages/Others'
-import TopRatedM from './Pages/TopRatedM';
-import Upcomingmt from './Pages/Upcomingmt';
+import { Suspense, lazy } from 'react';
+
+const Trending = lazy(()=> import("./Pages/Trending"))
+const Movies = lazy(()=> import("./Pages/Movies"))
+const TV = lazy(()=> import("./Pages/TV"))
+const Search = lazy(()=> import("./Pages/Search"))
+const Others = lazy(()=> import("./Pages/Others"))
+const TopRatedM = lazy(()=> import("./Pages/TopRatedM"))
+const Upcomingmt = lazy(()=> import("./Pages/Upcomingmt"))
 
 const App = () => {
     const routes = [
@@ -44,16 +46,24 @@ const App = () => {
         },
     ];
 
+    const loader = <div className="d-flex justify-content-center spinner-loader">
+  <div className="spinner-border text-primary" role="status">
+    <span className="visually-hidden">Loading...</span>
+  </div>
+</div> 
+
     return (
         <div>
                 <BrowserRouter>
                     <Header />
                     <Navbar />
-                    <Routes>
-                        {routes.map((route) => (
-                            <Route key={route.path} {...route} />
-                        ))}
-                    </Routes>
+                    <Suspense fallback={loader}>
+                        <Routes>
+                            {routes.map((route) => (
+                                <Route key={route.path} {...route} />
+                            ))}
+                        </Routes>
+                    </Suspense>
                 </BrowserRouter>
         </div>
     );
