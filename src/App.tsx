@@ -7,7 +7,6 @@ import { Suspense, lazy } from 'react';
 const Trending = lazy(()=> import("./Pages/Trending"))
 const Movies = lazy(()=> import("./Pages/Movies"))
 const TV = lazy(()=> import("./Pages/TV"))
-const Search = lazy(()=> import("./Pages/Search"))
 const Others = lazy(()=> import("./Pages/Others"))
 const TopRatedM = lazy(()=> import("./Pages/TopRatedM"))
 const Upcomingmt = lazy(()=> import("./Pages/Upcomingmt"))
@@ -25,10 +24,6 @@ const App = () => {
         {
             path: '/tv',
             element: <TV />,
-        },
-        {
-            path: '/search',
-            element: <Search />,
         },
         {
             path: '/trending',
