@@ -3,7 +3,6 @@ import Header from './components/Header';
 import Error from './Pages/ErrorPage';
 import Navbar from './components/Navbar';
 import { Suspense, lazy } from 'react';
-
 const Trending = lazy(()=> import("./Pages/Trending"))
 const Movies = lazy(()=> import("./Pages/Movies"))
 const TV = lazy(()=> import("./Pages/TV"))
@@ -42,10 +41,10 @@ const App = () => {
     ];
 
     const loader = <div className="d-flex justify-content-center spinner-loader">
-  <div className="spinner-border text-primary" role="status">
-    <span className="visually-hidden">Loading...</span>
-  </div>
-</div> 
+        <div className="spinner-border text-primary" role="status">
+            <span className="visually-hidden">Loading...</span>
+        </div>
+    </div> 
 
     return (
         <div>
