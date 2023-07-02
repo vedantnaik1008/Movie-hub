@@ -1,7 +1,4 @@
 import axios, { AxiosRequestConfig } from "axios";
-import dotenv from 'dotenv'
-
-dotenv.config();
 
 export interface FetchResponse<T>{
     results: T[];
