@@ -29,14 +29,14 @@ video {
 
 .modal-top::-webkit-scrollbar,
 body::-webkit-scrollbar,
-.modal-top .modal-details::-webkit-scrollbar {
+.modal-top .modal-details::-webkit-scrollbar, .watch-padding::-webkit-scrollbar {
     width: 5px;
     height: 20px;
 }
 
 .modal-top::-webkit-scrollbar-thumb,
 body::-webkit-scrollbar-thumb,
-.modal-top .modal-details::-webkit-scrollbar {
+.modal-top .modal-details::-webkit-scrollbar, .watch-padding::-webkit-scrollbar-thumb{
     background-color: white;
     border-radius: 50px;
     height: 100px;
@@ -139,6 +139,13 @@ li {
     display: flex;
     gap: 2rem;
     padding: 0;
+    position: relative;
+}
+
+.footer .count-later{
+    position: absolute;
+    right: 85px;
+    top: 13px;
 }
 
 .others-navlink{
@@ -254,6 +261,74 @@ li {
     font-weight: 700;
 }
 
+.watch-padding{
+    padding-top: 180px;
+    padding-bottom: 50px;
+    height: 100dvh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.clear-all{
+    position: absolute;
+    background-color: red;
+    top: 16%;
+    right: 2%;
+    padding: 10px 10px;
+    border-radius: 5px;
+    color: white;
+    font-family: Kanit, sans-serif;
+}
+.watch-remove{
+ position: absolute;
+ top: 25px;
+ right: 25px;
+ background-color: red;
+ padding: 5px 10px;
+ border: none;
+ border-radius: 50%;
+ outline: none;
+}
+.watch-add{
+    position: absolute;
+    top: 20px;
+    right: 28px;
+    padding: 8px 8px;
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
+.count-later{
+    background-color: red;
+    border-radius: 50%;
+    padding: 5px 12px;
+    color: white;
+    font-family: Kanit, sans-serif;
+   }
+
+.count-later-nav{
+    background-color: red;
+    border-radius: 50%;
+    padding: 5px 12px;
+    margin-left: 5px;
+    position: absolute;
+    top: 58%;
+    right: 79%;
+    color: white;
+}
+
+
+
+.display-grid-watch-later{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 350px));
+    gap: 3rem 2rem;
+    position: relative;
+    margin: 0 1rem;
+    width: 100%;
+    overflow: hidden;
+}
 .modal-top span.green {
     font-weight: 700;
     background-color: black;
@@ -1051,7 +1126,7 @@ a:hover {
     }
     .footer {
         display: flex;
-        gap: 2rem;
+        gap: 1.5rem;
         padding: 1rem 0;
     }
 }

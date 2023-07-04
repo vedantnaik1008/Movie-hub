@@ -23,10 +23,10 @@ const TopUpcomingMovie = () => {
     const {data, error, isLoading} = useUpcoming()
     const [isHovered, setIsHovered] = useState(false);
     const [page] = useState(1);
-  const [modalData, setModalData] = useState<{ show: boolean; data: Fetching }>({
-    show: false,
-    data: {} as Fetching,
-  });
+    const [modalData, setModalData] = useState<{ show: boolean; data: Fetching }>({
+        show: false,
+        data: {} as Fetching,
+    });
 
     if(isLoading) return <div className="d-flex justify-content-center">
     <div className="spinner-border text-light" role="status">

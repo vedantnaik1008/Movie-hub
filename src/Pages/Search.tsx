@@ -4,8 +4,12 @@ import axios from "axios";
 import { img_500, unavailable } from "../components/Config";
 import { Fetching } from "./Trending";
 import Modal from "../components/Modal";
-import { faMagnifyingGlass, faPlay } from "@fortawesome/free-solid-svg-icons";
+import { faMagnifyingGlass, faPlay, faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useDispatch, useSelector } from "react-redux";
+import { toast } from "react-toastify";
+import { WatchItem, ADD } from "../components/WatchSlice";
+import { RootState } from "../store";
 
 const Search = () => {
   const [searchText, setSearchText] = useState('')
@@ -15,9 +19,17 @@ const Search = () => {
     show: false,
     data: {} as Fetching,
   });
-
+  const dispatch = useDispatch()
+  const products = useSelector((state: RootState)=> state.watchlater)
+  const addToCart = (watchlater: WatchItem) =>{
+    const alreadyInWatchList = products.watchlater.some((item)=> item.id === watchlater.id) 
+    if(!alreadyInWatchList){
+      dispatch(ADD(watchlater))
+      toast.success("Added to watch later!");
+    }
+ }
   
-const fetchSearch = () => {
+  const fetchSearch = () => {
     axios.get<Fetching>(`https://api.themoviedb.org/3/search/multi?api_key=${import.meta.env.VITE_MOVIE_API_KEY}&language=en-US&query=${searchText}&page=${page}&include_adult=false
     `)
     .then((res) => {
@@ -56,6 +68,9 @@ const fetchSearch = () => {
                   src={val.poster_path ? `${img_500 + val.poster_path}` : unavailable}
                   className="card-img-top rounded-5" alt={val.title || val.name}  onClick={() => setModalData({ show: true, data: val })}/>
                   <FontAwesomeIcon icon={faPlay}  className='faplay-icon' onClick={() => setModalData({ show: true, data: val })}/>
+                  <button className='watch-add' onClick={()=>{
+                       addToCart(val)
+                    }}><FontAwesomeIcon icon={faStar} size='xl' color='yellow'/></button>
                 </div> 
               </div>))}
             </div>

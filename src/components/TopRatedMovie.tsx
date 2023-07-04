@@ -55,7 +55,7 @@ const handleLeave = () => {
           <Slider {...settings} className="whole-slider"> 
             {data.results.map((i) => (
               <div key={i.id} className='slider'>
-                <img src={img_500 + i.backdrop_path} alt={i.name || i.title}  onMouseEnter={() => handleHover(i.backdrop_path)} onMouseLeave={handleLeave} onClick={() => setModalData({ show: true, data: i })}/>
+                <img src={img_500 + i.backdrop_path} alt={i.name || i.title} onMouseEnter={() => handleHover(i.backdrop_path)} onMouseLeave={handleLeave} onClick={() => setModalData({ show: true, data: i })} />
               </div>
             ))}
           </Slider>

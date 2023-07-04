@@ -4,8 +4,12 @@ import Modal from '../components/Modal';
 import useTrending from '../hooks/useTrending';
 import React from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
-import { faPlay } from '@fortawesome/free-solid-svg-icons';
+import { faPlay, faStar } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useDispatch, useSelector } from 'react-redux';
+import { ADD, WatchItem } from '../components/WatchSlice';
+import { RootState } from '../store';
+import { toast } from 'react-toastify';
 
 export interface Fetching{
   results: [];
@@ -30,7 +34,15 @@ const Trending = () => {
   });
 
   const {data: datas, error, isLoading, fetchNextPage, hasNextPage} = useTrending();
-
+  const dispatch = useDispatch()
+  const products = useSelector((state: RootState)=> state.watchlater)
+  const addToCart = (watchlater: WatchItem) =>{
+    const alreadyInWatchList = products.watchlater.some((item)=> item.id === watchlater.id) 
+    if(!alreadyInWatchList){
+      dispatch(ADD(watchlater))
+      toast.success("Added to watch later!");
+    }
+ }
    if(isLoading)return<div className="d-flex justify-content-center spinner-loader">
    <div className="spinner-border text-primary" role="status">
      <span className="visually-hidden">Loading...</span>
@@ -66,6 +78,9 @@ const Trending = () => {
                     <img loading="lazy" src={val.poster_path ? `${img_500 + val.poster_path}` : unavailable}
                     className="card-img-top rounded-5" alt={val.title || val.name}  onClick={() => setModalData({ show: true, data: val })}/>
                     <FontAwesomeIcon icon={faPlay} className='faplay-icon' onClick={() => setModalData({ show: true, data: val })}/>
+                    <button className='watch-add' onClick={()=>{
+                       addToCart(val)
+                    }}><FontAwesomeIcon icon={faStar} size='xl' color='yellow'/></button>
                   </div> 
                 </div>
               ))}

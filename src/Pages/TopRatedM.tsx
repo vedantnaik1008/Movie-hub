@@ -5,8 +5,12 @@ import Modal from '../components/Modal';
 import useTRM from '../hooks/useTRM';
 import React from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
-import { faPlay } from '@fortawesome/free-solid-svg-icons';
+import { faPlay, faStar } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useDispatch, useSelector } from 'react-redux';
+import { toast } from 'react-toastify';
+import { WatchItem, ADD } from '../components/WatchSlice';
+import { RootState } from '../store';
 
 const TopRatedM = () => {
   const [page] = useState(1);
@@ -14,6 +18,15 @@ const TopRatedM = () => {
     show: false,
     data: {} as Fetching,
   });
+  const dispatch = useDispatch()
+  const products = useSelector((state: RootState)=> state.watchlater)
+  const addToCart = (watchlater: WatchItem) =>{
+  const alreadyInWatchList = products.watchlater.some((item)=> item.id === watchlater.id) 
+    if(!alreadyInWatchList){
+      dispatch(ADD(watchlater))
+      toast.success("Added to watch later!");
+    }
+ }
   const {data: datas, error, isLoading, fetchNextPage, hasNextPage} = useTRM();
 
       if(isLoading)return <div className="d-flex justify-content-center spinner-loader">
@@ -53,6 +66,7 @@ const TopRatedM = () => {
                                      src={val.poster_path ? `${img_500 + val.poster_path}` : unavailable}
                                     className="card-img-top rounded-5" alt={val.title || val.name}  onClick={() => setModalData({ show: true, data: val })}/>
                                     <FontAwesomeIcon icon={faPlay} className='faplay-icon' onClick={() => setModalData({ show: true, data: val })}/>
+                                    <button className='watch-add' onClick={()=>{addToCart(val)}}><FontAwesomeIcon icon={faStar} size='xl' color='yellow'/></button>
                                     </div> 
                                 </div>
                                 ))}
