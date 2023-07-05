@@ -3,6 +3,7 @@ import { faArrowLeft, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState } from 'react';
 import CastMt from './CastMT';
+import { APIKEY } from '../Services/api-client';
 
 interface Props{
     show: boolean;
@@ -34,7 +35,7 @@ const ModalUpcomingmt = ({show, isOpen, setIsOpen,poster_path, vote_average,titl
     const fetchTrailer = async () => {
         try {
           const response = await fetch(`
-          https://api.themoviedb.org/3/movie/${id}?top_rated?language=en-US&api_key=3171b031bea93a9972cd7b17398bcebf&page=${page}&append_to_response=videos&sort_by=vote_average.desc
+          https://api.themoviedb.org/3/movie/${id}?top_rated?language=en-US&api_key=${APIKEY}&page=${page}&append_to_response=videos&sort_by=vote_average.desc
           `);
           const data = await response.json();
           console.log(data)

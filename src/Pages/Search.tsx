@@ -10,6 +10,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { WatchItem, ADD } from "../components/WatchSlice";
 import { RootState } from "../store";
+import { APIKEY } from "../Services/api-client";
 
 const Search = () => {
   const [searchText, setSearchText] = useState('')
@@ -30,7 +31,7 @@ const Search = () => {
  }
   
   const fetchSearch = () => {
-    axios.get<Fetching>(`https://api.themoviedb.org/3/search/multi?api_key=3171b031bea93a9972cd7b17398bcebf&language=en-US&query=${searchText}&page=${page}&include_adult=false
+    axios.get<Fetching>(`https://api.themoviedb.org/3/search/multi?api_key=${APIKEY}&language=en-US&query=${searchText}&page=${page}&include_adult=false
     `)
     .then((res) => {
       setContent(res.data.results)

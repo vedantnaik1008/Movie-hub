@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { unavailableLandscape } from './Config';
+import { APIKEY } from '../Services/api-client';
 
 interface Actor {
     cast_id: number;
@@ -27,7 +28,7 @@ const CastMt = ({ movie_id, page }: Props) => {
     const [credits, setCredits] = useState<Credits | null>(null);
     useEffect(() => {
         fetch(
-            `https://api.themoviedb.org/3/movie/${movie_id}/credits?api_key=3171b031bea93a9972cd7b17398bcebf&page=${page}`
+            `https://api.themoviedb.org/3/movie/${movie_id}/credits?api_key=${APIKEY}&page=${page}`
         )
             .then((response) => response.json())
             .then((data) => setCredits(data))

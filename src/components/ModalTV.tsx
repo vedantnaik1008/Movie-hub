@@ -5,6 +5,7 @@ import { useState } from 'react';
 import useGenre from '../hooks/useGenre';
 import { ValueData } from '../Pages/Movies';
 import CastMt from './CastMT';
+import { APIKEY } from '../Services/api-client';
 
 interface Props{
     show: boolean;
@@ -38,7 +39,7 @@ const ModalTV = ({show, isOpen, setIsOpen,poster_path, vote_average,title,name,m
 
         try {
           const response = await fetch(`
-          https://api.themoviedb.org/3/movie/${id}/videos?api_key=3171b031bea93a9972cd7b17398bcebf&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=${genreURL}&append_to_response=videos&sort_by=vote_average.desc
+          https://api.themoviedb.org/3/movie/${id}/videos?api_key=${APIKEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=${genreURL}&append_to_response=videos&sort_by=vote_average.desc
           `);
           const data = await response.json();
           console.log(data)
