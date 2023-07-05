@@ -30,7 +30,7 @@ const Search = () => {
  }
   
   const fetchSearch = () => {
-    axios.get<Fetching>(`https://api.themoviedb.org/3/search/multi?api_key=${import.meta.env.VITE_MOVIE_API_KEY}&language=en-US&query=${searchText}&page=${page}&include_adult=false
+    axios.get<Fetching>(`https://api.themoviedb.org/3/search/multi?api_key=3171b031bea93a9972cd7b17398bcebf&language=en-US&query=${searchText}&page=${page}&include_adult=false
     `)
     .then((res) => {
       setContent(res.data.results)

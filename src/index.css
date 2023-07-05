@@ -653,6 +653,9 @@ a:hover {
         border-bottom-left-radius: 0px;
         z-index: 101;
     }
+    .count-later-nav{
+        display: none;
+    }
     .input-title {
         justify-content: unset;
         position: relative;
@@ -675,6 +678,17 @@ a:hover {
     }
     .display-grid-search {
         padding: 2rem 1.8rem;
+    }
+    .display-grid-watch-later{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+        gap: 3rem 2rem;
+        position: relative;
+        margin: 0 auto;
+        width: 100%;
+        overflow: hidden;
+        width: 90%;
+        align-items: center;
     }
     .modal-top {
         position: fixed;
@@ -929,6 +943,18 @@ a:hover {
     }
     .d-flex-header {
         justify-content: space-between;
+    }
+    .display-grid-watch-later{
+        display: grid;
+        grid-template-columns: repeat(auto-fit minmax(270px, 300px));
+        gap: 3rem 2rem;
+        position: relative;
+        margin: 0 auto;
+        width: 100%;
+        overflow: hidden;
+        width: 90%;
+        align-items: center;
+        justify-content: center;
     }
     .bbb {
         display: none;

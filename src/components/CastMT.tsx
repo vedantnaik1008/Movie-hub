@@ -27,7 +27,7 @@ const CastMt = ({ movie_id, page }: Props) => {
     const [credits, setCredits] = useState<Credits | null>(null);
     useEffect(() => {
         fetch(
-            `https://api.themoviedb.org/3/movie/${movie_id}/credits?api_key=${import.meta.env.VITE_MOVIE_API_KEY}&page=${page}`
+            `https://api.themoviedb.org/3/movie/${movie_id}/credits?api_key=3171b031bea93a9972cd7b17398bcebf&page=${page}`
         )
             .then((response) => response.json())
             .then((data) => setCredits(data))
