@@ -322,11 +322,11 @@ li {
 
 .display-grid-watch-later{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(270px, 350px));
+    grid-template-columns: repeat(auto-fit, minmax(270px, 330px));
     gap: 3rem 2rem;
     position: relative;
     margin: 0 1rem;
-    width: 100%;
+    width: 95%;
     overflow: hidden;
 }
 .modal-top span.green {
@@ -681,14 +681,13 @@ a:hover {
     }
     .display-grid-watch-later{
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(270px, 330px));
         gap: 3rem 2rem;
         position: relative;
         margin: 0 auto;
-        width: 100%;
+        width: 95%;
         overflow: hidden;
-        width: 90%;
-        align-items: center;
+        justify-content: center;
     }
     .modal-top {
         position: fixed;
@@ -946,15 +945,12 @@ a:hover {
     }
     .display-grid-watch-later{
         display: grid;
-        grid-template-columns: repeat(auto-fit minmax(270px, 300px));
+        grid-template-columns: repeat(auto-fit minmax(270px, 330px));
         gap: 3rem 2rem;
         position: relative;
         margin: 0 auto;
-        width: 100%;
         overflow: hidden;
-        width: 90%;
-        align-items: center;
-        justify-content: center;
+        width: 95%;
     }
     .bbb {
         display: none;
