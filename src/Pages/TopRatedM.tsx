@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import {  img_500, unavailable } from '../components/Config';
 import { Fetching } from './Trending';
-import Modal from '../components/Modal';
+import { lazy } from 'react';
+const Modal = lazy(() => import('../components/Modal'));
 import useTRM from '../hooks/useTRM';
 import React from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
@@ -29,7 +30,7 @@ const TopRatedM = () => {
  }
   const {data: datas, error, isLoading, fetchNextPage, hasNextPage} = useTRM();
 
-      if(isLoading)return <div className="d-flex justify-content-center spinner-loader">
+      if(isLoading)return <div className="d-flex justify-content-center align-items-center h-100 spinner-loader">
       <div className="spinner-border text-primary" role="status">
         <span className="visually-hidden">Loading...</span>
       </div>
@@ -39,7 +40,7 @@ const TopRatedM = () => {
 
     const fetchedTrendingPages = datas?.pages.reduce((total, page)=> total + page.results.length, 0) || 0;
 
-    const loader = <div className="d-flex justify-content-center ">
+    const loader = <div className="d-flex justify-content-center align-items-center h-100 spinner-loader">
     <div className="spinner-border text-primary" role="status">
       <span className="visually-hidden">Loading...</span>
       </div>

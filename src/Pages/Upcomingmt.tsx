@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { img_500, unavailable } from '../components/Config';
 import { Fetching } from './Trending';
-import ModalUpcomingmt from '../components/ModalUpcomingmt';
+import { lazy } from 'react';
+const ModalUpcomingmt = lazy(() => import('../components/ModalUpcomingmt'));
 import React from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import useUC from '../hooks/useUC';
@@ -30,7 +31,7 @@ const Upcomingmt = () => {
     }
  }
 
-  if(isLoading)return <div className="d-flex justify-content-center spinner-loader">
+  if(isLoading)return <div className="d-flex justify-content-center  align-items-center h-100 spinner-loader">
     <div className="spinner-border text-primary" role="status">
       <span className="visually-hidden">Loading...</span>
     </div>
@@ -40,7 +41,7 @@ const Upcomingmt = () => {
 
     const fetchedTrendingPages = datas?.pages.reduce((total, page)=> total + page.results.length, 0) || 0;
 
-    const loader = <div className="d-flex justify-content-center">
+    const loader = <div className="d-flex justify-content-center align-items-center h-100 spinner-loader">
       <div className="spinner-border text-primary" role="status">
         <span className="visually-hidden">Loading...</span>
       </div>

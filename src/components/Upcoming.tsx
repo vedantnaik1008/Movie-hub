@@ -8,6 +8,7 @@ import useUpcoming from '../hooks/useUpcoming';
 import { useState } from 'react';
 import { Fetching } from '../hooks/useTrending';
 import ModalUpcomingmt from './ModalUpcomingmt';
+import React from 'react';
 
 export interface FetchTopRated {
     id: number;
@@ -28,7 +29,7 @@ const TopUpcomingMovie = () => {
         data: {} as Fetching,
     });
 
-    if(isLoading) return <div className="d-flex justify-content-center">
+    if(isLoading) return <div className="d-flex justify-content-center align-items-center h-100">
     <div className="spinner-border text-light" role="status">
       <span className="visually-hidden">Loading...</span>
     </div>

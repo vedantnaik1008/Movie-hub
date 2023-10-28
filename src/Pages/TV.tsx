@@ -3,7 +3,8 @@ import { GenreData, ValueData } from './Movies';
 import {  img_500, unavailable } from '../components/Config';
 import Genre from '../components/Genre';
 import { Fetching } from './Trending';
-import ModalTV from '../components/ModalTV';
+import { lazy } from 'react';
+const ModalTV = lazy(() => import('../components/ModalTV'));
 import useMovie from '../hooks/useMovie';
 import React from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
@@ -34,7 +35,7 @@ const TV = () => {
     }
  }
 
-    if(isLoading)return <div className="d-flex justify-content-center spinner-loader">
+    if(isLoading)return <div className="d-flex justify-content-center align-items-center h-100 spinner-loader">
     <div className="spinner-border text-primary" role="status">
       <span className="visually-hidden">Loading...</span>
     </div>

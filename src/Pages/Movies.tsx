@@ -2,7 +2,8 @@ import { useState } from 'react';
 import {  img_500, unavailable } from '../components/Config';
 import Genre from '../components/Genre';
 import { Fetching } from './Trending';
-import Modal from '../components/Modal';
+import { lazy } from 'react';
+const Modal = lazy(() => import('../components/Modal'));
 import useMovie from '../hooks/useMovie';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import React from 'react';
@@ -45,7 +46,7 @@ const Movies = () => {
         }
     }
 
-    if(isLoading)return <div className="d-flex justify-content-center spinner-loader">
+    if(isLoading)return <div className="d-flex justify-content-center align-items-center h-100 spinner-loader">
     <div className="spinner-border text-primary" role="status">
       <span className="visually-hidden">Loading...</span>
     </div>
@@ -55,7 +56,7 @@ const Movies = () => {
 
 const fetchedTrendingPages = datas?.pages.reduce((total, page)=> total + page.results.length, 0) || 0;
 
-  const loader = <div className="d-flex justify-content-center">
+  const loader = <div className="d-flex justify-content-center align-items-center h-100 spinner-loader">
   <div className="spinner-border text-primary" role="status">
     <span className="visually-hidden">Loading...</span>
   </div>

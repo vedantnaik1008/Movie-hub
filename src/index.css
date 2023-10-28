@@ -501,6 +501,7 @@ a:hover {
 
 .spinner-loader {
     position: relative;
+    height: 100vh;
     z-index: 102;
 }
 

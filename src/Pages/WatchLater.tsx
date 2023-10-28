@@ -6,7 +6,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { img_500, unavailable } from "../components/Config"
 import { useState } from "react"
 import { Fetching } from "./Trending"
-import Modal from "../components/Modal"
+import { lazy } from 'react';
+const Modal = lazy(() => import('../components/Modal'));
 
 
 const WatchLater = () => {

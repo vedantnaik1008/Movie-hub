@@ -1,6 +1,8 @@
-import TopRatedMovie from '../components/TopRatedMovie';
-import TopUpcomingMovie from '../components/Upcoming';
-import Search from './Search';
+import { lazy } from 'react';
+const TopRatedMovie = lazy(() => import('../components/TopRatedMovie'));
+const TopUpcomingMovie = lazy(() => import('../components/Upcoming'));
+const Search = lazy(() => import('./Search'));
+
 
 const Others = () => {
     return (

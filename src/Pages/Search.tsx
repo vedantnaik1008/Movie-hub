@@ -3,7 +3,8 @@ import Pagination from "../components/Pagination"
 import axios from "axios";
 import { img_500, unavailable } from "../components/Config";
 import { Fetching } from "./Trending";
-import Modal from "../components/Modal";
+import { lazy } from 'react';
+const Modal = lazy(() => import('../components/Modal'));
 import { faMagnifyingGlass, faPlay, faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useDispatch, useSelector } from "react-redux";
