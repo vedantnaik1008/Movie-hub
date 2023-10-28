@@ -8,7 +8,6 @@ import useUpcoming from '../hooks/useUpcoming';
 import { useState } from 'react';
 import { Fetching } from '../hooks/useTrending';
 import ModalUpcomingmt from './ModalUpcomingmt';
-import React from 'react';
 
 export interface FetchTopRated {
     id: number;
