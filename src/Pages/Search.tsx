@@ -5,13 +5,13 @@ import { img_500, unavailable } from "../components/Config";
 import { Fetching } from "./Trending";
 import { lazy } from 'react';
 const Modal = lazy(() => import('../components/Modal'));
-import { faMagnifyingGlass, faPlay, faStar } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { WatchItem, ADD } from "../components/WatchSlice";
 import { RootState } from "../store";
 import { APIKEY } from "../Services/api-client";
+import { FaStar } from "react-icons/fa";
+import { IoSearch } from "react-icons/io5";
 
 const Search = () => {
   const [searchText, setSearchText] = useState('')
@@ -58,9 +58,9 @@ const Search = () => {
   return (
     <>
       <div className="pb-5">
-            <div className=" input-title">
+            <div className="input-title">
               <input type="text" placeholder="search..." onChange={Trigger} className="form-control-lg col-6 search rounded-5 border border-0  mt-2"/>
-              <button aria-label="search" className="text-white mx-2 col-md-1 mt-2 col-sm-2 search-title" onClick={Searches}><FontAwesomeIcon icon={faMagnifyingGlass} /></button>
+              <button aria-label="search" className="text-white mx-2 col-md-1 mt-2 search-title" onClick={Searches}><IoSearch /></button>
             </div>
             <div className={content.length ? "display-grid-search" : "display-grid-search p-0"}>
               {content.map((val)=> (
@@ -69,10 +69,10 @@ const Search = () => {
                   <img loading="lazy" 
                   src={val.poster_path ? `${img_500 + val.poster_path}` : unavailable}
                   className="card-img-top rounded-5" alt={val.title || val.name}  onClick={() => setModalData({ show: true, data: val })}/>
-                  <FontAwesomeIcon icon={faPlay}  className='faplay-icon' onClick={() => setModalData({ show: true, data: val })}/>
+                  
                   <button className='watch-add' onClick={()=>{
                        addToCart(val)
-                    }}><FontAwesomeIcon icon={faStar} size='xl' color='yellow'/></button>
+                    }}><FaStar size='25' color='yellow'/></button>
                 </div> 
               </div>))}
             </div>

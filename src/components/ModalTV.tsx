@@ -1,11 +1,11 @@
 import {  img_500, unavailable } from './Config';
-import { faArrowLeft, faXmark } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState } from 'react';
 import useGenre from '../hooks/useGenre';
 import { ValueData } from '../Pages/Movies';
 import CastMt from './CastMT';
 import { APIKEY } from '../Services/api-client';
+import { GoArrowLeft } from 'react-icons/go';
+import { IoClose } from 'react-icons/io5';
 
 interface Props{
     show: boolean;
@@ -68,7 +68,7 @@ const ModalTV = ({show, isOpen, setIsOpen,poster_path, vote_average,title,name,m
   return (
     <>
     <div className="modal-top">
-        <button className='close-btn'  onClick={()=> setIsOpen(!isOpen)}><FontAwesomeIcon icon={faArrowLeft}/></button>
+        <button className='close-btn'  onClick={()=> setIsOpen(!isOpen)}><GoArrowLeft size="25px"/></button>
       {show ? 
         <><div className="modal-down">
             <div className='modal-left'>
@@ -96,7 +96,7 @@ const ModalTV = ({show, isOpen, setIsOpen,poster_path, vote_average,title,name,m
       {trailer ? (
         <><div className="modal-trailer ">
           <button className='close-btn-trailer' onClick={() => setTrailer(undefined)}>
-            <FontAwesomeIcon icon={faXmark} size='2xl' />
+          <IoClose size="35px"/>
           </button>
           <iframe
             src={`https://www.youtube.com/embed/${trailer.key}`}

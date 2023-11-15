@@ -1,5 +1,5 @@
-import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { IoIosArrowForward } from "react-icons/io";
+import { IoIosArrowBack } from "react-icons/io";
 
 interface Props{
     page: number;
@@ -25,10 +25,10 @@ const Pagination = ({page, setPage}: Props) => {
       <div className="pagination-relative">
         <div className="pagination d-flex justify-content-center align-items-centern pt-3">
           <button className="m-1 text-center button-one" onClick={Previous}>
-            <FontAwesomeIcon icon={faAngleLeft} />
+            <IoIosArrowBack />
           </button>
           <button className="m-1 text-center button-two" onClick={Next}>
-            <FontAwesomeIcon icon={faAngleRight} />
+            <IoIosArrowForward />
           </button>
         </div>
       </div>

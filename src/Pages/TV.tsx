@@ -8,12 +8,11 @@ const ModalTV = lazy(() => import('../components/ModalTV'));
 import useMovie from '../hooks/useMovie';
 import React from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlay, faStar } from '@fortawesome/free-solid-svg-icons';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 import { WatchItem, ADD } from '../components/WatchSlice';
 import { RootState } from '../store';
+import { FaStar } from 'react-icons/fa';
 
 const TV = () => {
     const [page, setPage] = useState(1);
@@ -77,8 +76,7 @@ const TV = () => {
                                 <div key={val.id} id="card" >
                                     <div className="cards  rounded-5">
                                         <img loading="lazy" src={val.poster_path ? `${img_500 + val.poster_path}` : unavailable} className="card-img-top rounded-5" alt={val.title || val.name}  onClick={() => setModalData({ show: true, data: val })}/>
-                                        <FontAwesomeIcon icon={faPlay}  className='faplay-icon' onClick={() => setModalData({ show: true, data: val })}/>
-                                        <button className='watch-add' onClick={()=>{addToCart(val)}}><FontAwesomeIcon icon={faStar} size='xl' color='yellow'/></button>
+                                        <button className='watch-add' onClick={()=>{addToCart(val)}}><FaStar size='25' color='yellow'/></button>
                                     </div> 
                                 </div>))}
                         </React.Fragment>))}  

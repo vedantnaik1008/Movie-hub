@@ -7,12 +7,11 @@ const Modal = lazy(() => import('../components/Modal'));
 import useMovie from '../hooks/useMovie';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import React from 'react';
-import { faPlay, faStar } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 import { WatchItem, ADD } from '../components/WatchSlice';
 import { RootState } from '../store';
+import { FaStar } from 'react-icons/fa';
 
 export interface GenreData {
     id: number;
@@ -84,10 +83,10 @@ const fetchedTrendingPages = datas?.pages.reduce((total, page)=> total + page.re
                                     <img loading="lazy"
                                     src={val.poster_path ? `${img_500 + val.poster_path}` : unavailable}
                                     className="card-img-top rounded-5"  alt={val.title || val.name}  onClick={() => setModalData({ show: true, data: val })}/>
-                                    <FontAwesomeIcon icon={faPlay}  className='faplay-icon' onClick={() => setModalData({ show: true, data: val })}/>
+                                    
                                     <button className='watch-add' onClick={()=>{
                                         addToCart(val)
-                                        }}><FontAwesomeIcon icon={faStar} size='xl' color='yellow'/>
+                                        }}><FaStar size='25' color='yellow'/>
                                     </button>
                                     </div> 
                                 </div>

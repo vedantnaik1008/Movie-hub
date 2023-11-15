@@ -1,10 +1,9 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState } from 'react';
 import {  NavLink } from 'react-router-dom';
-import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { useSelector } from 'react-redux';
 import { RootState } from '../store';
-
+import { IoClose } from 'react-icons/io5';
+import { FaBars } from "react-icons/fa6";
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const cartProducts = useSelector((state:RootState)=> state.watchlater)
@@ -40,13 +39,13 @@ const Navbar = () => {
         <>
             <div className='position-relative'>
                 <span className='bbb' onClick={handleClick}>
-                    <FontAwesomeIcon icon={faBars} size='2xl' className='bbb-icon'/>
+                    <FaBars size="35px" className='bbb-icon'/>
                 </span>
                 <div
                     className={isOpen ? 'dont-show' : 'show-nav'}
                     id='navigation'>
                     <span className='ccc' onClick={handleClick}>
-                        <FontAwesomeIcon icon={faXmark} size='2xl' className='ccc-icon'/>
+                        <IoClose size="35px" className='ccc-icon'/>
                     </span>
                     <nav className='navi'>
                     <span className="count-later-nav">{cartProducts.watchlater.length}</span>

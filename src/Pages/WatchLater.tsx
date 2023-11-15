@@ -1,12 +1,12 @@
 import { useSelector, useDispatch } from "react-redux"
 import { CLEAR, REMOVE,  } from "../components/WatchSlice"
 import { RootState } from "../store"
-import { faPlay, faXmark, faBroom } from "@fortawesome/free-solid-svg-icons"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { img_500, unavailable } from "../components/Config"
 import { useState } from "react"
 import { Fetching } from "./Trending"
 import { lazy } from 'react';
+import { FaBroom } from "react-icons/fa"
+import { IoClose } from "react-icons/io5"
 const Modal = lazy(() => import('../components/Modal'));
 
 
@@ -29,7 +29,7 @@ const WatchLater = () => {
     <>
         <div className="watch-padding bg-black-c"> 
             <div className="clear-all" onClick={clearAll}>
-                <FontAwesomeIcon icon={faBroom} color="white"/> <span>Clear all</span>
+              <FaBroom color="white" size="20px"/> <span>Clear all</span>
             </div>
 
             <div className='display-grid-watch-later'>
@@ -38,8 +38,7 @@ const WatchLater = () => {
                     <div className="cards  rounded-5">
                       <img loading="lazy" src={val.poster_path ? `${img_500 + val.poster_path}` : unavailable}
                       className="card-img-top rounded-5" alt={val.title || val.name}  onClick={() => setModalData({ show: true, data: val })}/>
-                      <FontAwesomeIcon icon={faPlay} className='faplay-icon' onClick={() => setModalData({ show: true, data: val })}/>
-                      <button className=" watch-remove" onClick={()=> removeToCart(val.id)}><FontAwesomeIcon icon={faXmark} size='2xl' color="white"/></button>
+                      <button className="watch-remove" onClick={()=> removeToCart(val.id)}><IoClose size="35px" color="white"/></button>
                     </div>
                   </div>
                 ))}

@@ -68,6 +68,9 @@ li {
 .search-title {
     background-color: hsl(296, 100%, 44%);
     border: none;
+    display: flex;
+    justify-content: center;
+    height: 30%;
 }
 
 .input-title {
@@ -224,27 +227,7 @@ li {
     background-image: linear-gradient(to top, #642b73, #4d2256, #361a3a, #201121, #040004);
 }
 
-.cards .faplay-icon {
-    position: absolute;
-    color: white;
-    padding: 20px;
-    inset: 0;
-    margin: auto;
-    border-radius: 50%;
-    font-size: 20px;
-    visibility: hidden;
-    transition: visibility 0.3s ease-out;
-    background-color: transparent;
-    background: rgba(255, 255, 255, 0.12);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(10.7px);
-    -webkit-backdrop-filter: blur(10.7px);
-    border: 1px solid rgba(255, 255, 255, 0.27);
-}
 
-.cards:hover .faplay-icon {
-    visibility: visible;
-}
 
 .cards span {
     position: absolute;
@@ -278,13 +261,17 @@ li {
     border-radius: 5px;
     color: white;
     font-family: Kanit, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
 }
 .watch-remove{
  position: absolute;
  top: 25px;
  right: 25px;
  background-color: red;
- padding: 5px 10px;
+ padding: 5px;
  border: none;
  border-radius: 50%;
  outline: none;
@@ -481,9 +468,7 @@ a:hover {
 
 .bbb-icon {
     background-color: transparent;
-    border-radius: 50%;
     color: white;
-    padding: 5px 10px;
 }
 
 .pagination .button-one,
@@ -754,7 +739,7 @@ a:hover {
         border-radius: 50%;
         z-index: 102;
         font-size: 20px;
-        padding: 10px 15px;
+        padding: 10px 10px;
     }
     .trailer-btn {
         margin: 0 auto 0 auto;
@@ -1022,7 +1007,7 @@ a:hover {
         border-radius: 50%;
         z-index: 102;
         font-size: 20px;
-        padding: 10px 15px;
+        padding: 10px 10px;
     }
     .trailer-btn {
         margin: 0 auto 0 auto;
@@ -1219,7 +1204,7 @@ a:hover {
         border-radius: 50%;
         z-index: 102;
         font-size: 20px;
-        padding: 10px 15px;
+        padding: 10px 10px;
     }
     iframe {
         width: 100%;
