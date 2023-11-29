@@ -13,18 +13,18 @@ interface Props{
 
 
 const Genre = ({ genre, setGenre, type, value, setValue, setPage }: Props) => {
-  const fetchGenre = async () => {
-    const data = await fetch(
-      `https://api.themoviedb.org/3/genre/${type}/list?api_key=${APIKEY}&language=en-US`
-    );
-    const { genres } = await data.json();
-    console.log(genres);
-    setGenre(genres);
-  };
 
   useEffect(() => {
+    const fetchGenre = async () => {
+      const data = await fetch(
+        `https://api.themoviedb.org/3/genre/${type}/list?api_key=${APIKEY}&language=en-US`
+      );
+      const { genres } = await data.json();
+      console.log(genres);
+      setGenre(genres);
+    };
     fetchGenre();
-  }, []);
+  }, [setGenre, type]);
 
   const CategoryAdd = (genres: ValueData) => {
     setValue([...value, genres]);

@@ -26,6 +26,7 @@ interface Props {
 
 const CastMt = ({ movie_id, page }: Props) => {
     const [credits, setCredits] = useState<Credits | null>(null);
+    
     useEffect(() => {
         fetch(
             `https://api.themoviedb.org/3/movie/${movie_id}/credits?api_key=${APIKEY}&page=${page}`
@@ -33,7 +34,7 @@ const CastMt = ({ movie_id, page }: Props) => {
             .then((response) => response.json())
             .then((data) => setCredits(data))
             .catch((error) => console.log(error));
-    }, []);
+    }, [movie_id, page]);
 
     return (
         <div className='cast-position'>

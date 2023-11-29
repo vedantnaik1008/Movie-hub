@@ -49,7 +49,7 @@ const Modal = ({show, isOpen, setIsOpen,poster_path, vote_average,title,name,med
         } catch (error) {
           console.error('Error fetching movie trailer', error);
         }
-      };
+    };
 
     const getColorClass = (voteAverage: number) => {
         if (voteAverage >= 7.9) {
