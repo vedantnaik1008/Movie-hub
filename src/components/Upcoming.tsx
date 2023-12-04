@@ -28,7 +28,7 @@ const TopUpcomingMovie = () => {
         data: {} as Fetching,
     });
 
-    if(isLoading) return <div className="d-flex justify-content-center align-items-center h-100">
+    if(isLoading) return <div className="d-flex justify-content-center align-items-center  spinner-loader">
     <div className="spinner-border text-light" role="status">
       <span className="visually-hidden">Loading...</span>
     </div>

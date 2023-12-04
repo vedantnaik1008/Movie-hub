@@ -39,7 +39,7 @@ const CastMt = ({ movie_id, page }: Props) => {
     return (
         <div className='cast-position'>
             {credits === null ? (
-                <div className='d-flex justify-content-center'>
+                <div className='d-flex justify-content-center align-items-center  spinner-loader'>
                     <div className='spinner-border text-primary' role='status'>
                         <span className='visually-hidden'>Loading...</span>
                     </div>

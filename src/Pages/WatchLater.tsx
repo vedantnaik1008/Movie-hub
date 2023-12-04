@@ -6,7 +6,7 @@ import { useState } from "react"
 import { Fetching } from "./Trending"
 import { lazy } from 'react';
 import { FaBroom } from "react-icons/fa"
-import { IoClose } from "react-icons/io5"
+import { IoCloseOutline } from "react-icons/io5";
 const Modal = lazy(() => import('../components/Modal'));
 
 
@@ -38,7 +38,7 @@ const WatchLater = () => {
                     <div className="cards  rounded-5">
                       <img loading="lazy" src={val.poster_path ? `${img_500 + val.poster_path}` : unavailable}
                       className="card-img-top rounded-5" alt={val.title || val.name}  onClick={() => setModalData({ show: true, data: val })}/>
-                      <button className="watch-remove" onClick={()=> removeToCart(val.id)}><IoClose size="35px" color="white"/></button>
+                      <button className="watch-remove" onClick={()=> removeToCart(val.id)}><IoCloseOutline size="35px" color="white"/></button>
                     </div>
                   </div>
                 ))}
