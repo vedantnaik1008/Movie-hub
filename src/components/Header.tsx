@@ -1,5 +1,5 @@
 import { FaPlay } from "react-icons/fa";
-import Footer from "./Footer"
+import Footer from "./Navbar"
 
 const Header = () => {
 

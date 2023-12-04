@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Fetching } from './Trending';
 import { lazy } from 'react';
-const ModalUpcomingmt = lazy(() => import('../components/ModalUpcomingmt'));
+const Modal = lazy(() => import('../components/Modal'));
 import InfiniteScroll from 'react-infinite-scroll-component';
 import useUC from '../hooks/useUC';
 import Heading from '../components/Heading';
@@ -51,7 +51,7 @@ const Upcomingmt = () => {
                     <Cards datas={datas} setModalData={(data) => setModalData(data)}/>
                 </InfiniteScroll>
                 {modalData.show && (
-                    <ModalUpcomingmt
+                    <Modal
                         page={page}
                         show={true}
                         isOpen={modalData.show}

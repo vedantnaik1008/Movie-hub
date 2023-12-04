@@ -7,7 +7,7 @@ import { settings } from '../Services/Settings';
 import useUpcoming from '../hooks/useUpcoming';
 import { useState } from 'react';
 import { Fetching } from '../hooks/useTrending';
-import ModalUpcomingmt from './ModalUpcomingmt';
+import Modal from './Modal';
 
 export interface FetchTopRated {
     id: number;
@@ -71,10 +71,17 @@ const TopUpcomingMovie = () => {
                 </Slider>
             </div>
             {modalData.show && (
-            <ModalUpcomingmt page={page} show={true} isOpen={modalData.show}
-              setIsOpen={(isOpen) => setModalData({ ...modalData, show: isOpen })}
-              {...modalData.data}
-              key={modalData.data.id} />)}
+              <Modal
+                        page={page}
+                        show={true}
+                        isOpen={modalData.show}
+                        setIsOpen={(isOpen) =>
+                            setModalData({ ...modalData, show: isOpen })
+                        }
+                        {...modalData.data}
+                        key={modalData.data.id}
+                    />
+            )}        
         </>
     );
 };

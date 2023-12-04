@@ -7,11 +7,14 @@ type Props = {
 };
 
 const Trailer = ({ id, page }: Props) => {
-    const { trailer, setTrailer } = useTrailer({ id, page });
+    const { trailer, setTrailer, fetchTrailer } = useTrailer({ id, page });
     return (
         <>
+            <button className='trailer-btn' onClick={fetchTrailer}>
+                {trailer ? <span>Loading...</span> : <span>Play Trailer</span>}
+            </button>
             {trailer ? (
-                <div className='modal-trailer'>
+                <section className='modal-trailer'>
                     <button
                         className='close-btn-trailer'
                         onClick={() => setTrailer(undefined)}>
@@ -22,7 +25,7 @@ const Trailer = ({ id, page }: Props) => {
                         title={trailer.name}
                         allowFullScreen
                     />
-                </div>
+                </section>
             ) : null}
         </>
     );

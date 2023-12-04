@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import {  useState } from 'react';
 import { APIKEY } from '../Services/api-client';
 
 interface Video {
@@ -15,7 +15,7 @@ type Props = {
 
 export const useTrailer = ({id, page}: Props) => {
     const [trailer, setTrailer] = useState<Video>();
-    const fetchTrailer = useCallback(async () => {
+    const fetchTrailer = async () => {
         try {
             const response = await fetch(`
           https://api.themoviedb.org/3/movie/${id}?top_rated?language=en-US&api_key=${APIKEY}&page=${page}&append_to_response=videos&sort_by=vote_average.desc
@@ -34,11 +34,9 @@ export const useTrailer = ({id, page}: Props) => {
         } catch (error) {
             console.error('Error fetching movie trailer', error);
         }
-    }, [id, page]);
+    }
     
-    useEffect(() => {
-        fetchTrailer();
-    }, [fetchTrailer]);
+   
 
     return {trailer, setTrailer, fetchTrailer};
 }
