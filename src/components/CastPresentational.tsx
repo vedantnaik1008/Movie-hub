@@ -1,49 +1,17 @@
-import { useState, useEffect } from 'react';
-import { unavailableLandscape } from '../Services/Config';
-import { APIKEY } from '../Services/api-client';
+import { unavailableLandscape } from "../Services/Config"
+import { Credits } from "../types/CastTypes"
+import Loading from "./Loading"
 
-interface Actor {
-    cast_id: number;
-    character: string;
-    credit_id: string;
-    gender: number;
-    id: number;
-    name: string;
-    order: number;
-    profile_path: string | null;
-    known_for_department: string;
+interface Props{
+    credits: Credits | null;
 }
 
-interface Credits {
-    id: number;
-    cast: Actor[];
-}
-
-interface Props {
-    movie_id: number;
-    page: number;
-}
-
-const CastMt = ({ movie_id, page }: Props) => {
-    const [credits, setCredits] = useState<Credits | null>(null);
-    
-    useEffect(() => {
-        fetch(
-            `https://api.themoviedb.org/3/movie/${movie_id}/credits?api_key=${APIKEY}&page=${page}`
-        )
-            .then((response) => response.json())
-            .then((data) => setCredits(data))
-            .catch((error) => console.log(error));
-    }, [movie_id, page]);
-
-    return (
-        <div className='cast-position'>
+const CastPresentational = ({credits} : Props) => {
+  return (
+    <>
+      <section className='cast-position'>
             {credits === null ? (
-                <div className='d-flex justify-content-center align-items-center  spinner-loader'>
-                    <div className='spinner-border text-primary' role='status'>
-                        <span className='visually-hidden'>Loading...</span>
-                    </div>
-                </div>
+                <Loading />
             ) : credits && credits.cast && credits.cast?.length > 0 ? (
                 <div className='actor-container'>
                     <h2 className='text-center my-3'>Cast</h2>
@@ -70,8 +38,9 @@ const CastMt = ({ movie_id, page }: Props) => {
                     <p className='text-white'>No Cast Members Found</p>
                 </div>
             )}
-        </div>
-    );
-};
+      </section>
+    </>
+  )
+}
 
-export default CastMt;
+export default CastPresentational

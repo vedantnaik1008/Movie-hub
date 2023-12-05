@@ -8,6 +8,8 @@ import useUpcoming from '../hooks/useUpcoming';
 import { useState } from 'react';
 import { Fetching } from '../hooks/useTrending';
 import Modal from './Modal';
+import Loading from './Loading';
+import { useHover } from '../hooks/useHover';
 
 export interface FetchTopRated {
     id: number;
@@ -21,37 +23,17 @@ export interface FetchTopRated {
 
 const TopUpcomingMovie = () => {
     const {data, error, isLoading} = useUpcoming()
-    const [isHovered, setIsHovered] = useState(false);
+    const {isHovered, handleHover, handleLeave} = useHover('.others-three')
     const [page] = useState(1);
     const [modalData, setModalData] = useState<{ show: boolean; data: Fetching }>({
         show: false,
         data: {} as Fetching,
     });
 
-    if(isLoading) return <div className="d-flex justify-content-center align-items-center  spinner-loader">
-    <div className="spinner-border text-light" role="status">
-      <span className="visually-hidden">Loading...</span>
-    </div>
-  </div>
+    if(isLoading) return <Loading />
     
-
     if(error) return <p>{error.message}</p>;
 
-    const handleHover = (backDropPath: string) => {
-        const othersElement = document.querySelector('.others-three')as HTMLDivElement
-        if (othersElement) {
-            othersElement.style.backgroundImage = `url(${img_500 + backDropPath})`;
-            setIsHovered(true)
-        }
-    }
-    
-    const handleLeave = () => {
-        const othersElement = document.querySelector('.others-three')as HTMLDivElement
-        if (othersElement) {
-            othersElement.style.backgroundImage = ''
-            setIsHovered(false)
-        }
-    };
 
     return (
         <>

@@ -2,7 +2,7 @@ import { img_500, unavailable } from '../Services/Config';
 import { useState } from 'react';
 import useGenre from '../hooks/useGenre';
 import { ValueData } from '../Pages/Movies';
-import CastMt from './CastMT';
+import CastMt from './CastContainer';
 import { APIKEY } from '../Services/api-client';
 import { GoArrowLeft } from 'react-icons/go';
 import { IoClose } from 'react-icons/io5';
