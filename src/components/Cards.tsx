@@ -1,9 +1,9 @@
 import { InfiniteData } from '@tanstack/react-query'
 import React from 'react'
 import { FetchResponse } from '../Services/api-client'
-import { Fetching } from '../hooks/useTrending'
 import AddCartButton from './AddCartButton'
 import { img_500, unavailable } from '../Services/Config'
+import { Fetching } from '../Pages/Trending'
 
 type Props = {
     datas: InfiniteData<FetchResponse<Fetching>>;

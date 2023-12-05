@@ -6,10 +6,10 @@ import 'slick-carousel/slick/slick-theme.css';
 import { settings } from '../Services/Settings';
 import useUpcoming from '../hooks/useUpcoming';
 import { useState } from 'react';
-import { Fetching } from '../hooks/useTrending';
 import Modal from './Modal';
 import Loading from './Loading';
 import { useHover } from '../hooks/useHover';
+import { Fetching } from '../Pages/Trending';
 
 export interface FetchTopRated {
     id: number;

@@ -1,6 +1,6 @@
 import { useInfiniteQuery } from '@tanstack/react-query'
-import { Fetching } from './useTrending'
 import APIClient, { FetchResponse } from '../Services/api-client'
+import { Fetching } from '../Pages/Trending';
 
 const apiClient = new APIClient<Fetching>('/movie/upcoming')
 const useUC = () => useInfiniteQuery<FetchResponse<Fetching>, Error>({

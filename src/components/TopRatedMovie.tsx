@@ -6,10 +6,10 @@ import { NavLink } from "react-router-dom";
 import { settings } from "../Services/Settings";
 import useTopRatedMovie from "../hooks/useTopRatedMovie";
 import { useState } from "react";
-import { Fetching } from "../hooks/useTrending";
 import Modal from "./Modal";
 import Loading from "./Loading";
 import { useHover } from "../hooks/useHover";
+import { Fetching } from "../Pages/Trending";
 
 const TopRatedMovie = () => {
   const {data, error, isLoading} = useTopRatedMovie()
