@@ -243,6 +243,10 @@ li {
     font-weight: 700;
 }
 
+/* .slick-dots li button{
+    color: white !important;
+} */
+
 .watch-padding{
     padding-top: 180px;
     padding-bottom: 50px;

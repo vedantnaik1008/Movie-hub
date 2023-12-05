@@ -28,7 +28,7 @@ const SliderPresentational = ({
                     </NavLink>
                 </div>
                 <Slider {...settings} className='whole-slider'>
-                    {data.map((i) => (
+                    {data.slice(12).map((i) => (
                         <div key={i.id} className='slider'>
                             <img
                                 src={img_500 + i.backdrop_path}
