@@ -1,4 +1,4 @@
-import { img_500, unavailable } from './Config';
+import { img_500, unavailable } from '../Services/Config';
 import { useState } from 'react';
 import useGenre from '../hooks/useGenre';
 import { ValueData } from '../Pages/Movies';

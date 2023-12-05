@@ -1,4 +1,4 @@
-import { img_500 } from './Config';
+import { img_500 } from '../Services/Config';
 import { NavLink } from 'react-router-dom';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';

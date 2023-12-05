@@ -3,7 +3,7 @@ import React from 'react'
 import { FetchResponse } from '../Services/api-client'
 import { Fetching } from '../hooks/useTrending'
 import AddCartButton from './AddCartButton'
-import { img_500, unavailable } from './Config'
+import { img_500, unavailable } from '../Services/Config'
 
 type Props = {
     datas: InfiniteData<FetchResponse<Fetching>>;
@@ -17,7 +17,7 @@ const Cards = ({ datas, setModalData }: Props) => {
                         <React.Fragment key={index}>
                             {page.results.map((val) => (
                                 <div key={val.id} id='card'>
-                                    <div className='cards  rounded-5'>
+                                    <div className='cards'>
                                         <img
                                             loading='lazy'
                                             src={
@@ -28,7 +28,7 @@ const Cards = ({ datas, setModalData }: Props) => {
                                                       }`
                                                     : unavailable
                                             }
-                                            className='card-img-top rounded-5'
+                                            className='card-img-top'
                                             alt={val.title || val.name}
                                             onClick={() =>
                                                 setModalData({

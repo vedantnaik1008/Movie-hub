@@ -223,7 +223,6 @@ li {
 
 .card-img-top {
     object-fit: cover;
-    border-radius: 34px;
     width: 300px;
     height: 520px;
 }

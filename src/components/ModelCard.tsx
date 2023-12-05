@@ -1,9 +1,9 @@
 
 import { GoArrowLeft } from "react-icons/go"
 import CastMt from "./CastMT"
-import { img_500, unavailable } from "./Config"
+import { img_500, unavailable } from "../Services/Config"
 import Trailer from "./Trailer"
-import { ModalProps } from "./ModalUpcomingmt"
+import { ModalProps } from "../types/ModalTypes"
 
 
 const ModelCard = ({

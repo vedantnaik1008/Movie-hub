@@ -1,20 +1,6 @@
-import ModalCard from './ModelCard';
 
-interface Props {
-    show: boolean;
-    page: number;
-    isOpen: boolean;
-    setIsOpen: (isOpen: boolean) => void;
-    poster_path: string;
-    vote_average: number;
-    title: string;
-    name: string;
-    media_type: string;
-    overview: string;
-    first_air_date: string;
-    release_date: string;
-    id: number;
-}
+import { ModalProps } from '../types/ModalTypes';
+import ModalCard from './ModelCard';
 
 const Modal = ({
     show,
@@ -30,7 +16,7 @@ const Modal = ({
     release_date,
     id,
     page,
-}: Props) => {
+}: ModalProps) => {
     return (
         <>
             <ModalCard

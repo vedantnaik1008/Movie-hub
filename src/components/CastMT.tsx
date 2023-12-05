@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { unavailableLandscape } from './Config';
+import { unavailableLandscape } from '../Services/Config';
 import { APIKEY } from '../Services/api-client';
 
 interface Actor {

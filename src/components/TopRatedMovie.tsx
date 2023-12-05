@@ -1,7 +1,7 @@
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from 'react-slick';
-import { img_500 } from './Config';
+import { img_500 } from '../Services/Config';
 import { NavLink } from "react-router-dom";
 import { settings } from "../Services/Settings";
 import useTopRatedMovie from "../hooks/useTopRatedMovie";

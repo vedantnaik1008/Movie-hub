@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from "react-redux"
 import { CLEAR, REMOVE,  } from "../components/WatchSlice"
 import { RootState } from "../store"
-import { img_500, unavailable } from "../components/Config"
+import { img_500, unavailable } from "../Services/Config"
 import { useState } from "react"
 import { Fetching } from "./Trending"
 import { lazy } from 'react';
