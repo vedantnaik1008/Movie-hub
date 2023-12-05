@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import Pagination from "../components/Pagination"
 import axios from "axios";
 import { img_500, unavailable } from "../Services/Config";
-import { Fetching } from "./Trending";
 import { lazy } from 'react';
 const Modal = lazy(() => import('../components/Modal'));
 import { useDispatch, useSelector } from "react-redux";
@@ -12,6 +11,7 @@ import { RootState } from "../store";
 import { APIKEY } from "../Services/api-client";
 import { FaStar } from "react-icons/fa";
 import { IoSearch } from "react-icons/io5";
+import { Fetching } from "../types/Fetching";
 
 const Search = () => {
   const [searchText, setSearchText] = useState('')

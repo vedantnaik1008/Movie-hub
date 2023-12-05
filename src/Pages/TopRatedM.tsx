@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { Fetching } from './Trending';
 import { lazy } from 'react';
 const Modal = lazy(() => import('../components/Modal'));
 import useTRM from '../hooks/useTRM';
@@ -7,6 +6,7 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 import Heading from '../components/Heading';
 import Loading from '../components/Loading';
 import Cards from '../components/Cards';
+import { Fetching } from '../types/Fetching';
 
 const TopRatedM = () => {
     const [page] = useState(1);

@@ -9,7 +9,7 @@ import { useState } from 'react';
 import Modal from './Modal';
 import Loading from './Loading';
 import { useHover } from '../hooks/useHover';
-import { Fetching } from '../Pages/Trending';
+import { Fetching } from '../types/Fetching';
 
 export interface FetchTopRated {
     id: number;

@@ -3,7 +3,7 @@ import React from 'react'
 import { FetchResponse } from '../Services/api-client'
 import AddCartButton from './AddCartButton'
 import { img_500, unavailable } from '../Services/Config'
-import { Fetching } from '../Pages/Trending'
+import { Fetching } from '../types/Fetching'
 
 type Props = {
     datas: InfiniteData<FetchResponse<Fetching>>;

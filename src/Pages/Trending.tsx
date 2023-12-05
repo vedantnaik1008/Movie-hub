@@ -6,20 +6,8 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 import Heading from '../components/Heading';
 import Loading from '../components/Loading';
 import Cards from '../components/Cards';
+import { Fetching } from '../types/Fetching';
 
-export interface Fetching {
-    results: [];
-    name: string;
-    title: string;
-    poster_path: string;
-    backdrop_path: string;
-    first_air_date: string;
-    release_date: string;
-    media_type: string;
-    id: number;
-    overview: string;
-    vote_average: number;
-}
 
 const Trending = () => {
     const [page] = useState(1);

@@ -1,6 +1,6 @@
 import { useInfiniteQuery } from '@tanstack/react-query'
 import APIClient, { FetchResponse } from '../Services/api-client'
-import { Fetching } from '../Pages/Trending';
+import { Fetching } from '../types/Fetching';
 
 const apiClient = new APIClient<Fetching>('/movie/top_rated')
 const useTRM = () => useInfiniteQuery<FetchResponse<Fetching>, Error>({

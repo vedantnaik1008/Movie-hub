@@ -3,10 +3,10 @@ import { CLEAR, REMOVE,  } from "../components/WatchSlice"
 import { RootState } from "../store"
 import { img_500, unavailable } from "../Services/Config"
 import { useState } from "react"
-import { Fetching } from "./Trending"
 import { lazy } from 'react';
 import { FaBroom } from "react-icons/fa"
 import { IoCloseOutline } from "react-icons/io5";
+import { Fetching } from "../types/Fetching"
 const Modal = lazy(() => import('../components/Modal'));
 
 

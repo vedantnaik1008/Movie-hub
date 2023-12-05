@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { GenreData, ValueData } from './Movies';
 import Genre from '../components/Genre';
-import { Fetching } from './Trending';
 import { lazy } from 'react';
 const ModalTV = lazy(() => import('../components/ModalTV'));
 import useMovie from '../hooks/useMovie';
@@ -9,6 +8,7 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 import Heading from '../components/Heading';
 import Loading from '../components/Loading';
 import Cards from '../components/Cards';
+import { Fetching } from '../types/Fetching';
 
 const TV = () => {
     const [page, setPage] = useState(1);
