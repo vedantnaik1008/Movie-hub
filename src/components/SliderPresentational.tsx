@@ -9,20 +9,14 @@ import 'slick-carousel/slick/slick-theme.css';
 interface Props {
     data: Fetching[];
     setModalData: (data: { show: true; data: Fetching }) => void;
-    isHovered: boolean;
-    handleHover: (data: string) => void;
-    handleLeave: () => void;
 }
 const SliderPresentational = ({
     data,
-    setModalData,
-    isHovered,
-    handleHover,
-    handleLeave,
+    setModalData
 }: Props) => {
     return (
         <>
-            <section className={`others-three ${isHovered ? 'hovered' : ''}`}>
+            <section className={`others-three`}>
                 <div className='d-flex justify-content-between align-items-center gap-5 width-80'>
                     <h1 className=' text-white fw-800 mb-3 title-space '>
                         Upcoming Movies
@@ -39,10 +33,6 @@ const SliderPresentational = ({
                             <img
                                 src={img_500 + i.backdrop_path}
                                 alt={i.name || i.title}
-                                onMouseEnter={() =>
-                                    handleHover(i.backdrop_path)
-                                }
-                                onMouseLeave={handleLeave}
                                 onClick={() =>
                                     setModalData({ show: true, data: i })
                                 }

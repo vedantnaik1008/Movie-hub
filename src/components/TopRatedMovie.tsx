@@ -2,13 +2,11 @@ import useTopRatedMovie from '../hooks/useTopRatedMovie';
 import { useState } from 'react';
 import Modal from './Modal';
 import Loading from './Loading';
-import { useHover } from '../hooks/useHover';
 import { Fetching } from '../types/Fetching';
 import SliderPresentational from './SliderPresentational';
 
 const TopRatedMovie = () => {
     const { data, error, isLoading } = useTopRatedMovie();
-    const { isHovered, handleHover, handleLeave } = useHover('.others-two');
     const [page] = useState(1);
     const [modalData, setModalData] = useState<{
         show: boolean;
@@ -27,9 +25,6 @@ const TopRatedMovie = () => {
             <SliderPresentational
                 data={data.results}
                 setModalData={(data) => setModalData(data)}
-                isHovered={isHovered}
-                handleHover={handleHover}
-                handleLeave={handleLeave}
             />
             {modalData.show && (
                 <Modal
