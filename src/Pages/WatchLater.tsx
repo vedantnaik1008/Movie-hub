@@ -2,11 +2,12 @@ import { useSelector, useDispatch } from "react-redux"
 import { CLEAR, REMOVE,  } from "../components/WatchSlice"
 import { RootState } from "../store"
 import { img_500, unavailable } from "../Services/Config"
-import { useState } from "react"
+import { Suspense, useState } from "react"
 import { lazy } from 'react';
 import { FaBroom } from "react-icons/fa"
 import { IoCloseOutline } from "react-icons/io5";
 import { Fetching } from "../types/Fetching"
+import Loading from "../components/Loading"
 const Modal = lazy(() => import('../components/Modal'));
 
 
@@ -33,7 +34,7 @@ const WatchLater = () => {
             </div>
 
             <div className='display-grid-watch-later'>
-                {products.watchlater.map((val)=> (
+                {products.watchlater.map((val: Fetching)=> (
                     <div key={val.id} id="card" >
                     <div className="cards  rounded-5">
                       <img loading="lazy" src={val.poster_path ? `${img_500 + val.poster_path}` : unavailable}
@@ -44,7 +45,9 @@ const WatchLater = () => {
                 ))}
             </div>
         </div>
-        {modalData.show && (<Modal page={page} show={true} isOpen={modalData.show} setIsOpen={(isOpen) => setModalData({ ...modalData, show: isOpen })} {...modalData.data} key={modalData.data.id}/>)} 
+        {modalData.show && (<Suspense fallback={<Loading />}>
+          <Modal datas={modalData.data} page={page} show={true} isOpen={modalData.show} setIsOpen={(isOpen) => setModalData({ ...modalData, show: isOpen })}/>
+          </Suspense>)} 
     </>
   )
 }

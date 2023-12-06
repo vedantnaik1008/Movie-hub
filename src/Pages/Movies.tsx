@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import Genre from '../components/Genre';
+import { Suspense, useState } from 'react';
+const Genre = lazy(() => import('../components/Genre'));
 import { lazy } from 'react';
 const Modal = lazy(() => import('../components/Modal'));
 import useMovie from '../hooks/useMovie';
@@ -73,16 +73,13 @@ const Movies = () => {
                     <Cards datas={datas} setModalData={(data) => setModalData(data)}/>
                 </InfiniteScroll>
                 {modalData.show && (
+                    <Suspense fallback={<Loading/>}>
                     <Modal
-                        page={page}
+                        datas={modalData.data} page={page}
                         show={true}
                         isOpen={modalData.show}
-                        setIsOpen={(isOpen) =>
-                            setModalData({ ...modalData, show: isOpen })
-                        }
-                        {...modalData.data}
-                        key={modalData.data.id}
-                    />
+                        setIsOpen={(isOpen) => setModalData({ ...modalData, show: isOpen })}/>
+                    </Suspense>
                 )}
             </div>
         </>

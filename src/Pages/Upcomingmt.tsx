@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { Suspense, useState } from 'react';
 import { lazy } from 'react';
 const Modal = lazy(() => import('../components/Modal'));
 import InfiniteScroll from 'react-infinite-scroll-component';
@@ -51,16 +51,13 @@ const Upcomingmt = () => {
                     <Cards datas={datas} setModalData={(data) => setModalData(data)}/>
                 </InfiniteScroll>
                 {modalData.show && (
-                    <Modal
-                        page={page}
+                    <Suspense fallback={<Loading />}>
+                        <Modal
+                        datas={modalData.data} page={page}
                         show={true}
                         isOpen={modalData.show}
-                        setIsOpen={(isOpen) =>
-                            setModalData({ ...modalData, show: isOpen })
-                        }
-                        {...modalData.data}
-                        key={modalData.data.id}
-                    />
+                        setIsOpen={(isOpen) => setModalData({ ...modalData, show: isOpen })}/>
+                    </Suspense>
                 )}
             </div>
         </>

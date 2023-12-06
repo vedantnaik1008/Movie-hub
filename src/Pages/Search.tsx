@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react';
-import Pagination from '../components/Pagination';
+import { Suspense, useEffect, useState, lazy } from 'react';
+const Pagination = lazy(() => import('../components/Pagination'));
 import axios from 'axios';
 import { img_500, unavailable } from '../Services/Config';
-import { lazy } from 'react';
+
 const Modal = lazy(() => import('../components/Modal'));
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
@@ -12,6 +12,7 @@ import { APIKEY } from '../Services/api-client';
 import { FaStar } from 'react-icons/fa';
 import { IoSearch } from 'react-icons/io5';
 import { Fetching } from '../types/Fetching';
+import Loading from '../components/Loading';
 
 const Search = () => {
     const [searchText, setSearchText] = useState('');
@@ -113,16 +114,13 @@ const Search = () => {
                     ))}
                 </div>
                 {modalData.show && (
+                    <Suspense fallback={<Loading />}>
                     <Modal
-                        page={page}
+                        datas={modalData.data} page={page}
                         show={true}
                         isOpen={modalData.show}
-                        setIsOpen={(isOpen) =>
-                            setModalData({ ...modalData, show: isOpen })
-                        }
-                        {...modalData.data}
-                        key={modalData.data.id}
-                    />
+                        setIsOpen={(isOpen) => setModalData({ ...modalData, show: isOpen })}/>
+                    </Suspense>
                 )}
                 {page > 1 && <Pagination page={page} setPage={setPage} />}
             </div>

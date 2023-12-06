@@ -1,26 +1,21 @@
-
+import { Suspense, lazy } from 'react'
+const CastContainer = lazy(() => import("./CastContainer"));
 import { GoArrowLeft } from "react-icons/go"
-import CastMt from "./CastContainer"
 import { img_500, unavailable } from "../Services/Config"
-import Trailer from "./Trailer"
-import { ModalProps } from "../types/ModalTypes"
+const Trailer = lazy(() => import("./Trailer"));
+import { Fetching } from "../types/Fetching"
+import Loading from './Loading';
 
+type Props = {
+    show: boolean;
+    isOpen: boolean;
+    page: number;
+    setIsOpen: (isOpen: boolean) => void;
+    datas: Fetching;
+}
 
-const ModelCard = ({
-    show,
-    isOpen,
-    setIsOpen,
-    poster_path,
-    vote_average,
-    title,
-    name,
-    media_type,
-    overview,
-    first_air_date,
-    release_date,
-    id,
-    page,
-}: ModalProps) => {
+const ModelCard = ({ datas ,show,isOpen, page, setIsOpen  }: Props) => {
+    const {poster_path,vote_average, title, name, media_type,overview,first_air_date, release_date, id} = datas
     const getColorClass = (voteAverage: number) => {
         if (voteAverage >= 7.9) {
             return 'green';
@@ -87,7 +82,10 @@ const ModelCard = ({
                                 </div>
                             </div>
                         </div>
-                        <CastMt movie_id={id} page={page} />
+                        <Suspense fallback={<Loading/>}>
+                            <CastContainer movie_id={id} page={page} />
+                        </Suspense>
+                        
                     </>
                 ) : null}
             </section>

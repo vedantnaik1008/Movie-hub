@@ -1,5 +1,5 @@
 import { FaPlay } from "react-icons/fa";
-import Footer from "./Navbar"
+import Navbar from "./Navbar"
 
 const Header = () => {
 
@@ -8,9 +8,9 @@ const Header = () => {
         <div className="position">
           <div className="d-flex-header">
             <div className=" text-uppercase header fw-bold">
-              <p>YEH &nbsp;&nbsp;</p> <FaPlay className="fa fa-play"/>
+              <FaPlay className="fa fa-play"/><p>YEH &nbsp;&nbsp;</p> 
             </div>
-            <Footer />
+            <Navbar />
           </div>
         </div> 
     </>

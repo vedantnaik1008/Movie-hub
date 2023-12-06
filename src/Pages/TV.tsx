@@ -1,7 +1,6 @@
-import { useState } from 'react';
+import { Suspense, useState, lazy } from 'react';
 import { GenreData, ValueData } from './Movies';
-import Genre from '../components/Genre';
-import { lazy } from 'react';
+const Genre = lazy(() => import('../components/Genre'));
 const ModalTV = lazy(() => import('../components/ModalTV'));
 import useMovie from '../hooks/useMovie';
 import InfiniteScroll from 'react-infinite-scroll-component';
@@ -62,17 +61,14 @@ const TV = () => {
                     <Cards datas={datas} setModalData={(data) => setModalData(data)}/>
                 </InfiniteScroll>
                 {modalData.show && (
+                    <Suspense fallback={<Loading />}>
                     <ModalTV
                         value={value}
                         page={page}
                         show={true}
                         isOpen={modalData.show}
-                        setIsOpen={(isOpen) =>
-                            setModalData({ ...modalData, show: isOpen })
-                        }
-                        {...modalData.data}
-                        key={modalData.data.id}
-                    />
+                        setIsOpen={(isOpen) => setModalData({ ...modalData, show: isOpen })} datas={modalData.data}/>
+                    </Suspense>
                 )}
             </div>
         </>

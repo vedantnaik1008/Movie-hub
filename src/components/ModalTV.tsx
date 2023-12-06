@@ -1,26 +1,20 @@
 import { img_500, unavailable } from '../Services/Config';
-import { useState } from 'react';
+import { Suspense, useState, lazy } from 'react';
 import useGenre from '../hooks/useGenre';
 import { ValueData } from '../Pages/Movies';
-import CastMt from './CastContainer';
+const CastMt = lazy(() => import ('./CastContainer'));
 import { APIKEY } from '../Services/api-client';
 import { GoArrowLeft } from 'react-icons/go';
 import { IoClose } from 'react-icons/io5';
+import { Fetching } from '../types/Fetching';
+import Loading from './Loading';
 
 interface Props {
     show: boolean;
     isOpen: boolean;
     page: number;
     setIsOpen: (isOpen: boolean) => void;
-    poster_path: string;
-    vote_average: number;
-    title: string;
-    name: string;
-    media_type: string;
-    overview: string;
-    first_air_date: string;
-    release_date: string;
-    id: number;
+    datas: Fetching;
     value: ValueData[];
 }
 
@@ -31,22 +25,18 @@ interface Video {
     videos: [];
 }
 
-const ModalTV = ({
-    show,
-    isOpen,
-    setIsOpen,
-    poster_path,
-    vote_average,
-    title,
-    name,
-    media_type,
-    overview,
-    first_air_date,
-    release_date,
-    id,
-    page,
-    value,
-}: Props) => {
+const ModalTV = ({ show, isOpen, setIsOpen, datas, page, value }: Props) => {
+    const {
+        poster_path,
+        vote_average,
+        title,
+        name,
+        media_type,
+        overview,
+        first_air_date,
+        release_date,
+        id,
+    } = datas;
     const [trailer, setTrailer] = useState<Video>();
     const genreURL = useGenre(value);
     const fetchTrailer = async () => {
@@ -143,7 +133,9 @@ const ModalTV = ({
                                 </div>
                             </div>
                         </div>
-                        <CastMt movie_id={id} page={page} />
+                        <Suspense fallback={<Loading/>}>
+                            <CastMt movie_id={id} page={page} />
+                        </Suspense>
                     </>
                 ) : null}
             </div>

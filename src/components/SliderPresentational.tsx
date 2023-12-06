@@ -3,8 +3,6 @@ import Slider from 'react-slick';
 import { img_500 } from '../Services/Config';
 import { settings } from '../Services/Settings';
 import { Fetching } from '../types/Fetching';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
 
 interface Props {
     data: Fetching[];

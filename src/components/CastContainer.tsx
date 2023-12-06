@@ -12,12 +12,13 @@ const CastContainer = ({ movie_id, page }: CastProps) => {
     const [credits, setCredits] = useState<Credits | null>(null);
     
     useEffect(() => {
-        fetch(
-            `https://api.themoviedb.org/3/movie/${movie_id}/credits?api_key=${APIKEY}&page=${page}`
-        )
-            .then((response) => response.json())
-            .then((data) => setCredits(data))
-            .catch((error) => console.log(error));
+        const fetchCredits = async () => {
+            await fetch(`https://api.themoviedb.org/3/movie/${movie_id}/credits?api_key=${APIKEY}&page=${page}`)
+                .then((response) => response.json())
+                .then((data) => setCredits(data))
+                .catch((error) => console.log(error));
+        }
+        fetchCredits()
     }, [movie_id, page]);
 
     return (

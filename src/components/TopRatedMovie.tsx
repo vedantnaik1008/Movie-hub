@@ -1,6 +1,6 @@
 import useTopRatedMovie from '../hooks/useTopRatedMovie';
-import { useState } from 'react';
-import Modal from './Modal';
+import { Suspense, useState, lazy} from 'react';
+const Modal = lazy(() => import('./Modal'));
 import Loading from './Loading';
 import { Fetching } from '../types/Fetching';
 import SliderPresentational from './SliderPresentational';
@@ -27,16 +27,16 @@ const TopRatedMovie = () => {
                 setModalData={(data) => setModalData(data)}
             />
             {modalData.show && (
-                <Modal
-                    page={page}
-                    show={true}
-                    isOpen={modalData.show}
-                    setIsOpen={(isOpen) =>
-                        setModalData({ ...modalData, show: isOpen })
-                    }
-                    {...modalData.data}
-                    key={modalData.data.id}
-                />
+                <Suspense fallback={<Loading />}>
+                    <Modal
+                datas={modalData.data}
+                page={page}
+                show={true}
+                isOpen={modalData.show}
+                setIsOpen={(isOpen) =>
+                    setModalData({ ...modalData, show: isOpen })}/> 
+                </Suspense>
+                
             )}
         </>
     );

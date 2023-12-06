@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { Suspense, useState } from 'react';
 import { lazy } from 'react';
 const Modal = lazy(() => import('../components/Modal'));
 import useTRM from '../hooks/useTRM';
@@ -49,16 +49,13 @@ const TopRatedM = () => {
                     <Cards datas={datas} setModalData={(data) => setModalData(data)}/>
                 </InfiniteScroll>
                 {modalData.show && (
+                    <Suspense fallback={<Loading />}>
                     <Modal
                         page={page}
                         show={true}
                         isOpen={modalData.show}
-                        setIsOpen={(isOpen) =>
-                            setModalData({ ...modalData, show: isOpen })
-                        }
-                        {...modalData.data}
-                        key={modalData.data.id}
-                    />
+                        setIsOpen={(isOpen) => setModalData({ ...modalData, show: isOpen })} datas={modalData.data}/>
+                    </Suspense>    
                 )}
             </div>
         </>
