@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { RootState } from '../store';
 import { IoClose } from 'react-icons/io5';
 import { FaBars } from "react-icons/fa6";
-import { data } from '../Services/navLinksData';
+import { Mobiledata as data } from '../Services/navLinksData';
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const cartProducts = useSelector((state:RootState)=> state.watchlater)

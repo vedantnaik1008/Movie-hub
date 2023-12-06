@@ -10,13 +10,13 @@ const Navbar = () => {
   return (
     <>
         <nav className="footer ">
-        <span className="count-later">{cartProducts.watchlater.length}</span>
+        {/* <span className="count-later">{cartProducts.watchlater.length}</span> */}
             {data.map((Val)=> (
                 <ul key={Val.id}>
                     <li>
                         <NavLink to={`${Val.link}`}  className='navlink'>
                              <button className='bg-transparent text-white footer-border'>
-                                <h5 className="pt-1 fs-6 text-nowrap footer-names">{Val.name} </h5>
+                                <h5 className="fs-6 text-nowrap footer-names">{Val.name} </h5>
                             </button>
                         </NavLink>
                     </li>

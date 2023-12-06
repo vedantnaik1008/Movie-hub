@@ -21,7 +21,7 @@ const Billboard = () => {
                 <div className="overlay">
                   <h2 className="">{movie.title}</h2>
                   <p className="">{movie.overview.substring(0, 100)}...</p>
-                  <button className="">hjghj</button>
+                  <button className="">release date: {movie.release_date}</button>
                 </div>
                 </div>
                 

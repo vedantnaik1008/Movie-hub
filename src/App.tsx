@@ -15,6 +15,7 @@ const Upcomingmt = lazy(()=> import("./Pages/Upcomingmt"))
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from 'react-toastify';
 import Loading from './components/Loading';
+const Search = lazy(()=> import("./Pages/Search"))
 
 const App = () => {
     const routes = [
@@ -42,6 +43,9 @@ const App = () => {
         },
         {
             path: '/watchlater', element: <WatchLater/>
+        },
+        {
+            path: '/search', element: <Search />
         },
         {
             path: '*',
