@@ -1,5 +1,4 @@
-import { Suspense, useState } from 'react';
-import { lazy } from 'react';
+import { Suspense, useState, lazy } from 'react';
 const Modal = lazy(() => import('../components/Modal'));
 import useTRM from '../hooks/useTRM';
 import InfiniteScroll from 'react-infinite-scroll-component';
