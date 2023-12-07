@@ -34,7 +34,7 @@ const Navbar = () => {
                                     onClick={() => {
                                         setIsOpen(false);
                                     }}
-                                    className='text-decoration-none'>
+                                    className='text-decoration-none asNavlink'>
                                         <div className='d-flex flex-row gap-2 justify-content-center align-items-center text-white mx-1'>
                                              <h5 className='pt-1 fs-6 text-nowrap'>
                                                 {Val.name} 

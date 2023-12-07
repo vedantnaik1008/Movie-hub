@@ -262,8 +262,8 @@ button{
     padding: 10px;
 }
 
-.pending{
-
+.asNavlink{
+  padding: 0px !important;
 }
 
 .title-para {
@@ -341,9 +341,8 @@ button{
 .watch-padding {
     padding-top: 180px;
     padding-bottom: 50px;
-    height: 100dvh;
     overflow-x: hidden;
-    position: relative;
+    height: 100dvh;
 }
 
 .clear-all {
@@ -549,7 +548,7 @@ a:hover {
 }
 
 .bbb {
-    position: fixed;
+    position: absolute;
     z-index: 98;
     top: 18px;
     right: 10px;
