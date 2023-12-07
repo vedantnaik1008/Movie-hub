@@ -92,7 +92,7 @@ const Search = () => {
                     }>
                     {content.map((val) => (
                         <div key={val.id} id='card'>
-                            <div className='cards  rounded-5'>
+                            <div className='cards'>
                                 <img
                                     loading='lazy'
                                     src={
@@ -100,7 +100,7 @@ const Search = () => {
                                             ? `${img_500 + val.poster_path}`
                                             : unavailable
                                     }
-                                    className='card-img-top rounded-5'
+                                    className='card-img-top'
                                     alt={val.title || val.name}
                                     onClick={() =>
                                         setModalData({ show: true, data: val })

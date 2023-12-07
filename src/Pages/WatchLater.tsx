@@ -36,9 +36,9 @@ const WatchLater = () => {
             <div className='display-grid-watch-later'>
                 {products.watchlater.map((val: Fetching)=> (
                     <div key={val.id} id="card" >
-                    <div className="cards  rounded-5">
+                    <div className="cards">
                       <img loading="lazy" src={val.poster_path ? `${img_500 + val.poster_path}` : unavailable}
-                      className="card-img-top rounded-5" alt={val.title || val.name}  onClick={() => setModalData({ show: true, data: val })}/>
+                      className="card-img-top" alt={val.title || val.name}  onClick={() => setModalData({ show: true, data: val })}/>
                       <button className="watch-remove" onClick={()=> removeToCart(val.id)}><IoCloseOutline size="35px" color="white"/></button>
                     </div>
                   </div>

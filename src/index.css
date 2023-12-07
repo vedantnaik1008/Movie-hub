@@ -584,6 +584,7 @@ a:hover {
 
 .display-grid {
     display: grid;
+    overflow: hidden;
     grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
     gap: 3rem 2rem;
     position: relative;

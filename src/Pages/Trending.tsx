@@ -46,7 +46,7 @@ const Trending = () => {
                     hasMore={!!hasNextPage}
                     loader={loader}
                     dataLength={fetchedTrendingPages}
-                    className='display-grid overflow-hidden'>
+                    className='display-grid'>
                     <Cards datas={datas} setModalData={(data) => setModalData(data)}/>
                 </InfiniteScroll>
                 {modalData.show && (
