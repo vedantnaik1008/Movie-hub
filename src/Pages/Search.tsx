@@ -2,7 +2,7 @@ import { Suspense, useEffect, useState, lazy, useCallback } from 'react';
 const Pagination = lazy(() => import('../components/Pagination'));
 import axios from 'axios';
 import { img_500, unavailable } from '../Services/Config';
-
+import { GoArrowLeft } from "react-icons/go"
 const Modal = lazy(() => import('../components/Modal'));
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
@@ -13,6 +13,7 @@ import { FaStar } from 'react-icons/fa';
 import { IoSearch } from 'react-icons/io5';
 import { Fetching } from '../types/Fetching';
 import Loading from '../components/Loading';
+import { NavLink } from 'react-router-dom';
 
 const Search = () => {
     const [searchText, setSearchText] = useState('');
@@ -37,7 +38,7 @@ const Search = () => {
         }
     };
 
-    const fetchSearch = useCallback(async() => {
+    const fetchSearch = useCallback(async () => {
         axios
             .get<Fetching>(
                 `https://api.themoviedb.org/3/search/multi?api_key=${APIKEY}&language=en-US&query=${searchText}&page=${page}&include_adult=false`
@@ -64,6 +65,11 @@ const Search = () => {
     return (
         <>
             <div className='bg-black-search'>
+                <NavLink to={'/'}>
+                    <button className='close-btn-search'>
+                        <GoArrowLeft size='35px' color="white"/>
+                    </button>
+                </NavLink>
                 <div className='input-title'>
                     <input
                         type='text'
@@ -75,7 +81,7 @@ const Search = () => {
                         aria-label='search'
                         className='search-title'
                         onClick={Searches}>
-                        <IoSearch color="white" size={20}/>
+                        <IoSearch color='white' size={20} />
                     </button>
                 </div>
                 <div
@@ -114,11 +120,15 @@ const Search = () => {
                 </div>
                 {modalData.show && (
                     <Suspense fallback={<Loading />}>
-                    <Modal
-                        datas={modalData.data} page={page}
-                        show={true}
-                        isOpen={modalData.show}
-                        setIsOpen={(isOpen) => setModalData({ ...modalData, show: isOpen })}/>
+                        <Modal
+                            datas={modalData.data}
+                            page={page}
+                            show={true}
+                            isOpen={modalData.show}
+                            setIsOpen={(isOpen) =>
+                                setModalData({ ...modalData, show: isOpen })
+                            }
+                        />
                     </Suspense>
                 )}
                 {page > 1 && <Pagination page={page} setPage={setPage} />}
