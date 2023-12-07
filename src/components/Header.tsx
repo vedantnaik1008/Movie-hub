@@ -1,7 +1,7 @@
-import { FaPlay } from "react-icons/fa";
 import Navbar from "./Navbar"
 import { IoSearch } from "react-icons/io5";
 import { NavLink } from "react-router-dom";
+import { BiCameraMovie } from "react-icons/bi";
 
 const Header = () => {
 
@@ -9,8 +9,8 @@ const Header = () => {
     <>
         <div className="position">
           <div className="d-flex-header">
-            <div className=" text-uppercase header fw-bold">
-              <FaPlay className="fa fa-play"/><p>YEH &nbsp;&nbsp;</p> 
+            <div className="header">
+              <BiCameraMovie className="fa fa-play"/><p>movieHub</p> 
             </div>
             <Navbar />
             <div className="search-icon">
