@@ -55,6 +55,10 @@ body::-webkit-scrollbar-track,
     );
 }
 
+p{
+    margin-bottom: 0px !important;
+}
+
 a {
     text-decoration: none !important;
 }
@@ -112,11 +116,6 @@ button{
     -webkit-backdrop-filter: blur(4.7px);
     padding: 10px;
     z-index: 98;
-}
-
-.h4-title .sub-title {
-    font-family: Kanit, sans-serif;
-    margin-top: 80px;
 }
 
 .billboard {
@@ -193,7 +192,73 @@ button{
     padding: 10px;
 }
 
+.heading-container{
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px 0;
+}
 
+.error-heading{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.heading-container .heading-title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.heading-container .heading-title h4{
+    color: white;
+    font-weight: 800;
+    margin-top: 80px;
+    font-family: "Kanit", sans-serif;
+    font-size: 40px;
+}
+
+.navi-ul{
+    display: flex;
+    gap: 10px;
+    margin: 30px 2px 0 2px;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.navi-ul h5{
+    font-size: 18px;
+}
+
+.details-modal h4{
+    margin-top: 20px;
+}
+
+.details-modal p{
+    padding-top: 10px;
+}
+
+.modal-bold{
+    font-weight: bold;
+}
+
+.genre-container{
+    width: 90%;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+.genre-container .categoryButtonRemove button{
+    background-color: white;
+    color: black;
+    padding: 10px 20px;
+}
+
+.genre-container .categoryButtonAdd button{
+    color: white;
+    padding: 10px 20px;
+}
 
 .position {
     position: absolute;
@@ -228,6 +293,8 @@ button{
     color: white;
 }
 
+
+
 .footer {
     display: flex;
     gap: 2rem;
@@ -247,6 +314,12 @@ button{
     text-decoration-color: transparent;
 }
 
+.others-navlink p{
+    color: white;
+    font-weight: 400;
+    font-size: 16px;
+}
+
 .active{
     text-decoration: underline;
     position: relative;
@@ -264,6 +337,7 @@ button{
 
 .asNavlink{
   padding: 0px !important;
+  text-decoration: none;
 }
 
 .title-para {
@@ -477,6 +551,10 @@ button{
 
 .pagination {
     padding-bottom: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 15px;
 }
 
 .search {
@@ -495,6 +573,13 @@ a:hover {
 .footer-border {
     border: none;
     outline: none;
+    backdround-color: transparent;
+    color: white;
+}
+
+.footer-border h5{
+    font-size: 16px;
+    font-weight: 400;
 }
 
 .display-grid {
@@ -566,6 +651,8 @@ a:hover {
 .pagination .button-two {
     background-color: transparent;
     color: white;
+    margin: 2px;
+    align-text: center;
     border-radius: 10%;
     font-size: 20px;
     padding: 10px 20px;
@@ -653,6 +740,14 @@ a:hover {
     margin-bottom: 0;
 }
 
+.others-three .others-three-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    width: 95%;
+}
+
 .others-two.hovered,
 .others-three.hovered {
     background-image: url();
@@ -661,6 +756,10 @@ a:hover {
 .others-two h1,
 .others-three h1 {
     font-family: Kanit, sans-serif;
+    color: white;
+    font-size: ;
+    font-weight: 800;
+    margin-bottom: 15px;
 }
 
 .others-two img,
@@ -818,7 +917,6 @@ a:hover {
         padding: 10px 10px;
     }
     .trailer-btn {
-        margin: 0 auto 0 auto;
         padding: 15px 30px;
         border-radius: 10px;
         border: none;
@@ -924,6 +1022,13 @@ a:hover {
     .cast-position {
         position: relative;
     }
+
+    .cast-position .cast-nothing{
+        display: flex;
+        justify-content: center;
+        color: white;
+    }
+
     .cast-position .actor-container {
         position: fixed;
         z-index: 101;
@@ -935,6 +1040,8 @@ a:hover {
         color: white;
         font-weight: bolder;
         text-decoration: underline;
+        text-align: center;
+        margin: 10px 0;
     }
     .actor-container .li .known-for {
         margin: 0;
@@ -1082,7 +1189,6 @@ a:hover {
         padding: 10px 10px;
     }
     .trailer-btn {
-        margin: 0 auto 0 auto;
         padding: 15px 30px;
         border-radius: 10px;
         border: none;
@@ -1152,24 +1258,7 @@ a:hover {
         color: white;
         z-index: 103;
     }
-    .cast-position {
-        position: relative;
-    }
-    .cast-position .actor-container {
-        position: fixed;
-        z-index: 101;
-        width: 100%;
-        top: 100%;
-    }
-    .actor-container h2 {
-        color: white;
-        font-weight: bolder;
-        text-decoration: underline;
-    }
-    .actor-container .li .known-for {
-        margin: 0;
-        align-self: flex-start;
-    }
+
     .cast-actor-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -1304,7 +1393,6 @@ a:hover {
         z-index: 103;
     }
     .trailer-btn {
-        margin: 0 auto 0 auto;
         padding: 15px 30px;
         border-radius: 10px;
         border: none;
@@ -1354,21 +1442,8 @@ a:hover {
     .cast-position {
         position: relative;
     }
-    .cast-position .actor-container {
-        position: fixed;
-        z-index: 101;
-        width: 100%;
-        top: 100%;
-    }
-    .actor-container h2 {
-        color: white;
-        font-weight: bolder;
-        text-decoration: underline;
-    }
-    .actor-container .li .known-for {
-        margin: 0;
-        align-self: flex-start;
-    }
+  
+
     .cast-actor-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));

@@ -25,18 +25,18 @@ const Navbar = () => {
                     <span className='ccc' onClick={handleClick}>
                         <IoClose size="35px" className='ccc-icon'/>
                     </span>
-                    <nav className='navi'>
+                    <nav className=''>
                     <span className="count-later-nav">{cartProducts.watchlater.length}</span>
-                        <ul className='d-flex flex-column align-items-start gap-5 mt-5'>
+                        <ul className=''>
                             {data.map((Val) => (
                             <li key={Val.id}>   
                                 <NavLink to={`${Val.link}`}
                                     onClick={() => {
                                         setIsOpen(false);
                                     }}
-                                    className='text-decoration-none asNavlink'>
-                                        <div className='d-flex flex-row gap-2 justify-content-center align-items-center text-white mx-1'>
-                                             <h5 className='pt-1 fs-6 text-nowrap'>
+                                    className='asNavlink'>
+                                        <div className='navi-ul'>
+                                             <h5 className=''>
                                                 {Val.name} 
                                             </h5>
                                         </div>

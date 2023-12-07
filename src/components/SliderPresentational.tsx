@@ -19,12 +19,12 @@ const SliderPresentational = ({
     return (
         <>
             <section className={`others-three`}>
-                <div className='d-flex justify-content-between align-items-center gap-5 width-80'>
-                    <h1 className=' text-white fw-800 mb-3 title-space '>
+                <div className='others-three-container'>
+                    <h1 className='title-space'>
                         {title}
                     </h1>
                     <NavLink to={link} className='others-navlink'>
-                        <p className='text-white fs-4 text-nowrap title-para'>
+                        <p className=''>
                             Show more
                         </p>
                     </NavLink>

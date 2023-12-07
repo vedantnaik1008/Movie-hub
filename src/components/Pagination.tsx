@@ -30,11 +30,11 @@ const Pagination = ({page, setPage}: Props) => {
   return (
     <>
       <div className="pagination-relative">
-        <div className="pagination d-flex justify-content-center align-items-centern pt-3">
-          <button className="m-1 text-center button-one" onClick={Previous}>
+        <div className="pagination">
+          <button className="button-one" onClick={Previous}>
             <IoIosArrowBack />
           </button>
-          <button className="m-1 text-center button-two" onClick={Next}>
+          <button className="button-two" onClick={Next}>
             <IoIosArrowForward />
           </button>
         </div>

@@ -49,21 +49,21 @@ const ModelCard = ({ datas ,show,isOpen, page, setIsOpen  }: Props) => {
                                 />
                             </div>
                             <div className='details'>
-                                <div className=''>
-                                    <h3 className='text-decoration-underline'>
+                                <div className='details-modal'>
+                                    <h3 className=''>
                                         {title || name}
                                     </h3>
-                                    <h4 className=' mt-4'>Overview</h4>
-                                    <p className='pt-2'>{overview}</p>
+                                    <h4 className=''>Overview</h4>
+                                    <p className=''>{overview}</p>
 
-                                    <div className=''>
-                                        <div className='fw-bold'>
+                                    <div className='modal-bold'>
+                                        <div className=''>
                                             Type:{' '}
                                             {media_type === 'tv'
                                                 ? 'TV'
                                                 : 'Movie'}
                                         </div>
-                                        <div className='fw-bold'>
+                                        <div className=''>
                                             Release date:{' '}
                                             {first_air_date || release_date}
                                         </div>

@@ -14,7 +14,7 @@ const CastPresentational = ({credits} : Props) => {
                 <Loading />
             ) : credits && credits.cast && credits.cast?.length > 0 ? (
                 <div className='actor-container'>
-                    <h2 className='text-center my-3'>Cast</h2>
+                    <h2 className=''>Cast</h2>
                     <div className='cast-actor-grid'>
                         {credits.cast?.map((actor) => (
                             <ul className='li' key={actor.id}>
@@ -34,8 +34,8 @@ const CastPresentational = ({credits} : Props) => {
                     </div>
                 </div>
             ) : (
-                <div className='d-flex justify-content-center'>
-                    <p className='text-white'>No Cast Members Found</p>
+                <div className='cast-nothing'>
+                    <p className=''>No Cast Members Found</p>
                 </div>
             )}
       </section>

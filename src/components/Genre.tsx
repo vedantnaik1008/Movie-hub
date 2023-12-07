@@ -39,16 +39,16 @@ const Genre = ({ genre, setGenre, type, value, setValue, setPage }: Props) => {
   }
   return (
     <>
-      <div className="container-fluid">
-        <div className="row mb-3">
-            <div className="col-12  genres">
+      <div className="genre-container">
+        <div className="">
+            <div className="genres">
                 {value && value.map((val)=> (
-                    <div className="m-2" key={val.id}>
-                        <button className="bg-white text-black px-4 py-2 text-center buttons" onClick={()=> CategoryRemove(val)}>{val.name}</button>
+                    <div className="categoryButtonRemove" key={val.id}>
+                        <button className="buttons" onClick={()=> CategoryRemove(val)}>{val.name}</button>
                     </div>))}
                 {genre && genre.map((gen)=> (
-                    <div className="m-2" key={gen.id}>
-                        <button className=" text-white px-4 py-2 text-center button"
+                    <div className="categoryButtonAdd" key={gen.id}>
+                        <button className="button"
                         onClick={() => CategoryAdd(gen)}>
                         {gen.name}
                       </button>

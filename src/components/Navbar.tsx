@@ -22,8 +22,8 @@ const Navbar = () => {
                                         ? 'active navlink'
                                         : ''
                                 }>
-                                <button className='bg-transparent text-white footer-border'>
-                                    <h5 className='fs-6 text-nowrap'>
+                                <button className='footer-border'>
+                                    <h5 className=''>
                                         {Val.name}{' '}
                                     </h5>
                                 </button>
