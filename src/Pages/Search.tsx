@@ -1,4 +1,4 @@
-import { Suspense, useEffect, useState, lazy } from 'react';
+import { Suspense, useEffect, useState, lazy, useCallback } from 'react';
 const Pagination = lazy(() => import('../components/Pagination'));
 import axios from 'axios';
 import { img_500, unavailable } from '../Services/Config';
@@ -29,7 +29,7 @@ const Search = () => {
     const products = useSelector((state: RootState) => state.watchlater);
     const addToCart = (watchlater: WatchItem) => {
         const alreadyInWatchList = products.watchlater.some(
-            (item) => item.id === watchlater.id
+            (item: Fetching) => item.id === watchlater.id
         );
         if (!alreadyInWatchList) {
             dispatch(ADD(watchlater));
@@ -37,22 +37,21 @@ const Search = () => {
         }
     };
 
-    const fetchSearch = () => {
+    const fetchSearch = useCallback(async() => {
         axios
             .get<Fetching>(
-                `https://api.themoviedb.org/3/search/multi?api_key=${APIKEY}&language=en-US&query=${searchText}&page=${page}&include_adult=false
-    `
+                `https://api.themoviedb.org/3/search/multi?api_key=${APIKEY}&language=en-US&query=${searchText}&page=${page}&include_adult=false`
             )
             .then((res) => {
                 setContent(res.data.results);
                 console.log(res.data.results);
             })
             .catch((error) => error);
-    };
+    }, [searchText, page]);
 
     useEffect(() => {
         fetchSearch();
-    }, []);
+    }, [fetchSearch]);
 
     const Trigger = (event: React.ChangeEvent<HTMLInputElement>) => {
         setSearchText(event.target.value);

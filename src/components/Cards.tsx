@@ -16,7 +16,7 @@ const Cards = ({ datas, setModalData }: Props) => {
       {datas.pages.map((page, index) => (
                         <React.Fragment key={index}>
                             {page.results.map((val) => (
-                                <div key={val.id} id='card'>
+                                <div key={val.id}>
                                     <div className='cards'>
                                         <img
                                             loading='lazy'

@@ -16,7 +16,7 @@ const Navbar = () => {
                     <li>
                         <NavLink to={`${Val.link}`}  className='navlink'>
                              <button className='bg-transparent text-white footer-border'>
-                                <h5 className="fs-6 text-nowrap footer-names">{Val.name} </h5>
+                                <h5 className="fs-6 text-nowrap">{Val.name} </h5>
                             </button>
                         </NavLink>
                     </li>

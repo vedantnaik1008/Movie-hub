@@ -25,7 +25,7 @@ const TopUpcomingMovie = () => {
             <SliderPresentational
                 data={data.results}
                 setModalData={(data) => setModalData(data)}
-            />
+                title={'Upcoming Movies'} link={'/Upcomingmt'}/>
             {modalData.show && (
                 <Suspense fallback={<Loading />}>
                 <Modal

@@ -1,3 +1,4 @@
+import { useCallback, useEffect } from "react";
 import { IoIosArrowForward } from "react-icons/io";
 import { IoIosArrowBack } from "react-icons/io";
 
@@ -7,19 +8,25 @@ interface Props{
 }
 const Pagination = ({page, setPage}: Props) => {
     
-    const Previous = () => {
+    const Previous = useCallback(() => {
         if(page !== 1){
           setPage(page - 1);
         }else{
           setPage(page);
         }
-      };
+      }, [page, setPage]);
     
-      const Next = () =>{
+      const Next = useCallback(() =>{
         if(page < 20){
           setPage(page + 1);
         }
-      };
+      }, [page, setPage]);
+
+      useEffect(() => {
+        Previous();
+        Next();
+      }, [Next, Previous])
+      
   return (
     <>
       <div className="pagination-relative">

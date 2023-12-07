@@ -58,9 +58,21 @@ body::-webkit-scrollbar-track,
 a {
     text-decoration: none;
 }
+ol, ul, dl {
+	margin-top: 0;
+	margin-bottom: 0rem !important;
+}
+
+ol, ul {
+	padding-left: 0rem !important;
+}
 
 ul{
     all: unset;
+}
+
+h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1 {
+	margin-bottom: 0rem !important;
 }
 
 li {
@@ -259,9 +271,7 @@ button{
     margin-bottom: 0px;
 }
 
-.footer-names {
-    margin-bottom: 0px;
-}
+
 
 .cards {
     border-radius: 34px;
@@ -928,6 +938,7 @@ a:hover {
         grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
         gap: 2rem;
         padding: 20px;
+        place-content: center;
     }
     .cast-actor-grid img {
         border-radius: 20px;

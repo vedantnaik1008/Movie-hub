@@ -25,7 +25,7 @@ const TopRatedMovie = () => {
             <SliderPresentational
                 data={data.results}
                 setModalData={(data) => setModalData(data)}
-            />
+                title={"Top Rated Movies"} link={'/topratedmovies'}/>
             {modalData.show && (
                 <Suspense fallback={<Loading />}>
                     <Modal

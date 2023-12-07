@@ -1,5 +1,5 @@
 import { img_500, unavailable } from '../Services/Config';
-import { Suspense, useState, lazy } from 'react';
+import { Suspense, useState, lazy, useEffect, useCallback } from 'react';
 import useGenre from '../hooks/useGenre';
 import { ValueData } from '../Pages/Movies';
 const CastMt = lazy(() => import ('./CastContainer'));
@@ -39,7 +39,7 @@ const ModalTV = ({ show, isOpen, setIsOpen, datas, page, value }: Props) => {
     } = datas;
     const [trailer, setTrailer] = useState<Video>();
     const genreURL = useGenre(value);
-    const fetchTrailer = async () => {
+    const fetchTrailer = useCallback(async () => {
         try {
             const response = await fetch(`
           https://api.themoviedb.org/3/movie/${id}/videos?api_key=${APIKEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=${genreURL}&append_to_response=videos&sort_by=vote_average.desc
@@ -57,7 +57,11 @@ const ModalTV = ({ show, isOpen, setIsOpen, datas, page, value }: Props) => {
         } catch (error) {
             console.error('Error fetching movie trailer', error);
         }
-    };
+    }, [genreURL, id, page]);
+
+    useEffect(() => {
+        fetchTrailer();
+    }, [fetchTrailer])
 
     const getColorClass = (voteAverage: number) => {
         if (voteAverage >= 7.9) {
