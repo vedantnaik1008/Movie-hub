@@ -1,7 +1,5 @@
-import { useState, useEffect } from 'react';
-import { APIKEY } from '../Services/api-client';
-import { Credits } from '../types/CastTypes';
 import CastPresentational from './CastPresentational';
+import useCast from '../hooks/useCast';
 
 interface CastProps {
     movie_id: number;
@@ -9,17 +7,7 @@ interface CastProps {
 }
 
 const CastContainer = ({ movie_id, page }: CastProps) => {
-    const [credits, setCredits] = useState<Credits | null>(null);
-    
-    useEffect(() => {
-        const fetchCredits = async () => {
-            await fetch(`https://api.themoviedb.org/3/movie/${movie_id}/credits?api_key=${APIKEY}&page=${page}`)
-                .then((response) => response.json())
-                .then((data) => setCredits(data))
-                .catch((error) => console.log(error));
-        }
-        fetchCredits()
-    }, [movie_id, page]);
+    const { credits } = useCast(movie_id, page)
 
     return (
         <>

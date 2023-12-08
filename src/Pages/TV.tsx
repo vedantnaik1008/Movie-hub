@@ -1,7 +1,7 @@
 import { Suspense, useState, lazy } from 'react';
 import { GenreData, ValueData } from './Movies';
 const Genre = lazy(() => import('../components/Genre'));
-const ModalTV = lazy(() => import('../components/ModalTV'));
+const Modal = lazy(() => import('../components/Modal'));
 import useMovie from '../hooks/useMovie';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import Heading from '../components/Heading';
@@ -62,8 +62,7 @@ const TV = () => {
                 </InfiniteScroll>
                 {modalData.show && (
                     <Suspense fallback={<Loading />}>
-                    <ModalTV
-                        value={value}
+                    <Modal
                         page={page}
                         show={true}
                         isOpen={modalData.show}
