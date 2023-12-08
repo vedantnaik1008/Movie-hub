@@ -29,7 +29,7 @@ const Pagination = ({page, setPage}: Props) => {
       
   return (
     <>
-      <div className="pagination-relative">
+      <div className="">
         <div className="pagination">
           <button className="button-one" onClick={Previous}>
             <IoIosArrowBack />

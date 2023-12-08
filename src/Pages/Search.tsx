@@ -88,7 +88,7 @@ const Search = () => {
                     className={
                         content.length
                             ? 'display-grid-search'
-                            : 'display-grid-search p-0'
+                            : 'display-grid-search-empty'
                     }>
                     {content.map((val) => (
                         <div key={val.id} id='card'>

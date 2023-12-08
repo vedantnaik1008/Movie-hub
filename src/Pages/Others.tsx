@@ -6,7 +6,7 @@ const TopUpcomingMovie = lazy(() => import('../components/Upcoming'));
 
 const Others = () => {
     return (
-        <div className='bg-black-c others-background-p'>
+        <div className='bg-black-c'>
             <Billboard />
             <TopUpcomingMovie />
             <TopRatedMovie />

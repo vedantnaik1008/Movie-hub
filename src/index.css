@@ -412,15 +412,7 @@ button{
     padding: 5px 8px;
 }
 
-.cards span.green,
-.modal-top span.green {
-    color: chartreuse;
-    font-weight: 700;
-}
 
-/* .slick-dots li button{
-    color: white !important;
-} */
 
 .watch-padding {
     padding-top: 180px;
@@ -529,6 +521,12 @@ button{
     border-bottom-right-radius: 10px;
 }
 
+.cards span.green,
+.modal-top span.green {
+    color: chartreuse;
+    font-weight: 700;
+}
+
 .cards span.orange,
 .modal-top span.orange {
     color: darkorange;
@@ -610,6 +608,10 @@ a:hover {
     margin: 0 auto 0 auto;
     width: 100%;
     overflow: hidden;
+}
+
+.display-grid-search-empty{
+    padding: 0px;
 }
 
 .modal-top .close-btn {
@@ -711,7 +713,7 @@ a:hover {
     padding: 15px 30px;
     border-radius: 5px;
     border: none;
-    background-color: rgb(31, 38, 135, 1);
+    background-color: rgb(255, 0, 0);
     color: white;
     font-size: 16px;
     font-weight: 700;
@@ -736,7 +738,6 @@ a:hover {
     color: white;
 }
 
-.others-two,
 .others-three {
     height: 500px;
     padding: 50px 50px 10px 50px;
@@ -747,8 +748,6 @@ a:hover {
     background-repeat: no-repeat;
     color: #fff;
     transition: all 0.8s;
-}
-.others-three {
     margin-bottom: 0;
 }
 
@@ -760,12 +759,6 @@ a:hover {
     width: 95%;
 }
 
-.others-two.hovered,
-.others-three.hovered {
-    background-image: url();
-}
-
-.others-two h1,
 .others-three h1 {
     color: white;
     font-size: ;
@@ -773,7 +766,6 @@ a:hover {
     margin-bottom: 15px;
 }
 
-.others-two img,
 .others-three img {
     width: 95%;
     margin: 10px;
@@ -783,7 +775,7 @@ a:hover {
     transition: transform 0.3s ease-out;
     opacity: 1;
 }
-.others-two img:hover,
+
 .others-three img:hover {
     transform: scale(1.05);
 }
@@ -791,14 +783,11 @@ a:hover {
     width: 90%;
     margin: 0 auto;
 }
-.others-two .slider,
+
 .others-three .slider {
     position: relative;
 }
-.others-two .title-space,
-.others-three .title-space {
-    padding-left: 80px;
-}
+
 
 .cast-actor-grid img {
     background-image: url('https://user-images.githubusercontent.com/10515204/56117400-9a911800-5f85-11e9-878b-3f998609a6c8.jpg');
@@ -852,21 +841,12 @@ a:hover {
         padding: 2rem 1.8rem;
     }
     .display-grid-watch-later {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(270px, 330px));
-        gap: 3rem 2rem;
-        position: relative;
         margin: 0 auto;
-        width: 95%;
-        overflow: hidden;
         justify-content: center;
     }
     .modal-top {
         position: fixed;
-        top: 0%;
-        bottom: 0;
-        left: 0;
-        right: 0;
+        inset: 0;
         margin: auto;
         width: 100%;
         height: 100%;
@@ -928,50 +908,11 @@ a:hover {
         padding: 10px 10px;
     }
     .trailer-btn {
-        padding: 15px 30px;
         border-radius: 10px;
-        border: none;
-        background-color: rgb(255, 0, 0);
-        color: white;
-        font-size: 16px;
-        font-weight: 700;
     }
     .modal-top .span-para {
         margin-top: 0px;
         font-weight: bold;
-    }
-    .modal-top span.green {
-        font-weight: 700;
-        background-color: unset;
-        padding: 10px;
-        position: static;
-        border: none;
-        font-size: 20px;
-        border-top-left-radius: 0px;
-        border-bottom-right-radius: 0px;
-        border-radius: 0px;
-    }
-    .modal-top span.orange {
-        font-weight: 700;
-        background-color: unset;
-        padding: 10px;
-        position: static;
-        border: none;
-        font-size: 20px;
-        border-top-left-radius: 0px;
-        border-bottom-right-radius: 0px;
-        border-radius: 0px;
-    }
-    .modal-top span.red {
-        font-weight: 700;
-        background-color: unset;
-        padding: 10px;
-        position: static;
-        border: none;
-        font-size: 20px;
-        border-top-left-radius: 0px;
-        border-bottom-right-radius: 0px;
-        border-radius: 0px;
     }
     .details h3 {
         text-align: center;
@@ -981,27 +922,6 @@ a:hover {
     }
     .whole-slider {
         width: 100%;
-    }
-    .others-two .title-space,
-    .others-three .title-space {
-        padding-left: 0px;
-        text-align: center;
-        font-size: 18px;
-    }
-
-    /* others-background-p {
-        padding-top: 90px;
-    } */
-    .others-two,
-    .others-three {
-        height: 500px;
-        padding: 50px 30px;
-        margin-top: 0px;
-        backdrop-filter: blur(14px);
-        -webkit-backdrop-filter: blur(14px);
-    }
-    .others-three {
-        margin-bottom: 0px;
     }
     iframe {
         width: 95%;
@@ -1020,15 +940,11 @@ a:hover {
         background-color: black;
     }
     .close-btn-trailer {
-        position: fixed;
         left: 2%;
         top: 0.5%;
         background-color: unset;
-        border: none;
         border-radius: 50%;
         padding: 5px 10px;
-        color: white;
-        z-index: 103;
     }
     .cast-position {
         position: relative;
@@ -1109,9 +1025,6 @@ a:hover {
     .search-icon{
         display: block;
     }
-    .input-title {
-        position: relative;
-    }
     .input-title input {
         width: 50%;
     }
@@ -1119,191 +1032,37 @@ a:hover {
         justify-content: space-between;
         align-items: center;
     }
-    .display-grid-watch-later {
-        display: grid;
-        grid-template-columns: repeat(auto-fit minmax(270px, 330px));
-        gap: 3rem 2rem;
-        position: relative;
-        margin: 0 auto;
-        overflow: hidden;
-        width: 95%;
-    }
     .bbb {
         display: none;
     }
     .display-grid {
         padding: 2rem;
     }
-    .others-three {
-        margin-bottom: 0px;
-    }
-
-    .modal-top {
-        position: fixed;
-        top: 0%;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        margin: auto;
-        width: 100%;
-        height: 100%;
-        transition: button 0.3s ease-out;
-        border-radius: 10px;
-        z-index: 99;
-        background-color: transparent;
-        padding: 0px;
-        background: rgba(255, 255, 255, 0.12);
-        border-radius: 0px;
-        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-        backdrop-filter: blur(4.7px);
-        -webkit-backdrop-filter: blur(4.7px);
-        border: 1px solid rgba(255, 255, 255, 0.27);
-    }
-
+   
     .modal-top .modal-left .poster {
         width: 100%;
-        height: 100%;
         margin: 0;
-        border-radius: 10px;
         border-top-right-radius: 0;
         border-bottom-right-radius: 0;
     }
     .modal-down {
-        display: flex;
         flex-direction: row;
-        border: none;
-        border-radius: 10px;
         width: 80%;
         height: 90%;
-        position: fixed;
-        inset: 0;
-        margin: auto;
-        background-color: rgba(0, 0, 0, 0.5);
-    }
-    .modal-top .details {
-        width: 100%;
-        background-color: unset;
-        border-top-right-radius: 10px;
-        border-bottom-right-radius: 10px;
-        border-top-left-radius: 0;
-        border-bottom-left-radius: 0;
-        padding: 20px;
-        color: white;
-    }
-    .modal-top .close-btn {
-        right: unset;
-        left: 1%;
-        top: 3%;
-        z-index: 99;
-        border-radius: 50%;
-        font-size: 20px;
-        padding: 10px 10px;
-    }
-    .trailer-btn {
-        padding: 15px 30px;
-        border-radius: 10px;
-        border: none;
-        background-color: rgb(255, 0, 0);
-        color: white;
-        font-size: 16px;
-        font-weight: 700;
-    }
-    .modal-top .span-para {
-        margin-top: 0px;
-        font-weight: bold;
-    }
-    .modal-top span.green {
-        font-weight: 700;
-        background-color: unset;
-        padding: 10px;
-        position: static;
-        border: none;
-        font-size: 20px;
-        border-top-left-radius: 0px;
-        border-bottom-right-radius: 0px;
-        border-radius: 0px;
-    }
-    .modal-top span.orange {
-        font-weight: 700;
-        background-color: unset;
-        padding: 10px;
-        position: static;
-        border: none;
-        font-size: 20px;
-        border-top-left-radius: 0px;
-        border-bottom-right-radius: 0px;
-        border-radius: 0px;
-    }
-    .modal-top span.red {
-        font-weight: 700;
-        background-color: unset;
-        padding: 10px;
-        position: static;
-        border: none;
-        font-size: 20px;
-        border-top-left-radius: 0px;
-        border-bottom-right-radius: 0px;
-        border-radius: 0px;
     }
     iframe {
         width: 100%;
         height: 85%;
-        border: none;
-        border-radius: 8px;
-        position: fixed;
-        margin: auto;
         top: 0%;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        z-index: 102;
-        padding: 0 0px;
-        border: 2px solid white;
-        background-color: black;
     }
     .close-btn-trailer {
-        position: fixed;
         left: 1%;
-        top: 0.5%;
-        border: none;
-        color: white;
-        z-index: 103;
     }
 
-    .cast-actor-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-        gap: 2rem;
-        padding: 20px;
-    }
-    .cast-actor-grid img {
-        border-radius: 20px;
-        width: 240px;
-    }
-    .cast-actor-grid .li li {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 2rem;
-        border-radius: 20px;
-    }
-    .cast-actor-grid .li li p {
-        margin-top: 1rem;
-        font-weight: 800;
-        align-self: flex-start;
-    }
-    .cast-actor-grid .li li p span {
-        color: #0092ff;
-    }
     .whole-slider {
         width: 95%;
     }
-    .others-two .title-space,
-    .others-three .title-space {
-        padding-left: 30px;
-        text-align: center;
-        font-size: 25px;
-    }
+ 
     .footer {
         display: flex;
         gap: 1.5rem;
@@ -1320,213 +1079,25 @@ a:hover {
     .display-grid {
         padding: 2rem;
     }
-    .modal-top {
-        position: fixed;
-        top: 0%;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        margin: auto;
-        width: 100%;
-        height: 100%;
-        transition: button 0.3s ease-out;
-        border-radius: 10px;
-        z-index: 99;
-        background-color: transparent;
-        padding: 0px;
-        background: rgba(255, 255, 255, 0.12);
-        border-radius: 0px;
-        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-        backdrop-filter: blur(4.7px);
-        -webkit-backdrop-filter: blur(4.7px);
-        border: 1px solid rgba(255, 255, 255, 0.27);
-    }
     .modal-top .modal-left .poster {
         width: 100%;
-        height: 100%;
-        margin: 0;
-        border-radius: 10px;
-        border-top-right-radius: 0;
-        border-bottom-right-radius: 0;
-    }
-    .modal-down {
-        display: flex;
-        border: none;
-        border-radius: 10px;
-        width: 80%;
-        height: 90%;
-        position: fixed;
-        inset: 0;
-        margin: auto;
-        background-color: rgba(0, 0, 0, 0.5);
-    }
-    .modal-top .details {
-        width: 100%;
-        background-color: unset;
-        border-top-right-radius: 10px;
-        border-bottom-right-radius: 10px;
-        border-top-left-radius: 0;
-        border-bottom-left-radius: 0;
-        padding: 20px;
-        color: white;
-    }
-    .modal-top .close-btn {
-        right: unset;
-        left: 1%;
-        top: 3%;
-        z-index: 99;
-        border-radius: 50%;
-        font-size: 20px;
-        padding: 10px 10px;
     }
     iframe {
-        width: 100%;
         height: 90%;
-        border: none;
-        border-radius: 8px;
-        position: fixed;
-        margin: auto;
         top: 4%;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        z-index: 102;
-        padding: 0 0px;
     }
     .close-btn-trailer {
-        position: fixed;
         top: 0.2%;
         left: 0.5%;
         margin: auto;
-        border: none;
-        border-radius: 50%;
-        color: white;
-        z-index: 103;
-    }
-    .trailer-btn {
-        padding: 15px 30px;
-        border-radius: 10px;
-        border: none;
-        background-color: rgb(255, 0, 0);
-        color: white;
-        font-size: 16px;
-        font-weight: 700;
-    }
-    .modal-top .span-para {
-        margin-top: 0px;
-        font-weight: bold;
-    }
-    .modal-top span.green {
-        font-weight: 700;
-        background-color: unset;
-        padding: 10px;
-        position: static;
-        border: none;
-        font-size: 20px;
-        border-top-left-radius: 0px;
-        border-bottom-right-radius: 0px;
-        border-radius: 0px;
-    }
-    .modal-top span.orange {
-        font-weight: 700;
-        background-color: unset;
-        padding: 10px;
-        position: static;
-        border: none;
-        font-size: 20px;
-        border-top-left-radius: 0px;
-        border-bottom-right-radius: 0px;
-        border-radius: 0px;
-    }
-    .modal-top span.red {
-        font-weight: 700;
-        background-color: unset;
-        padding: 10px;
-        position: static;
-        border: none;
-        font-size: 20px;
-        border-top-left-radius: 0px;
-        border-bottom-right-radius: 0px;
-        border-radius: 0px;
-    }
-
-    .cast-position {
-        position: relative;
-    }
-  
-
-    .cast-actor-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-        gap: 2rem;
-        padding: 20px;
-    }
-    .cast-actor-grid img {
-        border-radius: 20px;
-        width: 240px;
-    }
-    .cast-actor-grid .li li {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 2rem;
-        border-radius: 20px;
-    }
-    .cast-actor-grid .li li p {
-        margin-top: 1rem;
-        font-weight: 800;
-        align-self: flex-start;
-    }
-    .cast-actor-grid .li li p span {
-        color: #0092ff;
-    }
-    .others .title-space,
-    .others-two .title-space,
-    .others-three .title-space {
-        padding-left: 30px;
-        text-align: center;
-        font-size: 28px;
     }
 }
 
 @media (min-width: 1400px) {
-    .modal-top .modal-left .poster {
-        width: 100%;
-        height: 100%;
-        margin: 0;
-        border-radius: 10px;
-        border-top-right-radius: 0;
-        border-bottom-right-radius: 0;
-        object-fit: fill;
-    }
     iframe {
-        width: 100%;
-        height: 90%;
-        border: none;
-        border-radius: 8px;
-        position: fixed;
-        margin: auto;
         top: 1%;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        z-index: 102;
-        padding: 0 0px;
     }
     .close-btn-trailer {
-        position: fixed;
         top: 0%;
-        left: 0.5%;
-        margin: auto;
-        border: none;
-        border-radius: 50%;
-        color: white;
-        z-index: 103;
-    }
-    .others-two .title-space,
-    .others-three .title-space {
-        padding-left: 30px;
-        text-align: center;
-        font-size: 30px;
     }
 }

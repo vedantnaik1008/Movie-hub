@@ -15,7 +15,7 @@ const Navbar = () => {
 
     return (
         <>
-            <nav className='position-relative'>
+            <nav className=''>
                 <span className='bbb' onClick={handleClick}>
                     <FaBars size="35px" className='bbb-icon'/>
                 </span>
