@@ -1,4 +1,5 @@
-import CastPresentational from './CastPresentational';
+import { lazy } from 'react';
+const CastPresentational = lazy(() => import('./CastPresentational'));
 import useCast from '../hooks/useCast';
 
 interface CastProps {

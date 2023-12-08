@@ -3,7 +3,7 @@ import { Suspense, useState, lazy } from 'react';
 const Modal = lazy(() => import('./Modal'));
 import Loading from './Loading';
 import { Fetching } from '../types/Fetching';
-import SliderPresentational from './SliderPresentational';
+const SliderPresentational = lazy(() => import('./SliderPresentational'));
 
 const TopUpcomingMovie = () => {
     const { data, error, isLoading } = useUpcoming();

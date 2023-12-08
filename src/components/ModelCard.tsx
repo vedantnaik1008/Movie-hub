@@ -1,9 +1,9 @@
-import { Suspense, lazy, useState } from 'react'
-const CastContainer = lazy(() => import("./CastContainer"));
-import { GoArrowLeft } from "react-icons/go"
-import { img_500, unavailable } from "../Services/Config"
-const Trailer = lazy(() => import("./Trailer"));
-import { Fetching } from "../types/Fetching"
+import { Suspense, lazy, useState } from 'react';
+const CastContainer = lazy(() => import('./CastContainer'));
+import { GoArrowLeft } from 'react-icons/go';
+import { img_500, unavailable } from '../Services/Config';
+const Trailer = lazy(() => import('./Trailer'));
+import { Fetching } from '../types/Fetching';
 import Loading from './Loading';
 
 type Props = {
@@ -11,11 +11,21 @@ type Props = {
     isOpen: boolean;
     setIsOpen: (isOpen: boolean) => void;
     datas: Fetching;
-}
+};
 
-const ModelCard = ({ datas ,show,isOpen, setIsOpen  }: Props) => {
+const ModelCard = ({ datas, show, isOpen, setIsOpen }: Props) => {
     const [page] = useState(1);
-    const {poster_path,vote_average, title, name, media_type,overview,first_air_date, release_date, id} = datas
+    const {
+        poster_path,
+        vote_average,
+        title,
+        name,
+        media_type,
+        overview,
+        first_air_date,
+        release_date,
+        id,
+    } = datas;
     const getColorClass = (voteAverage: number) => {
         if (voteAverage >= 7.9) {
             return 'green';
@@ -26,9 +36,9 @@ const ModelCard = ({ datas ,show,isOpen, setIsOpen  }: Props) => {
         }
     };
 
-  return (
-    <>
-      <section className='modal-top'>
+    return (
+        <>
+            <section className='modal-top'>
                 {show ? (
                     <>
                         <div className='modal-down'>
@@ -50,9 +60,7 @@ const ModelCard = ({ datas ,show,isOpen, setIsOpen  }: Props) => {
                             </div>
                             <div className='details'>
                                 <div className='details-modal'>
-                                    <h3 className=''>
-                                        {title || name}
-                                    </h3>
+                                    <h3 className=''>{title || name}</h3>
                                     <h4 className=''>Overview</h4>
                                     <p className=''>{overview}</p>
 
@@ -78,19 +86,20 @@ const ModelCard = ({ datas ,show,isOpen, setIsOpen  }: Props) => {
                                             {vote_average.toFixed(1)}
                                         </span>
                                     </p>
-                                    <Trailer id={id} page={page} />
+                                    <Suspense fallback={<Loading />}>
+                                        <Trailer id={id} page={page} />
+                                    </Suspense>
                                 </div>
                             </div>
                         </div>
-                        <Suspense fallback={<Loading/>}>
+                        <Suspense fallback={<Loading />}>
                             <CastContainer movie_id={id} page={page} />
                         </Suspense>
-                        
                     </>
                 ) : null}
             </section>
-    </>
-  )
-}
+        </>
+    );
+};
 
-export default ModelCard
+export default ModelCard;
