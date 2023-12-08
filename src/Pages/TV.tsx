@@ -12,10 +12,7 @@ import { Fetching } from '../types/Fetching';
 const TV = () => {
     
     const [value, setValue] = useState<ValueData[]>([]);
-    const [modalData, setModalData] = useState<{
-        show: boolean;
-        data: Fetching;
-    }>({
+    const [modalData, setModalData] = useState({
         show: false,
         data: {} as Fetching,
     });

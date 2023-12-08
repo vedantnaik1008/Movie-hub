@@ -24,7 +24,6 @@ const Billboard = () => {
                   <button className="">release date: {movie.release_date}</button>
                 </div>
                 </div>
-                
               </>
           ))}
         </Slider>

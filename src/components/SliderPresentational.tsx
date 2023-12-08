@@ -20,7 +20,7 @@ const SliderPresentational = ({
         <>
             <section className={`others-three`}>
                 <div className='others-three-container'>
-                    <h1 className='title-space'>
+                    <h1 className=''>
                         {title}
                     </h1>
                     <NavLink to={link} className='others-navlink'>

@@ -15,7 +15,7 @@ body {
     color: white;
     scroll-behavior: smooth;
     background-repeat: no-repeat;
-    font-family: "Kanit", sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
 img,
@@ -229,7 +229,6 @@ button{
     color: white;
     font-weight: 800;
     margin-top: 80px;
-    font-family: "Kanit", sans-serif;
     font-size: 40px;
 }
 
@@ -293,7 +292,6 @@ button{
 .header {
     font-size: 35px;
     color: white;
-    font-family: 'Kanit', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -353,10 +351,6 @@ button{
 .asNavlink{
   padding: 0px !important;
   text-decoration: none;
-}
-
-.title-para {
-    font-family: 'Kanit', sans-serif;
 }
 
 #fire {
@@ -442,7 +436,6 @@ button{
     padding: 10px 10px;
     border-radius: 5px;
     color: white;
-    font-family: Kanit, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -474,7 +467,6 @@ button{
     border-radius: 50%;
     padding: 5px 12px;
     color: white;
-    font-family: Kanit, sans-serif;
 }
 
 .count-later-nav {
@@ -774,7 +766,6 @@ a:hover {
 
 .others-two h1,
 .others-three h1 {
-    font-family: Kanit, sans-serif;
     color: white;
     font-size: ;
     font-weight: 800;
