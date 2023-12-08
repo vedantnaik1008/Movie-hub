@@ -5,7 +5,7 @@ import useMovie from '../hooks/useMovie';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import Heading from '../components/Heading';
 import Loading from '../components/Loading';
-import Cards from '../components/Cards';
+const Cards = lazy(() => import('../components/Cards'));
 import { Fetching } from '../types/Fetching';
 
 export interface GenreData {
@@ -21,8 +21,6 @@ export interface ValueData {
 }
 
 const Movies = () => {
-    const [page, setPage] = useState(1);
-    const [genre, setGenre] = useState<GenreData[]>([]);
     const [value, setValue] = useState<ValueData[]>([]);
     const genreIds = value.map((v) => v.id);
     const {
@@ -32,10 +30,7 @@ const Movies = () => {
         fetchNextPage,
         hasNextPage,
     } = useMovie(genreIds);
-    const [modalData, setModalData] = useState<{
-        show: boolean;
-        data: Fetching;
-    }>({
+    const [modalData, setModalData] = useState({
         show: false,
         data: {} as Fetching,
     });
@@ -55,12 +50,9 @@ const Movies = () => {
             <div className='bg-black-c'>
                 <Heading title='Movies' />
                 <Genre
-                    genre={genre}
-                    setGenre={setGenre}
                     type='movie'
                     value={value}
                     setValue={setValue}
-                    setPage={setPage}
                 />
 
                 <InfiniteScroll
@@ -74,7 +66,7 @@ const Movies = () => {
                 {modalData.show && (
                     <Suspense fallback={<Loading/>}>
                     <Modal
-                        datas={modalData.data} page={page}
+                        datas={modalData.data}
                         show={true}
                         isOpen={modalData.show}
                         setIsOpen={(isOpen) => setModalData({ ...modalData, show: isOpen })}/>

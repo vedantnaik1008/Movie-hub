@@ -12,7 +12,6 @@ const Modal = lazy(() => import('../components/Modal'));
 
 
 const WatchLater = () => {
-    const [page] = useState(1);
     const [modalData, setModalData] = useState<{ show: boolean; data: Fetching }>({
     show: false,
     data: {} as Fetching,
@@ -46,7 +45,7 @@ const WatchLater = () => {
             </div>
         </div>
         {modalData.show && (<Suspense fallback={<Loading />}>
-          <Modal datas={modalData.data} page={page} show={true} isOpen={modalData.show} setIsOpen={(isOpen) => setModalData({ ...modalData, show: isOpen })}/>
+          <Modal datas={modalData.data}  show={true} isOpen={modalData.show} setIsOpen={(isOpen) => setModalData({ ...modalData, show: isOpen })}/>
           </Suspense>)} 
     </>
   )

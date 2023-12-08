@@ -1,4 +1,4 @@
-import { Suspense, lazy } from 'react'
+import { Suspense, lazy, useState } from 'react'
 const CastContainer = lazy(() => import("./CastContainer"));
 import { GoArrowLeft } from "react-icons/go"
 import { img_500, unavailable } from "../Services/Config"
@@ -9,12 +9,12 @@ import Loading from './Loading';
 type Props = {
     show: boolean;
     isOpen: boolean;
-    page: number;
     setIsOpen: (isOpen: boolean) => void;
     datas: Fetching;
 }
 
-const ModelCard = ({ datas ,show,isOpen, page, setIsOpen  }: Props) => {
+const ModelCard = ({ datas ,show,isOpen, setIsOpen  }: Props) => {
+    const [page] = useState(1);
     const {poster_path,vote_average, title, name, media_type,overview,first_air_date, release_date, id} = datas
     const getColorClass = (voteAverage: number) => {
         if (voteAverage >= 7.9) {

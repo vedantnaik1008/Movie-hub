@@ -1,17 +1,16 @@
 import { Suspense, useState, lazy } from 'react';
-import { GenreData, ValueData } from './Movies';
+import {  ValueData } from './Movies';
 const Genre = lazy(() => import('../components/Genre'));
 const Modal = lazy(() => import('../components/Modal'));
 import useMovie from '../hooks/useMovie';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import Heading from '../components/Heading';
 import Loading from '../components/Loading';
-import Cards from '../components/Cards';
+const Cards = lazy(() => import('../components/Cards'));
 import { Fetching } from '../types/Fetching';
 
 const TV = () => {
-    const [page, setPage] = useState(1);
-    const [genre, setGenre] = useState<GenreData[]>([]);
+    
     const [value, setValue] = useState<ValueData[]>([]);
     const [modalData, setModalData] = useState<{
         show: boolean;
@@ -45,9 +44,6 @@ const TV = () => {
             <div className='bg-black-c'>
                 <Heading title='TV Series' />
                 <Genre
-                    genre={genre}
-                    setGenre={setGenre}
-                    setPage={setPage}
                     type='tv'
                     value={value}
                     setValue={setValue}
@@ -63,7 +59,6 @@ const TV = () => {
                 {modalData.show && (
                     <Suspense fallback={<Loading />}>
                     <Modal
-                        page={page}
                         show={true}
                         isOpen={modalData.show}
                         setIsOpen={(isOpen) => setModalData({ ...modalData, show: isOpen })} datas={modalData.data}/>

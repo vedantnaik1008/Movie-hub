@@ -2,10 +2,10 @@
 import { ModalProps } from '../types/ModalTypes';
 import ModalCard from './ModelCard';
 
-const Modal = ({ datas,show,isOpen, page, setIsOpen }: ModalProps) => {
+const Modal = ({ datas,show, isOpen,  setIsOpen }: ModalProps) => {
     return (
         <>
-            <ModalCard datas={datas} show={show} isOpen={isOpen} page={page} setIsOpen={setIsOpen}/>
+            <ModalCard datas={datas} show={show} isOpen={isOpen} setIsOpen={setIsOpen}/>
         </>
     );
 };

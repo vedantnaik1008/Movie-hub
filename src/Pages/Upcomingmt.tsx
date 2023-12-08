@@ -5,11 +5,10 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 import useUC from '../hooks/useUC';
 import Heading from '../components/Heading';
 import Loading from '../components/Loading';
-import Cards from '../components/Cards';
+const Cards = lazy(() => import('../components/Cards'));
 import { Fetching } from '../types/Fetching';
 
 const Upcomingmt = () => {
-    const [page] = useState(1);
     const [modalData, setModalData] = useState<{
         show: boolean;
         data: Fetching;
@@ -53,7 +52,7 @@ const Upcomingmt = () => {
                 {modalData.show && (
                     <Suspense fallback={<Loading />}>
                         <Modal
-                        datas={modalData.data} page={page}
+                        datas={modalData.data}
                         show={true}
                         isOpen={modalData.show}
                         setIsOpen={(isOpen) => setModalData({ ...modalData, show: isOpen })}/>

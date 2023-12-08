@@ -122,7 +122,6 @@ const Search = () => {
                     <Suspense fallback={<Loading />}>
                         <Modal
                             datas={modalData.data}
-                            page={page}
                             show={true}
                             isOpen={modalData.show}
                             setIsOpen={(isOpen) =>

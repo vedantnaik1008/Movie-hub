@@ -1,19 +1,17 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { GenreData, ValueData } from '../Pages/Movies';
 import { APIKEY } from '../Services/api-client';
 
 interface Props{
-    genre: GenreData[];
-    setPage: (page: number) => void;
-    setGenre: (genre: GenreData[]) => void;
     type: string;
     value: ValueData[];
     setValue: (value: ValueData[]) => void;
 }
 
 
-const Genre = ({ genre, setGenre, type, value, setValue, setPage }: Props) => {
-
+const Genre = ({  type, value, setValue }: Props) => {
+  const [genre, setGenre] = useState<GenreData[]>([]);
+  const [page, setPage] = useState(1);
   useEffect(() => {
     const fetchGenre = async () => {
       const data = await fetch(
@@ -37,6 +35,7 @@ const Genre = ({ genre, setGenre, type, value, setValue, setPage }: Props) => {
     setGenre([...genre, genres]);
     setPage(1)
   }
+  
   return (
     <>
       <div className="genre-container">

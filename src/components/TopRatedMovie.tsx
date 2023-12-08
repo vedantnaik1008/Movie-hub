@@ -7,7 +7,6 @@ import SliderPresentational from './SliderPresentational';
 
 const TopRatedMovie = () => {
     const { data, error, isLoading } = useTopRatedMovie();
-    const [page] = useState(1);
     const [modalData, setModalData] = useState<{
         show: boolean;
         data: Fetching;
@@ -30,7 +29,6 @@ const TopRatedMovie = () => {
                 <Suspense fallback={<Loading />}>
                     <Modal
                 datas={modalData.data}
-                page={page}
                 show={true}
                 isOpen={modalData.show}
                 setIsOpen={(isOpen) =>
