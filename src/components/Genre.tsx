@@ -20,10 +20,13 @@ const Genre = ({  type, value, setValue }: Props) => {
       const { genres } = await data.json();
       console.log(genres);
       setGenre(genres);
+      
+      
     };
     fetchGenre();
   }, [setGenre, type]);
-
+  
+  console.log(page);
   const CategoryAdd = (genres: ValueData) => {
     setValue([...value, genres]);
     setGenre(genre.filter((g)=> g.id !== genres.id));
