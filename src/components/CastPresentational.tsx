@@ -19,7 +19,7 @@ const CastPresentational = ({credits} : Props) => {
                         {credits.cast?.map((actor) => (
                             <ul className='li' key={actor.id}>
                               <li>
-                                <img loading='lazy' src={`${actor.profile_path ? 'https://image.tmdb.org/t/p/w500/' + actor.profile_path : unavailableLandscape}`} alt={actor.name || actor.name}/>
+                                <img sizes="(min-width: 400px) 328px, calc(56.25vw + 114px)" loading='lazy' src={`${actor.profile_path ? 'https://image.tmdb.org/t/p/w500/' + actor.profile_path : unavailableLandscape}`} alt={actor.name || actor.name}/>
                                     <p>
                                         name: {actor.name} as{' '}
                                         <span>{actor.character}</span>

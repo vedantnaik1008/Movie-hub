@@ -23,7 +23,7 @@ const SliderPresentational = ({ data, setModalData, title, link }: Props) => {
                 <Slider {...settings} className='whole-slider'>
                     {data.slice(12).map((i) => (
                         <div key={i.id} className='slider'>
-                            <img
+                            <img sizes="(min-width: 400px) 328px, calc(56.25vw + 114px)"
                                 loading='lazy'
                                 src={img_500 + i.backdrop_path}
                                 alt={i.name || i.title}

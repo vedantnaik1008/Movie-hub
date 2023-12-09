@@ -18,7 +18,7 @@ const Cards = ({ datas, setModalData }: Props) => {
                             {page.results.map((val) => (
                                 <div key={val.id}>
                                     <div className='cards'>
-                                        <img
+                                        <img sizes="(min-width: 400px) 328px, calc(56.25vw + 114px)"
                                             loading='lazy'
                                             src={
                                                 val.poster_path

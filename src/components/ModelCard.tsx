@@ -48,7 +48,7 @@ const ModelCard = ({ datas, show, isOpen, setIsOpen }: Props) => {
                                     onClick={() => setIsOpen(!isOpen)}>
                                     <GoArrowLeft size='25px' />
                                 </button>
-                                <img loading='lazy'
+                                <img sizes="(min-width: 400px) 328px, calc(56.25vw + 114px)" loading='lazy'
                                     src={
                                         poster_path
                                             ? `${img_500 + poster_path}`
