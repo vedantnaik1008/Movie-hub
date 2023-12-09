@@ -44,8 +44,8 @@ const Search = () => {
                 `https://api.themoviedb.org/3/search/multi?api_key=${APIKEY}&language=en-US&query=${searchText}&page=${page}&include_adult=false`
             )
             .then((res) => {
-                setContent(res.data.results);
-                console.log(res.data.results);
+               setContent(res.data.results)
+
             })
             .catch((error) => error);
     }, [searchText, page]);
@@ -53,6 +53,7 @@ const Search = () => {
     useEffect(() => {
         fetchSearch();
     }, [fetchSearch]);
+
 
     const Trigger = (event: React.ChangeEvent<HTMLInputElement>) => {
         setSearchText(event.target.value);
