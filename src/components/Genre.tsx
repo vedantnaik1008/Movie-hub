@@ -1,5 +1,4 @@
-import { ValueData } from '../Pages/Movies';
-import useGenre from '../hooks/useGenre';
+import useGenre, { ValueData } from '../hooks/useGenre';
 
 interface Props {
     type: string;
