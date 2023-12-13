@@ -255,7 +255,11 @@ button{
 }
 
 .modal-bold{
-    font-weight: bold;
+    margin: 5px 0px;
+}
+
+.modal-bold div{
+    margin: 0px 0px 3px 0px;
 }
 
 .genre-container{
@@ -901,13 +905,14 @@ a:hover {
     }
     .modal-top .span-para {
         margin-top: 0px;
-        font-weight: bold;
     }
     .details h3 {
         text-align: center;
+        font-size: 25px;
     }
     .details h4 {
         text-align: start;
+        font-weight: 600;
     }
     .whole-slider {
         width: 100%;
