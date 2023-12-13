@@ -14,6 +14,7 @@ import { IoSearch } from 'react-icons/io5';
 import { Fetching } from '../types/Fetching';
 import Loading from '../components/Loading';
 import { NavLink } from 'react-router-dom';
+import { useDebounce } from '../hooks/useDebounce';
 
 const Search = () => {
     const [searchText, setSearchText] = useState('');
@@ -28,6 +29,7 @@ const Search = () => {
     });
     const dispatch = useDispatch();
     const products = useSelector((state: RootState) => state.watchlater);
+    const deboucedValue = useDebounce(searchText, 500)
     const addToCart = (watchlater: WatchItem) => {
         const alreadyInWatchList = products.watchlater.some(
             (item: Fetching) => item.id === watchlater.id
@@ -38,17 +40,19 @@ const Search = () => {
         }
     };
 
+
     const fetchSearch = useCallback(async () => {
-        axios
+        if(deboucedValue){
+            axios
             .get<Fetching>(
-                `https://api.themoviedb.org/3/search/multi?api_key=${APIKEY}&language=en-US&query=${searchText}&page=${page}&include_adult=false`
+                `https://api.themoviedb.org/3/search/multi?api_key=${APIKEY}&language=en-US&query=${deboucedValue}&page=${page}&include_adult=false`
             )
             .then((res) => {
                setContent(res.data.results)
-
             })
             .catch((error) => error);
-    }, [searchText, page]);
+        }
+    }, [deboucedValue, page]);
 
     useEffect(() => {
         fetchSearch();
