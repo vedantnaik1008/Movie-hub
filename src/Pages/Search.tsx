@@ -10,7 +10,7 @@ const Search = () => {
     const  {content, Trigger, Searches, page, setPage}  = useSearch()
     const [modalData, setModalData] = useState({
         show: false,
-        data: {} as Fetching,
+        data: {} as Fetching
     });
 
     return (
