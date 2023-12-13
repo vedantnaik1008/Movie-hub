@@ -14,7 +14,7 @@ const Header = () => {
             </div>
             <Navbar />
             <div className="search-icon">
-            <NavLink to={'/search'}> 
+            <NavLink to={'/search'} aria-label="search your favourite movies and tv shows"> 
               <IoSearch color="white" size={20}/>
             </NavLink>
             </div>

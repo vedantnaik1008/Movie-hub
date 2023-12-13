@@ -322,11 +322,6 @@ button{
     position: relative;
 }
 
-.footer .count-later {
-    position: absolute;
-    right: 85px;
-    top: 13px;
-}
 
 .others-navlink {
     text-decoration-color: transparent;
@@ -458,12 +453,6 @@ button{
     border: none;
     outline: none;
     background-color: transparent;
-}
-.count-later {
-    background-color: red;
-    border-radius: 50%;
-    padding: 5px 12px;
-    color: white;
 }
 
 .count-later-nav {
