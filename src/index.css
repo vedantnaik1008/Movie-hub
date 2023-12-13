@@ -304,6 +304,7 @@ button{
 
 .header p {
     margin-bottom: 0;
+    font-weight: bold;
     color: white;
 }
 
