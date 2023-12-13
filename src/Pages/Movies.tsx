@@ -7,18 +7,11 @@ import Heading from '../components/Heading';
 import Loading from '../components/Loading';
 const Cards = lazy(() => import('../components/Cards'));
 import { Fetching } from '../types/Fetching';
+import { ValueData } from '../hooks/useGenre';
 
-export interface GenreData {
-    id: number;
-    name: string;
-    genres: [];
-}
 
-export interface ValueData {
-    id: number;
-    name: string;
-    genres: [];
-}
+
+
 
 const Movies = () => {
     const [value, setValue] = useState<ValueData[]>([]);

@@ -1,5 +1,4 @@
 import { Suspense, useState, lazy } from 'react';
-import {  ValueData } from './Movies';
 const Genre = lazy(() => import('../components/Genre'));
 const Modal = lazy(() => import('../components/Modal'));
 import useMovie from '../hooks/useMovie';
@@ -8,6 +7,7 @@ import Heading from '../components/Heading';
 import Loading from '../components/Loading';
 const Cards = lazy(() => import('../components/Cards'));
 import { Fetching } from '../types/Fetching';
+import { ValueData } from '../hooks/useGenre';
 
 const TV = () => {
     
