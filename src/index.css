@@ -411,8 +411,6 @@ button{
     padding: 5px 8px;
 }
 
-
-
 .watch-padding {
     padding-top: 180px;
     padding-bottom: 50px;
@@ -422,12 +420,12 @@ button{
 
 .watch-remove {
     position: absolute;
-    top: 25px;
-    right: 25px;
-    background-color: red;
+    top: 10px;
+    right: 10px;
+    background-color: black;
     padding: 5px;
     border: none;
-    border-radius: 50%;
+    border-radius: 15%;
     outline: none;
 }
 
