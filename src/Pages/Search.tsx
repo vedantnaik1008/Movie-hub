@@ -1,128 +1,27 @@
-import { Suspense, useEffect, useState, lazy, useCallback } from 'react';
+import { Suspense, useState, lazy } from 'react';
 const Pagination = lazy(() => import('../components/Pagination'));
-import axios from 'axios';
-import { img_500, unavailable } from '../Services/Config';
-import { GoArrowLeft } from "react-icons/go"
 const Modal = lazy(() => import('../components/Modal'));
-import { useDispatch, useSelector } from 'react-redux';
-import { toast } from 'react-toastify';
-import { WatchItem, ADD } from '../components/WatchSlice';
-import { RootState } from '../store';
-import { APIKEY } from '../Services/api-client';
-import { FaStar } from 'react-icons/fa';
-import { IoSearch } from 'react-icons/io5';
 import { Fetching } from '../types/Fetching';
 import Loading from '../components/Loading';
-import { NavLink } from 'react-router-dom';
-import { useDebounce } from '../hooks/useDebounce';
+import SearchPresentational from '../components/SearchPresentational';
+import useSearch from '../hooks/useSearch';
 
 const Search = () => {
-    const [searchText, setSearchText] = useState('');
-    const [page, setPage] = useState(1);
-    const [content, setContent] = useState<Fetching[]>([]);
-    const [modalData, setModalData] = useState<{
-        show: boolean;
-        data: Fetching;
-    }>({
+    const  {content, Trigger, Searches, page, setPage}  = useSearch()
+    const [modalData, setModalData] = useState({
         show: false,
         data: {} as Fetching,
     });
-    const dispatch = useDispatch();
-    const products = useSelector((state: RootState) => state.watchlater);
-    const deboucedValue = useDebounce(searchText, 500)
-    const addToCart = (watchlater: WatchItem) => {
-        const alreadyInWatchList = products.watchlater.some(
-            (item: Fetching) => item.id === watchlater.id
-        );
-        if (!alreadyInWatchList) {
-            dispatch(ADD(watchlater));
-            toast.success('Added to watch later!');
-        }
-    };
-
-
-    const fetchSearch = useCallback(async () => {
-        if(deboucedValue){
-            axios
-            .get<Fetching>(
-                `https://api.themoviedb.org/3/search/multi?api_key=${APIKEY}&language=en-US&query=${deboucedValue}&page=${page}&include_adult=false`
-            )
-            .then((res) => {
-               setContent(res.data.results)
-            })
-            .catch((error) => error);
-        }
-    }, [deboucedValue, page]);
-
-    useEffect(() => {
-        fetchSearch();
-    }, [fetchSearch]);
-
-
-    const Trigger = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setSearchText(event.target.value);
-    };
-
-    const Searches = () => {
-        fetchSearch();
-    };
 
     return (
         <>
             <div className='bg-black-search'>
-                <NavLink to={'/'}>
-                    <button className='close-btn-search'>
-                        <GoArrowLeft size='35px' color="white"/>
-                    </button>
-                </NavLink>
-                <div className='input-title'>
-                    <input
-                        type='text'
-                        placeholder='search...'
-                        onChange={Trigger}
-                        className='search'
-                    />
-                    <button
-                        aria-label='search'
-                        className='search-title'
-                        onClick={Searches}>
-                        <IoSearch color='white' size={20} />
-                    </button>
-                </div>
-                <div
-                    className={
-                        content.length
-                            ? 'display-grid-search'
-                            : 'display-grid-search-empty'
-                    }>
-                    {content.map((val) => (
-                        <div key={val.id}>
-                            <div className='cards'>
-                                <img sizes="(min-width: 400px) 328px, calc(56.25vw + 114px)"
-                                    loading='lazy'
-                                    src={
-                                        val.poster_path
-                                            ? `${img_500 + val.poster_path}`
-                                            : unavailable
-                                    }
-                                    className='card-img-top'
-                                    alt={val.title || val.name}
-                                    onClick={() =>
-                                        setModalData({ show: true, data: val })
-                                    }
-                                />
-
-                                <button
-                                    className='watch-add'
-                                    onClick={() => {
-                                        addToCart(val);
-                                    }}>
-                                    <FaStar size='25' color='yellow' />
-                                </button>
-                            </div>
-                        </div>
-                    ))}
-                </div>
+                <SearchPresentational
+                    content={content}
+                    Trigger={Trigger}
+                    Searches={Searches}
+                    setModalData={(data) => setModalData(data)}
+                />
                 {modalData.show && (
                     <Suspense fallback={<Loading />}>
                         <Modal
