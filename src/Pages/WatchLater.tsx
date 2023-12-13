@@ -1,10 +1,9 @@
 import { useSelector, useDispatch } from "react-redux"
-import { CLEAR, REMOVE,  } from "../components/WatchSlice"
+import { REMOVE,  } from "../components/WatchSlice"
 import { RootState } from "../store"
 import { img_500, unavailable } from "../Services/Config"
 import { Suspense, useState } from "react"
 import { lazy } from 'react';
-import { FaBroom } from "react-icons/fa"
 import { IoCloseOutline } from "react-icons/io5";
 import { Fetching } from "../types/Fetching"
 import Loading from "../components/Loading"
@@ -22,16 +21,9 @@ const WatchLater = () => {
         dispatch(REMOVE(id))
     }
 
-    const clearAll = () =>{
-        dispatch(CLEAR())
-    }
   return (
     <>
         <div className="watch-padding bg-black-c"> 
-            <div className="clear-all" onClick={clearAll}>
-              <FaBroom color="white" size="20px"/> <span>Clear all</span>
-            </div>
-
             <div className='display-grid-watch-later'>
                 {products.watchlater.map((val: Fetching)=> (
                     <div key={val.id} id="card">

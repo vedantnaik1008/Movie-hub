@@ -420,19 +420,6 @@ button{
     height: 100dvh;
 }
 
-.clear-all {
-    position: absolute;
-    background-color: red;
-    top: 16%;
-    right: 2%;
-    padding: 10px 10px;
-    border-radius: 5px;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
-}
 .watch-remove {
     position: absolute;
     top: 25px;

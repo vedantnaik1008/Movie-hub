@@ -35,14 +35,10 @@ const watchSlice = createSlice({
         (item) => item.id !== action.payload
       );
       localStorage.setItem("watchlater", JSON.stringify(state.watchlater));  
-    },
-    CLEAR: (state) => {
-      localStorage.removeItem("watchlater");      
-      state.watchlater = [];
-    }   
+    }, 
   }
 });
 
-export const { ADD, REMOVE, CLEAR } = watchSlice.actions;
+export const { ADD, REMOVE } = watchSlice.actions;
 
 export default watchSlice.reducer;
