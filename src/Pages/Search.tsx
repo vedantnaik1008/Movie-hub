@@ -96,7 +96,7 @@ const Search = () => {
                             : 'display-grid-search-empty'
                     }>
                     {content.map((val) => (
-                        <div key={val.id} id='card'>
+                        <div key={val.id}>
                             <div className='cards'>
                                 <img sizes="(min-width: 400px) 328px, calc(56.25vw + 114px)"
                                     loading='lazy'
