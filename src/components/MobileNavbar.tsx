@@ -3,7 +3,7 @@ import {  NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { RootState } from '../store';
 import { IoClose } from 'react-icons/io5';
-import { FaBars } from "react-icons/fa6";
+import { FaBarsStaggered } from "react-icons/fa6";
 import { Mobiledata as data } from '../Services/navLinksData';
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -17,7 +17,7 @@ const Navbar = () => {
         <>
             <nav className=''>
                 <span className='bbb' onClick={handleClick}>
-                    <FaBars size="35px" className='bbb-icon'/>
+                    <FaBarsStaggered size="30px" className='bbb-icon'/>
                 </span>
                 <div
                     className={isOpen ? 'dont-show' : 'show-nav'}
