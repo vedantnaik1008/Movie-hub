@@ -56,8 +56,8 @@ const App = () => {
     const loader = <Loading />
 
     return (
-        <div>
-                <BrowserRouter>
+        <>
+            <BrowserRouter>
                 <ToastContainer 
                     position="bottom-center"
                     autoClose={3000}
@@ -76,8 +76,8 @@ const App = () => {
                             ))}
                         </Routes>
                     </Suspense>
-                </BrowserRouter>
-        </div>
+             </BrowserRouter>
+        </>
     );
 };
 

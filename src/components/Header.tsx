@@ -2,6 +2,7 @@ import Navbar from "./Navbar"
 import { IoSearch } from "react-icons/io5";
 import { NavLink } from "react-router-dom";
 import { BiCameraMovie } from "react-icons/bi";
+import Profile from "./Login/Profile";
 
 const Header = () => {
 
@@ -17,6 +18,7 @@ const Header = () => {
             <NavLink to={'/search'} aria-label="search your favourite movies and tv shows"> 
               <IoSearch color="white" size={20}/>
             </NavLink>
+            <Profile />
             </div>
           </div>
         </div> 
