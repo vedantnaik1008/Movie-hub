@@ -136,7 +136,7 @@ button{
 .billboard-container .overlay{
     color: white;
     position: absolute;
-    top: 60%;
+    top: 55%;
     left: 3%;
     z-index: 99;
 }
@@ -651,7 +651,6 @@ a:hover {
     z-index: 100;
     background-color: transparent;
     padding: 0px;
-    background: rgba(255, 255, 255, 0.12);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(50px);
     -webkit-backdrop-filter: blur(50px);
@@ -910,6 +909,9 @@ a:hover {
     .trailer-btn {
         border-radius: 10px;
     }
+    .billboard-container .overlay h2{
+        font-size: 30px;
+    }
     .modal-top .span-para {
         margin-top: 0px;
     }
@@ -1064,6 +1066,9 @@ a:hover {
         flex-direction: row;
         width: 80%;
         height: 90%;
+    }
+    .billboard-container .overlay h2{
+        font-size: 40px;
     }
     iframe {
         width: 100%;
