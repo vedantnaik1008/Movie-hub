@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
-import { RootState } from '../store';
-import { WatchItem, ADD } from './WatchSlice';
+import { RootState } from '../redux/store';
+import { WatchItem, ADD } from '../redux/WatchSlice';
 import { FaStar } from 'react-icons/fa';
 
 type Props = {

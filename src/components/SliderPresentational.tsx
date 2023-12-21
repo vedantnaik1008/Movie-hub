@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import Slider from 'react-slick';
-import { img_500 } from '../Services/Config';
+import { img_500 } from '../data/constant';
 import { settings } from '../Services/Settings';
 import { Fetching } from '../types/Fetching';
 

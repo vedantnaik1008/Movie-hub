@@ -1,5 +1,5 @@
 import Slider from "react-slick";
-import { IMGPATH } from "../Services/Config";
+import { IMGPATH } from "../data/constant";
 import Loading from "./Loading";
 import { BillBoardsetting } from "../Services/Settings";
 import useUpcoming from "../hooks/useUpcoming";

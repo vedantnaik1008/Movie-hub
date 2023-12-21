@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import WatchSlice from "./components/WatchSlice";
+import WatchSlice from "./WatchSlice";
 
 export const store = configureStore({
     reducer: {

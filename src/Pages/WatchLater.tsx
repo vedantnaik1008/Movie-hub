@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from "react-redux"
-import { REMOVE,  } from "../components/WatchSlice"
-import { RootState } from "../store"
-import { img_500, unavailable } from "../Services/Config"
+import { REMOVE,  } from "../redux/WatchSlice"
+import { RootState } from "../redux/store"
+import { img_500, unavailable } from "../data/constant"
 import { Suspense, useState } from "react"
 import { lazy } from 'react';
 import { IoCloseOutline } from "react-icons/io5";

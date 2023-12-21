@@ -1,4 +1,4 @@
-import { unavailableLandscape } from "../Services/Config"
+import { unavailableLandscape } from "../data/constant"
 import { Credits } from "../types/CastTypes"
 import Loading from "./Loading"
 

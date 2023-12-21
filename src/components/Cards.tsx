@@ -2,7 +2,7 @@ import { InfiniteData } from '@tanstack/react-query'
 import React, { lazy } from 'react'
 import { FetchResponse } from '../Services/api-client'
 const AddCartButton = lazy(() => import('./AddCartButton'))
-import { img_500, unavailable } from '../Services/Config'
+import { img_500, unavailable } from '../data/constant'
 import { Fetching } from '../types/Fetching'
 
 type Props = {
