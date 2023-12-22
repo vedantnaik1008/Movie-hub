@@ -26,6 +26,17 @@ video {
     max-width: 100%;
 }
 
+#content[aria-hidden=true] a[href],
+#content[aria-hidden=true] area[href], 
+#content[aria-hidden=true] input:not([disabled]), 
+#content[aria-hidden=true] select:not([disabled]), 
+#content[aria-hidden=true] textarea:not([disabled]), 
+#content[aria-hidden=true] button:not([disabled]), 
+#content[aria-hidden=true] [tabindex]:not([disabled]), 
+#content[aria-hidden=true] [contenteditable=true]:not([disabled]){
+   visibility: hidden;
+}
+
 .modal-top::-webkit-scrollbar,
 body::-webkit-scrollbar,
 .modal-top .modal-details::-webkit-scrollbar,
