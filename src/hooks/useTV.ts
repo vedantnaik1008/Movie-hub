@@ -1,6 +1,6 @@
 import { useInfiniteQuery } from '@tanstack/react-query'
-import { Fetching } from './useTrending'
 import APIClient, { FetchResponse } from '../Services/api-client'
+import { Fetching } from '../types/Fetching';
 
 const apiClient = new APIClient<Fetching>('/discover/tv')
 const useTV = (genreTds: number[] = []) => useInfiniteQuery<FetchResponse<Fetching>, Error>({

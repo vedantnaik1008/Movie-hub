@@ -1,63 +1,50 @@
-import { useEffect } from 'react'
-import { GenreData, ValueData } from '../Pages/Movies';
-import { APIKEY } from '../Services/api-client';
+import useGenre, { ValueData } from '../hooks/useGenre';
 
-interface Props{
-    genre: GenreData[];
-    setPage: (page: number) => void;
-    setGenre: (genre: GenreData[]) => void;
+interface Props {
     type: string;
     value: ValueData[];
     setValue: (value: ValueData[]) => void;
 }
 
+const Genre = ({ type, value, setValue }: Props) => {
+    const { genre, CategoryAdd, CategoryRemove } = useGenre({
+        setValue,
+        value,
+        type,
+    });
 
-const Genre = ({ genre, setGenre, type, value, setValue, setPage }: Props) => {
-
-  useEffect(() => {
-    const fetchGenre = async () => {
-      const data = await fetch(
-        `https://api.themoviedb.org/3/genre/${type}/list?api_key=${APIKEY}&language=en-US`
-      );
-      const { genres } = await data.json();
-      console.log(genres);
-      setGenre(genres);
-    };
-    fetchGenre();
-  }, [setGenre, type]);
-
-  const CategoryAdd = (genres: ValueData) => {
-    setValue([...value, genres]);
-    setGenre(genre.filter((g)=> g.id !== genres.id));
-    setPage(1)
-  }
-
-  const CategoryRemove = (genres: ValueData) => {
-    setValue(value.filter((g)=> g.id !== genres.id));
-    setGenre([...genre, genres]);
-    setPage(1)
-  }
-  return (
-    <>
-      <div className="container-fluid">
-        <div className="row mb-3">
-            <div className="col-12  genres">
-                {value && value.map((val)=> (
-                    <div className="m-2" key={val.id}>
-                        <button className="bg-white text-black px-4 py-2 text-center buttons" onClick={()=> CategoryRemove(val)}>{val.name}</button>
-                    </div>))}
-                {genre && genre.map((gen)=> (
-                    <div className="m-2" key={gen.id}>
-                        <button className=" text-white px-4 py-2 text-center button"
-                        onClick={() => CategoryAdd(gen)}>
-                        {gen.name}
-                      </button>
-                    </div>))}
+    return (
+        <>
+            <div className='genre-container'>
+                <div className=''>
+                    <div className='genres'>
+                        {value &&
+                            value.map((val) => (
+                                <div
+                                    className='categoryButtonRemove'
+                                    key={val.id}>
+                                    <button
+                                        className='buttons'
+                                        onClick={() => CategoryRemove(val)}>
+                                        {val.name}
+                                    </button>
+                                </div>
+                            ))}
+                        {genre &&
+                            genre.map((gen) => (
+                                <div className='categoryButtonAdd' key={gen.id}>
+                                    <button
+                                        className='button'
+                                        onClick={() => CategoryAdd(gen)}>
+                                        {gen.name}
+                                    </button>
+                                </div>
+                            ))}
+                    </div>
+                </div>
             </div>
-        </div>
-      </div>
-    </>
-  )
-}
+        </>
+    );
+};
 
-export default Genre
+export default Genre;

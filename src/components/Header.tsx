@@ -1,5 +1,8 @@
-import { FaPlay } from "react-icons/fa";
-import Footer from "./Footer"
+import Navbar from "./Navbar"
+import { IoSearch } from "react-icons/io5";
+import { NavLink } from "react-router-dom";
+import { BiCameraMovie } from "react-icons/bi";
+import Profile from "./Login/Profile";
 
 const Header = () => {
 
@@ -7,10 +10,16 @@ const Header = () => {
     <>
         <div className="position">
           <div className="d-flex-header">
-            <div className=" text-uppercase header fw-bold">
-              <p>YEH &nbsp;&nbsp;</p> <FaPlay className="fa fa-play"/>
+            <div className="header">
+              <BiCameraMovie className="fa fa-play"/><p>movieHub</p> 
             </div>
-            <Footer />
+            <Navbar />
+            <div className="search-icon">
+            <NavLink to={'/search'} aria-label="search your favourite movies and tv shows"> 
+              <IoSearch color="white" size={20}/>
+            </NavLink>
+            <Profile />
+            </div>
           </div>
         </div> 
     </>

@@ -1,13 +1,13 @@
 import { lazy } from 'react';
+import Billboard from '../components/Billboard';
 const TopRatedMovie = lazy(() => import('../components/TopRatedMovie'));
 const TopUpcomingMovie = lazy(() => import('../components/Upcoming'));
-const Search = lazy(() => import('./Search'));
 
 
 const Others = () => {
     return (
-        <div className='bg-black-c others-background-p'>
-            <Search />
+        <div className='bg-black-c'>
+            <Billboard />
             <TopUpcomingMovie />
             <TopRatedMovie />
         </div>
