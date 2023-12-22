@@ -22,7 +22,6 @@ const WatchLater = () => {
     const removeToCart = (id:number) =>{
         dispatch(REMOVE(id))
     }
-
   return (
     <>
         <div className="watch-padding bg-black-c"> 
