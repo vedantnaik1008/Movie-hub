@@ -1,6 +1,5 @@
 import { useCallback, useEffect } from "react";
-import { IoIosArrowForward } from "react-icons/io";
-import { IoIosArrowBack } from "react-icons/io";
+import { IoIosArrowBack, IoIosArrowForward } from "../lib/icons/ReactIcons";
 
 interface Props{
     page: number;

@@ -1,5 +1,5 @@
-import { IoClose } from 'react-icons/io5';
 import { useTrailer } from '../hooks/useTrailer';
+import { IoClose } from '../lib/icons/ReactIcons';
 
 type Props = {
     id: number;

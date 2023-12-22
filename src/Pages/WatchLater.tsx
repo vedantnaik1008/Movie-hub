@@ -4,12 +4,12 @@ import { RootState } from "../redux/store"
 import { img_500, unavailable } from "../data/constant"
 import { Suspense, useState } from "react"
 import { lazy } from 'react';
-import { IoCloseOutline } from "react-icons/io5";
 import { Fetching } from "../types/Fetching"
 import Loading from "../components/Loading"
 import { useAuth0 } from "@auth0/auth0-react"
 const Modal = lazy(() => import('../components/Modal'));
 import LoginButton from "../components/Login/LoginButton"
+import { IoCloseOutline } from "../lib/icons/ReactIcons"
 
 const WatchLater = () => {
   const { isAuthenticated } = useAuth0();

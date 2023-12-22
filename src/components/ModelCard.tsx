@@ -1,10 +1,10 @@
 import { Suspense, lazy, useState } from 'react';
 const CastContainer = lazy(() => import('./CastContainer'));
-import { GoArrowLeft } from 'react-icons/go';
 import { img_500, unavailable } from '../data/constant';
 const Trailer = lazy(() => import('./Trailer'));
 import { Fetching } from '../types/Fetching';
 import Loading from './Loading';
+import { GoArrowLeft } from '../lib/icons/ReactIcons';
 
 type Props = {
     show: boolean;

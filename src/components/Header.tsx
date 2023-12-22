@@ -1,8 +1,7 @@
 import Navbar from "./Navbar"
-import { IoSearch } from "react-icons/io5";
 import { NavLink } from "react-router-dom";
-import { BiCameraMovie } from "react-icons/bi";
 import Profile from "./Login/Profile";
+import { BiCameraMovie, IoSearch } from "../lib/icons/ReactIcons";
 
 const Header = () => {
 

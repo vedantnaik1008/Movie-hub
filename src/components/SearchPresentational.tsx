@@ -1,6 +1,4 @@
-import { FaStar } from 'react-icons/fa6';
-import { GoArrowLeft } from 'react-icons/go';
-import { IoSearch } from 'react-icons/io5';
+
 import { NavLink } from 'react-router-dom';
 import { img_500, unavailable } from '../data/constant';
 import { Fetching } from '../types/Fetching';
@@ -8,6 +6,7 @@ import { toast } from 'react-toastify';
 import { WatchItem, ADD } from '../redux/WatchSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../redux/store';
+import { FaStar, GoArrowLeft, IoSearch } from '../lib/icons/ReactIcons';
 
 type Props = {
     content: Fetching[];

@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 import { RootState } from '../redux/store';
 import { WatchItem, ADD } from '../redux/WatchSlice';
-import { FaStar } from 'react-icons/fa';
+import { FaStar } from '../lib/icons/ReactIcons';
 
 type Props = {
     val: WatchItem;
