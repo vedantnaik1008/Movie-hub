@@ -308,7 +308,6 @@ button {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
     border-radius: 0px;
 }
 
@@ -843,7 +842,8 @@ a:hover {
         position: relative;
     }
     .d-flex-header {
-        justify-content: center;
+        padding: 10px;
+        justify-content: start;
         align-items: center;
     }
     .display-grid {
@@ -1059,6 +1059,7 @@ a:hover {
         width: 50%;
     }
     .d-flex-header {
+        padding: 10px 20px;
         justify-content: space-between;
         align-items: center;
     }
