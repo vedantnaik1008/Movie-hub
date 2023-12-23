@@ -1,12 +1,8 @@
-
 import { NavLink } from 'react-router-dom';
 import { img_500, unavailable } from '../data/constant';
 import { Fetching } from '../types/Fetching';
-import { toast } from 'react-toastify';
-import { WatchItem, ADD } from '../redux/WatchSlice';
-import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../redux/store';
-import { IoStar, IoArrowBack, IoSearch } from '../lib/icons/ReactIcons';
+import { IoArrowBack, IoSearch } from '../lib/icons/ReactIcons';
+import AddCartButton from './AddCartButton';
 
 type Props = {
     content: Fetching[];
@@ -21,17 +17,7 @@ const SearchPresentational = ({
     Trigger,
     Searches,
 }: Props) => {
-    const dispatch = useDispatch();
-    const products = useSelector((state: RootState) => state.watchlater);
-    const addToCart = (watchlater: WatchItem) => {
-        const alreadyInWatchList = products.watchlater.some(
-            (item: Fetching) => item.id === watchlater.id
-        );
-        if (!alreadyInWatchList) {
-            dispatch(ADD(watchlater));
-            toast.success('Added to watch later!');
-        }
-    };
+
     return (
         <>
             <NavLink to={'/'}>
@@ -76,14 +62,7 @@ const SearchPresentational = ({
                                     setModalData({ show: true, data: val })
                                 }
                             />
-
-                            <button
-                                className='watch-add'
-                                onClick={() => {
-                                    addToCart(val);
-                                }}>
-                                <IoStar size='25' color='yellow' />
-                            </button>
+                            <AddCartButton val={val} />
                         </div>
                     </div>
                 ))}
