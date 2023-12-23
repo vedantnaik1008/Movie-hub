@@ -56,39 +56,53 @@ body::-webkit-scrollbar-track,
     );
 }
 
-p{
+p {
     margin-bottom: 0px !important;
 }
 
 a {
     text-decoration: none !important;
 }
-ol, ul, dl {
-	margin-top: 0;
-	margin-bottom: 0rem !important;
+ol,
+ul,
+dl {
+    margin-top: 0;
+    margin-bottom: 0rem !important;
 }
 
-ol, ul {
-	padding-left: 0rem !important;
+ol,
+ul {
+    padding-left: 0rem !important;
 }
 
-ul{
+ul {
     all: unset;
 }
 
-h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1 {
-	margin-bottom: 0rem !important;
+h6,
+.h6,
+h5,
+.h5,
+h4,
+.h4,
+h3,
+.h3,
+h2,
+.h2,
+h1,
+.h1 {
+    margin-bottom: 0rem !important;
 }
 
 li {
     list-style: none;
 }
 
-input{
+input {
     all: unset;
 }
 
-button{
+button {
     all: unset;
 }
 
@@ -105,7 +119,7 @@ button{
     z-index: 98;
 }
 
-.close-btn-search{
+.close-btn-search {
     position: absolute;
     top: 2%;
     left: 2%;
@@ -127,13 +141,13 @@ button{
     position: relative;
 }
 
-.billboard-container .image{
+.billboard-container .image {
     width: 100%;
     height: 100vh;
     object-fit: cover;
 }
 
-.billboard-container .overlay{
+.billboard-container .overlay {
     color: white;
     position: absolute;
     top: 55%;
@@ -141,18 +155,18 @@ button{
     z-index: 99;
 }
 
-.billboard-container .overlay h2{
+.billboard-container .overlay h2 {
     max-width: 390px;
     font-weight: 600;
     font-size: 40px;
 }
 
-.billboard-container .overlay p{
+.billboard-container .overlay p {
     max-width: 290px;
     font-weight: 600;
 }
 
-.billboard-container .overlay button{
+.billboard-container .overlay button {
     padding: 5px 30px;
     font-size: 14px;
     border-radius: 5px;
@@ -162,23 +176,27 @@ button{
     transition: opacity ease-in-out;
 }
 
-.billboard-container .overlay button:hover{
+.billboard-container .overlay button:hover {
     opacity: 0.9;
 }
 
 .loader {
-    border: 16px solid #f3f3f3; 
+    border: 16px solid #f3f3f3;
     border-top: 16px solid #e400ff;
     border-radius: 50%;
     width: 80px;
     height: 80px;
     animation: spin 2s linear infinite;
-  }
-  
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
 
 .search-title {
     background-color: hsl(296, 100%, 44%);
@@ -208,32 +226,32 @@ button{
     padding: 10px;
 }
 
-.heading-container{
+.heading-container {
     width: 90%;
     margin: 0 auto;
     padding: 20px 0;
 }
 
-.error-heading{
+.error-heading {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.heading-container .heading-title{
+.heading-container .heading-title {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.heading-container .heading-title h4{
+.heading-container .heading-title h4 {
     color: white;
     font-weight: 800;
     margin-top: 80px;
     font-size: 40px;
 }
 
-.navi-ul{
+.navi-ul {
     display: flex;
     gap: 10px;
     margin: 30px 2px 0 2px;
@@ -242,39 +260,39 @@ button{
     color: white;
 }
 
-.navi-ul h5{
+.navi-ul h5 {
     font-size: 18px;
 }
 
-.details-modal h4{
+.details-modal h4 {
     margin-top: 20px;
 }
 
-.details-modal p{
+.details-modal p {
     padding-top: 10px;
 }
 
-.modal-bold{
+.modal-bold {
     margin: 5px 0px;
 }
 
-.modal-bold div{
+.modal-bold div {
     margin: 0px 0px 3px 0px;
 }
 
-.genre-container{
+.genre-container {
     width: 90%;
     margin: 0 auto;
     padding: 40px 0;
 }
 
-.genre-container .categoryButtonRemove button{
+.genre-container .categoryButtonRemove button {
     background-color: white;
     color: black;
     padding: 10px 20px;
 }
 
-.genre-container .categoryButtonAdd button{
+.genre-container .categoryButtonAdd button {
     color: white;
     padding: 10px 20px;
 }
@@ -299,7 +317,8 @@ button{
     color: white;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: end;
+    gap: 2px;
 }
 
 .header p {
@@ -312,8 +331,6 @@ button{
     color: white;
 }
 
-
-
 .footer {
     display: flex;
     gap: 2rem;
@@ -323,18 +340,17 @@ button{
     position: relative;
 }
 
-
 .others-navlink {
     text-decoration-color: transparent;
 }
 
-.others-navlink p{
+.others-navlink p {
     color: white;
     font-weight: 400;
     font-size: 16px;
 }
 
-.active{
+.active {
     text-decoration: underline;
     position: relative;
     transition: background-color 0.3s ease-out;
@@ -349,9 +365,9 @@ button{
     padding: 10px;
 }
 
-.asNavlink{
-  padding: 0px !important;
-  text-decoration: none;
+.asNavlink {
+    padding: 0px !important;
+    text-decoration: none;
 }
 
 #fire {
@@ -371,8 +387,6 @@ button{
 .icon-2-two {
     margin-bottom: 0px;
 }
-
-
 
 .cards {
     border-radius: 34px;
@@ -547,7 +561,7 @@ a:hover {
     color: white;
 }
 
-.footer-border h5{
+.footer-border h5 {
     font-size: 16px;
     font-weight: 400;
 }
@@ -574,7 +588,7 @@ a:hover {
     overflow: hidden;
 }
 
-.display-grid-search-empty{
+.display-grid-search-empty {
     padding: 0px;
 }
 
@@ -714,7 +728,7 @@ a:hover {
     margin-bottom: 0;
 }
 
-.others-three .others-three-container{
+.others-three .others-three-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -751,7 +765,6 @@ a:hover {
     position: relative;
 }
 
-
 .cast-actor-grid img {
     background-image: url('https://user-images.githubusercontent.com/10515204/56117400-9a911800-5f85-11e9-878b-3f998609a6c8.jpg');
     width: 100%;
@@ -769,7 +782,7 @@ a:hover {
     height: 100%;
 }
 
-.login-button{
+.login-button {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -780,7 +793,7 @@ a:hover {
     font-weight: 600;
 }
 
-.logout-button{
+.logout-button {
     background-color: white;
     color: black;
     padding: 20px 30px;
@@ -790,11 +803,11 @@ a:hover {
     right: 1%;
 }
 
-.logout-button:hover{
+.logout-button:hover {
     opacity: 0.8;
 }
 
-.logout-button-mobile{
+.logout-button-mobile {
     font-weight: 700;
     position: absolute;
     top: 85px;
@@ -814,10 +827,10 @@ a:hover {
         transition: button 0.3s ease-out;
         z-index: 101;
     }
-    .search-icon{
+    .search-icon {
         display: none;
     }
-    .others-three{
+    .others-three {
         padding: 50px 25px 10px 25px;
     }
     .others-three h1 {
@@ -909,7 +922,7 @@ a:hover {
     .trailer-btn {
         border-radius: 10px;
     }
-    .billboard-container .overlay h2{
+    .billboard-container .overlay h2 {
         font-size: 30px;
     }
     .modal-top .span-para {
@@ -953,7 +966,7 @@ a:hover {
         position: relative;
     }
 
-    .cast-position .cast-nothing{
+    .cast-position .cast-nothing {
         display: flex;
         justify-content: center;
         color: white;
@@ -1025,21 +1038,21 @@ a:hover {
     #navigation {
         display: none;
     }
-    .others-three{
+    .others-three {
         padding: 50px 25px 10px 25px;
     }
     .others-three h1 {
         font-size: 23px;
     }
-    .search-icon{
+    .search-icon {
         display: flex;
         gap: 15px;
         justify-content: center;
         align-items: center;
     }
-    .Profile-image img{
+    .Profile-image img {
         border-radius: 50%;
-        width: 30px; 
+        width: 30px;
         object-fit: cover;
     }
     .input-title input {
@@ -1055,7 +1068,7 @@ a:hover {
     .display-grid {
         padding: 2rem;
     }
-   
+
     .modal-top .modal-left .poster {
         width: 100%;
         margin: 0;
@@ -1067,7 +1080,7 @@ a:hover {
         width: 80%;
         height: 90%;
     }
-    .billboard-container .overlay h2{
+    .billboard-container .overlay h2 {
         font-size: 40px;
     }
     iframe {
@@ -1082,7 +1095,7 @@ a:hover {
     .whole-slider {
         width: 95%;
     }
- 
+
     .footer {
         display: flex;
         gap: 1.5rem;

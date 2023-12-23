@@ -9,10 +9,6 @@ const Cards = lazy(() => import('../components/Cards'));
 import { Fetching } from '../types/Fetching';
 import { ValueData } from '../hooks/useGenre';
 
-
-
-
-
 const Movies = () => {
     const [value, setValue] = useState<ValueData[]>([]);
     const genreIds = value.map((v) => v.id);

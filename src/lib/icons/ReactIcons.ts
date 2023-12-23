@@ -1,12 +1,21 @@
+import {
+    IoClose,
+    IoSearch,
+    IoChevronForward,
+    IoChevronBack,
+    IoArrowBack,
+    IoStar,
+    IoVideocam
+} from 'react-icons/io5';
+import { FaBarsStaggered } from 'react-icons/fa6';
 
-import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
-import { IoClose, IoCloseOutline, IoSearch } from 'react-icons/io5';
-import { FaStar, FaBarsStaggered } from 'react-icons/fa6';
-import { GoArrowLeft } from 'react-icons/go';
-import { BiCameraMovie } from "react-icons/bi";
-
-export { IoIosArrowForward, IoIosArrowBack };
-export { IoClose, IoCloseOutline, IoSearch };
-export { FaStar, FaBarsStaggered };
-export { GoArrowLeft };
-export { BiCameraMovie };
+export {
+    IoClose,
+    IoSearch,
+    IoChevronForward,
+    IoChevronBack,
+    IoArrowBack,
+    IoStar,
+    IoVideocam
+};
+export { FaBarsStaggered };

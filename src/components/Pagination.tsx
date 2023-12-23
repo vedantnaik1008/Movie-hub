@@ -1,5 +1,5 @@
 import { useCallback, useEffect } from "react";
-import { IoIosArrowBack, IoIosArrowForward } from "../lib/icons/ReactIcons";
+import { IoChevronForward, IoChevronBack } from '../lib/icons/ReactIcons';
 
 interface Props{
     page: number;
@@ -27,19 +27,19 @@ const Pagination = ({page, setPage}: Props) => {
       }, [Next, Previous])
       
   return (
-    <>
-      <div className="">
-        <div className="pagination">
-          <button className="button-one" onClick={Previous}>
-            <IoIosArrowBack />
-          </button>
-          <button className="button-two" onClick={Next}>
-            <IoIosArrowForward />
-          </button>
-        </div>
-      </div>
-    </>
-  )
+      <>
+          <div className=''>
+              <div className='pagination'>
+                  <button className='button-one' onClick={Previous}>
+                      <IoChevronBack />
+                  </button>
+                  <button className='button-two' onClick={Next}>
+                      <IoChevronForward />
+                  </button>
+              </div>
+          </div>
+      </>
+  );
 }
 
 export default Pagination

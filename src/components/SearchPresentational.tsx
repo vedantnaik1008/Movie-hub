@@ -6,7 +6,7 @@ import { toast } from 'react-toastify';
 import { WatchItem, ADD } from '../redux/WatchSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../redux/store';
-import { FaStar, GoArrowLeft, IoSearch } from '../lib/icons/ReactIcons';
+import { IoStar, IoArrowBack, IoSearch } from '../lib/icons/ReactIcons';
 
 type Props = {
     content: Fetching[];
@@ -36,7 +36,7 @@ const SearchPresentational = ({
         <>
             <NavLink to={'/'}>
                 <button className='close-btn-search'>
-                    <GoArrowLeft size='35px' color='white' />
+                    <IoArrowBack size='35px' color='white' />
                 </button>
             </NavLink>
             <div className='input-title'>
@@ -82,7 +82,7 @@ const SearchPresentational = ({
                                 onClick={() => {
                                     addToCart(val);
                                 }}>
-                                <FaStar size='25' color='yellow' />
+                                <IoStar size='25' color='yellow' />
                             </button>
                         </div>
                     </div>
