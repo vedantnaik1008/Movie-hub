@@ -1,10 +1,12 @@
-
+import { memo } from "react";
 
 type Props = {
     title: string;
 };
 
-const Heading = ({ title }: Props) => {
+const Heading = memo(({ title }: Props) => {
+    console.log('heading rendered');
+    
     return (
         <>
             <div className='heading-container'>
@@ -16,6 +18,6 @@ const Heading = ({ title }: Props) => {
             </div>
         </>
     );
-};
+});
 
 export default Heading;

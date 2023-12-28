@@ -16,7 +16,7 @@ const Billboard = () => {
         <Slider {...BillBoardsetting} className="">
           {data.results.slice(0,3).map((movie) => (
               <>
-                <div key={movie.id} className="billboard-container">
+                <div key={movie.title} className="billboard-container">
                 <img src={IMGPATH + movie.backdrop_path} alt={movie.title} className="image" />
                 <div className="overlay">
                   <h2 className="">{movie.title}</h2>
