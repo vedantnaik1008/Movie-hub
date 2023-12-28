@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import useGenre, { ValueData } from '../hooks/useGenre';
 
 interface Props {
@@ -6,11 +7,11 @@ interface Props {
     setValue: (value: ValueData[]) => void;
 }
 
-const Genre = ({ type, value, setValue }: Props) => {
+const Genre = memo(({ type, value, setValue }: Props) => {
     const { genre, CategoryAdd, CategoryRemove } = useGenre({
         setValue,
         value,
-        type,
+        type
     });
 
     return (
@@ -45,6 +46,6 @@ const Genre = ({ type, value, setValue }: Props) => {
             </div>
         </>
     );
-};
+});
 
 export default Genre;
