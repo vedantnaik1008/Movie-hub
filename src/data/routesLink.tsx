@@ -4,10 +4,10 @@ export const WatchLater = lazy(() => import('../Pages/WatchLater'));
 export const Trending = lazy(() => import('../Pages/Trending'));
 export const Movies = lazy(() => import('../Pages/Movies'));
 export const TV = lazy(() => import('../Pages/TV'));
-export const Others = lazy(() => import('../Pages/Others'));
+import Others from '../Pages/Others';
 export const TopRatedM = lazy(() => import('../Pages/TopRatedM'));
 export const Upcomingmt = lazy(() => import('../Pages/Upcomingmt'));
-import Error from '../Pages/ErrorPage';
+import Error from '../Pages/Error';
 
 const routes = [
     {

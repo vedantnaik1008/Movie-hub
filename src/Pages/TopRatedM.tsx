@@ -4,7 +4,7 @@ import useTRM from '../hooks/useTRM';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import Heading from '../components/Heading';
 import Loading from '../components/Loading';
-const Cards = lazy(() => import('../components/Cards'));
+import Cards from '../components/Cards';
 import { Fetching } from '../types/Fetching';
 
 const TopRatedM = () => {
