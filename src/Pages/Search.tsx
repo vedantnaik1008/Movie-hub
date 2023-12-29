@@ -7,7 +7,7 @@ import SearchPresentational from '../components/SearchPresentational';
 import useSearch from '../hooks/useSearch';
 
 const Search = () => {
-    const  {content, Trigger, Searches, page, setPage}  = useSearch()
+    const { content, Trigger, Searches, page, setPage } = useSearch();
     const [modalData, setModalData] = useState({
         show: false,
         data: {} as Fetching

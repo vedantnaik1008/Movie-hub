@@ -51,6 +51,8 @@ const SearchPresentational = ({
                             <img
                                 sizes='(min-width: 400px) 328px, calc(56.25vw + 114px)'
                                 loading='lazy'
+                                width={'319px'}
+                                height={'520px'}
                                 src={
                                     val.poster_path
                                         ? `${img_500 + val.poster_path}`

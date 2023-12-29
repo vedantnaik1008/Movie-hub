@@ -25,6 +25,8 @@ const SliderPresentational = ({ data, setModalData, title, link }: Props) => {
                         <div key={i.id} className='slider'>
                             <img sizes="(min-width: 400px) 328px, calc(56.25vw + 114px)"
                                 loading='lazy'
+                                width={'397px'}
+                                height={'300px'}
                                 src={img_500 + i.backdrop_path}
                                 alt={i.name || i.title}
                                 onClick={() =>

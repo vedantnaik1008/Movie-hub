@@ -51,6 +51,8 @@ const ModelCard = ({ datas, show, isOpen, setIsOpen }: Props) => {
                                 <img
                                     sizes='(min-width: 400px) 328px, calc(56.25vw + 114px)'
                                     loading='lazy'
+                                    width={'570px'}
+                                    height={'994px'}
                                     src={
                                         poster_path
                                             ? `${img_500 + poster_path}`

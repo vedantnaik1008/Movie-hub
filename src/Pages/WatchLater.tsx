@@ -36,6 +36,8 @@ const WatchLater = () => {
                                     <img
                                         sizes='(min-width: 400px) 328px, calc(56.25vw + 114px)'
                                         loading='lazy'
+                                        width={'319px'}
+                                        height={'520px'}
                                         src={
                                             val.poster_path
                                                 ? `${img_500 + val.poster_path}`
@@ -46,17 +48,14 @@ const WatchLater = () => {
                                         onClick={() =>
                                             setModalData({
                                                 show: true,
-                                                data: val,
+                                                data: val
                                             })
                                         }
                                     />
                                     <button
                                         className='watch-remove'
                                         onClick={() => removeToCart(val.id)}>
-                                        <IoClose
-                                            size='35px'
-                                            color='white'
-                                        />
+                                        <IoClose size='35px' color='white' />
                                     </button>
                                 </div>
                             </div>
