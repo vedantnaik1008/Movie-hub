@@ -10,7 +10,6 @@ import { Fetching } from '../types/Fetching';
 import { ValueData } from '../hooks/useGenre';
 
 const TV = () => {
-    
     const [value, setValue] = useState<ValueData[]>([]);
     const [modalData, setModalData] = useState({
         show: false,
