@@ -1,7 +1,7 @@
 import { InfiniteData } from '@tanstack/react-query';
 import React, { lazy } from 'react';
 import { FetchResponse } from '../Services/api-client';
-const AddCartButton = lazy(() => import('./AddCartButton'));
+const CartButton = lazy(() => import('./CartButton'));
 import { Fetching } from '../types/Fetching';
 import Image from './Image';
 
@@ -18,7 +18,7 @@ const Cards = ({ datas, setModalData }: Props) => {
                         <div key={val.id}>
                             <div className='cards'>
                                 <Image setModalData={setModalData} val={val} />
-                                <AddCartButton val={val} />
+                                <CartButton actionType='add' val={val} />
                             </div>
                         </div>
                     ))}

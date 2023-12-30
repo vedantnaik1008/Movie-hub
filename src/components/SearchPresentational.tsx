@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import { Fetching } from '../types/Fetching';
 import { IoArrowBack, IoSearch } from '../lib/icons/ReactIcons';
-import AddCartButton from './AddCartButton';
+import CartButton from './CartButton';
 import Image from './Image';
 
 type Props = {
@@ -15,9 +15,8 @@ const SearchPresentational = ({
     content,
     setModalData,
     Trigger,
-    Searches,
+    Searches
 }: Props) => {
-
     return (
         <>
             <NavLink to={'/'}>
@@ -49,7 +48,7 @@ const SearchPresentational = ({
                     <div key={val.id}>
                         <div className='cards'>
                             <Image setModalData={setModalData} val={val} />
-                            <AddCartButton val={val} />
+                            <CartButton actionType='add' val={val} />
                         </div>
                     </div>
                 ))}
