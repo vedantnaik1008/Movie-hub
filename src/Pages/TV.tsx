@@ -1,5 +1,5 @@
 import { Suspense, useState, lazy } from 'react';
-const Genre = lazy(() => import('../components/Genre'));
+import Genre from '../components/Genre';
 const Modal = lazy(() => import('../components/Modal'));
 import useMovie from '../hooks/useMovie';
 import InfiniteScroll from 'react-infinite-scroll-component';
