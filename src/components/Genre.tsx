@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { memo, useState } from 'react';
 import useGenre, { ValueData } from '../hooks/useGenre';
 
 interface Props {
@@ -8,6 +8,7 @@ interface Props {
 }
 
 const Genre = memo(({ type, value, setValue }: Props) => {
+    const [show, setShow] = useState(false)
     const { genre, CategoryAdd, CategoryRemove } = useGenre({
         setValue,
         value,
@@ -17,32 +18,44 @@ const Genre = memo(({ type, value, setValue }: Props) => {
     return (
         <>
             <div className='genre-container'>
-                <div className=''>
-                    <div className='genres'>
-                        {value &&
-                            value.map((val) => (
-                                <div
-                                    className='categoryButtonRemove'
-                                    key={val.id}>
-                                    <button
-                                        className='buttons'
-                                        onClick={() => CategoryRemove(val)}>
-                                        {val.name}
-                                    </button>
-                                </div>
-                            ))}
-                        {genre &&
-                            genre.map((gen) => (
-                                <div className='categoryButtonAdd' key={gen.id}>
-                                    <button
-                                        className='button'
-                                        onClick={() => CategoryAdd(gen)}>
-                                        {gen.name}
-                                    </button>
-                                </div>
-                            ))}
+                <>
+                    <div className='genre-button'>
+                        <button className='' onClick={() => setShow(!show)}>
+                            Genres
+                        </button>
                     </div>
-                </div>
+                    {show ? (
+                        <div
+                            className={
+                                show ? `genre-show genres` : `genre-hide genres`
+                            }>
+                            {value &&
+                                value.map((val) => (
+                                    <div
+                                        className='categoryButtonRemove'
+                                        key={val.id}>
+                                        <button
+                                            className='buttons'
+                                            onClick={() => CategoryRemove(val)}>
+                                            {val.name}
+                                        </button>
+                                    </div>
+                                ))}
+                            {genre &&
+                                genre.map((gen) => (
+                                    <div
+                                        className='categoryButtonAdd'
+                                        key={gen.id}>
+                                        <button
+                                            className='button'
+                                            onClick={() => CategoryAdd(gen)}>
+                                            {gen.name}
+                                        </button>
+                                    </div>
+                                ))}
+                        </div>
+                    ) : null}
+                </>
             </div>
         </>
     );

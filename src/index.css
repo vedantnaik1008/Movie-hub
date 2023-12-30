@@ -281,9 +281,7 @@ button {
 }
 
 .genre-container {
-    width: 90%;
-    margin: 0 auto;
-    padding: 40px 0;
+    overflow-x: hidden; 
 }
 
 .genre-container .categoryButtonRemove button {
@@ -1026,8 +1024,41 @@ a:hover {
     .genres {
         display: flex;
         flex-wrap: wrap;
-        gap: 1rem;
-        justify-content: center;
+        gap: 10px;
+        width: 100%;
+        padding: 2rem;
+        border-radius: 20px;
+        background-color: transparent;
+        background: rgba(255, 255, 255, 0.12);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.27);
+    }
+    .genre-hide{
+        translate: 200% 0;
+    }
+    .genre-show{
+        margin-top: 20px;
+        position: absolute;
+        z-index: 30;
+        translate: 0% 0;
+        transition: translate 400ms ease-in-out;
+    }
+    .genre-button{
+        display: flex;
+        justify-content: end;
+        width: 97%;
+    }
+    .genre-button button{
+        padding: 10px 30px;
+        border-radius: 10px;
+        background-color: transparent;
+        background: rgba(255, 255, 255, 0.12);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(4.7px);
+        -webkit-backdrop-filter: blur(4.7px);
+        border: 1px solid rgba(255, 255, 255, 0.27);
     }
     .footer {
         display: none;
@@ -1049,6 +1080,12 @@ a:hover {
         gap: 15px;
         justify-content: center;
         align-items: center;
+    }
+    .genres {
+        width: 50%;
+    }
+    .genre-show{
+        translate: 96% 0;
     }
     .Profile-image img {
         border-radius: 50%;
