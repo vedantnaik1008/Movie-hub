@@ -1,7 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { REMOVE } from '../redux/WatchSlice';
 import { RootState } from '../redux/store';
-import { img_500, unavailable } from '../data/constant';
 import { Suspense, useState } from 'react';
 import { lazy } from 'react';
 import { Fetching } from '../types/Fetching';
@@ -10,6 +9,7 @@ import { useAuth0 } from '@auth0/auth0-react';
 const Modal = lazy(() => import('../components/Modal'));
 import LoginButton from '../components/Login/LoginButton';
 import { IoClose } from '../lib/icons/ReactIcons';
+import Image from '../components/Image';
 
 const WatchLater = () => {
     const { isAuthenticated } = useAuth0();
@@ -33,25 +33,7 @@ const WatchLater = () => {
                         {products.watchlater.map((val: Fetching) => (
                             <div key={val.id} id='card'>
                                 <div className='cards'>
-                                    <img
-                                        sizes='(min-width: 400px) 328px, calc(56.25vw + 114px)'
-                                        loading='lazy'
-                                        width={'319px'}
-                                        height={'520px'}
-                                        src={
-                                            val.poster_path
-                                                ? `${img_500 + val.poster_path}`
-                                                : unavailable
-                                        }
-                                        className='card-img-top'
-                                        alt={val.title || val.name}
-                                        onClick={() =>
-                                            setModalData({
-                                                show: true,
-                                                data: val
-                                            })
-                                        }
-                                    />
+                                    <Image setModalData={setModalData} val={val}/>
                                     <button
                                         className='watch-remove'
                                         onClick={() => removeToCart(val.id)}>
