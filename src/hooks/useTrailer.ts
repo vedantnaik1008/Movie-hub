@@ -40,5 +40,3 @@ export const useTrailer = ({id, page}: Props) => {
 
     return {trailer, setTrailer, fetchTrailer};
 }
-
- 
