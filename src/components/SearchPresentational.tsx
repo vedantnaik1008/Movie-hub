@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import { Fetching } from '../types/Fetching';
-import { IoArrowBack, IoSearch } from '../lib/icons/ReactIcons';
+import { ArrowLeft, Search } from '../lib/icons/ReactIcons';
 import CartButton from './CartButton';
 import Image from './Image';
 
@@ -21,7 +21,7 @@ const SearchPresentational = ({
         <>
             <NavLink to={'/'}>
                 <button className='close-btn-search'>
-                    <IoArrowBack size='35px' color='white' />
+                    <ArrowLeft size='35px' color='white' />
                 </button>
             </NavLink>
             <div className='input-title'>
@@ -35,7 +35,7 @@ const SearchPresentational = ({
                     aria-label='search'
                     className='search-title'
                     onClick={Searches}>
-                    <IoSearch color='white' size={20} />
+                    <Search color='white' size={20} />
                 </button>
             </div>
             <div

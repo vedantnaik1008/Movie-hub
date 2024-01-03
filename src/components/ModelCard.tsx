@@ -4,7 +4,7 @@ import { img_500, unavailable } from '../data/constant';
 const Trailer = lazy(() => import('./Trailer'));
 import { Fetching } from '../types/Fetching';
 import Loading from './Loading';
-import { IoArrowBack } from '../lib/icons/ReactIcons';
+import { ArrowLeft } from '../lib/icons/ReactIcons';
 
 type Props = {
     show: boolean;
@@ -46,7 +46,7 @@ const ModelCard = ({ datas, show, isOpen, setIsOpen }: Props) => {
                                 <button
                                     className='close-btn'
                                     onClick={() => setIsOpen(!isOpen)}>
-                                    <IoArrowBack size='25px' />
+                                    <ArrowLeft size='25px' />
                                 </button>
                                 <img
                                     sizes='(min-width: 400px) 328px, calc(56.25vw + 114px)'

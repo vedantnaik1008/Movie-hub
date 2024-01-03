@@ -2,15 +2,16 @@ import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 import { RootState } from '../redux/store';
 import { ADD, REMOVE } from '../redux/WatchSlice';
-import { IoClose, IoStar } from '../lib/icons/ReactIcons';
+import { X, Star } from '../lib/icons/ReactIcons';
 import { Fetching } from '../types/Fetching';
+import { memo } from 'react';
 
 type Props = {
     val: Fetching;
     actionType: 'add' | 'remove';
 };
 
-const CartButton = ({val, actionType}: Props) => {
+const CartButton = memo(({val, actionType}: Props) => {
      const dispatch = useDispatch();
      const products = useSelector((state: RootState) => state.watchlater);
      const handleAction = (watchlater: Fetching) => {
@@ -34,13 +35,13 @@ const CartButton = ({val, actionType}: Props) => {
                     handleAction(val);
                 }}>
                 {actionType === 'add' ? (
-                    <IoStar size='25' color='yellow' />
+                    <Star size='25' color='yellow' />
                 ) : (
-                    <IoClose size='35px' color='white' />
+                    <X size='35px' color='white' />
                 )}
             </button>
         </>
     );
-};
+});
 
 export default CartButton;

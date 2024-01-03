@@ -310,15 +310,15 @@ button {
 }
 
 .header {
-    font-size: 35px;
     color: white;
     display: flex;
     justify-content: center;
-    align-items: end;
+    align-items: center;
     gap: 2px;
 }
 
 .header p {
+    font-size: 35px;
     margin-bottom: 0;
     font-weight: bold;
     color: white;
