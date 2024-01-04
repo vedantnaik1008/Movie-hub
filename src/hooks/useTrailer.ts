@@ -1,5 +1,5 @@
-import {  useState } from 'react';
-import { APIKEY } from '../Services/api-client';
+import { useState } from 'react';
+import { APIKEY } from '../services/api-client';
 
 interface Video {
     key: string;
@@ -13,7 +13,7 @@ type Props = {
     page: number;
 };
 
-export const useTrailer = ({id, page}: Props) => {
+export const useTrailer = ({ id, page }: Props) => {
     const [trailer, setTrailer] = useState<Video>();
     const fetchTrailer = async () => {
         try {
@@ -34,9 +34,7 @@ export const useTrailer = ({id, page}: Props) => {
         } catch (error) {
             console.error('Error fetching movie trailer', error);
         }
-    }
-    
-   
+    };
 
-    return {trailer, setTrailer, fetchTrailer};
-}
+    return { trailer, setTrailer, fetchTrailer };
+};

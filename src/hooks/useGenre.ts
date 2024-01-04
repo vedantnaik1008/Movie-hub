@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { APIKEY } from '../Services/api-client';
+import { APIKEY } from '../services/api-client';
 
 export interface ValueData {
     id: number;

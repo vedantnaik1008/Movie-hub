@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import Slider from 'react-slick';
 import { img_500 } from '../data/constant';
-import { settings } from '../Services/Settings';
+import { settings } from '../services/Settings';
 import { Fetching } from '../types/Fetching';
 
 interface Props {
@@ -23,7 +23,8 @@ const SliderPresentational = ({ data, setModalData, title, link }: Props) => {
                 <Slider {...settings} className='whole-slider'>
                     {data.slice(12).map((i) => (
                         <div key={i.id} className='slider'>
-                            <img sizes="(min-width: 400px) 328px, calc(56.25vw + 114px)"
+                            <img
+                                sizes='(min-width: 400px) 328px, calc(56.25vw + 114px)'
                                 loading='lazy'
                                 width={'397px'}
                                 height={'300px'}

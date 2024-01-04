@@ -1,6 +1,6 @@
 import { InfiniteData } from '@tanstack/react-query';
 import React, { lazy } from 'react';
-import { FetchResponse } from '../Services/api-client';
+import { FetchResponse } from '../services/api-client';
 const CartButton = lazy(() => import('./CartButton'));
 import { Fetching } from '../types/Fetching';
 import Image from './Image';
