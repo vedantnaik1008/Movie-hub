@@ -30,6 +30,7 @@ const CartButton = memo(({val, actionType}: Props) => {
     return (
         <>
             <button
+                aria-label={actionType}
                 className={`watch-${actionType}`}
                 onClick={() => {
                     handleAction(val);
