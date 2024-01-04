@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-import { APIKEY } from '../services/api-client';
+import { APIKEY } from '../Services/api-client';
 import { Credits } from '../types/CastTypes';
 
 const useCast = (movie_id: number, page: number) => {

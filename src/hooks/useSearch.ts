@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import { Fetching } from '../types/Fetching';
 import axios from 'axios';
-import { APIKEY } from '../services/api-client';
+import { APIKEY } from '../Services/api-client';
 import { useDebounce } from './useDebounce';
 
 const useSearch = () => {

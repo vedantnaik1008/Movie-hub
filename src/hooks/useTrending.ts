@@ -1,5 +1,5 @@
 import { useInfiniteQuery } from '@tanstack/react-query';
-import APIClient, { FetchResponse } from '../services/api-client';
+import APIClient, { FetchResponse } from '../Services/api-client';
 import { Fetching } from '../types/Fetching';
 
 const apiClient = new APIClient<Fetching>('/trending/all/day');

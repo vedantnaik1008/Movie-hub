@@ -1,13 +1,13 @@
 import { lazy } from 'react';
-export const Search = lazy(() => import('./src/pages/Search'));
-export const WatchLater = lazy(() => import('./src/pages/WatchLater'));
-export const Trending = lazy(() => import('./src/pages/Trending'));
-export const Movies = lazy(() => import('./src/pages/Movies'));
-export const TV = lazy(() => import('./src/pages/TV'));
-import Others from './src/pages/Others';
-export const TopRatedM = lazy(() => import('./src/pages/TopRatedM'));
-export const Upcomingmt = lazy(() => import('./src/pages/Upcomingmt'));
-import Error from './src/pages/Error';
+export const Search = lazy(() => import('./src/Pages/Search'));
+export const WatchLater = lazy(() => import('./src/Pages/WatchLater'));
+export const Trending = lazy(() => import('./src/Pages/Trending'));
+export const Movies = lazy(() => import('./src/Pages/Movies'));
+export const TV = lazy(() => import('./src/Pages/TV'));
+import Others from './src/Pages/Others';
+export const TopRatedM = lazy(() => import('./src/Pages/TopRatedM'));
+export const Upcomingmt = lazy(() => import('./src/Pages/Upcomingmt'));
+import Error from './src/Pages/Error';
 
 const routes = [
     {

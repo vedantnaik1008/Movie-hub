@@ -1,7 +1,7 @@
 import Slider from 'react-slick';
 import { IMGPATH } from '../data/constant';
 import Loading from './Loading';
-import { BillBoardsetting } from '../services/Settings';
+import { BillBoardsetting } from '../Services/Settings';
 import useUpcoming from '../hooks/useUpcoming';
 
 const Billboard = () => {
