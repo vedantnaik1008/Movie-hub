@@ -3,7 +3,7 @@ const CastPresentational = lazy(() => import('./CastPresentational'));
 import useCast from '../hooks/useCast';
 
 interface CastProps {
-    movie_id: number;
+    movie_id: number | undefined;
     page: number;
 }
 

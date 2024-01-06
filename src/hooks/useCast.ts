@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { APIKEY } from '../Services/api-client';
 import { Credits } from '../types/CastTypes';
 
-const useCast = (movie_id: number, page: number) => {
+const useCast = (movie_id: number | undefined, page: number) => {
     const [credits, setCredits] = useState<Credits | null>(null);
 
     const fetchCredits = useCallback(async () => {

@@ -52,7 +52,7 @@ const Movies = () => {
                     className='display-grid'>
                     <Cards datas={datas} setModalData={(data) => setModalData(data)}/>
                 </InfiniteScroll>
-                {modalData.show && (
+                {/* {modalData.show && (
                     <Suspense fallback={<Loading/>}>
                     <Modal
                         datas={modalData.data}
@@ -60,7 +60,7 @@ const Movies = () => {
                         isOpen={modalData.show}
                         setIsOpen={(isOpen) => setModalData({ ...modalData, show: isOpen })}/>
                     </Suspense>
-                )}
+                )} */}
             </div>
         </>
     );

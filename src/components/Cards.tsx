@@ -18,9 +18,13 @@ const Cards = ({ datas, setModalData }: Props) => {
                     {page.results.map((val) => (
                         <div key={val.id}>
                             <div className='cards'>
-                                <Link to={`/movies/${val.id}`} >Movie</Link>
-                                <Image setModalData={setModalData} val={val} />
-                                <CartButton actionType='add' val={val} />
+                                <Link to={`/movies/${val.id}`}>
+                                    <Image
+                                        setModalData={setModalData}
+                                        val={val}
+                                    />
+                                    <CartButton actionType='add' val={val} />
+                                </Link>
                             </div>
                         </div>
                     ))}
