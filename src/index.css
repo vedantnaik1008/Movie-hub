@@ -26,6 +26,13 @@ video {
     max-width: 100%;
 }
 
+.red{
+    background: #245334;
+    color: yellow;
+    position: absolute;
+    inset: 0;
+}
+
 .modal-top::-webkit-scrollbar,
 body::-webkit-scrollbar,
 .modal-top .modal-details::-webkit-scrollbar,

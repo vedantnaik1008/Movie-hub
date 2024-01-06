@@ -10,7 +10,7 @@ interface Video {
 
 type Props = {
     id: number;
-    page: number;
+    page?: number;
 };
 
 export const useTrailer = ({ id, page }: Props) => {

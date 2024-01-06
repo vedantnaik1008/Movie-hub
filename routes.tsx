@@ -8,6 +8,7 @@ import Others from './src/Pages/Others';
 export const TopRatedM = lazy(() => import('./src/Pages/TopRatedM'));
 export const Upcomingmt = lazy(() => import('./src/Pages/Upcomingmt'));
 import Error from './src/Pages/Error';
+import MovieDetail from './src/Pages/MovieDetails';
 
 const routes = [
     {
@@ -17,6 +18,10 @@ const routes = [
     {
         path: '/movies',
         element: <Movies />
+    },
+    {
+        path: '/movies/:id',
+        element: <MovieDetail />
     },
     {
         path: '/tv',

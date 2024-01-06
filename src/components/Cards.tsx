@@ -4,6 +4,7 @@ import { FetchResponse } from '../Services/api-client';
 const CartButton = lazy(() => import('./CartButton'));
 import { Fetching } from '../types/Fetching';
 import Image from './Image';
+import { Link } from 'react-router-dom';
 
 type Props = {
     datas: InfiniteData<FetchResponse<Fetching>>;
@@ -17,6 +18,7 @@ const Cards = ({ datas, setModalData }: Props) => {
                     {page.results.map((val) => (
                         <div key={val.id}>
                             <div className='cards'>
+                                <Link to={`/movies/${val.id}`} >Movie</Link>
                                 <Image setModalData={setModalData} val={val} />
                                 <CartButton actionType='add' val={val} />
                             </div>
