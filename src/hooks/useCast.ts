@@ -1,4 +1,3 @@
-// import { useState, useEffect, useCallback } from 'react';
 import { APIKEY } from '../Services/api-client';
 import { Credits } from '../types/CastTypes';
 import { useQuery } from '@tanstack/react-query';

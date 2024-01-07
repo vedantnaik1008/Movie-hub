@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { APIKEY } from '../Services/api-client';
+// import { useQuery } from '@tanstack/react-query';
+// import axios from 'axios';
 
 interface Video {
     key: string;
@@ -14,6 +16,17 @@ type Props = {
 };
 
 export const useTrailer = ({ id, page }: Props) => {
+    // return useQuery<Video>({
+    //     queryKey: ['trailer', id, page],
+    //     queryFn: () =>
+    //         axios
+    //             .get(
+    //                 `https://api.themoviedb.org/3/movie/${id}?top_rated?language=en-US&api_key=${APIKEY}&page=${page}&append_to_response=videos&sort_by=vote_average.desc`
+    //             )
+    //             .then((res) => res.data).then((res) => res.videos.results[0]),
+    //     staleTime: 24 * 60 * 60 * 1000,
+    //     keepPreviousData: true
+    // });
     const [trailer, setTrailer] = useState<Video>();
     const fetchTrailer = async () => {
         try {
