@@ -1,24 +1,19 @@
-import { useState, useEffect, useCallback } from 'react';
+// import { useState, useEffect, useCallback } from 'react';
 import { APIKEY } from '../Services/api-client';
 import { Credits } from '../types/CastTypes';
+import { useQuery } from '@tanstack/react-query';
+import axios from 'axios';
 
 const useCast = (movie_id: number, page: number) => {
-    const [credits, setCredits] = useState<Credits | null>(null);
-
-    const fetchCredits = useCallback(async () => {
-        await fetch(
-            `https://api.themoviedb.org/3/movie/${movie_id}/credits?api_key=${APIKEY}&page=${page}`
-        )
-            .then((response) => response.json())
-            .then((data) => setCredits(data))
-            .catch((error) => console.log(error));
-    }, [movie_id, page]);
-
-    useEffect(() => {
-        fetchCredits();
-    }, [fetchCredits]);
-
-    return { credits };
+    return useQuery<Credits>({
+        queryKey: ['cast', movie_id, page],
+        queryFn: () =>
+            axios.get(
+                `https://api.themoviedb.org/3/movie/${movie_id}/credits?api_key=${APIKEY}&page=${page}`
+            ).then((res) => res.data),
+        staleTime: 24 * 60 * 60 * 1000,
+        keepPreviousData: true
+    });
 };
 
 export default useCast;

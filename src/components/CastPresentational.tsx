@@ -1,22 +1,19 @@
 import { unavailableLandscape } from "../data/constant"
 import { Credits } from "../types/CastTypes"
-import Loading from "./Loading"
 
 interface Props{
-    credits: Credits | null;
+    credits: Credits | undefined;
 }
 
 const CastPresentational = ({credits} : Props) => {
   return (
       <>
           <section className='cast-position'>
-              {credits === null ? (
-                  <Loading />
-              ) : credits && credits.cast && credits.cast?.length > 0 ? (
+              {credits && credits.cast  && credits.cast.length > 0 ?(
                   <div className='actor-container'>
                       <h2 className=''>Cast</h2>
                       <div className='cast-actor-grid'>
-                          {credits.cast?.map((actor) => (
+                          {credits.cast.map((actor) => (
                               <ul className='li' key={actor.id}>
                                   <li>
                                       <img
