@@ -16,12 +16,7 @@ const Image = ({ setModalData, val }: Props) => {
             src={val.poster_path ? `${img_500 + val.poster_path}` : unavailable}
             className='card-img-top'
             alt={val.title || val.name}
-            onClick={() =>
-                setModalData({
-                    show: true,
-                    data: val
-                })
-            }
+            
         />
     );
 };
