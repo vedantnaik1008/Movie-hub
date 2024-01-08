@@ -3,7 +3,7 @@ import { Credits } from "../types/CastTypes"
 import Loading from "./Loading"
 
 interface Props{
-    credits: Credits | null;
+    credits: Credits | undefined;
 }
 
 const CastPresentational = ({credits} : Props) => {

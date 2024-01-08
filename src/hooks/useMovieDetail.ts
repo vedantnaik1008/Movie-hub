@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { APIKEY, FetchResponse } from '../Services/api-client';
+import { APIKEY } from '../Services/api-client';
 import { Fetching } from '../types/Fetching';
 import axios from 'axios';
 

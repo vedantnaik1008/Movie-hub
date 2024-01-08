@@ -12,10 +12,10 @@ const MovieDetails = () => {
     const { id } = useParams();
    
     const { data:movie } = useMovieDetail(id);
-const getColorClass = (voteAverage: number) => {
-    if (voteAverage >= 7.9) {
+const getColorClass = (voteAverage: number | undefined) => {
+    if ( voteAverage !== undefined && voteAverage >= 7.9 ) {
         return 'green';
-    } else if (voteAverage >= 5) {
+    } else if ( voteAverage !== undefined && voteAverage >= 5 ) {
         return 'orange';
     } else {
         return 'red';
@@ -69,23 +69,22 @@ const getColorClass = (voteAverage: number) => {
                               <p className='span-para'>
                                   Ratings:
                                   <span
-                                    //   className={getColorClass(
-                                    //       movie?.vote_average
-                                    //   )}
+                                      className={getColorClass(
+                                          movie?.vote_average
+                                      )}
                                       >
-                                      {' '}
                                       {movie?.vote_average.toFixed(1)}
                                   </span>
                               </p>
-                              {/* <Suspense fallback={<Loading />}>
+                              <Suspense fallback={<Loading />}>
                                       <Trailer id={id} page={1} />
-                                  </Suspense> */}
+                                  </Suspense>
                           </div>
                       </div>
                   </div>
-                  {/* <Suspense fallback={<Loading />}>
+                  <Suspense fallback={<Loading />}>
                           <CastContainer movie_id={id} page={1} />
-                      </Suspense> */}
+                  </Suspense>
               </>
           </section>
       </>

@@ -9,7 +9,7 @@ interface Video {
 }
 
 type Props = {
-    id: number | undefined;
+    id: string | undefined;
     page?: number;
 };
 

@@ -2,7 +2,7 @@ import { X } from '../lib/icons/ReactIcons';
 import { useTrailer } from '../hooks/useTrailer';
 
 type Props = {
-    id: number | undefined;
+    id: string | undefined;
     page: number;
 };
 
