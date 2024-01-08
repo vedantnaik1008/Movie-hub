@@ -9,8 +9,9 @@ import { Link } from 'react-router-dom';
 type Props = {
     datas: InfiniteData<FetchResponse<Fetching>>;
     setModalData: (data: { show: true; data: Fetching }) => void;
+    FilterType: string;
 };
-const Cards = ({ datas, setModalData }: Props) => {
+const Cards = ({ datas, setModalData, FilterType }: Props) => {
     return (
         <>
             {datas.pages.map((page, index) => (
@@ -18,7 +19,7 @@ const Cards = ({ datas, setModalData }: Props) => {
                     {page.results.map((val) => (
                         <div key={val.id}>
                             <div className='cards'>
-                                <Link to={`/movies/${val.id}`}>
+                                <Link to={`/${FilterType}/${val.id}`}>
                                     <Image
                                         setModalData={setModalData}
                                         val={val}

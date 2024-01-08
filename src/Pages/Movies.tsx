@@ -38,11 +38,7 @@ const Movies = () => {
         <>
             <div className='bg-black-c'>
                 <Heading title='Movies' />
-                <Genre
-                    type='movie'
-                    value={value}
-                    setValue={setValue}
-                />
+                <Genre type='movie' value={value} setValue={setValue} />
 
                 <InfiniteScroll
                     next={() => fetchNextPage()}
@@ -50,7 +46,11 @@ const Movies = () => {
                     loader={loader}
                     dataLength={fetchedTrendingPages}
                     className='display-grid'>
-                    <Cards datas={datas} setModalData={(data) => setModalData(data)}/>
+                    <Cards
+                        FilterType={'movies'}
+                        datas={datas}
+                        setModalData={(data) => setModalData(data)}
+                    />
                 </InfiniteScroll>
                 {/* {modalData.show && (
                     <Suspense fallback={<Loading/>}>

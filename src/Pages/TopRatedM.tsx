@@ -44,15 +44,23 @@ const TopRatedM = () => {
                     loader={loader}
                     dataLength={fetchedTrendingPages}
                     className='display-grid'>
-                    <Cards datas={datas} setModalData={(data) => setModalData(data)}/>
+                    <Cards
+                        FilterType={'topratedmovies'}
+                        datas={datas}
+                        setModalData={(data) => setModalData(data)}
+                    />
                 </InfiniteScroll>
                 {modalData.show && (
                     <Suspense fallback={<Loading />}>
-                    <Modal
-                        show={true}
-                        isOpen={modalData.show}
-                        setIsOpen={(isOpen) => setModalData({ ...modalData, show: isOpen })} datas={modalData.data}/>
-                    </Suspense>    
+                        <Modal
+                            show={true}
+                            isOpen={modalData.show}
+                            setIsOpen={(isOpen) =>
+                                setModalData({ ...modalData, show: isOpen })
+                            }
+                            datas={modalData.data}
+                        />
+                    </Suspense>
                 )}
             </div>
         </>

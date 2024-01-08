@@ -46,7 +46,7 @@ const Trending = () => {
                     loader={loader}
                     dataLength={fetchedTrendingPages}
                     className='display-grid'>
-                    <Cards datas={datas} setModalData={(data) => setModalData(data)}/>
+                    <Cards datas={datas} setModalData={(data) => setModalData(data)} FilterType={'trending'}/>
                 </InfiniteScroll>
                 {modalData.show && (
                     <Suspense fallback={<Loading />}>
