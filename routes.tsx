@@ -9,8 +9,6 @@ export const TopRatedM = lazy(() => import('./src/Pages/TopRatedM'));
 export const Upcomingmt = lazy(() => import('./src/Pages/Upcomingmt'));
 import Error from './src/Pages/Error';
 import MovieDetail from './src/Pages/MovieDetails';
-import TopRatedMovieDetail from './src/Pages/TopRatedMovieDetail';
-import TrendingDetail from './src/Pages/TrendingDetail';
 
 const routes = [
     {
@@ -34,17 +32,10 @@ const routes = [
         element: <Trending />
     },
     {
-        path: '/trending/:id',
-        element: <TrendingDetail />
-    },
-    {
         path: '/topratedmovies',
         element: <TopRatedM />
     },
-    {
-        path: '/topratedmovies/:id',
-        element: <TopRatedMovieDetail />
-    },
+
     {
         path: '/Upcomingmt',
         element: <Upcomingmt />

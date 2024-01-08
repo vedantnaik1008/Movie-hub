@@ -50,7 +50,7 @@ const TV = () => {
                     loader={loader}
                     dataLength={fetchedTrendingPages}
                     className='display-grid'>
-                    <Cards datas={datas} setModalData={(data) => setModalData(data)}/>
+                    <Cards datas={datas} setModalData={(data) => setModalData(data)} FilterType={''}/>
                 </InfiniteScroll>
                 {modalData.show && (
                     <Suspense fallback={<Loading />}>
