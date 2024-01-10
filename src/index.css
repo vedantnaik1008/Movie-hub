@@ -164,7 +164,7 @@ button {
 
 .billboard-container .overlay p {
     max-width: 290px;
-    font-weight: 600;
+    font-size: 17px;
 }
 
 .billboard-container .overlay button {
