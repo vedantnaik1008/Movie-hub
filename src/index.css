@@ -870,7 +870,6 @@ a:hover {
         box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
         backdrop-filter: blur(4.7px);
         -webkit-backdrop-filter: blur(4.7px);
-        border: 1px solid rgba(255, 255, 255, 0.27);
     }
     .modal-top .modal-left {
         width: 100%;
@@ -937,7 +936,7 @@ a:hover {
         width: 100%;
     }
     iframe {
-        width: 95%;
+        width: 90%;
         height: 90%;
         border: none;
         border-radius: 8px;
@@ -949,7 +948,6 @@ a:hover {
         bottom: 0;
         z-index: 102;
         padding: 0 0px;
-        border: 2px solid white;
         background-color: black;
     }
     .close-btn-trailer {
@@ -1124,7 +1122,6 @@ a:hover {
         font-size: 40px;
     }
     iframe {
-        width: 100%;
         height: 85%;
         top: 0%;
     }
