@@ -15,6 +15,7 @@ body {
     color: white;
     scroll-behavior: smooth;
     background-repeat: no-repeat;
+    font-display: optional;
     font-family: system-ui, sans-serif;
 }
 
