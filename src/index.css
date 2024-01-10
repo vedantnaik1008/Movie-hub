@@ -1041,9 +1041,11 @@ a:hover {
     .genre-show{
         margin-top: 20px;
         position: absolute;
+        left: 5%;
         z-index: 30;
         translate: 0% 0;
         transition: translate 400ms ease-in-out;
+        width: 90%;
     }
     .genre-button{
         display: flex;
@@ -1085,6 +1087,7 @@ a:hover {
         width: 50%;
     }
     .genre-show{
+        left: unset;
         translate: 96% 0;
     }
     .Profile-image img {
