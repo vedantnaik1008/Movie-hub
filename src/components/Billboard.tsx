@@ -13,7 +13,7 @@ const Billboard = () => {
     return (
         <>
             <section className='billboard'>
-                <Slider {...BillBoardsetting} className=''>
+                <Slider {...BillBoardsetting} >
                     {data.results.slice(0, 3).map((movie) => (
                         <>
                             <div
