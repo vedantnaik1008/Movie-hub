@@ -14,10 +14,10 @@ const Cards = ({ datas, setModalData }: Props) => {
         <>
             {datas.pages.map((page, index) => (
                 <React.Fragment key={index}>
-                    {page.results.map((val) => (
+                    {page.results.map((val, i) => (
                         <div key={val.id}>
                             <div className='cards'>
-                                <Image setModalData={setModalData} val={val} />
+                                <Image setModalData={setModalData} val={val} i={i} />
                                 <CartButton actionType='add' val={val} />
                             </div>
                         </div>
