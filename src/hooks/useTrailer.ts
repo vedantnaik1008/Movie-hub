@@ -29,10 +29,10 @@ export const useTrailer = ({ id, page }: Props) => {
             if (trailer) {
                 setTrailer(trailer);
             } else {
-                console.log('No trailer found', alert('no trailer found'));
+                console.log('No trailer found');
             }
         } catch (error) {
-            console.error('Error fetching movie trailer', error);
+            console.log(alert('no trailer found'), error);
         }
     };
 
