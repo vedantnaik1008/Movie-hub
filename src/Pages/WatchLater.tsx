@@ -26,10 +26,11 @@ const WatchLater = () => {
             <div className='watch-padding bg-black-c'>
                 {isAuthenticated ? (
                     <div className='display-grid-watch-later'>
-                        {products.watchlater.map((val: Fetching) => (
+                        {products.watchlater.map((val: Fetching, i) => (
                             <div key={val.id} id='card'>
                                 <div className='cards'>
                                     <Image
+                                    i={i}
                                         setModalData={setModalData}
                                         val={val}
                                     />

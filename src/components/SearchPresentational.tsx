@@ -44,10 +44,10 @@ const SearchPresentational = ({
                         ? 'display-grid-search'
                         : 'display-grid-search-empty'
                 }>
-                {content.map((val) => (
+                {content.map((val, i) => (
                     <div key={val.id}>
                         <div className='cards'>
-                            <Image setModalData={setModalData} val={val} />
+                            <Image i={i} setModalData={setModalData} val={val} />
                             <CartButton actionType='add' val={val} />
                         </div>
                     </div>
