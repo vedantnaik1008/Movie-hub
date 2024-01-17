@@ -534,8 +534,9 @@ button {
 .pagination {
     padding-bottom: 80px;
     display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 2rem;
     justify-content: center;
-    align-items: center;
     padding-top: 15px;
 }
 
@@ -634,10 +635,14 @@ a:hover {
     color: white;
 }
 
-.pagination .button-one,
-.pagination .button-two {
+.button-active{
+    background-color: black;
+}
+.button-not-active{
     background-color: transparent;
-    color: white;
+}
+
+ .button-one {
     margin: 2px;
     border-radius: 10%;
     font-size: 20px;

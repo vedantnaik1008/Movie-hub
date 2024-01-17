@@ -1,45 +1,59 @@
-import { useCallback, useEffect } from "react";
-import { ChevronRight, ChevronLeft } from '../lib/icons/ReactIcons';
+import { useState } from 'react';
+import CastPresentational from './CastPresentational';
+import { Credits } from '../types/CastTypes';
 
-interface Props{
-    page: number;
-    setPage: (page: number) => void;
+interface Props {
+    credits: Credits | undefined;
 }
-const Pagination = ({page, setPage}: Props) => {
-    
-    const Previous = useCallback(() => {
-        if(page !== 1){
-          setPage(page - 1);
-        }else{
-          setPage(page);
-        }
-      }, [page, setPage]);
-    
-      const Next = useCallback(() =>{
-        if(page < 20){
-          setPage(page + 1);
-        }
-      }, [page, setPage]);
+const Pagination = ({ credits }: Props) => {
+    const [current, setCurrent] = useState(1);
 
-      useEffect(() => {
-        Previous();
-        Next();
-      }, [Next, Previous])
-      
-  return (
-      <>
-          <div className=''>
-              <div className='pagination'>
-                  <button className='button-one' onClick={Previous}>
-                      <ChevronLeft />
-                  </button>
-                  <button className='button-two' onClick={Next}>
-                      <ChevronRight />
-                  </button>
-              </div>
-          </div>
-      </>
-  );
-}
+    const itemsPerPage = 10;
+    const start = (current - 1) * itemsPerPage;
+    const end = start + itemsPerPage;
+    const totalPages = credits
+        ? Math.ceil(credits.cast.length / itemsPerPage)
+        : 0;
+    const currentItems = credits ? credits.cast.slice(start, end) : [];
 
-export default Pagination
+    const changePage = (pageNumber: number) => {
+        if (pageNumber >= 1 && pageNumber <= totalPages) {
+            setCurrent(pageNumber);
+        }
+    };
+
+    return (
+        <>
+            <section className='cast-position'>
+                <div className='actor-container'>
+                    <CastPresentational credits={currentItems} />
+                    {credits && credits.cast.length > 10 && (
+                        <div className='pagination'>
+                            {Array.from({ length: totalPages }, (_, index) => (
+                                <>
+                                    <div className='pagination-button'>
+                                        <button
+                                            disabled={current === index + 1}
+                                            className={` ${
+                                                current === index + 1
+                                                    ? 'button-active button-one'
+                                                    : 'button-not-active button-one'
+                                            }`}
+                                            key={index + 1}
+                                            onClick={() =>
+                                                changePage(index + 1)
+                                            }>
+                                            {index + 1}
+                                        </button>
+                                    </div>
+                                </>
+                            ))}
+                        </div>
+                    )}
+                </div>
+            </section>
+        </>
+    );
+};
+
+export default Pagination;
