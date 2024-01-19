@@ -1,12 +1,11 @@
-import { lazy } from 'react';
-export const Search = lazy(() => import('./src/Pages/Search'));
-export const WatchLater = lazy(() => import('./src/Pages/WatchLater'));
-export const Trending = lazy(() => import('./src/Pages/Trending'));
-export const Movies = lazy(() => import('./src/Pages/Movies'));
-export const TV = lazy(() => import('./src/Pages/TV'));
+import Search from './src/Pages/Search'
+import WatchLater from  './src/Pages/WatchLater'
+import Trending from  './src/Pages/Trending'
+import Movies from  './src/Pages/Movies'
+import TV from  './src/Pages/TV'
 import Others from './src/Pages/Others';
-export const TopRatedM = lazy(() => import('./src/Pages/TopRatedM'));
-export const Upcomingmt = lazy(() => import('./src/Pages/Upcomingmt'));
+import TopRatedM from  './src/Pages/TopRatedM'
+import Upcomingmt from  './src/Pages/Upcomingmt'
 import Error from './src/Pages/Error';
 
 const routes = [
