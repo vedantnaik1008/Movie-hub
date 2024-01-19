@@ -21,7 +21,7 @@ const SliderPresentational = ({ data, setModalData, title, link }: Props) => {
                     </NavLink>
                 </div>
                 <Slider {...settings} className='whole-slider'>
-                    {data.slice(12).map((i) => (
+                    {data.slice(15).map((i) => (
                         <div key={i.id} className='slider'>
                             <img
                                 sizes='(min-width: 400px) 328px, calc(56.25vw + 114px)'
