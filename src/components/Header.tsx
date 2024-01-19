@@ -1,8 +1,7 @@
 import Navbar from "./Navbar"
-import { IoSearch } from "react-icons/io5";
 import { NavLink } from "react-router-dom";
-import { BiCameraMovie } from "react-icons/bi";
 import Profile from "./Login/Profile";
+import { Film, Search } from "../lib/icons/ReactIcons";
 
 const Header = () => {
 
@@ -11,12 +10,12 @@ const Header = () => {
         <div className="position">
           <div className="d-flex-header">
             <div className="header">
-              <BiCameraMovie className="fa fa-play"/><p>movieHub</p> 
+              <Film className="fa fa-play" size={"35px"}/><p>movieHub</p> 
             </div>
             <Navbar />
             <div className="search-icon">
             <NavLink to={'/search'} aria-label="search your favourite movies and tv shows"> 
-              <IoSearch color="white" size={20}/>
+              <Search color="white" size={20}/>
             </NavLink>
             <Profile />
             </div>

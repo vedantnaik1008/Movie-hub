@@ -1,21 +1,8 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-
-export interface WatchItem {
-  results: [];
-  name: string;  
-  title: string;
-  poster_path: string;
-  backdrop_path: string;
-  first_air_date: string;
-  release_date: string;
-  media_type: string;
-  id: number;
-  overview: string;
-  vote_average: number;
-}
+import { Fetching } from "../types/Fetching";
 
 interface WatchlaterState {
-  watchlater: WatchItem[];
+  watchlater: Fetching[];
 }
 
 const initialState: WatchlaterState = {
@@ -26,7 +13,7 @@ const watchSlice = createSlice({
   name: "watchlater",  
   initialState,
   reducers: {
-    ADD: (state, action: PayloadAction<WatchItem>) => {
+    ADD: (state, action: PayloadAction<Fetching>) => {
       state.watchlater.push(action.payload);
       localStorage.setItem("watchlater", JSON.stringify(state.watchlater));
     },

@@ -1,4 +1,4 @@
-import { IoClose } from 'react-icons/io5';
+import { X } from '../lib/icons/ReactIcons';
 import { useTrailer } from '../hooks/useTrailer';
 
 type Props = {
@@ -18,7 +18,7 @@ const Trailer = ({ id, page }: Props) => {
                     <button
                         className='close-btn-trailer'
                         onClick={() => setTrailer(undefined)}>
-                        <IoClose size='35px' />
+                        <X size='35px' />
                     </button>
                     <iframe
                         src={`https://www.youtube.com/embed/${trailer.key}`}

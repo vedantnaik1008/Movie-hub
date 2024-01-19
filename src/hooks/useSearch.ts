@@ -1,8 +1,8 @@
-import { useCallback, useEffect, useState } from "react";
-import { Fetching } from "../types/Fetching";
-import axios from "axios";
-import { APIKEY } from "../Services/api-client";
-import { useDebounce } from "./useDebounce";
+import { useCallback, useEffect, useState } from 'react';
+import { Fetching } from '../types/Fetching';
+import axios from 'axios';
+import { APIKEY } from '../Services/api-client';
+import { useDebounce } from './useDebounce';
 
 const useSearch = () => {
     const [searchText, setSearchText] = useState('');
@@ -35,7 +35,7 @@ const useSearch = () => {
         fetchSearch();
     };
 
-  return { content, Trigger, Searches, page, setPage };
-}
+    return { content, Trigger, Searches, page, setPage };
+};
 
-export default useSearch
+export default useSearch;

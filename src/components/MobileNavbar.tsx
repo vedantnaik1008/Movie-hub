@@ -2,10 +2,9 @@ import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { RootState } from '../redux/store';
-import { IoClose } from 'react-icons/io5';
-import { FaBarsStaggered } from 'react-icons/fa6';
 import { Mobiledata as data } from '../data/navLinksData';
 import { useAuth0 } from '@auth0/auth0-react';
+import { Menu, X } from '../lib/icons/ReactIcons';
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const cartProducts = useSelector((state: RootState) => state.watchlater);
@@ -19,13 +18,13 @@ const Navbar = () => {
         <>
             <nav className=''>
                 <span className='bbb' onClick={handleClick}>
-                    <FaBarsStaggered size='30px' className='bbb-icon' />
+                    <Menu size='30px' className='bbb-icon' />
                 </span>
                 <div
                     className={isOpen ? 'dont-show' : 'show-nav'}
                     id='navigation'>
                     <span className='ccc' onClick={handleClick}>
-                        <IoClose size='35px' className='ccc-icon' />
+                        <X size='35px' className='ccc-icon' />
                     </span>
                     <nav className=''>
                         <span className='count-later-nav'>

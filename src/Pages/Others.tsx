@@ -1,8 +1,6 @@
-import { lazy } from 'react';
 import Billboard from '../components/Billboard';
-const TopRatedMovie = lazy(() => import('../components/TopRatedMovie'));
-const TopUpcomingMovie = lazy(() => import('../components/Upcoming'));
-
+import TopRatedMovie from '../components/TopRatedMovie';
+import TopUpcomingMovie from '../components/Upcoming';
 
 const Others = () => {
     return (
