@@ -6,6 +6,8 @@ import Navbar from '../components/MobileNavbar';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
 import routes from '../../routes';
+import { Suspense } from 'react';
+import Loading from '../components/Loading';
 
 const Layout = () => {
     return (
@@ -22,11 +24,13 @@ const Layout = () => {
             />
             <Header />
             <Navbar />
+            <Suspense fallback={<Loading />}>
                 <Routes>
                     {routes.map((route) => (
                         <Route key={route.path} {...route} />
                     ))}
                 </Routes>
+            </Suspense>
         </BrowserRouter>
     );
 };
