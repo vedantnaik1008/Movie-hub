@@ -14,7 +14,7 @@ const Billboard = () => {
         <>
             <section className='billboard'>
                 <Slider {...BillBoardsetting} >
-                    {data.results.slice(0, 3).map((movie) => (
+                    {data.results.slice(0, 3).map((movie, index) => (
                         <>
                             <div
                                 key={movie.title}
@@ -25,6 +25,7 @@ const Billboard = () => {
                                     height={'1110px'}
                                     alt={movie.title}
                                     className='image'
+                                    loading={index === 0 ? 'eager' : 'lazy'}
                                 />
                                 <div className='overlay'>
                                     <h2 className=''>{movie.title}</h2>
