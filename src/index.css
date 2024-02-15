@@ -1,31 +1,4 @@
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-}
 
-* {
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    min-height: 100vh;
-    background-color: black;
-    color: white;
-    scroll-behavior: smooth;
-    background-repeat: no-repeat;
-    font-display: optional;
-    font-family: system-ui, sans-serif;
-}
-
-img,
-svg,
-picture,
-video {
-    display: block;
-    max-width: 100%;
-}
 
 .modal-top::-webkit-scrollbar,
 body::-webkit-scrollbar,
@@ -134,52 +107,7 @@ button {
     z-index: 98;
 }
 
-.billboard {
-    overflow: hidden;
-}
-.billboard-container {
-    height: 100vh;
-    position: relative;
-}
 
-.billboard-container .image {
-    width: 100%;
-    height: 100vh;
-    object-fit: cover;
-}
-
-.billboard-container .overlay {
-    color: white;
-    position: absolute;
-    top: 55%;
-    left: 3%;
-    z-index: 99;
-}
-
-.billboard-container .overlay h2 {
-    max-width: 390px;
-    font-weight: 600;
-    font-size: 40px;
-}
-
-.billboard-container .overlay p {
-    max-width: 290px;
-    font-size: 17px;
-}
-
-.billboard-container .overlay button {
-    padding: 5px 30px;
-    font-size: 14px;
-    border-radius: 5px;
-    margin-top: 10px;
-    background-color: white;
-    color: black;
-    transition: opacity ease-in-out;
-}
-
-.billboard-container .overlay button:hover {
-    opacity: 0.9;
-}
 
 .loader {
     border: 16px solid #f3f3f3;
@@ -919,9 +847,6 @@ a:hover {
     .trailer-btn {
         border-radius: 10px;
     }
-    .billboard-container .overlay h2 {
-        font-size: 30px;
-    }
     .modal-top .span-para {
         margin-top: 0px;
     }
@@ -1118,9 +1043,6 @@ a:hover {
         flex-direction: row;
         width: 80%;
         height: 90%;
-    }
-    .billboard-container .overlay h2 {
-        font-size: 40px;
     }
     iframe {
         height: 85%;

@@ -1,0 +1,87 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    background-color: black;
+    color: white;
+    scroll-behavior: smooth;
+    background-repeat: no-repeat;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+        'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+        'Helvetica Neue', sans-serif;
+}
+
+img,
+svg,
+picture,
+video {
+    display: block;
+    max-width: 100%;
+}
+
+.billboard {
+    overflow: hidden;
+}
+.billboard-container {
+    height: 100vh;
+    position: relative;
+}
+
+.billboard-container .image {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+}
+
+.billboard-container .overlay {
+    color: white;
+    position: absolute;
+    top: 55%;
+    left: 3%;
+    z-index: 99;
+}
+
+.billboard-container .overlay h2 {
+    max-width: 390px;
+    font-weight: 600;
+    font-size: 40px;
+}
+
+.billboard-container .overlay p {
+    max-width: 290px;
+    font-size: 17px;
+}
+
+.billboard-container .overlay button {
+    padding: 5px 30px;
+    font-size: 14px;
+    border-radius: 5px;
+    margin-top: 10px;
+    background-color: white;
+    color: black;
+    transition: opacity ease-in-out;
+}
+
+.billboard-container .overlay button:hover {
+    opacity: 0.9;
+}
+
+@media (min-width: 320px) {
+    .billboard-container .overlay h2 {
+        font-size: 30px;
+    }
+}
+@media (min-width: 768px) {
+    .billboard-container .overlay h2 {
+        font-size: 40px;
+    }
+}
