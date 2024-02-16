@@ -1,7 +1,6 @@
-import { lazy } from 'react';
-const CastPresentational = lazy(() => import('./CastPresentational'));
 import useCast from '../hooks/useCast';
 import Loading from './Loading';
+import Pagination from './Pagination';
 
 interface CastProps {
     movie_id: number;
@@ -14,7 +13,7 @@ const CastContainer = ({ movie_id, page }: CastProps) => {
     
     return (
         <>
-            <CastPresentational credits={credits}/>
+            <Pagination credits={credits} />
         </>
     );
 };
