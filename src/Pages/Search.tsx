@@ -1,5 +1,4 @@
 import { Suspense, useState, lazy } from 'react';
-const Pagination = lazy(() => import('../components/Pagination'));
 const Modal = lazy(() => import('../components/Modal'));
 import { Fetching } from '../types/Fetching';
 import Loading from '../components/Loading';
@@ -7,7 +6,7 @@ import SearchPresentational from '../components/SearchPresentational';
 import useSearch from '../hooks/useSearch';
 
 const Search = () => {
-    const { content, Trigger, Searches, page, setPage } = useSearch();
+    const { content, Trigger, Searches } = useSearch();
     const [modalData, setModalData] = useState({
         show: false,
         data: {} as Fetching
@@ -34,7 +33,6 @@ const Search = () => {
                         />
                     </Suspense>
                 )}
-                {page > 1 && <Pagination page={page} setPage={setPage} />}
             </div>
         </>
     );
