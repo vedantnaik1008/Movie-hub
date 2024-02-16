@@ -1,5 +1,4 @@
 import useCast from '../hooks/useCast';
-import Loading from './Loading';
 import Pagination from './Pagination';
 
 interface CastProps {
@@ -8,8 +7,7 @@ interface CastProps {
 }
 
 const CastContainer = ({ movie_id, page }: CastProps) => {
-    const { data:credits, isLoading } = useCast(movie_id, page)
-    if(isLoading)return <Loading />
+    const { data:credits } = useCast(movie_id, page)
     
     return (
         <>

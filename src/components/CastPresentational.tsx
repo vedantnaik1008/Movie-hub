@@ -8,8 +8,7 @@ interface Props {
 const CastPresentational = ({ credits }: Props) => {
     return (
         <>
-            <h2 className=''>Cast</h2>
-            <div className='cast-actor-grid'>
+            {credits.length > 0 ? (<><h2 className=''>Cast</h2><div className='cast-actor-grid'>
                 {credits.map((actor) => (
                     <ul className='li' key={actor.id}>
                         <li>
@@ -18,14 +17,11 @@ const CastPresentational = ({ credits }: Props) => {
                                 loading='lazy'
                                 width={'188px'}
                                 height={'280px'}
-                                src={`${
-                                    actor.profile_path
+                                src={`${actor.profile_path
                                         ? 'https://image.tmdb.org/t/p/w500/' +
-                                          actor.profile_path
-                                        : unavailableLandscape
-                                }`}
-                                alt={actor.name || actor.name}
-                            />
+                                        actor.profile_path
+                                        : unavailableLandscape}`}
+                                alt={actor.name || actor.name} />
                             <p>
                                 name: {actor.name} as{' '}
                                 <span>{actor.character}</span>
@@ -37,7 +33,7 @@ const CastPresentational = ({ credits }: Props) => {
                         </li>
                     </ul>
                 ))}
-            </div>
+            </div></>) : null}
         </>
     );
 };
