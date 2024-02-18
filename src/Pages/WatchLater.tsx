@@ -30,7 +30,9 @@ const WatchLater = () => {
                             <div key={val.id} id='card'>
                                 <div className='cards'>
                                     <IImage
-                                    i={i}
+                                        width={'319px'}
+                                        height={'520px'}
+                                        i={i}
                                         setModalData={setModalData}
                                         val={val}
                                     />
