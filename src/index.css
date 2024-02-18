@@ -1,5 +1,3 @@
-
-
 .modal-top::-webkit-scrollbar,
 body::-webkit-scrollbar,
 .modal-top .modal-details::-webkit-scrollbar,
@@ -107,8 +105,6 @@ button {
     z-index: 98;
 }
 
-
-
 .loader {
     border: 16px solid #f3f3f3;
     border-top: 16px solid #e400ff;
@@ -210,7 +206,7 @@ button {
 }
 
 .genre-container {
-    overflow-x: hidden; 
+    overflow-x: hidden;
 }
 
 .genre-container .categoryButtonRemove button {
@@ -312,6 +308,15 @@ button {
 
 .icon-2-two {
     margin-bottom: 0px;
+}
+
+.loading {
+    filter: blur(10px);
+}
+
+.loaded {
+    filter: blur(0px);
+    transition: filter 0.5s linear;
 }
 
 .cards {
@@ -957,10 +962,10 @@ a:hover {
         -webkit-backdrop-filter: blur(20px);
         border: 1px solid rgba(255, 255, 255, 0.27);
     }
-    .genre-hide{
+    .genre-hide {
         translate: 200% 0;
     }
-    .genre-show{
+    .genre-show {
         margin-top: 20px;
         position: absolute;
         left: 5%;
@@ -969,12 +974,12 @@ a:hover {
         transition: translate 400ms ease-in-out;
         width: 90%;
     }
-    .genre-button{
+    .genre-button {
         display: flex;
         justify-content: end;
         width: 97%;
     }
-    .genre-button button{
+    .genre-button button {
         padding: 10px 30px;
         border-radius: 10px;
         background-color: transparent;
@@ -1008,7 +1013,7 @@ a:hover {
     .genres {
         width: 50%;
     }
-    .genre-show{
+    .genre-show {
         left: unset;
         translate: 96% 0;
     }

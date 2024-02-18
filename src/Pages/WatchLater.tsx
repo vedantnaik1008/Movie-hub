@@ -7,7 +7,7 @@ import Loading from '../components/Loading';
 import { useAuth0 } from '@auth0/auth0-react';
 const Modal = lazy(() => import('../components/Modal'));
 import LoginButton from '../components/Login/LoginButton';
-import Image from '../components/Image';
+import IImage from '../components/Image';
 import CartButton from '../components/CartButton';
 
 const WatchLater = () => {
@@ -29,7 +29,7 @@ const WatchLater = () => {
                         {products.watchlater.map((val: Fetching, i) => (
                             <div key={val.id} id='card'>
                                 <div className='cards'>
-                                    <Image
+                                    <IImage
                                     i={i}
                                         setModalData={setModalData}
                                         val={val}

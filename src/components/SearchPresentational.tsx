@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom';
 import { Fetching } from '../types/Fetching';
 import { ArrowLeft, Search } from '../lib/icons/ReactIcons';
 import CartButton from './CartButton';
-import Image from './Image';
+import IImage from './Image';
 
 type Props = {
     content: Fetching[];
@@ -47,7 +47,7 @@ const SearchPresentational = ({
                 {content.map((val, i) => (
                     <div key={val.id}>
                         <div className='cards'>
-                            <Image i={i} setModalData={setModalData} val={val} />
+                            <IImage i={i} setModalData={setModalData} val={val} />
                             <CartButton actionType='add' val={val} />
                         </div>
                     </div>

@@ -2,7 +2,7 @@ import { InfiniteData } from '@tanstack/react-query';
 import { FetchResponse } from '../Services/api-client';
 import CartButton from './CartButton';
 import { Fetching } from '../types/Fetching';
-import Image from './Image';
+import IImage from './Image';
 import React from 'react';
 
 type Props = {
@@ -17,7 +17,7 @@ const Cards = ({ datas, setModalData }: Props) => {
                     {page.results.map((val, i) => (
                         <div key={val.id}>
                             <div className='cards'>
-                                <Image setModalData={setModalData} val={val} i={i} />
+                                <IImage setModalData={setModalData} val={val} i={i} />
                                 <CartButton actionType='add' val={val} />
                             </div>
                         </div>
