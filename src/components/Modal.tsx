@@ -1,6 +1,7 @@
 import { Suspense, lazy, useState } from 'react';
 const CastContainer = lazy(() => import('./CastContainer'));
-import { img_500, unavailable } from '../data/constant';
+import { img_500 } from '../data/constant';
+import unavailable from '../../images/poster-holder.jpg'
 const Trailer = lazy(() => import('./Trailer'));
 import { Fetching } from '../types/Fetching';
 import Loading from './Loading';
