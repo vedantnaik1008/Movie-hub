@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { img_500 } from '../data/constant';
 import unavailable from '../../images/poster-holder.jpg';
 import { Fetching } from '../types/Fetching';
@@ -15,6 +15,16 @@ const Image = ({ setModalData, val, i }: Props) => {
     const handleImageLoad = () => {
         setImageLoaded(true);
     };
+
+    useEffect(()=> {
+        if(i === 0){
+            const link = document.createElement('link')
+            link.rel='preload'
+            link.as='image'
+            link.href=`${img_500 + val.poster_path}`
+            document.head.appendChild(link)
+    }
+    }, [i, val.poster_path])
 
     return (
         <>
