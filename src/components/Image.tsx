@@ -10,11 +10,11 @@ type Props = {
 };
 
 const Image = ({ setModalData, val, i }: Props) => {
-    const [imageLoaded, setImageLoaded] = useState(false);
+    // const [imageLoaded, setImageLoaded] = useState(false);
 
-    const handleImageLoad = () => {
-        setImageLoaded(true);
-    };
+    // const handleImageLoad = () => {
+    //     setImageLoaded(true);
+    // };
 
     useEffect(() => {
         if (i === 0) {
@@ -48,7 +48,8 @@ const Image = ({ setModalData, val, i }: Props) => {
                 loading={i === 0 ? 'eager' : 'lazy'}
                 width={'319px'}
                 height={'520px'}
-                src={imageLoaded ? `${img_500 + val.poster_path}` : unavailable}
+                // src={imageLoaded ? `${img_500 + val.poster_path}` : unavailable}
+                src={val.poster_path ? `${img_500 + val.poster_path}` : unavailable}
                 className='card-img-top'
                 alt={val.title || val.name}
                 onClick={() =>
@@ -57,7 +58,7 @@ const Image = ({ setModalData, val, i }: Props) => {
                         data: val
                     })
                 }
-                onLoad={handleImageLoad}
+                // onLoad={handleImageLoad}
             />
         </>
     );
