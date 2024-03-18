@@ -16,15 +16,30 @@ const Image = ({ setModalData, val, i }: Props) => {
         setImageLoaded(true);
     };
 
-    useEffect(()=> {
-        if(i === 0){
-            const link = document.createElement('link')
-            link.rel='preload'
-            link.as='image'
-            link.href=`${img_500 + val.poster_path}`
-            document.head.appendChild(link)
-    }
-    }, [i, val.poster_path])
+    useEffect(() => {
+        if (i === 0) {
+            const imageUrl = `${img_500 + val.poster_path}`;
+            const preloadedImages = JSON.parse(
+                sessionStorage.getItem('preloadedImages') || '[]'
+            );
+
+            // Check if the image has already been preloaded
+            if (!preloadedImages.includes(imageUrl)) {
+                const link = document.createElement('link');
+                link.rel = 'preload';
+                link.as = 'image';
+                link.href = imageUrl;
+                document.head.appendChild(link);
+
+                // Update sessionStorage to include the preloaded image
+                preloadedImages.push(imageUrl);
+                sessionStorage.setItem(
+                    'preloadedImages',
+                    JSON.stringify(preloadedImages)
+                );
+            }
+        }
+    }, [i, val.poster_path]);
 
     return (
         <>
