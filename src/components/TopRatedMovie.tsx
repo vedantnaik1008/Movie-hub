@@ -6,7 +6,7 @@ import { Fetching } from '../types/Fetching';
 import SliderPresentational from './SliderPresentational';
 
 const TopRatedMovie = () => {
-    const { data, error, isLoading } = useTopRatedMovie();
+    const { data, error } = useTopRatedMovie();
     const [modalData, setModalData] = useState<{
         show: boolean;
         data: Fetching;
@@ -15,14 +15,12 @@ const TopRatedMovie = () => {
         data: {} as Fetching,
     });
 
-    if (isLoading) return <Loading />;
-
     if (error) return <p>{error.message}</p>;
 
     return (
         <>
             <SliderPresentational
-                data={data.results}
+                data={data?.results}
                 setModalData={(data) => setModalData(data)}
                 title={"Top Rated Movies"} link={'/topratedmovies'}/>
             {modalData.show && (

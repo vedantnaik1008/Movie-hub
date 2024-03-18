@@ -5,7 +5,7 @@ import { settings } from '../Services/Settings';
 import { Fetching } from '../types/Fetching';
 
 interface Props {
-    data: Fetching[];
+    data: Fetching[] | undefined;
     setModalData: (data: { show: true; data: Fetching }) => void;
     title: string;
     link: string;
@@ -21,7 +21,7 @@ const SliderPresentational = ({ data, setModalData, title, link }: Props) => {
                     </NavLink>
                 </div>
                 <Slider {...settings} className='whole-slider'>
-                    {data.slice(15).map((i) => (
+                    {data?.slice(15).map((i) => (
                         <div key={i.id} className='slider'>
                             <img
                                 sizes='(min-width: 400px) 328px, calc(56.25vw + 114px)'

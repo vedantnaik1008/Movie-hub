@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { img_500 } from '../data/constant';
 import unavailable from '../../images/poster-holder.jpg';
 import { Fetching } from '../types/Fetching';
@@ -10,11 +10,6 @@ type Props = {
 };
 
 const Image = ({ setModalData, val, i }: Props) => {
-    // const [imageLoaded, setImageLoaded] = useState(false);
-
-    // const handleImageLoad = () => {
-    //     setImageLoaded(true);
-    // };
 
     useEffect(() => {
         if (i === 0) {
@@ -23,7 +18,6 @@ const Image = ({ setModalData, val, i }: Props) => {
                 sessionStorage.getItem('preloadedImages') || '[]'
             );
 
-            // Check if the image has already been preloaded
             if (!preloadedImages.includes(imageUrl)) {
                 const link = document.createElement('link');
                 link.rel = 'preload';
@@ -31,7 +25,6 @@ const Image = ({ setModalData, val, i }: Props) => {
                 link.href = imageUrl;
                 document.head.appendChild(link);
 
-                // Update sessionStorage to include the preloaded image
                 preloadedImages.push(imageUrl);
                 sessionStorage.setItem(
                     'preloadedImages',
@@ -48,7 +41,6 @@ const Image = ({ setModalData, val, i }: Props) => {
                 loading={i === 0 ? 'eager' : 'lazy'}
                 width={'319px'}
                 height={'520px'}
-                // src={imageLoaded ? `${img_500 + val.poster_path}` : unavailable}
                 src={val.poster_path ? `${img_500 + val.poster_path}` : unavailable}
                 className='card-img-top'
                 alt={val.title || val.name}
@@ -58,7 +50,6 @@ const Image = ({ setModalData, val, i }: Props) => {
                         data: val
                     })
                 }
-                // onLoad={handleImageLoad}
             />
         </>
     );

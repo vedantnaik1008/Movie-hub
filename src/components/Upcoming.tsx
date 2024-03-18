@@ -6,7 +6,7 @@ import { Fetching } from '../types/Fetching';
 import SliderPresentational from './SliderPresentational';
 
 const TopUpcomingMovie = () => {
-    const { data, error, isLoading } = useUpcoming();
+    const { data, error} = useUpcoming();
     const [modalData, setModalData] = useState<{
         show: boolean;
         data: Fetching;
@@ -15,14 +15,12 @@ const TopUpcomingMovie = () => {
         data: {} as Fetching,
     });
 
-    if (isLoading) return <Loading />;
-
     if (error) return <p>{error.message}</p>;
 
     return (
         <>
             <SliderPresentational
-                data={data.results}
+                data={data?.results}
                 setModalData={(data) => setModalData(data)}
                 title={'Upcoming Movies'} link={'/Upcomingmt'}/>
             {modalData.show && (

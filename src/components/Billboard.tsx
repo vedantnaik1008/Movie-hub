@@ -1,20 +1,17 @@
 import Slider from 'react-slick';
 import { IMGPATH } from '../data/constant';
-import Loading from './Loading';
 import { BillBoardsetting } from '../Services/Settings';
 import useUpcoming from '../hooks/useUpcoming';
 
 const Billboard = () => {
-    const { data, isLoading, error } = useUpcoming();
-
-    if (isLoading) return <Loading />;
+    const { data, error } = useUpcoming();
 
     if (error) return <p>{error.message}</p>;
     return (
         <>
             <section className='billboard'>
                 <Slider {...BillBoardsetting} >
-                    {data.results.slice(0, 3).map((movie, index) => (
+                    {data?.results.slice(0, 3).map((movie, index) => (
                         <>
                             <div
                                 key={movie.title}
