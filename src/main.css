@@ -31,9 +31,11 @@ video {
 .billboard {
     overflow: hidden;
     height: 100vh;
+    
+}
+.billboard-container{
     position: relative;
 }
-
 .billboard-container .image {
     width: 100%;
     height: 100vh;
