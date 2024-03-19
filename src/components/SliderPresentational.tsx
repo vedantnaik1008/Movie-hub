@@ -13,7 +13,8 @@ interface Props {
 const SliderPresentational = ({ data, setModalData, title, link }: Props) => {
     return (
         <>
-            <section className={`others-three`}>
+            <section
+                className={'others-three'}>
                 <div className='others-three-container'>
                     <h1 className=''>{title}</h1>
                     <NavLink to={link} className='others-navlink'>

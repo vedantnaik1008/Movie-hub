@@ -9,8 +9,9 @@ const Billboard = () => {
     if (error) return <p>{error.message}</p>;
     return (
         <>
-            <section className='billboard'>
-                <Slider {...BillBoardsetting} >
+            <section
+                className={'billboard'}>
+                <Slider {...BillBoardsetting}>
                     {data?.results.slice(0, 3).map((movie, index) => (
                         <>
                             <div
