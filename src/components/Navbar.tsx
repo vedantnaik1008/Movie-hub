@@ -16,8 +16,8 @@ const Navbar = () => {
                                     isPending
                                         ? 'pending'
                                         : isActive
-                                        ? 'active navlink'
-                                        : ''
+                                        ? 'active'
+                                        : 'navlink'
                                 }>
                                 <button className='footer-border'>
                                     <h5 className=''>
