@@ -9,31 +9,28 @@ const Billboard = () => {
     if (error) return <p>{error.message}</p>;
     return (
         <>
-            <section
-                className={'billboard'}>
+            <section className={'billboard'}>
                 <Slider {...BillBoardsetting}>
                     {data?.results.slice(0, 3).map((movie, index) => (
-                            <div
-                                key={movie.title}
-                                className='billboard-container'>
-                                <img
-                                    src={IMGPATH + movie.backdrop_path}
-                                    width={'1440px'}
-                                    height={'1110px'}
-                                    alt={movie.title}
-                                    className='image'
-                                    loading={index === 0 ? 'eager' : 'lazy'}
-                                />
-                                <div className='overlay'>
-                                    <h2 className=''>{movie.title}</h2>
-                                    <p className=''>
-                                        {movie.overview.substring(0, 100)}...
-                                    </p>
-                                    <button className=''>
-                                        release date: {movie.release_date}
-                                    </button>
-                                </div>
+                        <div key={movie.title} className='billboard-container'>
+                            <img
+                                src={IMGPATH + movie.backdrop_path}
+                                width={'1440px'}
+                                height={'1110px'}
+                                alt={movie.title}
+                                className='image'
+                                loading={index === 0 ? 'eager' : 'lazy'}
+                            />
+                            <div className='overlay'>
+                                <h2 className=''>{movie.title}</h2>
+                                <p className=''>
+                                    {movie.overview.substring(0, 100)}...
+                                </p>
+                                <button className=''>
+                                    release date: {movie.release_date}
+                                </button>
                             </div>
+                        </div>
                     ))}
                 </Slider>
             </section>

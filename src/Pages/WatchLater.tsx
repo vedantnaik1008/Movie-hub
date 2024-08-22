@@ -30,7 +30,7 @@ const WatchLater = () => {
                             <div key={val.id} id='card'>
                                 <div className='cards'>
                                     <Image
-                                    i={i}
+                                        i={i}
                                         setModalData={setModalData}
                                         val={val}
                                     />

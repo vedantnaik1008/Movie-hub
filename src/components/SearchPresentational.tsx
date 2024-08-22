@@ -47,7 +47,11 @@ const SearchPresentational = ({
                 {content.map((val, i) => (
                     <div key={val.id}>
                         <div className='cards'>
-                            <Image i={i} setModalData={setModalData} val={val} />
+                            <Image
+                                i={i}
+                                setModalData={setModalData}
+                                val={val}
+                            />
                             <CartButton actionType='add' val={val} />
                         </div>
                     </div>

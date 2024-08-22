@@ -7,7 +7,7 @@ type Props = {
     setModalData: (data: { show: true; data: Fetching }) => void;
     val: Fetching;
     i: number;
-    index: number;
+    index?: number;
 };
 
 const Image = memo(({ setModalData, val, i, index }: Props) => {
@@ -57,6 +57,6 @@ const Image = memo(({ setModalData, val, i, index }: Props) => {
             />
         </>
     );
-})
+});
 
 export default Image;
