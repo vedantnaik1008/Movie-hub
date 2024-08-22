@@ -10,9 +10,9 @@ type Props = {
     index?: number;
 };
 
-const Image = memo(({ setModalData, val, i, index }: Props) => {
+const Image = memo(({ setModalData, val, i, index = 0 }: Props) => {
     useEffect(() => {
-        if (index === 0 && i === 0) {
+        if (index < 1 && i === 0) {
             const imageUrl = `${img_500 + val.poster_path}`;
             const preloadedImages = JSON.parse(
                 sessionStorage.getItem('preloadedImages') || '[]'
