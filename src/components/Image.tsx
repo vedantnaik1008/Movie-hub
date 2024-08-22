@@ -38,7 +38,7 @@ const Image = memo(({ setModalData, val, i, index = 0 }: Props) => {
         <>
             <img
                 sizes='(min-width: 400px) 328px, calc(56.25vw + 114px)'
-                loading={i === 0 ? 'eager' : 'lazy'}
+                loading={index < 1 && i === 0 ? 'eager' : 'lazy'}
                 width={'319px'}
                 height={'520px'}
                 src={
