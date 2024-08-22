@@ -13,7 +13,6 @@ const Billboard = () => {
                 className={'billboard'}>
                 <Slider {...BillBoardsetting}>
                     {data?.results.slice(0, 3).map((movie, index) => (
-                        <>
                             <div
                                 key={movie.title}
                                 className='billboard-container'>
@@ -35,7 +34,6 @@ const Billboard = () => {
                                     </button>
                                 </div>
                             </div>
-                        </>
                     ))}
                 </Slider>
             </section>
