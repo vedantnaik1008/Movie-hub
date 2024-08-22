@@ -27,6 +27,7 @@ const Movies = () => {
     if (isLoading) return <Loading />;
 
     if (error) return <p>{error.message}</p>;
+console.log(datas);
 
     const fetchedTrendingPages =
         datas?.pages.reduce((total, page) => total + page.results.length, 0) ||

@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { memo, useEffect } from 'react';
 import { img_500 } from '../data/constant';
 import unavailable from '../../images/poster-holder.jpg';
 import { Fetching } from '../types/Fetching';
@@ -7,12 +7,12 @@ type Props = {
     setModalData: (data: { show: true; data: Fetching }) => void;
     val: Fetching;
     i: number;
+    index: number;
 };
 
-const Image = ({ setModalData, val, i }: Props) => {
-
+const Image = memo(({ setModalData, val, i, index }: Props) => {
     useEffect(() => {
-        if (i === 0) {
+        if (index === 0 && i === 0) {
             const imageUrl = `${img_500 + val.poster_path}`;
             const preloadedImages = JSON.parse(
                 sessionStorage.getItem('preloadedImages') || '[]'
@@ -32,7 +32,7 @@ const Image = ({ setModalData, val, i }: Props) => {
                 );
             }
         }
-    }, [i, val.poster_path]);
+    }, [i, index, val.poster_path]);
 
     return (
         <>
@@ -41,7 +41,11 @@ const Image = ({ setModalData, val, i }: Props) => {
                 loading={i === 0 ? 'eager' : 'lazy'}
                 width={'319px'}
                 height={'520px'}
-                src={val.poster_path ? `${img_500 + val.poster_path}` : unavailable}
+                src={
+                    val.poster_path
+                        ? `${img_500 + val.poster_path}`
+                        : unavailable
+                }
                 className='card-img-top'
                 alt={val.title || val.name}
                 onClick={() =>
@@ -53,6 +57,6 @@ const Image = ({ setModalData, val, i }: Props) => {
             />
         </>
     );
-};
+})
 
 export default Image;

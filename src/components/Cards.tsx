@@ -17,7 +17,7 @@ const Cards = ({ datas, setModalData }: Props) => {
                     {page.results.map((val, i) => (
                         <div key={val.id}>
                             <div className='cards'>
-                                <Image setModalData={setModalData} val={val} i={i} />
+                                <Image index={index} setModalData={setModalData} val={val} i={i} />
                                 <CartButton actionType='add' val={val} />
                             </div>
                         </div>
