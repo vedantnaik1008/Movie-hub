@@ -118,6 +118,15 @@ button {
     animation: spin 2s linear infinite;
 }
 
+.loading {
+    filter: blur(10px);
+}
+
+.loaded {
+    filter: blur(0px);
+    transition: filter 0.5s linear;
+}
+
 @keyframes spin {
     0% {
         transform: rotate(0deg);

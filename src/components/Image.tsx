@@ -1,4 +1,4 @@
-import { memo, useEffect } from 'react';
+import { memo, useEffect, useState } from 'react';
 import { img_500 } from '../data/constant';
 import unavailable from '../../images/poster-holder.jpg';
 import { Fetching } from '../types/Fetching';
@@ -10,10 +10,15 @@ type Props = {
     index?: number;
 };
 
-const Image = memo(({ setModalData, val, i, index = 0 }: Props) => {
+const Images = memo(({ setModalData, val, i, index = 0 }: Props) => {
+    const { poster_path } = val;
+    const [imgSrc, setSrc] = useState(unavailable || poster_path);
+    const customClass =
+        unavailable && imgSrc === unavailable ? 'loading' : 'loaded';
     useEffect(() => {
+
         if (index < 1 && i === 0) {
-            const imageUrl = `${img_500 + val.poster_path}`;
+            const imageUrl = `${img_500 + poster_path}`;
             const preloadedImages = JSON.parse(
                 sessionStorage.getItem('preloadedImages') || '[]'
             );
@@ -32,7 +37,12 @@ const Image = memo(({ setModalData, val, i, index = 0 }: Props) => {
                 );
             }
         }
-    }, [i, index, val.poster_path]);
+        const img = new Image();
+        img.src = poster_path;
+        img.onload = () => {
+            setSrc(poster_path);
+        };
+    }, [i, index, poster_path]);
 
     return (
         <>
@@ -46,7 +56,7 @@ const Image = memo(({ setModalData, val, i, index = 0 }: Props) => {
                         ? `${img_500 + val.poster_path}`
                         : unavailable
                 }
-                className='card-img-top'
+                className={imgSrc ? `${img_500 + imgSrc}` : unavailable}
                 alt={val.title || val.name}
                 onClick={() =>
                     setModalData({
@@ -59,4 +69,4 @@ const Image = memo(({ setModalData, val, i, index = 0 }: Props) => {
     );
 });
 
-export default Image;
+export default Images;
