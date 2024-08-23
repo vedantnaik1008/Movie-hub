@@ -12,17 +12,16 @@ type Props = {
 
 const Images = memo(({ setModalData, val, i, index = 0 }: Props) => {
     const [imgSrc, setSrc] = useState(unavailable || img_500 + val.poster_path);
-    const customClass =''
-        // unavailable && imgSrc === unavailable ? 'loading' : 'loaded';
-        useEffect(()=> {
-            const img = new Image();
-            img.src = img_500 + val.poster_path;
-            img.onload = () => {
-                setSrc(img_500 + val.poster_path);
-            };
-        },[ val.poster_path])
+    const customClass = '';
+    // unavailable && imgSrc === unavailable ? 'loading' : 'loaded';
     useEffect(() => {
-        
+        const img = new Image();
+        img.src = img_500 + val.poster_path;
+        img.onload = () => {
+            setSrc(img_500 + val.poster_path);
+        };
+    }, [val.poster_path]);
+    useEffect(() => {
         if (index < 1 && i === 0) {
             const imageUrl = `${img_500 + val.poster_path}`;
             const preloadedImages = JSON.parse(
@@ -43,9 +42,8 @@ const Images = memo(({ setModalData, val, i, index = 0 }: Props) => {
                 );
             }
         }
-        
     }, [i, index, val.poster_path]);
-console.log(val);
+    console.log(val);
 
     return (
         <>
