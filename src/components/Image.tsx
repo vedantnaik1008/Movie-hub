@@ -51,12 +51,8 @@ const Images = memo(({ setModalData, val, i, index = 0 }: Props) => {
                 loading={index < 1 && i === 0 ? 'eager' : 'lazy'}
                 width={'319px'}
                 height={'520px'}
-                src={
-                    val.poster_path
-                        ? `${img_500 + val.poster_path}`
-                        : unavailable
-                }
-                className={imgSrc ? `${img_500 + imgSrc}` : unavailable}
+                src={imgSrc ? `${img_500 + imgSrc}` : unavailable}
+                className={`card-img-top ${customClass}`}
                 alt={val.title || val.name}
                 onClick={() =>
                     setModalData({
