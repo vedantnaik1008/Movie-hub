@@ -11,18 +11,20 @@ type Props = {
 };
 
 const Images = memo(({ setModalData, val, i, index = 0 }: Props) => {
-    const { poster_path } = val;
-    const [imgSrc, setSrc] = useState(unavailable || poster_path);
-    const customClass =
-        unavailable && imgSrc === unavailable ? 'loading' : 'loaded';
+    const [imgSrc, setSrc] = useState(unavailable || img_500 + val.poster_path);
+    const customClass =''
+        // unavailable && imgSrc === unavailable ? 'loading' : 'loaded';
+        useEffect(()=> {
+            const img = new Image();
+            img.src = img_500 + val.poster_path;
+            img.onload = () => {
+                setSrc(img_500 + val.poster_path);
+            };
+        },[ val.poster_path])
     useEffect(() => {
-        const img = new Image();
-        img.src = poster_path;
-        img.onload = () => {
-            setSrc(poster_path);
-        };
+        
         if (index < 1 && i === 0) {
-            const imageUrl = `${img_500 + poster_path}`;
+            const imageUrl = `${img_500 + val.poster_path}`;
             const preloadedImages = JSON.parse(
                 sessionStorage.getItem('preloadedImages') || '[]'
             );
@@ -41,7 +43,9 @@ const Images = memo(({ setModalData, val, i, index = 0 }: Props) => {
                 );
             }
         }
-    }, [i, index, poster_path]);
+        
+    }, [i, index, val.poster_path]);
+console.log(val);
 
     return (
         <>
@@ -50,7 +54,7 @@ const Images = memo(({ setModalData, val, i, index = 0 }: Props) => {
                 loading={index < 1 && i === 0 ? 'eager' : 'lazy'}
                 width={'319px'}
                 height={'520px'}
-                src={imgSrc ? `${img_500 + imgSrc}` : unavailable}
+                src={imgSrc ? `${imgSrc}` : unavailable}
                 className={`card-img-top ${customClass}`}
                 alt={val.title || val.name}
                 onClick={() =>
