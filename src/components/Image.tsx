@@ -16,7 +16,11 @@ const Images = memo(({ setModalData, val, i, index = 0 }: Props) => {
     const customClass =
         unavailable && imgSrc === unavailable ? 'loading' : 'loaded';
     useEffect(() => {
-
+const img = new Image();
+img.src = poster_path;
+img.onload = () => {
+    setSrc(poster_path);
+};
         if (index < 1 && i === 0) {
             const imageUrl = `${img_500 + poster_path}`;
             const preloadedImages = JSON.parse(
@@ -37,11 +41,7 @@ const Images = memo(({ setModalData, val, i, index = 0 }: Props) => {
                 );
             }
         }
-        const img = new Image();
-        img.src = poster_path;
-        img.onload = () => {
-            setSrc(poster_path);
-        };
+        
     }, [i, index, poster_path]);
 
     return (
