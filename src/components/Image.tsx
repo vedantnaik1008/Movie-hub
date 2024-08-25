@@ -21,28 +21,7 @@ const Images = memo(({ setModalData, val, i, index = 0 }: Props) => {
             setSrc(img_500 + val.poster_path);
         };
     }, [val.poster_path]);
-    useEffect(() => {
-        if (index < 1 && i === 0) {
-            const imageUrl = `${img_500 + val.poster_path}`;
-            const preloadedImages = JSON.parse(
-                sessionStorage.getItem('preloadedImages') || '[]'
-            );
-
-            if (!preloadedImages.includes(imageUrl)) {
-                const link = document.createElement('link');
-                link.rel = 'preload';
-                link.as = 'image';
-                link.href = imageUrl;
-                document.head.appendChild(link);
-
-                preloadedImages.push(imageUrl);
-                sessionStorage.setItem(
-                    'preloadedImages',
-                    JSON.stringify(preloadedImages)
-                );
-            }
-        }
-    }, [i, index, val.poster_path]);
+    
     console.log(val);
 
     return (
