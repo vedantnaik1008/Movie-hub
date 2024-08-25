@@ -17,6 +17,7 @@ const Billboard = () => {
                                 src={IMGPATH + movie.backdrop_path}
                                 width={'1440px'}
                                 height={'1110px'}
+                                decoding='async'
                                 alt={movie.title}
                                 className='image'
                                 loading={index === 0 ? 'eager' : 'lazy'}
